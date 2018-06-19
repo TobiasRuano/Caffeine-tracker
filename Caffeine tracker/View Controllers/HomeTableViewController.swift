@@ -52,6 +52,10 @@ class HomeTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.navigationItem.leftBarButtonItem = self.addDrinksButton
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -69,7 +73,6 @@ class HomeTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return arrayDrinks.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
@@ -81,6 +84,7 @@ class HomeTableViewController: UITableViewController {
 
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -90,7 +94,6 @@ class HomeTableViewController: UITableViewController {
         drinkAux = arrayDrinks[indexPath.row]
         
         alerta(title: "Do you?", message: "Do you want to add \(arrayDrinks[indexPath.row].caffeineML)mg of caffeine from \(arrayDrinks[indexPath.row].type)", taptic: true, button1: "Yes", button2: "No", passData: true)
-        
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -131,17 +134,7 @@ class HomeTableViewController: UITableViewController {
         return UISwipeActionsConfiguration(actions: [closeAction])
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    
-    // Override to support editing the table view.
+    // Editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
@@ -169,7 +162,7 @@ class HomeTableViewController: UITableViewController {
         
     }
     
-    // Override to support rearranging the table view.
+    // Rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
         let element = arrayDrinks[fromIndexPath.row]
@@ -180,39 +173,13 @@ class HomeTableViewController: UITableViewController {
         UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: "array")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-    }
-    
-//    @IBAction func AddDrink(_ sender: UIBarButtonItem) {
-//        performSegue(withIdentifier: "segue", sender: self)
-//    }
-    
-    
-    @IBAction func unwindFromAddVC(_ sender: UIStoryboardSegue) {
-        
-        if sender.source is AddDrinkTableViewController {
-            if let senderVC = sender.source as? AddDrinkTableViewController {
-                if senderVC.drinkToAdd.type != "" && senderVC.drinkToAdd.caffeineML != 0 {
-                    arrayDrinks.append(senderVC.drinkToAdd)
-                    print(arrayDrinks)
-                    UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: "array")
-                    tableView.reloadData()
-                }
-            }
-        }
-        
-        
-    }
-    
-    
     func passData(data: drink) {
         arrayDrinks.append(data)
         print("\(data.type)")
         UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: "array")
     }
     
-    
+    // MARK: - Alert Function
     func alerta(title: String, message: String, taptic: Bool, button1: String, button2: String, passData: Bool) {
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -243,16 +210,6 @@ class HomeTableViewController: UITableViewController {
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier {
-            if identifier == "ShowModalView" {
-                if let viewController = segue.destination as? PickerViewController {
-                    viewController.delegate = self
-                    viewController.modalPresentationStyle = .overFullScreen
-                }
-            }
-        }
-    }
     
     /*
     // Override to support conditional rearranging of the table view.
@@ -271,5 +228,29 @@ class HomeTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func unwindFromAddVC(_ sender: UIStoryboardSegue) {
+        
+        if sender.source is AddDrinkTableViewController {
+            if let senderVC = sender.source as? AddDrinkTableViewController {
+                if senderVC.drinkToAdd.type != "" && senderVC.drinkToAdd.caffeineML != 0 {
+                    arrayDrinks.append(senderVC.drinkToAdd)
+                    print(arrayDrinks)
+                    UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: "array")
+                    tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "ShowModalView" {
+                if let viewController = segue.destination as? PickerViewController {
+                    viewController.delegate = self
+                    viewController.modalPresentationStyle = .overFullScreen
+                }
+            }
+        }
+    }
 
 }

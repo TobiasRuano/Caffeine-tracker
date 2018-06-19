@@ -25,6 +25,8 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -60,7 +62,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         }
     }
     
-    
+    // Other Functions
     
     func rate() {
         guard let url = URL(string: "itms-apps://itunes.apple.com/app/idYOUR_APP_ID") else {

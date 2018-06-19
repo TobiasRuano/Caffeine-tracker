@@ -18,6 +18,17 @@ class RecentsDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let data = UserDefaults.standard.value(forKey:"arrayAdded") as? Data {
+            let ArrayAddedData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
+            arrayDrinksAdded = ArrayAddedData!
+        }
+        
+        yesterdayCaffeine.text = "mg"
+        lastWeekCaffeine.text = "mg"
+        thisMonthCaffeine.text = "mg"
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -28,6 +39,8 @@ class RecentsDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
+    
+    // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
@@ -80,19 +93,6 @@ class RecentsDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        if let data = UserDefaults.standard.value(forKey:"arrayAdded") as? Data {
-            let ArrayAddedData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
-            arrayDrinksAdded = ArrayAddedData!
-        }
-        
-        yesterdayCaffeine.text = "mg"
-        lastWeekCaffeine.text = "mg"
-        thisMonthCaffeine.text = "mg"
-    }
-    
     
 
     /*

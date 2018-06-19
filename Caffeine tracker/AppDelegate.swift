@@ -1,0 +1,104 @@
+//
+//  AppDelegate.swift
+//  Caffeine tracker
+//
+//  Created by Tobias Ruano on 13/4/18.
+//  Copyright © 2018 Tobias Ruano. All rights reserved.
+//
+
+import UIKit
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+        
+        
+        if let data = UserDefaults.standard.value(forKey:"array") as? Data {
+            let arrayData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
+            arrayDrinks = arrayData!
+            print(arrayDrinks)
+        }else {
+            arrayDrinks.append(drink(type: "Caramel Macchiatto", caffeineML: 100, caffeineOZ: 98, icon: "Starbucks"))
+            arrayDrinks.append(drink(type: "Espresso", caffeineML: 134, caffeineOZ: 100, icon: "Starbucks"))
+            arrayDrinks.append(drink(type: "Latte", caffeineML: 30, caffeineOZ: 49, icon: "Starbucks"))
+            arrayDrinks.append(drink(type: "Mocha", caffeineML: 65, caffeineOZ: 76, icon: "Starbucks"))
+            arrayDrinks.append(drink(type: "Coca-Cola", caffeineML: 10, caffeineOZ: 10, icon: "Can"))
+        }
+        
+        if let data = UserDefaults.standard.value(forKey:"arrayAdded") as? Data {
+            let ArrayAddedData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
+            arrayDrinksAdded = ArrayAddedData!
+        }
+        
+        
+        return true
+    }
+    
+    enum QuickAction: String {
+        case Home = "yourDrinks"
+        case History = "history"
+        
+        init?(fullIdentifier: String) {
+            guard let shortcutIdentifier = fullIdentifier.components(separatedBy: ".").last else {
+                return nil
+            }
+            
+            self.init(rawValue: shortcutIdentifier)
+        }
+    }
+
+    func applicationWillResignActive(_ application: UIApplication) {
+        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    }
+
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    }
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        completionHandler(handleQuickAction(shortcutItem: shortcutItem))
+    }
+    
+    private func handleQuickAction(shortcutItem: UIApplicationShortcutItem) -> Bool {
+        let shortcutType = shortcutItem.type
+        guard let shortcutIdentifier = QuickAction(fullIdentifier: shortcutType)
+            else {
+                return false
+        }
+        print(shortcutIdentifier)
+        
+        guard let tabBarController = window?.rootViewController as? UITabBarController else {
+            return false
+        }
+        
+        
+        switch shortcutIdentifier {
+        case .Home:
+            tabBarController.selectedIndex = 0
+        case .History:
+            tabBarController.selectedIndex = 1
+        }
+        return true
+    }
+
+}
+

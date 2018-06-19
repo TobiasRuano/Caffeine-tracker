@@ -12,6 +12,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    enum QuickAction: String {
+        case Home = "yourDrinks"
+        case History = "history"
+        
+        init?(fullIdentifier: String) {
+            guard let shortcutIdentifier = fullIdentifier.components(separatedBy: ".").last else {
+                return nil
+            }
+            
+            self.init(rawValue: shortcutIdentifier)
+        }
+    }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -37,19 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         return true
-    }
-    
-    enum QuickAction: String {
-        case Home = "yourDrinks"
-        case History = "history"
-        
-        init?(fullIdentifier: String) {
-            guard let shortcutIdentifier = fullIdentifier.components(separatedBy: ".").last else {
-                return nil
-            }
-            
-            self.init(rawValue: shortcutIdentifier)
-        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

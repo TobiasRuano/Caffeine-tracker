@@ -122,6 +122,16 @@ class PickIconTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        
+        cell.textLabel?.text = objectName
+        cell.detailTextLabel?.text = String(caffeine)
+        
+        return cell
+    }
+    
+    // MARK: Other Functions
     func checkMark(activeCell: UITableViewCell, inActiveCell1: UITableViewCell, inActiveCell2: UITableViewCell, inActiveCell3: UITableViewCell, inActiveCell4: UITableViewCell, inActiveCell5: UITableViewCell, inActiveCell6: UITableViewCell) {
         activeCell.accessoryType = .checkmark
         inActiveCell1.accessoryType = .none
@@ -134,16 +144,6 @@ class PickIconTableViewController: UITableViewController {
     
     func saveChoice(texto: String) {
         UserDefaults.standard.set(texto, forKey: "CellForCheckmark")
-    }
-
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = super.tableView(tableView, cellForRowAt: indexPath)
-
-        cell.textLabel?.text = objectName
-        cell.detailTextLabel?.text = String(caffeine)
-
-        return cell
     }
     
     

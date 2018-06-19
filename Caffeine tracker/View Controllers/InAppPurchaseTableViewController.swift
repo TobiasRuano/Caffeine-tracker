@@ -26,6 +26,8 @@ class InAppPurchaseTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - table view Data Source
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 && indexPath.row == 0 {
             tableView.deselectRow(at: indexPath, animated: true)

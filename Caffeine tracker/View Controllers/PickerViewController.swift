@@ -18,6 +18,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var fondo: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
     var texto = ""
+    var toSave: drink = drink(type: "", caffeineML: 0, caffeineOZ: 0, icon: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,11 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         fondo.layer.cornerRadius = 8.0
         
         titulo.text = "Drink: \(texto)"
+        
+        // retrive data
+        let data = UserDefaults.standard.value(forKey:"tosave") as? Data
+        toSave = try! PropertyListDecoder().decode(drink.self, from: data!)
+        print(toSave)
         
         pickerView.selectRow(25, inComponent: 0, animated: false)
         for element in arrayML{
@@ -64,6 +70,19 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func Done(_ sender: UIBarButtonItem) {
+        let healthManager = HealthKitSetupAssistant()
+        let caffeine = self.toSave.caffeineML
+        healthManager.submitCaffeine(CaffeineAmount: Int(caffeine), forDate: Date())
+        arrayDrinksAdded.append(self.toSave)
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: "arrayAdded")
+        print(self.toSave)
+        print(arrayDrinksAdded)
+        //Taptic feedback
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
         self.dismiss(animated: true, completion: nil)
     }
     

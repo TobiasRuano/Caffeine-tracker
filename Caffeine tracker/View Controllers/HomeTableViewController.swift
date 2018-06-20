@@ -26,7 +26,7 @@ struct drink: Codable {
 let healthKitStore: HKHealthStore = HKHealthStore()
 var arrayDrinks: [drink] = []
 var arrayDrinksAdded: [drink] = []
-//var dicDrinksAdded: [Date: drink]
+//var dicDrinksAdded: [Date: drink] = [:]
 
 class HomeTableViewController: UITableViewController {
     
@@ -92,6 +92,8 @@ class HomeTableViewController: UITableViewController {
         print("\(arrayDrinks[indexPath.row].type) has \(arrayDrinks[indexPath.row].caffeineML)mg of caffeine in 100ml")
         
         drinkAux = arrayDrinks[indexPath.row]
+        //User Defaults
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: "tosave")
         
         alerta(title: "Do you?", message: "Do you want to add \(arrayDrinks[indexPath.row].caffeineML)mg of caffeine from \(arrayDrinks[indexPath.row].type)", taptic: true, button1: "Yes", button2: "No", passData: true)
     }
@@ -121,10 +123,14 @@ class HomeTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        self.drinkAux = arrayDrinks[indexPath.row]
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: "tosave")
         
         let closeAction = UIContextualAction(style: .normal, title:  "Add", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             print("CloseAction ...")
-            self.drinkAux = arrayDrinks[indexPath.row]
+            self.performSegue(withIdentifier: "ShowModalView", sender: self)
+            
+//            self.drinkAux = arrayDrinks[indexPath.row]
             self.alerta(title: "Do you?", message: "Do you want to add \(arrayDrinks[indexPath.row].caffeineML)mg of caffeine from \(arrayDrinks[indexPath.row].type)", taptic: true, button1: "Yes", button2: "No", passData: true)
             success(true)
         })
@@ -137,9 +143,10 @@ class HomeTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             
-            let alertController = UIAlertController(title: "Are you sure?", message: "Are you sure you want to delete this Drink?", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: { alert -> Void in
-                
+            // ActionSheet
+            let alert = UIAlertController(title: "", message: "Are you sure you want to delete \"\(arrayDrinks[indexPath.row].type)\" from your list?", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Delete Drink", style: .destructive , handler:{ (UIAlertAction)in
+                print("User click Delete button")
                 arrayDrinks.remove(at: indexPath.row);
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 
@@ -148,12 +155,14 @@ class HomeTableViewController: UITableViewController {
                 generator.notificationOccurred(.warning)
                 
                 UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: "array")
-                
             }))
-            alertController.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction)in
+                print("User click Dismiss button")
+            }))
             
-            self.present(alertController, animated: true, completion: nil)
-            
+            self.present(alert, animated: true, completion: {
+                print("ActionSheet Shown")
+            })
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
@@ -204,7 +213,6 @@ class HomeTableViewController: UITableViewController {
         }))
         
         self.present(alertController, animated: true, completion: nil)
-        
     }
     
     /*

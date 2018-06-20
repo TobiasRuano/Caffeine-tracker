@@ -37,9 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(arrayDrinks)
         }else {
             arrayDrinks.append(drink(type: "Caramel Macchiatto", caffeineML: 100, caffeineOZ: 98, icon: "Starbucks"))
-            arrayDrinks.append(drink(type: "Espresso", caffeineML: 134, caffeineOZ: 100, icon: "Starbucks"))
+            arrayDrinks.append(drink(type: "Espresso", caffeineML: 134, caffeineOZ: 100, icon: "cafe3"))
             arrayDrinks.append(drink(type: "Latte", caffeineML: 30, caffeineOZ: 49, icon: "Starbucks"))
-            arrayDrinks.append(drink(type: "Mocha", caffeineML: 65, caffeineOZ: 76, icon: "Starbucks"))
+            arrayDrinks.append(drink(type: "Mocha", caffeineML: 65, caffeineOZ: 76, icon: "Cafe"))
             arrayDrinks.append(drink(type: "Coca-Cola", caffeineML: 10, caffeineOZ: 10, icon: "Can"))
         }
         
@@ -47,8 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let ArrayAddedData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
             arrayDrinksAdded = ArrayAddedData!
         }
-        
-        
         return true
     }
 
@@ -90,13 +88,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
         
-        
         switch shortcutIdentifier {
         case .Home:
             tabBarController.selectedIndex = 0
         case .History:
             tabBarController.selectedIndex = 1
         }
+        
         return true
     }
 

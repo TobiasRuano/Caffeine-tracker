@@ -70,7 +70,11 @@
                                                 <action selector="cancel:" destination="37f-d7-0IO" id="2yt-kd-3Uz"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="qMw-0Y-qDL"/>
+                                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="qMw-0Y-qDL">
+                                            <connections>
+                                                <action selector="Done:" destination="37f-d7-0IO" id="1cV-Oz-6IO"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -204,10 +208,10 @@
             </objects>
             <point key="canvasLocation" x="3284" y="-397"/>
         </scene>
-        <!--Add New Drink-->
+        <!--AddNewDrink-->
         <scene sceneID="J9d-hJ-Cdn">
             <objects>
-                <tableViewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="lVW-cW-EfE" customClass="AddDrinkTableViewController" customModule="Caffeine_tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AddNewDrink" title="AddNewDrink" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lVW-cW-EfE" customClass="AddDrinkTableViewController" customModule="Caffeine_tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Dnf-ee-UeS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -306,7 +310,7 @@
                                 <action selector="cancel:" destination="lVW-cW-EfE" id="xx2-IP-MlN"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" tag="15" style="plain" systemItem="save" id="Xkb-dC-D1W">
+                        <barButtonItem key="rightBarButtonItem" tag="15" style="done" systemItem="save" id="Xkb-dC-D1W">
                             <connections>
                                 <segue destination="Sg3-Vx-TBy" kind="unwind" identifier="unwind" unwindAction="unwindFromAddVC:" id="ZpF-Q7-xYF"/>
                             </connections>
@@ -703,7 +707,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yHg-q3-T5T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2423.1999999999998" y="273.91304347826087"/>
+            <point key="canvasLocation" x="2422" y="322"/>
         </scene>
         <!--Settings-->
         <scene sceneID="to2-3d-ir5">
@@ -730,59 +734,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T4L-nB-fq1">
-                            <rect key="frame" x="0.0" y="557.5" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <attributedString key="attributedText">
-                                <fragment content="Designed and Developed by Tobias Ruano. Buenos Aires , Argentina">
-                                    <attributes>
-                                        <color key="NSColor" white="0.66666999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <font key="NSFont" size="13" name="HelveticaNeue"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                            <tabStops>
-                                                <textTab alignment="left" location="28">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="56">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="84">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="112">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="140">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="168">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="196">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="224">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="252">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="280">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="308">
-                                                    <options/>
-                                                </textTab>
-                                                <textTab alignment="left" location="336">
-                                                    <options/>
-                                                </textTab>
-                                            </tabStops>
-                                        </paragraphStyle>
-                                    </attributes>
-                                </fragment>
-                            </attributedString>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <sections>
                             <tableViewSection headerTitle="Health" footerTitle="If you need to activate or deactivate health permissions, please head over to the Health App" id="GxY-yp-wvO">
                                 <cells>
@@ -902,7 +853,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="ebo-av-Hqh">
+                            <tableViewSection footerTitle="Developed &amp; Designed By Tobias Ruano" id="ebo-av-Hqh">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="W21-jq-eAa">
                                         <rect key="frame" x="0.0" y="407.5" width="375" height="44"/>
@@ -974,6 +925,9 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
+                            </tableViewSection>
+                            <tableViewSection footerTitle="Version 0.2" id="jxv-3r-FzC">
+                                <cells/>
                             </tableViewSection>
                         </sections>
                         <connections>
@@ -1072,7 +1026,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cs3-dy-AKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3423" y="1048"/>
+            <point key="canvasLocation" x="3284" y="1048"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="OIU-45-yjo">
@@ -1092,7 +1046,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzI-Dw-KHk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="164" y="274"/>
+            <point key="canvasLocation" x="159" y="323"/>
         </scene>
     </scenes>
     <resources>

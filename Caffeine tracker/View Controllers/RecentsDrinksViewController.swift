@@ -70,23 +70,25 @@ class RecentsDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            let alert = UIAlertController(title: "", message: "Are You Sure you want to delete it?", preferredStyle: .actionSheet)
             
-            let alertController = UIAlertController(title: "Are you sure?", message: "Are you sure you want to delete this Log?", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: { alert -> Void in
-                
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive , handler:{ (UIAlertAction)in
+                print("User click Delete button")
                 arrayDrinksAdded.remove(at: indexPath.row);
                 UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: "arrayAdded")
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 
-                //Taptic feedback meterlo en la funcion alert
+                //Taptic feedback
                 let generator = UINotificationFeedbackGenerator()
                 generator.notificationOccurred(.warning)
-                
             }))
-            alertController.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction)in
+                print("User click Dismiss button")
+            }))
             
-            self.present(alertController, animated: true, completion: nil)
-            
+            self.present(alert, animated: true, completion: {
+                print("ActionSheet action completed!")
+            })
         }
     }
     

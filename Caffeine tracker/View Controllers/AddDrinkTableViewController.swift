@@ -12,6 +12,7 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var caffeineAmount: UITextField!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var iconCell: UITableViewCell!
     var iconName: String = "Starbucks"
@@ -23,6 +24,8 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
         
         tableView.keyboardDismissMode = .interactive
         UserDefaults.standard.set("Starbucks", forKey: "CellForCheckmark")
+        
+        saveButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,7 +44,6 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
-    
 
     // MARK: - Table view data source
 
@@ -71,7 +73,7 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
         
         if let identifier = segue.identifier {
             if identifier == "unwind" {
-                if name.text != "" && caffeineAmount.text != "" {
+                if name.text != "" && caffeineAmount.text != "" && caffeineAmount.text?.isNumeric == true {
                     drinkToAdd.type = name.text!
                     print(name.text!)
                     drinkToAdd.caffeineML = Int(caffeineAmount.text!)!
@@ -98,4 +100,12 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
 
+}
+
+extension String {
+    var isNumeric: Bool {
+        guard self.count > 0 else { return false }
+        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        return Set(self).isSubset(of: nums)
+    }
 }

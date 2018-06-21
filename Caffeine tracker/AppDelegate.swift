@@ -36,10 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             arrayDrinks = arrayData!
             print(arrayDrinks)
         }else {
-            arrayDrinks.append(drink(type: "Caramel Macchiatto", caffeineML: 100, caffeineOZ: 98, icon: "Starbucks"))
-            arrayDrinks.append(drink(type: "Espresso", caffeineML: 134, caffeineOZ: 100, icon: "cafe3"))
-            arrayDrinks.append(drink(type: "Latte", caffeineML: 30, caffeineOZ: 49, icon: "Starbucks"))
-            arrayDrinks.append(drink(type: "Mocha", caffeineML: 65, caffeineOZ: 76, icon: "Cafe"))
+            arrayDrinks.append(drink(type: "Americano", caffeineML: 43, caffeineOZ: 98, icon: "Starbucks"))
+            arrayDrinks.append(drink(type: "Espresso", caffeineML: 173, caffeineOZ: 100, icon: "cafe3"))
+            arrayDrinks.append(drink(type: "Latte", caffeineML: 32, caffeineOZ: 49, icon: "Starbucks"))
+            arrayDrinks.append(drink(type: "Mocha", caffeineML: 43, caffeineOZ: 76, icon: "Cafe"))
             arrayDrinks.append(drink(type: "Coca-Cola", caffeineML: 10, caffeineOZ: 10, icon: "Can"))
         }
         

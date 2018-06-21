@@ -44,6 +44,13 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnu-hj-NQw">
+                                <rect key="frame" x="0.0" y="73" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="NJI-Xd-HAN"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eZg-ec-MkS">
                                 <rect key="frame" x="0.0" y="73" width="375" height="261"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -51,20 +58,10 @@
                                     <constraint firstAttribute="height" constant="261" id="h4R-Zf-bFe"/>
                                 </constraints>
                             </view>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RyM-Ga-yN9">
-                                <rect key="frame" x="0.0" y="117" width="375" height="217"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="217" id="9Ox-u1-YXB"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="37f-d7-0IO" id="sys-6l-ZlO"/>
-                                    <outlet property="delegate" destination="37f-d7-0IO" id="Ws9-Ce-uAg"/>
-                                </connections>
-                            </pickerView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPc-Yj-UHH">
                                 <rect key="frame" x="0.0" y="73" width="375" height="44"/>
                                 <items>
-                                    <navigationItem id="0O9-y1-i62">
+                                    <navigationItem title="Select the ml drunk" id="0O9-y1-i62">
                                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="wly-o7-UX4">
                                             <connections>
                                                 <action selector="cancel:" destination="37f-d7-0IO" id="2yt-kd-3Uz"/>
@@ -78,36 +75,50 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RyM-Ga-yN9">
+                                <rect key="frame" x="0.0" y="117" width="375" height="217"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="217" id="9Ox-u1-YXB"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="37f-d7-0IO" id="sys-6l-ZlO"/>
+                                    <outlet property="delegate" destination="37f-d7-0IO" id="Ws9-Ce-uAg"/>
+                                </connections>
+                            </pickerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwi-SA-IC8">
                                 <rect key="frame" x="19" y="10" width="337" height="41"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CR-Mq-nKd">
-                                        <rect key="frame" x="11" y="9" width="54" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink:" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4CR-Mq-nKd">
+                                        <rect key="frame" x="11" y="9" width="315" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="4CR-Mq-nKd" firstAttribute="top" secondItem="gwi-SA-IC8" secondAttribute="top" constant="9" id="IXH-cj-95S"/>
                                     <constraint firstItem="4CR-Mq-nKd" firstAttribute="leading" secondItem="gwi-SA-IC8" secondAttribute="leading" constant="11" id="Kgx-w3-z1c"/>
+                                    <constraint firstAttribute="trailing" secondItem="4CR-Mq-nKd" secondAttribute="trailing" constant="11" id="OSz-kT-DQQ"/>
                                     <constraint firstAttribute="bottom" secondItem="4CR-Mq-nKd" secondAttribute="bottom" constant="8" id="xIx-OZ-tXF"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="qnu-hj-NQw" firstAttribute="trailing" secondItem="3SC-fM-NDt" secondAttribute="trailing" id="0ge-Uz-Pe7"/>
                             <constraint firstItem="kRy-jr-cgE" firstAttribute="top" secondItem="W4U-q2-75f" secondAttribute="top" id="36O-C6-LnN"/>
                             <constraint firstItem="gwi-SA-IC8" firstAttribute="leading" secondItem="3SC-fM-NDt" secondAttribute="leading" constant="19" id="6lF-D6-98U"/>
                             <constraint firstItem="QPc-Yj-UHH" firstAttribute="top" secondItem="gwi-SA-IC8" secondAttribute="bottom" constant="22" id="ABH-k3-l3F"/>
                             <constraint firstAttribute="bottom" secondItem="kRy-jr-cgE" secondAttribute="bottom" id="C81-7k-jL2"/>
                             <constraint firstItem="eZg-ec-MkS" firstAttribute="leading" secondItem="3SC-fM-NDt" secondAttribute="leading" id="EkK-zX-PIf"/>
                             <constraint firstItem="kRy-jr-cgE" firstAttribute="leading" secondItem="W4U-q2-75f" secondAttribute="leading" id="FTU-4h-aJ2"/>
+                            <constraint firstItem="qnu-hj-NQw" firstAttribute="leading" secondItem="3SC-fM-NDt" secondAttribute="leading" id="Fcy-US-wDh"/>
                             <constraint firstItem="RyM-Ga-yN9" firstAttribute="bottom" secondItem="3SC-fM-NDt" secondAttribute="bottom" id="J6n-Pt-vMC"/>
                             <constraint firstItem="QPc-Yj-UHH" firstAttribute="trailing" secondItem="3SC-fM-NDt" secondAttribute="trailing" id="Kwd-JZ-k0f"/>
                             <constraint firstItem="RyM-Ga-yN9" firstAttribute="leading" secondItem="3SC-fM-NDt" secondAttribute="leading" id="MWI-F0-uWK"/>
                             <constraint firstItem="3SC-fM-NDt" firstAttribute="trailing" secondItem="gwi-SA-IC8" secondAttribute="trailing" constant="19" id="NxG-IL-kfc"/>
+                            <constraint firstItem="RyM-Ga-yN9" firstAttribute="top" secondItem="qnu-hj-NQw" secondAttribute="bottom" id="Pez-w6-U1K"/>
                             <constraint firstItem="eZg-ec-MkS" firstAttribute="bottom" secondItem="W4U-q2-75f" secondAttribute="bottom" id="Puw-JA-ZoN"/>
                             <constraint firstItem="eZg-ec-MkS" firstAttribute="trailing" secondItem="3SC-fM-NDt" secondAttribute="trailing" id="S7V-K9-mdU"/>
                             <constraint firstItem="QPc-Yj-UHH" firstAttribute="leading" secondItem="3SC-fM-NDt" secondAttribute="leading" id="THq-xc-Hgw"/>
@@ -120,14 +131,16 @@
                     <size key="freeformSize" width="375" height="334"/>
                     <connections>
                         <outlet property="blur" destination="kRy-jr-cgE" id="hBj-Re-I3I"/>
+                        <outlet property="doneButton" destination="qMw-0Y-qDL" id="bXC-PH-rKB"/>
                         <outlet property="fondo" destination="gwi-SA-IC8" id="fNn-Yg-hR4"/>
                         <outlet property="pickerView" destination="RyM-Ga-yN9" id="9UN-bu-Sau"/>
+                        <outlet property="shadowNavBar" destination="qnu-hj-NQw" id="5iz-kJ-iQM"/>
                         <outlet property="titulo" destination="4CR-Mq-nKd" id="FMF-EV-ZW1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xr6-As-hlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3284" y="-964"/>
+            <point key="canvasLocation" x="3464.8000000000002" y="-960.71964017991013"/>
         </scene>
         <!--Your Drinks-->
         <scene sceneID="RWp-ro-fCp">
@@ -165,9 +178,6 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="37f-d7-0IO" kind="presentation" identifier="ShowModalView" id="y1G-Wk-wiv"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -186,6 +196,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addDrinksButton" destination="B02-PE-gvK" id="Tgb-GQ-09D"/>
+                        <segue destination="37f-d7-0IO" kind="presentation" identifier="ShowModalView" id="TM0-hc-Jyf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7mT-Uv-ZXC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -320,6 +331,7 @@
                         <outlet property="caffeineAmount" destination="6sJ-rg-MiG" id="BuQ-Ue-qAa"/>
                         <outlet property="iconCell" destination="RIF-4d-AvQ" id="yRX-Iv-apM"/>
                         <outlet property="name" destination="WUg-3b-x5i" id="ge4-8o-wYo"/>
+                        <outlet property="saveButton" destination="Xkb-dC-D1W" id="8Cu-E8-ZZC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AwF-kc-Chd" userLabel="First Responder" sceneMemberID="firstResponder"/>

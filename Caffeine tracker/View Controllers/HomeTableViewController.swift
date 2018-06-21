@@ -79,7 +79,7 @@ class HomeTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.textLabel?.text = arrayDrinks[indexPath.row].type
-        cell.detailTextLabel?.text = String(arrayDrinks[indexPath.row].caffeineML) + "mg"
+        cell.detailTextLabel?.text = String(arrayDrinks[indexPath.row].caffeineML) + "mg of caffeine in 100ml"
         cell.imageView?.image = UIImage(named: arrayDrinks[indexPath.row].icon)
 
         return cell
@@ -94,8 +94,8 @@ class HomeTableViewController: UITableViewController {
         drinkAux = arrayDrinks[indexPath.row]
         //User Defaults
         UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: "tosave")
+        self.performSegue(withIdentifier: "ShowModalView", sender: self)
         
-        alerta(title: "Do you?", message: "Do you want to add \(arrayDrinks[indexPath.row].caffeineML)mg of caffeine from \(arrayDrinks[indexPath.row].type)", taptic: true, button1: "Yes", button2: "No", passData: true)
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -156,8 +156,8 @@ class HomeTableViewController: UITableViewController {
                 
                 UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: "array")
             }))
-            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction)in
-                print("User click Dismiss button")
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
+                print("User click Cancel button")
             }))
             
             self.present(alert, animated: true, completion: {
@@ -176,7 +176,6 @@ class HomeTableViewController: UITableViewController {
         arrayDrinks.remove(at: fromIndexPath.row)
         arrayDrinks.insert(element, at: to.row)
         
-        
         UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: "array")
     }
     
@@ -192,21 +191,21 @@ class HomeTableViewController: UITableViewController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: button1, style: .default, handler: { alert -> Void in
             
-            if passData == true {
-                let healthManager = HealthKitSetupAssistant()
-                let caffeine = self.drinkAux!.caffeineML
-                healthManager.submitCaffeine(CaffeineAmount: Int(caffeine), forDate: Date())
-                arrayDrinksAdded.append(self.drinkAux!)
-                UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: "arrayAdded")
-                print(self.drinkAux!)
-                print(arrayDrinksAdded)
-            }
-            
-            if taptic == true {
-                //Taptic feedback
-                let generator = UINotificationFeedbackGenerator()
-                generator.notificationOccurred(.success)
-            }
+//            if passData == true {
+//                let healthManager = HealthKitSetupAssistant()
+//                let caffeine = self.drinkAux!.caffeineML
+//                healthManager.submitCaffeine(CaffeineAmount: Int(caffeine), forDate: Date())
+//                arrayDrinksAdded.append(self.drinkAux!)
+//                UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: "arrayAdded")
+//                print(self.drinkAux!)
+//                print(arrayDrinksAdded)
+//            }
+//            
+//            if taptic == true {
+//                //Taptic feedback
+//                let generator = UINotificationFeedbackGenerator()
+//                generator.notificationOccurred(.success)
+//            }
             
         }))
         alertController.addAction(UIAlertAction(title: button2, style: .cancel, handler: { alert -> Void in

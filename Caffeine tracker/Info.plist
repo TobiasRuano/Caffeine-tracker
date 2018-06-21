@@ -25,7 +25,7 @@
 	<key>NSHealthShareUsageDescription</key>
 	<string>We need this data to</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>We need this data to</string>
+	<string>Please activate this option so we can write the caffeine amount to th health app</string>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>

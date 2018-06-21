@@ -70,7 +70,7 @@ class RecentsDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            let alert = UIAlertController(title: "", message: "Are You Sure you want to delete it?", preferredStyle: .actionSheet)
+            let alert = UIAlertController(title: "", message: "Are you sure you want to delete it?", preferredStyle: .actionSheet)
             
             alert.addAction(UIAlertAction(title: "Delete", style: .destructive , handler:{ (UIAlertAction)in
                 print("User click Delete button")
@@ -82,8 +82,8 @@ class RecentsDrinksViewController: UIViewController, UITableViewDelegate, UITabl
                 let generator = UINotificationFeedbackGenerator()
                 generator.notificationOccurred(.warning)
             }))
-            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction)in
-                print("User click Dismiss button")
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
+                print("User click Cancel button")
             }))
             
             self.present(alert, animated: true, completion: {

@@ -17,7 +17,9 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var seleccion = 0
     @IBOutlet weak var fondo: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
-    var texto = ""
+    @IBOutlet weak var shadowNavBar: UIView!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    var result = 0
     var toSave: drink = drink(type: "", caffeineML: 0, caffeineOZ: 0, icon: "")
     
     override func viewDidLoad() {
@@ -25,15 +27,26 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         view.backgroundColor = UIColor.clear
         view.isOpaque = false
         fondo.layer.cornerRadius = 8.0
+        fondo.layer.shadowColor = UIColor.lightGray.cgColor
+        fondo.layer.shadowOpacity = 1
+        fondo.layer.shadowOffset = CGSize.zero
+        fondo.layer.shadowRadius = 5
         
-        titulo.text = "Drink: \(texto)"
+        shadowNavBar.layer.cornerRadius = 8.0
+        shadowNavBar.layer.shadowColor = UIColor.lightGray.cgColor
+        shadowNavBar.layer.shadowOpacity = 1
+        shadowNavBar.layer.shadowOffset = CGSize.zero
+        shadowNavBar.layer.shadowRadius = 5
         
-        // retrive data
+        // Retrive data
         let data = UserDefaults.standard.value(forKey:"tosave") as? Data
         toSave = try! PropertyListDecoder().decode(drink.self, from: data!)
         print(toSave)
+        titulo.text = "Drink: \(toSave.type)\nCaffeine: \(toSave.caffeineML)mg"
+        result = toSave.caffeineML
+        print(result)
         
-        pickerView.selectRow(25, inComponent: 0, animated: false)
+        pickerView.selectRow(10, inComponent: 0, animated: false)
         for element in arrayML{
             if element < arrayML.count {
                 arrayML[element] = arrayML[element]*10
@@ -66,6 +79,18 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         seleccion = arrayML[row]
+        result = (arrayML[row] * toSave.caffeineML) / 100
+        titulo.text = "Drink: \(toSave.type)\nCaffeine: \(result)mg"
+        if result >= 200 {
+            fondo.layer.backgroundColor = UIColor.red.cgColor
+        }else {
+            fondo.layer.backgroundColor = UIColor(red: 0.0, green: 0.478, blue: 1.000, alpha: 1.0).cgColor
+        }
+        if row != 0 {
+            doneButton.isEnabled = true
+        }else if row == 0 {
+            doneButton.isEnabled = false
+        }
     }
     
     
@@ -74,17 +99,25 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     @IBAction func Done(_ sender: UIBarButtonItem) {
         let healthManager = HealthKitSetupAssistant()
-        let caffeine = self.toSave.caffeineML
-        healthManager.submitCaffeine(CaffeineAmount: Int(caffeine), forDate: Date())
-        arrayDrinksAdded.append(self.toSave)
-        UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: "arrayAdded")
-        print(self.toSave)
-        print(arrayDrinksAdded)
-        //Taptic feedback
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.success)
-        self.dismiss(animated: true, completion: nil)
+        //no guarda correctamente cuando no se mueve la seleccion del picker
+        if seleccion != 0 {
+            result = (seleccion * toSave.caffeineML) / 100
+        }
+        if result != 0 {
+            self.toSave.caffeineML = result
+            healthManager.submitCaffeine(CaffeineAmount: result, WaterAmount: seleccion, forDate: Date())
+            arrayDrinksAdded.append(self.toSave)
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: "arrayAdded")
+            print(self.toSave)
+            print(arrayDrinksAdded)
+            
+            //Taptic feedback
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
+            self.dismiss(animated: true, completion: nil)
+        }
     }
+    
     
     /*
     // MARK: - Navigation

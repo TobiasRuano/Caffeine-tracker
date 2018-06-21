@@ -18,9 +18,11 @@ class HealthKitSetupAssistant {
     }
     
     public func requestPermissions() {
-        let dataTypes : Set = [HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine)!]
+        let dataTypesToWrite : Set = [HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine)!,
+                               HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryWater)!]
+        let dataTypesToRead : Set = [HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine)!]
         
-        healthStore.requestAuthorization(toShare: dataTypes, read: dataTypes, completion: { (success, error) in
+        healthStore.requestAuthorization(toShare: dataTypesToWrite, read: dataTypesToRead, completion: { (success, error) in
             if success {
                 print("Authorization complete")
             } else {
@@ -31,15 +33,25 @@ class HealthKitSetupAssistant {
     }
     
     
-    public func submitCaffeine(CaffeineAmount: Int, forDate : Date) {
-        let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine)!
-        let caffeine = HKQuantitySample(type: quantityType, quantity: HKQuantity.init(unit: HKUnit.gramUnit(with: HKMetricPrefix.milli), doubleValue: Double(CaffeineAmount)), start: forDate, end: forDate)
+    public func submitCaffeine(CaffeineAmount: Int, WaterAmount: Int, forDate : Date) {
+        let quantityTypeCaffeine = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine)!
+        let caffeine = HKQuantitySample(type: quantityTypeCaffeine, quantity: HKQuantity.init(unit: HKUnit.gramUnit(with: HKMetricPrefix.milli), doubleValue: Double(CaffeineAmount)), start: forDate, end: forDate)
+        let quantityTypeWater = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryWater)!
+        let water = HKQuantitySample(type: quantityTypeWater, quantity: HKQuantity.init(unit: HKUnit.literUnit(with: .milli), doubleValue: Double(WaterAmount)), start: forDate, end: forDate)
         healthStore.save(caffeine) { success, error in
             if (error != nil) {
-                print("Error: \(String(describing: error))")
+                print("Caffeine Error: \(String(describing: error))")
             }
             if success {
-                print("Saved: \(success)")
+                print("Caffeine Saved: \(success)")
+            }
+        }
+        healthStore.save(water) { success, error in
+            if (error != nil) {
+                print("Water Error: \(String(describing: error))")
+            }
+            if success {
+                print("Water Saved: \(success)")
             }
         }
     }

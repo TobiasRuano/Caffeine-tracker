@@ -24,8 +24,6 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
         
         tableView.keyboardDismissMode = .interactive
         UserDefaults.standard.set("Starbucks", forKey: "CellForCheckmark")
-        
-        saveButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,7 +86,7 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
                     self.dismiss(animated: true, completion: nil)
                 }
             }else if identifier == "icon" {
-                print("funca")
+                print("Segue Funciona")
                 let vc = segue.destination as! PickIconTableViewController
                 if name.text != "" {
                     vc.objectName = name.text!

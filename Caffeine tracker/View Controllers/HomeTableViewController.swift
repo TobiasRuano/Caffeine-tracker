@@ -46,7 +46,6 @@ class HomeTableViewController: UITableViewController {
         }
 
         tableView.tableFooterView = UIView()
-        
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -95,7 +94,6 @@ class HomeTableViewController: UITableViewController {
         //User Defaults
         UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: "tosave")
         self.performSegue(withIdentifier: "ShowModalView", sender: self)
-        
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -166,16 +164,13 @@ class HomeTableViewController: UITableViewController {
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
-        
     }
     
     // Rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
         let element = arrayDrinks[fromIndexPath.row]
         arrayDrinks.remove(at: fromIndexPath.row)
         arrayDrinks.insert(element, at: to.row)
-        
         UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: "array")
     }
     
@@ -187,25 +182,8 @@ class HomeTableViewController: UITableViewController {
     
     // MARK: - Alert Function
     func alerta(title: String, message: String, taptic: Bool, button1: String, button2: String, passData: Bool) {
-        
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: button1, style: .default, handler: { alert -> Void in
-            
-//            if passData == true {
-//                let healthManager = HealthKitSetupAssistant()
-//                let caffeine = self.drinkAux!.caffeineML
-//                healthManager.submitCaffeine(CaffeineAmount: Int(caffeine), forDate: Date())
-//                arrayDrinksAdded.append(self.drinkAux!)
-//                UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: "arrayAdded")
-//                print(self.drinkAux!)
-//                print(arrayDrinksAdded)
-//            }
-//            
-//            if taptic == true {
-//                //Taptic feedback
-//                let generator = UINotificationFeedbackGenerator()
-//                generator.notificationOccurred(.success)
-//            }
             
         }))
         alertController.addAction(UIAlertAction(title: button2, style: .cancel, handler: { alert -> Void in
@@ -214,17 +192,10 @@ class HomeTableViewController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
     @IBAction func unwindFromAddVC(_ sender: UIStoryboardSegue) {
-        
         if sender.source is AddDrinkTableViewController {
             if let senderVC = sender.source as? AddDrinkTableViewController {
                 if senderVC.drinkToAdd.type != "" && senderVC.drinkToAdd.caffeineML != 0 {
@@ -247,5 +218,4 @@ class HomeTableViewController: UITableViewController {
             }
         }
     }
-
 }

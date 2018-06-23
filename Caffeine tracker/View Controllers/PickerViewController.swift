@@ -10,19 +10,23 @@ import UIKit
 
 class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet weak var blur: UIVisualEffectView!
-    @IBOutlet weak var titulo: UILabel!
     weak var delegate: HomeTableViewController?
-    var arrayML = [Int](0...100)
-    var seleccion = 0
+    
+    @IBOutlet weak var titulo: UILabel!
     @IBOutlet weak var fondo: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var shadowNavBar: UIView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
+    
+    var arrayML = [Int](0...100)
+    var seleccion = 0
     var result = 0
     var toSave: drink = drink(type: "", caffeineML: 0, caffeineOZ: 0, icon: "")
+    var waterLog: Bool = true
     
     override func viewDidLoad() {
+        waterLog = UserDefaults.standard.value(forKey: "logWaterBool") as! Bool
+        
         super.viewDidLoad()
         view.backgroundColor = UIColor.clear
         view.isOpaque = false
@@ -52,12 +56,6 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 arrayML[element] = arrayML[element]*10
             }
         }
-        blur.isHidden = true
-////        view.backgroundColor = UIColor.darkGray
-////        view.alpha = 0.4
-//        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-//            self.blur.isHidden = false
-//        })
         
         // Do any additional setup after loading the view.
     }
@@ -97,15 +95,18 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func Done(_ sender: UIBarButtonItem) {
         let healthManager = HealthKitSetupAssistant()
         //no guarda correctamente cuando no se mueve la seleccion del picker
         if seleccion != 0 {
             result = (seleccion * toSave.caffeineML) / 100
+        }else {
+            seleccion = 100
         }
         if result != 0 {
             self.toSave.caffeineML = result
-            healthManager.submitCaffeine(CaffeineAmount: result, WaterAmount: seleccion, forDate: Date())
+            healthManager.submitCaffeine(CaffeineAmount: result, WaterAmount: seleccion, forDate: Date(), logWater: waterLog)
             arrayDrinksAdded.append(self.toSave)
             UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: "arrayAdded")
             print(self.toSave)

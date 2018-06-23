@@ -13,10 +13,12 @@ class RecentsDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var yesterdayCaffeine: UILabel!
     @IBOutlet weak var lastWeekCaffeine: UILabel!
     @IBOutlet weak var thisMonthCaffeine: UILabel!
+    @IBOutlet weak var tablewView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        tablewView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,6 +30,8 @@ class RecentsDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         yesterdayCaffeine.text = "mg"
         lastWeekCaffeine.text = "mg"
         thisMonthCaffeine.text = "mg"
+        
+        tablewView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,8 +65,8 @@ class RecentsDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = arrayDrinksAdded.reversed()[indexPath.row].type
-        cell.detailTextLabel?.text = "\(String(arrayDrinksAdded.reversed()[indexPath.row].caffeineML))mg"
+        cell.textLabel?.text = arrayDrinksAdded[indexPath.row].type
+        cell.detailTextLabel?.text = "\(String(arrayDrinksAdded[indexPath.row].caffeineML))mg"
         
         return cell
     }

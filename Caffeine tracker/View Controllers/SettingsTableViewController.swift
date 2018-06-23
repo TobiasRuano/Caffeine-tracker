@@ -10,15 +10,51 @@ import UIKit
 import MessageUI
 
 class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
-
+    
+    @IBOutlet weak var maxDailyCaf: UILabel!
+    
+    @IBOutlet weak var waterLogSwitch: UISwitch!
+    var logWater: Bool = false
+    var unitML: Bool = true
+    @IBOutlet weak var mlCell: UITableViewCell!
+    @IBOutlet weak var ozCell: UITableViewCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        logWater = UserDefaults.standard.value(forKey: "logWaterBool") as! Bool
+        
+        if logWater == true {
+            waterLogSwitch.isOn = true
+        }else {
+            waterLogSwitch.isOn = false
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if UserDefaults.standard.value(forKey: "maxCaf") != nil {
+            let value = UserDefaults.standard.value(forKey: "maxCaf")
+            maxDailyCaf.text = "\(value!)mg"
+        }else {
+            maxDailyCaf.text = "400mg"
+        }
+        
+        if UserDefaults.standard.value(forKey: "units") != nil {
+            unitML = UserDefaults.standard.value(forKey: "units") as! Bool
+            if unitML == true {
+                mlCell.accessoryType = .checkmark
+                ozCell.accessoryType = .none
+            }else {
+                mlCell.accessoryType = .none
+                ozCell.accessoryType = .checkmark
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +65,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 3 && indexPath.row == 2 {
             tableView.deselectRow(at: indexPath, animated: true)
             share()
@@ -46,6 +82,8 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
             if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
                 if cell.accessoryType == .none {
                     cell.accessoryType = .checkmark
+                    unitML = true
+                    UserDefaults.standard.set(unitML, forKey: "units")
                     let cell2 = tableView.cellForRow(at: IndexPath.init(row: 1, section: 1))
                     cell2?.accessoryType = .none
                 }
@@ -55,14 +93,27 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
             if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
                 if cell.accessoryType == .none {
                     cell.accessoryType = .checkmark
+                    unitML = false
+                    UserDefaults.standard.set(unitML, forKey: "units")
                     let cell2 = tableView.cellForRow(at: IndexPath.init(row: 0, section: 1))
                     cell2?.accessoryType = .none
                 }
             }
+        }else if indexPath.section == 0 && indexPath.row == 2 {
+//            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
     // Other Functions
+    
+    @IBAction func switchAction(_ sender: UISwitch) {
+        if waterLogSwitch.isOn == true {
+            UserDefaults.standard.set(true, forKey: "logWaterBool")
+        }else {
+            UserDefaults.standard.set(false, forKey: "logWaterBool")
+        }
+    }
+    
     
     func rate() {
         guard let url = URL(string: "itms-apps://itunes.apple.com/app/idYOUR_APP_ID") else {

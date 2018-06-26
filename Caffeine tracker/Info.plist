@@ -29,20 +29,20 @@
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>History</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>History</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>Trotos.Caffeine-tracker.history</string>
-		</dict>
-		<dict>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Your Drinks</string>
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>list</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>Trotos.Caffeine-tracker.yourDrinks</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>History</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>History</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>Trotos.Caffeine-tracker.history</string>
 		</dict>
 	</array>
 	<key>UILaunchStoryboardName</key>

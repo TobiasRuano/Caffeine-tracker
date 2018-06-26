@@ -56,40 +56,30 @@ class HomeTableViewController: UITableViewController {
         tableView.reloadData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return arrayDrinks.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        // Configure the cell...
         cell.textLabel?.text = arrayDrinks[indexPath.row].type
         cell.detailTextLabel?.text = String(arrayDrinks[indexPath.row].caffeineML) + "mg of caffeine in 100ml"
         cell.imageView?.image = UIImage(named: arrayDrinks[indexPath.row].icon)
-
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        
         print("\(arrayDrinks[indexPath.row].type) has \(arrayDrinks[indexPath.row].caffeineML)mg of caffeine in 100ml")
-        
         drinkAux = arrayDrinks[indexPath.row]
         //User Defaults
         UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: "tosave")
@@ -128,7 +118,6 @@ class HomeTableViewController: UITableViewController {
             print("CloseAction ...")
             self.performSegue(withIdentifier: "ShowModalView", sender: self)
             
-//            self.drinkAux = arrayDrinks[indexPath.row]
             self.alerta(title: "Do you?", message: "Do you want to add \(arrayDrinks[indexPath.row].caffeineML)mg of caffeine from \(arrayDrinks[indexPath.row].type)", taptic: true, button1: "Yes", button2: "No", passData: true)
             success(true)
         })
@@ -174,11 +163,6 @@ class HomeTableViewController: UITableViewController {
         UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: "array")
     }
     
-    func passData(data: drink) {
-        arrayDrinks.append(data)
-        print("\(data.type)")
-        UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: "array")
-    }
     
     // MARK: - Alert Function
     func alerta(title: String, message: String, taptic: Bool, button1: String, button2: String, passData: Bool) {

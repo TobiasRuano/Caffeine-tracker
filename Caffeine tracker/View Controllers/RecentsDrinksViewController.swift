@@ -20,27 +20,12 @@ class RecentsDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         // Do any additional setup after loading the view.
         tablewView.reloadData()
         
-        // Progress View Style
-        let gradientView = GradientView(frame: progress.bounds)
-        
-        //convert gradient view to image , flip horizontally and assign as the track image
-        progress.trackImage = UIImage(view: gradientView).withHorizontallyFlippedOrientation()
-        //invert the progress view
-        progress.transform = CGAffineTransform(scaleX: -1.0, y: -1.0)
-        progress.progressTintColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1.0)
-        progress.progress = 1
-        progress.layer.cornerRadius = 8.0
-        progress.layer.shadowColor = UIColor.lightGray.cgColor
-        progress.layer.shadowOpacity = 1
-        progress.layer.shadowOffset = CGSize.zero
-        progress.layer.shadowRadius = 5
-        self.progress.clipsToBounds = true
-        
-        progress.progress = 0.5
+        progressViewStyle()
+        progress.progress = 0.4
         
         tablewView.tableFooterView = UIView()
-        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         if let data = UserDefaults.standard.value(forKey:"arrayAdded") as? Data {
@@ -117,6 +102,23 @@ class RecentsDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func progressViewStyle() {
+        // Progress View Style
+        let gradientView = GradientView(frame: progress.bounds)
+        //convert gradient view to image , flip horizontally and assign as the track image
+        progress.trackImage = UIImage(view: gradientView).withHorizontallyFlippedOrientation()
+        //invert the progress view
+        progress.transform = CGAffineTransform(scaleX: -1.0, y: -1.0)
+        progress.progressTintColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1.0)
+        progress.progress = 1
+        progress.layer.cornerRadius = 8.0
+        progress.layer.shadowColor = UIColor.lightGray.cgColor
+        progress.layer.shadowOpacity = 1
+        progress.layer.shadowOffset = CGSize.zero
+        progress.layer.shadowRadius = 5
+        self.progress.clipsToBounds = true
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -141,8 +143,6 @@ extension UIImage{
         
     }
 }
-
-
 
 @IBDesignable
 class GradientView: UIView {

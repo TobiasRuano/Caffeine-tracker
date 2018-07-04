@@ -26,7 +26,6 @@ struct drink: Codable {
 let healthKitStore: HKHealthStore = HKHealthStore()
 var arrayDrinks: [drink] = []
 var arrayDrinksAdded: [drink] = []
-//var dicDrinksAdded: [Date: drink] = [:]
 
 class HomeTableViewController: UITableViewController {
     

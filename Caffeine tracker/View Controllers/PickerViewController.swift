@@ -24,40 +24,13 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var toSave: drink = drink(type: "", caffeineML: 0, caffeineOZ: 0, icon: "")
     var waterLog: Bool = true
     
+    
     override func viewDidLoad() {
+        super.viewDidLoad()
         waterLog = UserDefaults.standard.value(forKey: "logWaterBool") as! Bool
         
-        super.viewDidLoad()
-        view.backgroundColor = UIColor.clear
-        view.isOpaque = false
-        fondo.layer.cornerRadius = 8.0
-        fondo.layer.shadowColor = UIColor.lightGray.cgColor
-        fondo.layer.shadowOpacity = 1
-        fondo.layer.shadowOffset = CGSize.zero
-        fondo.layer.shadowRadius = 5
-        
-        shadowNavBar.layer.cornerRadius = 8.0
-        shadowNavBar.layer.shadowColor = UIColor.lightGray.cgColor
-        shadowNavBar.layer.shadowOpacity = 1
-        shadowNavBar.layer.shadowOffset = CGSize.zero
-        shadowNavBar.layer.shadowRadius = 5
-        
-        // Retrive data
-        let data = UserDefaults.standard.value(forKey:"tosave") as? Data
-        toSave = try! PropertyListDecoder().decode(drink.self, from: data!)
-        print(toSave)
-        titulo.text = "Drink: \(toSave.type)\nCaffeine: \(toSave.caffeineML)mg"
-        result = toSave.caffeineML
-        print(result)
-        
-        pickerView.selectRow(10, inComponent: 0, animated: false)
-        for element in arrayML{
-            if element < arrayML.count {
-                arrayML[element] = arrayML[element]*10
-            }
-        }
-        
-        // Do any additional setup after loading the view.
+        style()
+        retriveData()
     }
 
     
@@ -111,8 +84,58 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             //Taptic feedback
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
+            
             self.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    func style() {
+        view.backgroundColor = UIColor.clear
+        view.isOpaque = false
+        fondo.layer.cornerRadius = 8.0
+        fondo.layer.shadowColor = UIColor.lightGray.cgColor
+        fondo.layer.shadowOpacity = 1
+        fondo.layer.shadowOffset = CGSize.zero
+        fondo.layer.shadowRadius = 5
+        
+        shadowNavBar.layer.cornerRadius = 8.0
+        shadowNavBar.layer.shadowColor = UIColor.lightGray.cgColor
+        shadowNavBar.layer.shadowOpacity = 1
+        shadowNavBar.layer.shadowOffset = CGSize.zero
+        shadowNavBar.layer.shadowRadius = 5
+    }
+    
+    func retriveData() {
+        // Retrive data
+        let data = UserDefaults.standard.value(forKey:"tosave") as? Data
+        toSave = try! PropertyListDecoder().decode(drink.self, from: data!)
+        print(toSave)
+        titulo.text = "Drink: \(toSave.type)\nCaffeine: \(toSave.caffeineML)mg"
+        result = toSave.caffeineML
+        print(result)
+        
+        populateTableView()
+    }
+    
+    func populateTableView() {
+        pickerView.selectRow(10, inComponent: 0, animated: false)
+        for element in arrayML{
+            if element < arrayML.count {
+                arrayML[element] = arrayML[element]*10
+            }
+        }
+    }
+    
+    
+    func alerta(title: String, message: String, taptic: Bool, button1: String, button2: String, passData: Bool) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: button1, style: .default, handler: { alert -> Void in
+            
+        }))
+        alertController.addAction(UIAlertAction(title: button2, style: .cancel, handler: { alert -> Void in
+        }))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     

@@ -28,7 +28,6 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
         waterLog = UserDefaults.standard.value(forKey: "logWaterBool") as! Bool
-        
         style()
         retriveData()
     }

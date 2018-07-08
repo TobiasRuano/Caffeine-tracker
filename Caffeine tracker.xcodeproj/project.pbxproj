@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B74E61220EFDDAA0032CE09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B74E61120EFDDAA0032CE09 /* Assets.xcassets */; };
+		8B74E61420F1A03F0032CE09 /* StructsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B74E61320F1A03F0032CE09 /* StructsModels.swift */; };
 		8B7BF35E20D5F7FB003FD4C7 /* PickIconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7BF35D20D5F7FB003FD4C7 /* PickIconTableViewController.swift */; };
 		8B7BF36220D697AB003FD4C7 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7BF36120D697AB003FD4C7 /* PickerViewController.swift */; };
 		8B8E9B9420DDBF1000E619FB /* DailyCaffeineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E9B9320DDBF1000E619FB /* DailyCaffeineViewController.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		8B74E61120EFDDAA0032CE09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B74E61320F1A03F0032CE09 /* StructsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructsModels.swift; sourceTree = "<group>"; };
 		8B7BF35D20D5F7FB003FD4C7 /* PickIconTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickIconTableViewController.swift; sourceTree = "<group>"; };
 		8B7BF36120D697AB003FD4C7 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		8B8E9B9320DDBF1000E619FB /* DailyCaffeineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCaffeineViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				8BD2BB172081499400D61BDF /* Caffeine tracker.entitlements */,
 				8BD2BB032081497E00D61BDF /* AppDelegate.swift */,
 				8BA74EA620D1B25200AAC3EA /* HealthKitSetupAssistant.swift */,
+				8B74E61320F1A03F0032CE09 /* StructsModels.swift */,
 				8BD2BB212081575400D61BDF /* View Controllers */,
 				8BD2BB092081497E00D61BDF /* Main.storyboard */,
 				8BD2BB0E2081498000D61BDF /* LaunchScreen.storyboard */,
@@ -193,6 +196,7 @@
 				8B7BF36220D697AB003FD4C7 /* PickerViewController.swift in Sources */,
 				8BA74EA720D1B25200AAC3EA /* HealthKitSetupAssistant.swift in Sources */,
 				8BC6B12520D4650C006B2061 /* AddDrinkTableViewController.swift in Sources */,
+				8B74E61420F1A03F0032CE09 /* StructsModels.swift in Sources */,
 				8BD2BB1E20814F0700D61BDF /* SettingsTableViewController.swift in Sources */,
 				8BD2BB202081565700D61BDF /* InAppPurchaseTableViewController.swift in Sources */,
 				8BCFB39A20D2944C00090C2A /* RecentsDrinksViewController.swift in Sources */,

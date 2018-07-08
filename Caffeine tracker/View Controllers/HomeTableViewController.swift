@@ -9,35 +9,6 @@
 import UIKit
 import HealthKit
 
-struct drink: Codable {
-    var type: String
-    var caffeineML: Int
-    var caffeineOZ: Int
-    var icon: String
-    
-    init(type: String, caffeineML: Int, caffeineOZ: Int, icon: String) {
-        self.type = type
-        self.caffeineML = caffeineML
-        self.caffeineOZ = caffeineOZ
-        self.icon = icon
-    }
-}
-
-//Struct para pestana added!
-struct drinkWithDate: Codable {
-    var dia: Date
-    var nombre: String
-    var caffeineML: Int
-    var caffeineOZ: Int
-    
-    init(name: String, dia: Date, cafML: Int, cafOZ: Int) {
-        self.dia = dia
-        self.nombre = name
-        self.caffeineML = cafML
-        self.caffeineOZ = cafOZ
-    }
-}
-
 let healthKitStore: HKHealthStore = HKHealthStore()
 var arrayDrinks: [drink] = []
 var arrayDrinksAdded: [drink] = []
@@ -50,6 +21,18 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        checkHealthAvailability()
+        tableView.tableFooterView = UIView()
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.leftBarButtonItem = self.addDrinksButton
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
+    fileprivate func checkHealthAvailability() {
         if HKHealthStore.isHealthDataAvailable() {
             // add code to use HealthKit here...
             print("Yes, HealthKit is Available")
@@ -58,16 +41,6 @@ class HomeTableViewController: UITableViewController {
         } else {
             print("There is a problem accessing HealthKit")
         }
-
-        tableView.tableFooterView = UIView()
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.navigationItem.leftBarButtonItem = self.addDrinksButton
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
     }
 
 

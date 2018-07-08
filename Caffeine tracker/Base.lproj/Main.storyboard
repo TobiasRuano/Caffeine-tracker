@@ -36,6 +36,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwi-SA-IC8">
+                                <rect key="frame" x="19" y="146" width="337" height="41"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink:" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4CR-Mq-nKd">
+                                        <rect key="frame" x="11" y="9" width="315" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="4CR-Mq-nKd" firstAttribute="top" secondItem="gwi-SA-IC8" secondAttribute="top" constant="9" id="IXH-cj-95S"/>
+                                    <constraint firstItem="4CR-Mq-nKd" firstAttribute="leading" secondItem="gwi-SA-IC8" secondAttribute="leading" constant="11" id="Kgx-w3-z1c"/>
+                                    <constraint firstAttribute="trailing" secondItem="4CR-Mq-nKd" secondAttribute="trailing" constant="11" id="OSz-kT-DQQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="4CR-Mq-nKd" secondAttribute="bottom" constant="8" id="xIx-OZ-tXF"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnu-hj-NQw">
                                 <rect key="frame" x="0.0" y="73" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -77,30 +95,12 @@
                                     <outlet property="delegate" destination="37f-d7-0IO" id="Ws9-Ce-uAg"/>
                                 </connections>
                             </pickerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwi-SA-IC8">
-                                <rect key="frame" x="19" y="10" width="337" height="41"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink:" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4CR-Mq-nKd">
-                                        <rect key="frame" x="11" y="9" width="315" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="4CR-Mq-nKd" firstAttribute="top" secondItem="gwi-SA-IC8" secondAttribute="top" constant="9" id="IXH-cj-95S"/>
-                                    <constraint firstItem="4CR-Mq-nKd" firstAttribute="leading" secondItem="gwi-SA-IC8" secondAttribute="leading" constant="11" id="Kgx-w3-z1c"/>
-                                    <constraint firstAttribute="trailing" secondItem="4CR-Mq-nKd" secondAttribute="trailing" constant="11" id="OSz-kT-DQQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="4CR-Mq-nKd" secondAttribute="bottom" constant="8" id="xIx-OZ-tXF"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="qnu-hj-NQw" firstAttribute="trailing" secondItem="3SC-fM-NDt" secondAttribute="trailing" id="0ge-Uz-Pe7"/>
                             <constraint firstItem="gwi-SA-IC8" firstAttribute="leading" secondItem="3SC-fM-NDt" secondAttribute="leading" constant="19" id="6lF-D6-98U"/>
-                            <constraint firstItem="QPc-Yj-UHH" firstAttribute="top" secondItem="gwi-SA-IC8" secondAttribute="bottom" constant="22" id="ABH-k3-l3F"/>
+                            <constraint firstItem="QPc-Yj-UHH" firstAttribute="top" secondItem="gwi-SA-IC8" secondAttribute="top" constant="-73" id="ABH-k3-l3F"/>
                             <constraint firstItem="eZg-ec-MkS" firstAttribute="leading" secondItem="3SC-fM-NDt" secondAttribute="leading" id="EkK-zX-PIf"/>
                             <constraint firstItem="qnu-hj-NQw" firstAttribute="leading" secondItem="3SC-fM-NDt" secondAttribute="leading" id="Fcy-US-wDh"/>
                             <constraint firstItem="RyM-Ga-yN9" firstAttribute="bottom" secondItem="3SC-fM-NDt" secondAttribute="bottom" id="J6n-Pt-vMC"/>

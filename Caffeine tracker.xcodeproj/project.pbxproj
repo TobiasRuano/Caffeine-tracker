@@ -13,6 +13,7 @@
 		8B7BF36220D697AB003FD4C7 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7BF36120D697AB003FD4C7 /* PickerViewController.swift */; };
 		8B8E9B9420DDBF1000E619FB /* DailyCaffeineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E9B9320DDBF1000E619FB /* DailyCaffeineViewController.swift */; };
 		8BA74EA720D1B25200AAC3EA /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA74EA620D1B25200AAC3EA /* HealthKitSetupAssistant.swift */; };
+		8BAC94FE20F1AEC800601660 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAC94FD20F1AEC800601660 /* GradientView.swift */; };
 		8BC6B12520D4650C006B2061 /* AddDrinkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC6B12420D4650C006B2061 /* AddDrinkTableViewController.swift */; };
 		8BCFB39A20D2944C00090C2A /* RecentsDrinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFB39920D2944C00090C2A /* RecentsDrinksViewController.swift */; };
 		8BD2BB042081497E00D61BDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2BB032081497E00D61BDF /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 		8B7BF36120D697AB003FD4C7 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		8B8E9B9320DDBF1000E619FB /* DailyCaffeineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCaffeineViewController.swift; sourceTree = "<group>"; };
 		8BA74EA620D1B25200AAC3EA /* HealthKitSetupAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetupAssistant.swift; sourceTree = "<group>"; };
+		8BAC94FD20F1AEC800601660 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		8BC6B12420D4650C006B2061 /* AddDrinkTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDrinkTableViewController.swift; sourceTree = "<group>"; };
 		8BCFB39920D2944C00090C2A /* RecentsDrinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsDrinksViewController.swift; sourceTree = "<group>"; };
 		8BD2BB002081497E00D61BDF /* Caffeine tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Caffeine tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +83,7 @@
 				8BD2BB032081497E00D61BDF /* AppDelegate.swift */,
 				8BA74EA620D1B25200AAC3EA /* HealthKitSetupAssistant.swift */,
 				8B74E61320F1A03F0032CE09 /* StructsModels.swift */,
+				8BAC94FD20F1AEC800601660 /* GradientView.swift */,
 				8BD2BB212081575400D61BDF /* View Controllers */,
 				8BD2BB092081497E00D61BDF /* Main.storyboard */,
 				8BD2BB0E2081498000D61BDF /* LaunchScreen.storyboard */,
@@ -191,6 +194,7 @@
 			files = (
 				8BD2BB1C20814EF300D61BDF /* HomeTableViewController.swift in Sources */,
 				8B8E9B9420DDBF1000E619FB /* DailyCaffeineViewController.swift in Sources */,
+				8BAC94FE20F1AEC800601660 /* GradientView.swift in Sources */,
 				8B7BF35E20D5F7FB003FD4C7 /* PickIconTableViewController.swift in Sources */,
 				8BD2BB042081497E00D61BDF /* AppDelegate.swift in Sources */,
 				8B7BF36220D697AB003FD4C7 /* PickerViewController.swift in Sources */,

@@ -31,7 +31,10 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         style()
         retriveData()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        effectView()
+    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -89,7 +92,14 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
-    func style() {
+    func effectView() {
+        let number = self.fondo.layer.frame.height + 73 + 22
+        UIView.animate(withDuration: 0.2, animations: {
+            self.fondo.transform = CGAffineTransform(translationX: 0, y: -number)
+        })
+    }
+    
+    fileprivate func style() {
         view.backgroundColor = UIColor.clear
         view.isOpaque = false
         fondo.layer.cornerRadius = 8.0
@@ -105,7 +115,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         shadowNavBar.layer.shadowRadius = 5
     }
     
-    func retriveData() {
+    fileprivate func retriveData() {
         // Retrive data
         let data = UserDefaults.standard.value(forKey:"tosave") as? Data
         toSave = try! PropertyListDecoder().decode(drink.self, from: data!)
@@ -117,7 +127,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         populateTableView()
     }
     
-    func populateTableView() {
+    fileprivate  func populateTableView() {
         pickerView.selectRow(10, inComponent: 0, animated: false)
         for element in arrayML{
             if element < arrayML.count {

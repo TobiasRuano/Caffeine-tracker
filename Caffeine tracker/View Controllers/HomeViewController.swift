@@ -1,8 +1,8 @@
 //
-//  HomeTableViewController.swift
+//  ViewController.swift
 //  Caffeine tracker
 //
-//  Created by Tobias Ruano on 13/4/18.
+//  Created by Tobias Ruano on 8/7/18.
 //  Copyright © 2018 Tobias Ruano. All rights reserved.
 //
 
@@ -13,9 +13,12 @@ let healthKitStore: HKHealthStore = HKHealthStore()
 var arrayDrinks: [drink] = []
 var arrayDrinksAdded: [drink] = []
 
-class HomeTableViewController: UITableViewController {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var animatedView: UIView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addDrinksButton: UIBarButtonItem!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     var drinkAux: drink?
     
     override func viewDidLoad() {
@@ -24,8 +27,11 @@ class HomeTableViewController: UITableViewController {
         checkHealthAvailability()
         tableView.tableFooterView = UIView()
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.navigationItem.leftBarButtonItem = self.addDrinksButton
+        //self.navigationItem.rightBarButtonItem = self.editButtonItem
+//        self.navigationItem.leftBarButtonItem = self.addDrinksButton
+        
+        animatedView.layer.backgroundColor = UIColor(displayP3Red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0).cgColor
+        animatedView.layer.cornerRadius = 8.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,38 +48,37 @@ class HomeTableViewController: UITableViewController {
             print("There is a problem accessing HealthKit")
         }
     }
-
-
+    
+    
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayDrinks.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
+        
         cell.textLabel?.text = arrayDrinks[indexPath.row].type
         cell.detailTextLabel?.text = String(arrayDrinks[indexPath.row].caffeineML) + "mg of caffeine in 100ml"
         cell.imageView?.image = UIImage(named: arrayDrinks[indexPath.row].icon)
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
         print("\(arrayDrinks[indexPath.row].type) has \(arrayDrinks[indexPath.row].caffeineML)mg of caffeine in 100ml")
-        drinkAux = arrayDrinks[indexPath.row]
-        //User Defaults
+        self.drinkAux = arrayDrinks[indexPath.row]
         UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: "tosave")
         self.performSegue(withIdentifier: "ShowModalView", sender: self)
     }
     
-    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         print(arrayDrinks[indexPath.row].type)
         
         let alertController = UIAlertController(title: "Edit amount of caffeine", message: "Amount of caffeine in 100ml of \(arrayDrinks[indexPath.row].type):", preferredStyle: .alert)
@@ -97,7 +102,7 @@ class HomeTableViewController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         self.drinkAux = arrayDrinks[indexPath.row]
         UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: "tosave")
         
@@ -113,7 +118,7 @@ class HomeTableViewController: UITableViewController {
     }
     
     // Editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             
@@ -124,7 +129,7 @@ class HomeTableViewController: UITableViewController {
                 arrayDrinks.remove(at: indexPath.row);
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 
-                //Taptic feedback meterlo en la funcion alert
+                //Taptic feedback
                 let generator = UINotificationFeedbackGenerator()
                 generator.notificationOccurred(.warning)
                 
@@ -142,8 +147,27 @@ class HomeTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func editTableView(_ sender: UIBarButtonItem) {
+        let prueba = !tableView.isEditing
+        tableView.setEditing(prueba, animated: true)
+        
+        switch tableView.isEditing {
+        case true:
+            editButton.title = "Done"
+            editButton.style = .done
+        case false:
+            editButton.title = "Edit"
+            editButton.style = .plain
+        }
+    }
+    
+    
     // Rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let element = arrayDrinks[fromIndexPath.row]
         arrayDrinks.remove(at: fromIndexPath.row)
         arrayDrinks.insert(element, at: to.row)
@@ -165,7 +189,6 @@ class HomeTableViewController: UITableViewController {
     
     
     // MARK: - Navigation
- 
     @IBAction func unwindFromAddVC(_ sender: UIStoryboardSegue) {
         if sender.source is AddDrinkTableViewController {
             if let senderVC = sender.source as? AddDrinkTableViewController {
@@ -174,6 +197,41 @@ class HomeTableViewController: UITableViewController {
                     print(arrayDrinks)
                     UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: "array")
                     tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    @IBAction func unwindFromPickerView(_ sender: UIStoryboardSegue) {
+        if sender.source is PickerViewController {
+            if let senderVC = sender.source as? PickerViewController {
+                let healthManager = HealthKitSetupAssistant()
+                
+                if senderVC.seleccion != 0 {
+                    senderVC.result = (senderVC.seleccion * senderVC.toSave.caffeineML) / 100
+                }else {
+                    senderVC.seleccion = 100
+                }
+                if senderVC.result != 0 {
+                    senderVC.toSave.caffeineML = senderVC.result
+                    let dia = Date()
+                    healthManager.submitCaffeine(CaffeineAmount: senderVC.result, WaterAmount: senderVC.seleccion, forDate: dia, logWater: senderVC.waterLog)
+                    arrayDrinksAdded.append(senderVC.toSave)
+                    UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: "arrayAdded")
+                    print(senderVC.toSave)
+                    print(arrayDrinksAdded)
+                    
+                    UIView.animate(withDuration: 0.5, animations: {
+                        self.animatedView.transform = CGAffineTransform(translationX: 0, y: 70)
+                    })
+                    //Taptic feedback
+                    let generator = UINotificationFeedbackGenerator()
+                    generator.notificationOccurred(.success)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
+                        UIView.animate(withDuration: 0.5, animations: {
+                            self.animatedView.transform = CGAffineTransform.identity
+                        })
+                    }
                 }
             }
         }

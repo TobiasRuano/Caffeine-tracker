@@ -10,7 +10,7 @@ import UIKit
 
 class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    weak var delegate: HomeTableViewController?
+    weak var delegate: HomeViewController?
     
     @IBOutlet weak var titulo: UILabel!
     @IBOutlet weak var fondo: UIView!
@@ -30,6 +30,10 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         waterLog = UserDefaults.standard.value(forKey: "logWaterBool") as! Bool
         style()
         retriveData()
+        
+        if toSave.caffeineML >= 200 {
+            fondo.layer.backgroundColor = UIColor.red.cgColor
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -65,31 +69,6 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func Done(_ sender: UIBarButtonItem) {
-        let healthManager = HealthKitSetupAssistant()
-        
-        if seleccion != 0 {
-            result = (seleccion * toSave.caffeineML) / 100
-        }else {
-            seleccion = 100
-        }
-        if result != 0 {
-            self.toSave.caffeineML = result
-            let dia = Date()
-            healthManager.submitCaffeine(CaffeineAmount: result, WaterAmount: seleccion, forDate: dia, logWater: waterLog)
-            arrayDrinksAdded.append(self.toSave)
-            UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: "arrayAdded")
-            print(self.toSave)
-            print(arrayDrinksAdded)
-            
-            //Taptic feedback
-            let generator = UINotificationFeedbackGenerator()
-            generator.notificationOccurred(.success)
-            
-            self.dismiss(animated: true, completion: nil)
-        }
     }
     
     func effectView() {
@@ -135,16 +114,4 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             }
         }
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

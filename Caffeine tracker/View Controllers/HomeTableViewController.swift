@@ -23,6 +23,21 @@ struct drink: Codable {
     }
 }
 
+//Struct para pestana added!
+struct drinkWithDate: Codable {
+    var dia: Date
+    var nombre: String
+    var caffeineML: Int
+    var caffeineOZ: Int
+    
+    init(name: String, dia: Date, cafML: Int, cafOZ: Int) {
+        self.dia = dia
+        self.nombre = name
+        self.caffeineML = cafML
+        self.caffeineOZ = cafOZ
+    }
+}
+
 let healthKitStore: HKHealthStore = HKHealthStore()
 var arrayDrinks: [drink] = []
 var arrayDrinksAdded: [drink] = []
@@ -113,15 +128,15 @@ class HomeTableViewController: UITableViewController {
         self.drinkAux = arrayDrinks[indexPath.row]
         UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: "tosave")
         
-        let closeAction = UIContextualAction(style: .normal, title:  "Add", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            print("CloseAction ...")
+        let AddAction = UIContextualAction(style: .normal, title:  "Add", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            print("AddAction ...")
             self.performSegue(withIdentifier: "ShowModalView", sender: self)
             
             self.alerta(title: "Do you?", message: "Do you want to add \(arrayDrinks[indexPath.row].caffeineML)mg of caffeine from \(arrayDrinks[indexPath.row].type)", taptic: true, button1: "Yes", button2: "No", passData: true)
             success(true)
         })
-        closeAction.backgroundColor = UIColor(displayP3Red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
-        return UISwipeActionsConfiguration(actions: [closeAction])
+        AddAction.backgroundColor = UIColor(displayP3Red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
+        return UISwipeActionsConfiguration(actions: [AddAction])
     }
     
     // Editing the table view.

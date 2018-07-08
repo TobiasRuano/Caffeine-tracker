@@ -19,6 +19,7 @@ class PickIconTableViewController: UITableViewController {
     @IBOutlet weak var cell5: UITableViewCell!
     @IBOutlet weak var cell6: UITableViewCell!
     @IBOutlet weak var cell7: UITableViewCell!
+    @IBOutlet weak var cell8: UITableViewCell!
     
     var objectName: String = "Latte"
     var caffeine: String = "100mg"
@@ -31,19 +32,21 @@ class PickIconTableViewController: UITableViewController {
         }
         
         if prueba == "Starbucks" {
-            checkMark(activeCell: cell1, inActiveCell1: cell2, inActiveCell2: cell3, inActiveCell3: cell4, inActiveCell4: cell5, inActiveCell5: cell6, inActiveCell6: cell7)
-        }else if prueba == "BottleWater" {
-            checkMark(activeCell: cell2, inActiveCell1: cell1, inActiveCell2: cell3, inActiveCell3: cell4, inActiveCell4: cell5, inActiveCell5: cell6, inActiveCell6: cell7)
+            checkMark(activeCell: cell1, inActiveCell1: cell2, inActiveCell2: cell3, inActiveCell3: cell4, inActiveCell4: cell5, inActiveCell5: cell6, inActiveCell6: cell7, inActiveCell7: cell8!)
         }else if prueba == "Coffee" {
-            checkMark(activeCell: cell3, inActiveCell1: cell1, inActiveCell2: cell2, inActiveCell3: cell4, inActiveCell4: cell5, inActiveCell5: cell6, inActiveCell6: cell7)
-        }else if prueba == "Can" {
-            checkMark(activeCell: cell4, inActiveCell1: cell1, inActiveCell2: cell2, inActiveCell3: cell3, inActiveCell4: cell5, inActiveCell5: cell6, inActiveCell6: cell7)
-        }else if prueba == "milkshake" {
-            checkMark(activeCell: cell5, inActiveCell1: cell1, inActiveCell2: cell2, inActiveCell3: cell3, inActiveCell4: cell4, inActiveCell5: cell6, inActiveCell6: cell7)
+            checkMark(activeCell: cell2, inActiveCell1: cell1, inActiveCell2: cell3, inActiveCell3: cell4, inActiveCell4: cell5, inActiveCell5: cell6, inActiveCell6: cell7, inActiveCell7: cell8!)
         }else if prueba == "Cafe" {
-            checkMark(activeCell: cell6, inActiveCell1: cell1, inActiveCell2: cell2, inActiveCell3: cell3, inActiveCell4: cell4, inActiveCell5: cell5, inActiveCell6: cell7)
+            checkMark(activeCell: cell3, inActiveCell1: cell1, inActiveCell2: cell2, inActiveCell3: cell4, inActiveCell4: cell5, inActiveCell5: cell6, inActiveCell6: cell7, inActiveCell7: cell8!)
         }else if prueba == "cafe3" {
-            checkMark(activeCell: cell7, inActiveCell1: cell1, inActiveCell2: cell2, inActiveCell3: cell3, inActiveCell4: cell4, inActiveCell5: cell5, inActiveCell6: cell6)
+            checkMark(activeCell: cell4, inActiveCell1: cell1, inActiveCell2: cell2, inActiveCell3: cell3, inActiveCell4: cell5, inActiveCell5: cell6, inActiveCell6: cell7, inActiveCell7: cell8!)
+        }else if prueba == "TeaCup" {
+            checkMark(activeCell: cell5, inActiveCell1: cell1, inActiveCell2: cell2, inActiveCell3: cell3, inActiveCell4: cell4, inActiveCell5: cell6, inActiveCell6: cell7, inActiveCell7: cell8!)
+        }else if prueba == "BottleWater" {
+            checkMark(activeCell: cell6, inActiveCell1: cell1, inActiveCell2: cell2, inActiveCell3: cell3, inActiveCell4: cell4, inActiveCell5: cell5, inActiveCell6: cell7, inActiveCell7: cell8!)
+        }else if prueba == "Can" {
+            checkMark(activeCell: cell7, inActiveCell1: cell1, inActiveCell2: cell2, inActiveCell3: cell3, inActiveCell4: cell4, inActiveCell5: cell5, inActiveCell6: cell6, inActiveCell7: cell8!)
+        }else if prueba == "milkshake" {
+            checkMark(activeCell: cell8!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell3!, inActiveCell4: cell4!, inActiveCell5: cell5!, inActiveCell6: cell6!, inActiveCell7: cell7!)
         }
 
         // Uncomment the following line to preserve selection between presentations
@@ -63,7 +66,7 @@ class PickIconTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 7
+        return 8
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -72,63 +75,58 @@ class PickIconTableViewController: UITableViewController {
         if indexPath.section == 0 && indexPath.row == 0 {
             tableView.deselectRow(at: indexPath, animated: true)
             
-            checkMark(activeCell: cell1!, inActiveCell1: cell2!, inActiveCell2: cell3!, inActiveCell3: cell4!, inActiveCell4: cell5!, inActiveCell5: cell6!, inActiveCell6: cell7!)
+            checkMark(activeCell: cell1!, inActiveCell1: cell2!, inActiveCell2: cell3!, inActiveCell3: cell4!, inActiveCell4: cell5!, inActiveCell5: cell6!, inActiveCell6: cell7!, inActiveCell7: cell8!)
             prueba = "Starbucks"
-            saveChoice(texto: prueba)
-            
         }else if indexPath.section == 0 && indexPath.row == 1 {
             tableView.deselectRow(at: indexPath, animated: true)
             
-            checkMark(activeCell: cell2!, inActiveCell1: cell1!, inActiveCell2: cell3!, inActiveCell3: cell4!, inActiveCell4: cell5!, inActiveCell5: cell6!, inActiveCell6: cell7!)
-            prueba = "BottleWater"
-            saveChoice(texto: prueba)
-            
+            checkMark(activeCell: cell2!, inActiveCell1: cell1!, inActiveCell2: cell3!, inActiveCell3: cell4!, inActiveCell4: cell5!, inActiveCell5: cell6!, inActiveCell6: cell7!, inActiveCell7: cell8!)
+            prueba = "Coffee"
         }else if indexPath.section == 0 && indexPath.row == 2 {
             tableView.deselectRow(at: indexPath, animated: true)
             
-            checkMark(activeCell: cell3!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell4!, inActiveCell4: cell5!, inActiveCell5: cell6!, inActiveCell6: cell7!)
-            prueba = "Coffee"
-            saveChoice(texto: prueba)
-            
+            checkMark(activeCell: cell3!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell4!, inActiveCell4: cell5!, inActiveCell5: cell6!, inActiveCell6: cell7!, inActiveCell7: cell8!)
+            prueba = "Cafe"
         }else if indexPath.section == 0 && indexPath.row == 3 {
             tableView.deselectRow(at: indexPath, animated: true)
             
-            checkMark(activeCell: cell4!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell3!, inActiveCell4: cell5!, inActiveCell5: cell6!, inActiveCell6: cell7!)
-            prueba = "Can"
-            saveChoice(texto: prueba)
-            
+            checkMark(activeCell: cell4!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell3!, inActiveCell4: cell5!, inActiveCell5: cell6!, inActiveCell6: cell7!, inActiveCell7: cell8!)
+            prueba = "cafe3"
         }else if indexPath.section == 0 && indexPath.row == 4 {
             tableView.deselectRow(at: indexPath, animated: true)
             
-            checkMark(activeCell: cell5!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell3!, inActiveCell4: cell4!, inActiveCell5: cell6!, inActiveCell6: cell7!)
-            prueba = "milkshake"
-            saveChoice(texto: prueba)
+            checkMark(activeCell: cell5!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell3!, inActiveCell4: cell4!, inActiveCell5: cell6!, inActiveCell6: cell7!, inActiveCell7: cell8!)
+            prueba = "TeaCup"
         }else if indexPath.section == 0 && indexPath.row == 5 {
             tableView.deselectRow(at: indexPath, animated: true)
             
-            checkMark(activeCell: cell6!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell3!, inActiveCell4: cell4!, inActiveCell5: cell5!, inActiveCell6: cell7!)
-            prueba = "Cafe"
-            saveChoice(texto: prueba)
+            checkMark(activeCell: cell6!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell3!, inActiveCell4: cell4!, inActiveCell5: cell5!, inActiveCell6: cell7!, inActiveCell7: cell8!)
+            prueba = "BottleWater"
         }else if indexPath.section == 0 && indexPath.row == 6 {
             tableView.deselectRow(at: indexPath, animated: true)
             
-            checkMark(activeCell: cell7!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell3!, inActiveCell4: cell4!, inActiveCell5: cell5!, inActiveCell6: cell6!)
-            prueba = "cafe3"
-            saveChoice(texto: prueba)
+            checkMark(activeCell: cell7!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell3!, inActiveCell4: cell4!, inActiveCell5: cell5!, inActiveCell6: cell6!, inActiveCell7: cell8!)
+            prueba = "Can"
+        }else if indexPath.section == 0 && indexPath.row == 7 {
+            checkMark(activeCell: cell8!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell3!, inActiveCell4: cell4!, inActiveCell5: cell5!, inActiveCell6: cell6!, inActiveCell7: cell7!)
+            prueba = "milkshake"
         }
+        
+        saveChoice(texto: prueba)
+        _ = navigationController?.popToRootViewController(animated: true)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         cell.textLabel?.text = objectName
-        cell.detailTextLabel?.text = String(caffeine)
+        cell.detailTextLabel?.text = "\(String(caffeine)) of caffeine in 100ml"
         
         return cell
     }
     
     // MARK: Other Functions
-    func checkMark(activeCell: UITableViewCell, inActiveCell1: UITableViewCell, inActiveCell2: UITableViewCell, inActiveCell3: UITableViewCell, inActiveCell4: UITableViewCell, inActiveCell5: UITableViewCell, inActiveCell6: UITableViewCell) {
+    func checkMark(activeCell: UITableViewCell, inActiveCell1: UITableViewCell, inActiveCell2: UITableViewCell, inActiveCell3: UITableViewCell, inActiveCell4: UITableViewCell, inActiveCell5: UITableViewCell, inActiveCell6: UITableViewCell, inActiveCell7: UITableViewCell) {
         activeCell.accessoryType = .checkmark
         inActiveCell1.accessoryType = .none
         inActiveCell2.accessoryType = .none
@@ -136,14 +134,10 @@ class PickIconTableViewController: UITableViewController {
         inActiveCell4.accessoryType = .none
         inActiveCell5.accessoryType = .none
         inActiveCell6.accessoryType = .none
+        inActiveCell7.accessoryType = .none
     }
     
     func saveChoice(texto: String) {
         UserDefaults.standard.set(texto, forKey: "CellForCheckmark")
     }
-    
-    
-    /*
-    // MARK: - Navigation
-    */
 }

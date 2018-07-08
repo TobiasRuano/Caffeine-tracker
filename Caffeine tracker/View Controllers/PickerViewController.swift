@@ -67,7 +67,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func Done(_ sender: UIBarButtonItem) {
         let healthManager = HealthKitSetupAssistant()
-        //no guarda correctamente cuando no se mueve la seleccion del picker
+        
         if seleccion != 0 {
             result = (seleccion * toSave.caffeineML) / 100
         }else {
@@ -75,7 +75,8 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
         if result != 0 {
             self.toSave.caffeineML = result
-            healthManager.submitCaffeine(CaffeineAmount: result, WaterAmount: seleccion, forDate: Date(), logWater: waterLog)
+            let dia = Date()
+            healthManager.submitCaffeine(CaffeineAmount: result, WaterAmount: seleccion, forDate: dia, logWater: waterLog)
             arrayDrinksAdded.append(self.toSave)
             UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: "arrayAdded")
             print(self.toSave)
@@ -124,18 +125,6 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 arrayML[element] = arrayML[element]*10
             }
         }
-    }
-    
-    
-    func alerta(title: String, message: String, taptic: Bool, button1: String, button2: String, passData: Bool) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: button1, style: .default, handler: { alert -> Void in
-            
-        }))
-        alertController.addAction(UIAlertAction(title: button2, style: .cancel, handler: { alert -> Void in
-        }))
-        
-        self.present(alertController, animated: true, completion: nil)
     }
     
     

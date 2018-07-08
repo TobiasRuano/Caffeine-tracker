@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B74E61220EFDDAA0032CE09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B74E61120EFDDAA0032CE09 /* Assets.xcassets */; };
 		8B7BF35E20D5F7FB003FD4C7 /* PickIconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7BF35D20D5F7FB003FD4C7 /* PickIconTableViewController.swift */; };
 		8B7BF36220D697AB003FD4C7 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7BF36120D697AB003FD4C7 /* PickerViewController.swift */; };
 		8B8E9B9420DDBF1000E619FB /* DailyCaffeineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E9B9320DDBF1000E619FB /* DailyCaffeineViewController.swift */; };
@@ -15,7 +16,6 @@
 		8BCFB39A20D2944C00090C2A /* RecentsDrinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFB39920D2944C00090C2A /* RecentsDrinksViewController.swift */; };
 		8BD2BB042081497E00D61BDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2BB032081497E00D61BDF /* AppDelegate.swift */; };
 		8BD2BB0B2081497E00D61BDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD2BB092081497E00D61BDF /* Main.storyboard */; };
-		8BD2BB0D2081498000D61BDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BD2BB0C2081498000D61BDF /* Assets.xcassets */; };
 		8BD2BB102081498000D61BDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD2BB0E2081498000D61BDF /* LaunchScreen.storyboard */; };
 		8BD2BB1A2081499400D61BDF /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BD2BB192081499400D61BDF /* HealthKit.framework */; };
 		8BD2BB1C20814EF300D61BDF /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2BB1B20814EF300D61BDF /* HomeTableViewController.swift */; };
@@ -24,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B74E61120EFDDAA0032CE09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B7BF35D20D5F7FB003FD4C7 /* PickIconTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickIconTableViewController.swift; sourceTree = "<group>"; };
 		8B7BF36120D697AB003FD4C7 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		8B8E9B9320DDBF1000E619FB /* DailyCaffeineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCaffeineViewController.swift; sourceTree = "<group>"; };
@@ -33,7 +34,6 @@
 		8BD2BB002081497E00D61BDF /* Caffeine tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Caffeine tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BD2BB032081497E00D61BDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BD2BB0A2081497E00D61BDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8BD2BB0C2081498000D61BDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BD2BB0F2081498000D61BDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BD2BB112081498000D61BDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BD2BB172081499400D61BDF /* Caffeine tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Caffeine tracker.entitlements"; sourceTree = "<group>"; };
@@ -80,8 +80,8 @@
 				8BA74EA620D1B25200AAC3EA /* HealthKitSetupAssistant.swift */,
 				8BD2BB212081575400D61BDF /* View Controllers */,
 				8BD2BB092081497E00D61BDF /* Main.storyboard */,
-				8BD2BB0C2081498000D61BDF /* Assets.xcassets */,
 				8BD2BB0E2081498000D61BDF /* LaunchScreen.storyboard */,
+				8B74E61120EFDDAA0032CE09 /* Assets.xcassets */,
 				8BD2BB112081498000D61BDF /* Info.plist */,
 			);
 			path = "Caffeine tracker";
@@ -174,7 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BD2BB102081498000D61BDF /* LaunchScreen.storyboard in Resources */,
-				8BD2BB0D2081498000D61BDF /* Assets.xcassets in Resources */,
+				8B74E61220EFDDAA0032CE09 /* Assets.xcassets in Resources */,
 				8BD2BB0B2081497E00D61BDF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

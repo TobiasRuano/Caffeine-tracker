@@ -27,7 +27,7 @@ class HealthKitSetupAssistant {
             logWaterBool = UserDefaults.standard.value(forKey: "logWaterBool") as! Bool
         }
         
-        healthStore.requestAuthorization(toShare: dataTypesToWrite, read: dataTypesToRead, completion: { (success, error) in
+        healthStore.requestAuthorization(toShare: dataTypesToWrite, read: nil, completion: { (success, error) in
             if success {
                 print("Authorization complete")
             } else {

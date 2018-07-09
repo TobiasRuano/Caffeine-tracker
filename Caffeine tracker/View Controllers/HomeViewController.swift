@@ -9,7 +9,6 @@
 import UIKit
 import HealthKit
 
-let healthKitStore: HKHealthStore = HKHealthStore()
 var arrayDrinks: [drink] = []
 var arrayDrinksAdded: [drink] = []
 
@@ -20,15 +19,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var addDrinksButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
     var drinkAux: drink?
+    //var hasPurchasedApp = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         checkHealthAvailability()
         tableView.tableFooterView = UIView()
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        //self.navigationItem.rightBarButtonItem = self.editButtonItem
-//        self.navigationItem.leftBarButtonItem = self.addDrinksButton
         
         animatedView.layer.backgroundColor = UIColor(displayP3Red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0).cgColor
         animatedView.layer.cornerRadius = 8.0
@@ -51,7 +48,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     // MARK: - Table view data source
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -84,7 +80,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let alertController = UIAlertController(title: "Edit amount of caffeine", message: "Amount of caffeine in 100ml of \(arrayDrinks[indexPath.row].type):", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Done", style: .default, handler: { alert -> Void in
             let textField = alertController.textFields![0] as UITextField
-            // do something with textField
             
             if let number: Int = Int(textField.text!) {
                 arrayDrinks[indexPath.row].caffeineML = number
@@ -221,19 +216,23 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     print(senderVC.toSave)
                     print(arrayDrinksAdded)
                     
-                    UIView.animate(withDuration: 0.5, animations: {
-                        self.animatedView.transform = CGAffineTransform(translationX: 0, y: 70)
-                    })
-                    //Taptic feedback
-                    let generator = UINotificationFeedbackGenerator()
-                    generator.notificationOccurred(.success)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
-                        UIView.animate(withDuration: 0.5, animations: {
-                            self.animatedView.transform = CGAffineTransform.identity
-                        })
-                    }
+                    animateViewAndTapticFeedback()
                 }
             }
+        }
+    }
+    
+    func animateViewAndTapticFeedback() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.animatedView.transform = CGAffineTransform(translationX: 0, y: 70)
+        })
+        //Taptic feedback
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.animatedView.transform = CGAffineTransform.identity
+            })
         }
     }
     

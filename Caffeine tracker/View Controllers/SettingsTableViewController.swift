@@ -12,7 +12,6 @@ import MessageUI
 class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var maxDailyCaf: UILabel!
-    
     @IBOutlet weak var waterLogSwitch: UISwitch!
     var logWater: Bool = false
     var unitML: Bool = true

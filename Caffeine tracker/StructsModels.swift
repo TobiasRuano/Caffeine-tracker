@@ -36,4 +36,3 @@ struct drinkWithDate: Codable {
         self.caffeineOZ = cafOZ
     }
 }
-

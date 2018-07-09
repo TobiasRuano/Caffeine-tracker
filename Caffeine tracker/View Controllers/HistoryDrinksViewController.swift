@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecentsDrinksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var yesterdayCaffeine: UILabel!
     @IBOutlet weak var lastWeekCaffeine: UILabel!

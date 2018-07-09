@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B27BC7620F29D250090C5A9 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B27BC7420F29D250090C5A9 /* Home.storyboard */; };
+		8B27BC7820F29D630090C5A9 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B27BC7720F29D630090C5A9 /* History.storyboard */; };
+		8B27BC7B20F29D7F0090C5A9 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B27BC7920F29D7F0090C5A9 /* Settings.storyboard */; };
 		8B74E61220EFDDAA0032CE09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B74E61120EFDDAA0032CE09 /* Assets.xcassets */; };
 		8B74E61420F1A03F0032CE09 /* StructsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B74E61320F1A03F0032CE09 /* StructsModels.swift */; };
 		8B7BF35E20D5F7FB003FD4C7 /* PickIconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7BF35D20D5F7FB003FD4C7 /* PickIconTableViewController.swift */; };
@@ -16,7 +19,7 @@
 		8BA74EA720D1B25200AAC3EA /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA74EA620D1B25200AAC3EA /* HealthKitSetupAssistant.swift */; };
 		8BAC94FE20F1AEC800601660 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAC94FD20F1AEC800601660 /* GradientView.swift */; };
 		8BC6B12520D4650C006B2061 /* AddDrinkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC6B12420D4650C006B2061 /* AddDrinkTableViewController.swift */; };
-		8BCFB39A20D2944C00090C2A /* RecentsDrinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFB39920D2944C00090C2A /* RecentsDrinksViewController.swift */; };
+		8BCFB39A20D2944C00090C2A /* HistoryDrinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFB39920D2944C00090C2A /* HistoryDrinksViewController.swift */; };
 		8BD2BB042081497E00D61BDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2BB032081497E00D61BDF /* AppDelegate.swift */; };
 		8BD2BB0B2081497E00D61BDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD2BB092081497E00D61BDF /* Main.storyboard */; };
 		8BD2BB102081498000D61BDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD2BB0E2081498000D61BDF /* LaunchScreen.storyboard */; };
@@ -26,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B27BC7520F29D250090C5A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Caffeine tracker/Base.lproj/Home.storyboard"; sourceTree = "<group>"; };
+		8B27BC7720F29D630090C5A9 /* History.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
+		8B27BC7A20F29D7F0090C5A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Caffeine tracker/Base.lproj/Settings.storyboard"; sourceTree = "<group>"; };
 		8B74E61120EFDDAA0032CE09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B74E61320F1A03F0032CE09 /* StructsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructsModels.swift; sourceTree = "<group>"; };
 		8B7BF35D20D5F7FB003FD4C7 /* PickIconTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickIconTableViewController.swift; sourceTree = "<group>"; };
@@ -35,7 +41,7 @@
 		8BA74EA620D1B25200AAC3EA /* HealthKitSetupAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetupAssistant.swift; sourceTree = "<group>"; };
 		8BAC94FD20F1AEC800601660 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		8BC6B12420D4650C006B2061 /* AddDrinkTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDrinkTableViewController.swift; sourceTree = "<group>"; };
-		8BCFB39920D2944C00090C2A /* RecentsDrinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsDrinksViewController.swift; sourceTree = "<group>"; };
+		8BCFB39920D2944C00090C2A /* HistoryDrinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDrinksViewController.swift; sourceTree = "<group>"; };
 		8BD2BB002081497E00D61BDF /* Caffeine tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Caffeine tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BD2BB032081497E00D61BDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BD2BB0A2081497E00D61BDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,6 +65,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B27BC7C20F29E070090C5A9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8BD2BB092081497E00D61BDF /* Main.storyboard */,
+				8B27BC7420F29D250090C5A9 /* Home.storyboard */,
+				8B27BC7720F29D630090C5A9 /* History.storyboard */,
+				8B27BC7920F29D7F0090C5A9 /* Settings.storyboard */,
+				8BD2BB0E2081498000D61BDF /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		8BD2BAF72081497E00D61BDF = {
 			isa = PBXGroup;
 			children = (
@@ -85,8 +103,7 @@
 				8B74E61320F1A03F0032CE09 /* StructsModels.swift */,
 				8BAC94FD20F1AEC800601660 /* GradientView.swift */,
 				8BD2BB212081575400D61BDF /* View Controllers */,
-				8BD2BB092081497E00D61BDF /* Main.storyboard */,
-				8BD2BB0E2081498000D61BDF /* LaunchScreen.storyboard */,
+				8B27BC7C20F29E070090C5A9 /* Storyboards */,
 				8B74E61120EFDDAA0032CE09 /* Assets.xcassets */,
 				8BD2BB112081498000D61BDF /* Info.plist */,
 			);
@@ -108,7 +125,7 @@
 				8B7BF36120D697AB003FD4C7 /* PickerViewController.swift */,
 				8BC6B12420D4650C006B2061 /* AddDrinkTableViewController.swift */,
 				8B7BF35D20D5F7FB003FD4C7 /* PickIconTableViewController.swift */,
-				8BCFB39920D2944C00090C2A /* RecentsDrinksViewController.swift */,
+				8BCFB39920D2944C00090C2A /* HistoryDrinksViewController.swift */,
 				8BD2BB1D20814F0700D61BDF /* SettingsTableViewController.swift */,
 				8B8E9B9320DDBF1000E619FB /* DailyCaffeineViewController.swift */,
 				8BD2BB1F2081565700D61BDF /* InAppPurchaseTableViewController.swift */,
@@ -182,6 +199,9 @@
 				8BD2BB102081498000D61BDF /* LaunchScreen.storyboard in Resources */,
 				8B74E61220EFDDAA0032CE09 /* Assets.xcassets in Resources */,
 				8BD2BB0B2081497E00D61BDF /* Main.storyboard in Resources */,
+				8B27BC7B20F29D7F0090C5A9 /* Settings.storyboard in Resources */,
+				8B27BC7820F29D630090C5A9 /* History.storyboard in Resources */,
+				8B27BC7620F29D250090C5A9 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,13 +223,29 @@
 				8B74E61420F1A03F0032CE09 /* StructsModels.swift in Sources */,
 				8BD2BB1E20814F0700D61BDF /* SettingsTableViewController.swift in Sources */,
 				8BD2BB202081565700D61BDF /* InAppPurchaseTableViewController.swift in Sources */,
-				8BCFB39A20D2944C00090C2A /* RecentsDrinksViewController.swift in Sources */,
+				8BCFB39A20D2944C00090C2A /* HistoryDrinksViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		8B27BC7420F29D250090C5A9 /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B27BC7520F29D250090C5A9 /* Base */,
+			);
+			name = Home.storyboard;
+			sourceTree = "<group>";
+		};
+		8B27BC7920F29D7F0090C5A9 /* Settings.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B27BC7A20F29D7F0090C5A9 /* Base */,
+			);
+			name = Settings.storyboard;
+			sourceTree = "<group>";
+		};
 		8BD2BB092081497E00D61BDF /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

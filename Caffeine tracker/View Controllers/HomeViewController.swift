@@ -137,8 +137,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.present(alert, animated: true, completion: {
                 print("ActionSheet Shown")
             })
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
     

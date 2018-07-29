@@ -8,8 +8,6 @@
 
 import UIKit
 
-var prueba: String = "Starbucks"
-
 class PickIconTableViewController: UITableViewController {
 
     @IBOutlet weak var cell1: UITableViewCell!

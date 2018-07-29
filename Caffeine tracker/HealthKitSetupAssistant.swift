@@ -20,7 +20,7 @@ class HealthKitSetupAssistant {
     public func requestPermissions() {
         let dataTypesToWrite : Set = [HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine)!,
                                HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryWater)!]
-        let dataTypesToRead : Set = [HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine)!]
+        //let dataTypesToRead : Set = [HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine)!]
         
         var logWaterBool: Bool = true
         if UserDefaults.standard.value(forKey: "logWaterBool") != nil {

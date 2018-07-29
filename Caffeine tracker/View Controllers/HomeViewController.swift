@@ -9,9 +9,6 @@
 import UIKit
 import HealthKit
 
-var arrayDrinks: [drink] = []
-var arrayDrinksAdded: [drink] = []
-
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var animatedView: UIView!
@@ -190,6 +187,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     print(arrayDrinks)
                     UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: "array")
                     tableView.reloadData()
+                    
+//                    let generator = UINotificationFeedbackGenerator()
+//                    generator.notificationOccurred(.error)
                 }
             }
         }

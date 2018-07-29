@@ -36,3 +36,9 @@ struct drinkWithDate: Codable {
         self.caffeineOZ = cafOZ
     }
 }
+
+//Global Variables
+var arrayDrinks: [drink] = []
+var arrayDrinksAdded: [drink] = []
+
+var prueba: String = "Starbucks"

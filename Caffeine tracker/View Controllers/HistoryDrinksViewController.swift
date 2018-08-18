@@ -28,7 +28,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     
     
     override func viewWillAppear(_ animated: Bool) {
-        if let data = UserDefaults.standard.value(forKey:"arrayAdded") as? Data {
+        if let data = UserDefaults.standard.value(forKey: arrayDrinksAddedKey) as? Data {
             let ArrayAddedData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
             arrayDrinksAdded = ArrayAddedData!
         }
@@ -56,7 +56,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let data = UserDefaults.standard.value(forKey:"arrayAdded") as? Data {
+        if let data = UserDefaults.standard.value(forKey: arrayDrinksAddedKey) as? Data {
             let ArrayAddedData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
             arrayDrinksAdded = ArrayAddedData!
         }
@@ -81,7 +81,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
                 print("User click Delete button")
                 let indice = (arrayDrinksAdded.count - (indexPath.row + 1))
                 arrayDrinksAdded.remove(at: indice);
-                UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: "arrayAdded")
+                UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: arrayDrinksAddedKey)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 
                 //Taptic feedback

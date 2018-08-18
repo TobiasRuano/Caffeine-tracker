@@ -24,13 +24,16 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
         
         tableView.keyboardDismissMode = .interactive
         UserDefaults.standard.set("Starbucks", forKey: "CellForCheckmark")
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.name.becomeFirstResponder()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if UserDefaults.standard.string(forKey: "CellForCheckmark") != nil {
             iconName = UserDefaults.standard.string(forKey: "CellForCheckmark")!
         }
-        
         iconCell.imageView?.image = UIImage(named: iconName)
     }
     
@@ -58,12 +61,20 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
+    
+    //MARK: - Controlling the Keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == name {
+            textField.resignFirstResponder()
+            caffeineAmount.becomeFirstResponder()
+        }
+        return true
+    }
 
     
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("Hola")
         
         if let identifier = segue.identifier {
             if identifier == "unwind" {
@@ -82,7 +93,6 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
                     self.dismiss(animated: true, completion: nil)
                 }
             }else if identifier == "icon" {
-                print("Segue Funciona")
                 let vc = segue.destination as! PickIconTableViewController
                 if name.text != "" {
                     vc.objectName = name.text!

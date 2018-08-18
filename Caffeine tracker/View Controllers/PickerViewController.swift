@@ -12,6 +12,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     weak var delegate: HomeViewController?
     
+    @IBOutlet weak var blurBackground: UIVisualEffectView!
     @IBOutlet weak var titulo: UILabel!
     @IBOutlet weak var fondo: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
@@ -30,6 +31,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         waterLog = UserDefaults.standard.value(forKey: "logWaterBool") as! Bool
         style()
         retriveData()
+        blurBackground.alpha = 0
         
         if toSave.caffeineML >= 200 {
             fondo.layer.backgroundColor = UIColor.red.cgColor
@@ -38,6 +40,15 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     override func viewDidAppear(_ animated: Bool) {
         effectView()
+        UIView.animate(withDuration: 0.1) {
+            self.blurBackground.alpha = 1
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UIView.animate(withDuration: 0.01) {
+            self.blurBackground.alpha = 0
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -96,7 +107,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     fileprivate func retriveData() {
         // Retrive data
-        let data = UserDefaults.standard.value(forKey:"tosave") as? Data
+        let data = UserDefaults.standard.value(forKey: toSaveKey) as? Data
         toSave = try! PropertyListDecoder().decode(drink.self, from: data!)
         print(toSave)
         titulo.text = "Drink: \(toSave.type)\nCaffeine: \(toSave.caffeineML)mg"

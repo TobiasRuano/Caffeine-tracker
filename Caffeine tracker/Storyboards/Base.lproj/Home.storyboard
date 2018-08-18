@@ -133,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQO-Ty-D0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2329" y="-397"/>
+            <point key="canvasLocation" x="2328.8000000000002" y="-397.53694581280791"/>
         </scene>
         <!--Picker View Controller-->
         <scene sceneID="Fae-eu-Mkt">
@@ -143,6 +143,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iif-ZJ-Gdh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WIN-WA-uNQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwi-SA-IC8">
                                 <rect key="frame" x="19" y="112" width="337" height="41"/>
                                 <subviews>
@@ -208,6 +216,7 @@
                             <constraint firstItem="qnu-hj-NQw" firstAttribute="trailing" secondItem="3SC-fM-NDt" secondAttribute="trailing" id="0ge-Uz-Pe7"/>
                             <constraint firstItem="gwi-SA-IC8" firstAttribute="leading" secondItem="3SC-fM-NDt" secondAttribute="leading" constant="19" id="6lF-D6-98U"/>
                             <constraint firstItem="QPc-Yj-UHH" firstAttribute="top" secondItem="gwi-SA-IC8" secondAttribute="top" constant="-73" id="ABH-k3-l3F"/>
+                            <constraint firstAttribute="bottom" secondItem="Iif-ZJ-Gdh" secondAttribute="bottom" id="Agg-sd-EK9"/>
                             <constraint firstItem="eZg-ec-MkS" firstAttribute="leading" secondItem="3SC-fM-NDt" secondAttribute="leading" id="EkK-zX-PIf"/>
                             <constraint firstItem="qnu-hj-NQw" firstAttribute="leading" secondItem="3SC-fM-NDt" secondAttribute="leading" id="Fcy-US-wDh"/>
                             <constraint firstItem="RyM-Ga-yN9" firstAttribute="bottom" secondItem="3SC-fM-NDt" secondAttribute="bottom" id="J6n-Pt-vMC"/>
@@ -220,11 +229,15 @@
                             <constraint firstItem="QPc-Yj-UHH" firstAttribute="leading" secondItem="3SC-fM-NDt" secondAttribute="leading" id="THq-xc-Hgw"/>
                             <constraint firstItem="RyM-Ga-yN9" firstAttribute="top" secondItem="QPc-Yj-UHH" secondAttribute="bottom" id="VfZ-zU-uF4"/>
                             <constraint firstItem="RyM-Ga-yN9" firstAttribute="trailing" secondItem="3SC-fM-NDt" secondAttribute="trailing" id="fyj-XB-tpb"/>
+                            <constraint firstAttribute="trailing" secondItem="Iif-ZJ-Gdh" secondAttribute="trailing" id="mzK-do-SM8"/>
+                            <constraint firstItem="Iif-ZJ-Gdh" firstAttribute="top" secondItem="W4U-q2-75f" secondAttribute="top" id="xTm-rN-W6L"/>
+                            <constraint firstItem="Iif-ZJ-Gdh" firstAttribute="leading" secondItem="W4U-q2-75f" secondAttribute="leading" id="z9Y-ZS-Fm8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3SC-fM-NDt"/>
                     </view>
                     <size key="freeformSize" width="375" height="334"/>
                     <connections>
+                        <outlet property="blurBackground" destination="Iif-ZJ-Gdh" id="CIs-MT-cqU"/>
                         <outlet property="doneButton" destination="qMw-0Y-qDL" id="bXC-PH-rKB"/>
                         <outlet property="fondo" destination="gwi-SA-IC8" id="fNn-Yg-hR4"/>
                         <outlet property="pickerView" destination="RyM-Ga-yN9" id="9UN-bu-Sau"/>
@@ -235,7 +248,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xr6-As-hlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="eaG-wK-t0H" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3284" y="-949"/>
+            <point key="canvasLocation" x="3284" y="-949.50738916256159"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rr7-Dp-VaB">
@@ -276,6 +289,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="lVW-cW-EfE" id="Spf-bM-wAU"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -303,6 +319,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="lVW-cW-EfE" id="REh-oR-cdF"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>

@@ -24,16 +24,16 @@ struct drink: Codable {
 
 //Struct para pestana added!
 struct drinkWithDate: Codable {
-    var dia: Date
+    var dia: Date?
     var nombre: String
-    var caffeineML: Int
-    var caffeineOZ: Int
+    var caffeine: Int
+    var icon: String
     
-    init(name: String, dia: Date, cafML: Int, cafOZ: Int) {
+    init(name: String, dia: Date?, caff: Int, ic: String) {
         self.dia = dia
         self.nombre = name
-        self.caffeineML = cafML
-        self.caffeineOZ = cafOZ
+        self.caffeine = caff
+        self.icon = ic
     }
 }
 
@@ -41,4 +41,13 @@ struct drinkWithDate: Codable {
 var arrayDrinks: [drink] = []
 var arrayDrinksAdded: [drink] = []
 
-var prueba: String = "Starbucks"
+var checkMarkString: String = "Starbucks"
+
+//Keys
+let toSaveKey = "tosave"
+let arrayDrinksKey = "array"
+let arrayDrinksAddedKey = "arrayAdded"
+let cellForCheckmark = "CellForCheckmark"
+
+//Identifiers
+

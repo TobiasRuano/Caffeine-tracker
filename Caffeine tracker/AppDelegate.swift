@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-        if let data = UserDefaults.standard.value(forKey:"array") as? Data {
+        if let data = UserDefaults.standard.value(forKey: arrayDrinksKey) as? Data {
             let arrayData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
             arrayDrinks = arrayData!
             print(arrayDrinks)
@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             arrayDrinks.append(drink(type: "Coca-Cola", caffeineML: 10, caffeineOZ: 10, icon: "Can"))
         }
         
-        if let data = UserDefaults.standard.value(forKey:"arrayAdded") as? Data {
+        if let data = UserDefaults.standard.value(forKey: arrayDrinksAddedKey) as? Data {
             let ArrayAddedData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
             arrayDrinksAdded = ArrayAddedData!
         }

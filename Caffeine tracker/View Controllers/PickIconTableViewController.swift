@@ -46,10 +46,10 @@ class PickIconTableViewController: UITableViewController {
     
     fileprivate func setActiveTableViewCheckmark() {
         if UserDefaults.standard.string(forKey: "CellForCheckmark") != nil {
-            prueba = UserDefaults.standard.string(forKey: "CellForCheckmark")!
+            checkMarkString = UserDefaults.standard.string(forKey: "CellForCheckmark")!
         }
         
-        switch prueba {
+        switch checkMarkString {
         case "Starbucks":
             checkMark(activeCell: cell1, inActiveCell1: cell2, inActiveCell2: cell3, inActiveCell3: cell4, inActiveCell4: cell5, inActiveCell5: cell6, inActiveCell6: cell7, inActiveCell7: cell8!)
         case "Coffee":
@@ -90,33 +90,33 @@ class PickIconTableViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             checkMark(activeCell: cell1!, inActiveCell1: cell2!, inActiveCell2: cell3!, inActiveCell3: cell4!, inActiveCell4: cell5!, inActiveCell5: cell6!, inActiveCell6: cell7!, inActiveCell7: cell8!)
-            prueba = "Starbucks"
+            checkMarkString = "Starbucks"
         case 1:
             checkMark(activeCell: cell2!, inActiveCell1: cell1!, inActiveCell2: cell3!, inActiveCell3: cell4!, inActiveCell4: cell5!, inActiveCell5: cell6!, inActiveCell6: cell7!, inActiveCell7: cell8!)
-            prueba = "Coffee"
+            checkMarkString = "Coffee"
         case 2:
             checkMark(activeCell: cell3!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell4!, inActiveCell4: cell5!, inActiveCell5: cell6!, inActiveCell6: cell7!, inActiveCell7: cell8!)
-            prueba = "Cafe"
+            checkMarkString = "Cafe"
         case 3:
             checkMark(activeCell: cell4!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell3!, inActiveCell4: cell5!, inActiveCell5: cell6!, inActiveCell6: cell7!, inActiveCell7: cell8!)
-            prueba = "cafe3"
+            checkMarkString = "cafe3"
         case 4:
             checkMark(activeCell: cell5!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell3!, inActiveCell4: cell4!, inActiveCell5: cell6!, inActiveCell6: cell7!, inActiveCell7: cell8!)
-            prueba = "TeaCup"
+            checkMarkString = "TeaCup"
         case 5:
             checkMark(activeCell: cell6!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell3!, inActiveCell4: cell4!, inActiveCell5: cell5!, inActiveCell6: cell7!, inActiveCell7: cell8!)
-            prueba = "BottleWater"
+            checkMarkString = "BottleWater"
         case 6:
             checkMark(activeCell: cell7!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell3!, inActiveCell4: cell4!, inActiveCell5: cell5!, inActiveCell6: cell6!, inActiveCell7: cell8!)
-            prueba = "Can"
+            checkMarkString = "Can"
         case 7:
             checkMark(activeCell: cell8!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell3!, inActiveCell4: cell4!, inActiveCell5: cell5!, inActiveCell6: cell6!, inActiveCell7: cell7!)
-            prueba = "milkshake"
+            checkMarkString = "milkshake"
         default: break
             
         }
         
-        saveChoice(texto: prueba)
+        saveChoice(texto: checkMarkString)
         _ = navigationController?.popToRootViewController(animated: true)
     }
     

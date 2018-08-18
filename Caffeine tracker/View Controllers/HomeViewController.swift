@@ -34,7 +34,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     fileprivate func checkHealthAvailability() {
         if HKHealthStore.isHealthDataAvailable() {
-            // add code to use HealthKit here...
             print("Yes, HealthKit is Available")
             let healthManager = HealthKitSetupAssistant()
             healthManager.requestPermissions()
@@ -67,7 +66,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.deselectRow(at: indexPath, animated: true)
         print("\(arrayDrinks[indexPath.row].type) has \(arrayDrinks[indexPath.row].caffeineML)mg of caffeine in 100ml")
         self.drinkAux = arrayDrinks[indexPath.row]
-        UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: "tosave")
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: toSaveKey)
         self.performSegue(withIdentifier: "ShowModalView", sender: self)
     }
     
@@ -81,7 +80,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let number: Int = Int(textField.text!) {
                 arrayDrinks[indexPath.row].caffeineML = number
             }
-            UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: "array")
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: arrayDrinksKey)
             tableView.reloadData()
             
         }))
@@ -96,7 +95,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         self.drinkAux = arrayDrinks[indexPath.row]
-        UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: "tosave")
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: toSaveKey)
         
         let AddAction = UIContextualAction(style: .normal, title:  "Add", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             print("AddAction ...")
@@ -125,14 +124,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let generator = UINotificationFeedbackGenerator()
                 generator.notificationOccurred(.warning)
                 
-                UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: "array")
+                UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: arrayDrinksKey)
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
                 print("User click Cancel button")
             }))
             
             self.present(alert, animated: true, completion: {
-                print("ActionSheet Shown")
             })
         }
     }
@@ -161,7 +159,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let element = arrayDrinks[fromIndexPath.row]
         arrayDrinks.remove(at: fromIndexPath.row)
         arrayDrinks.insert(element, at: to.row)
-        UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: "array")
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: arrayDrinksKey)
     }
     
     
@@ -185,7 +183,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if senderVC.drinkToAdd.type != "" && senderVC.drinkToAdd.caffeineML != 0 {
                     arrayDrinks.append(senderVC.drinkToAdd)
                     print(arrayDrinks)
-                    UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: "array")
+                    UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: arrayDrinksKey)
                     tableView.reloadData()
                     
 //                    let generator = UINotificationFeedbackGenerator()
@@ -210,7 +208,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let dia = Date()
                     healthManager.submitCaffeine(CaffeineAmount: senderVC.result, WaterAmount: senderVC.seleccion, forDate: dia, logWater: senderVC.waterLog)
                     arrayDrinksAdded.append(senderVC.toSave)
-                    UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: "arrayAdded")
+                    UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: arrayDrinksAddedKey)
                     print(senderVC.toSave)
                     print(arrayDrinksAdded)
                     
@@ -219,6 +217,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
+    
     
     func animateViewAndTapticFeedback() {
         UIView.animate(withDuration: 0.5, animations: {

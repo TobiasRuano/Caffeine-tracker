@@ -23,8 +23,8 @@ class HealthKitSetupAssistant {
         //let dataTypesToRead : Set = [HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine)!]
         
         var logWaterBool: Bool = true
-        if UserDefaults.standard.value(forKey: "logWaterBool") != nil {
-            logWaterBool = UserDefaults.standard.value(forKey: "logWaterBool") as! Bool
+        if UserDefaults.standard.value(forKey: logWaterBoolKey) != nil {
+            logWaterBool = UserDefaults.standard.value(forKey: logWaterBoolKey) as! Bool
         }
         
         healthStore.requestAuthorization(toShare: dataTypesToWrite, read: nil, completion: { (success, error) in
@@ -32,11 +32,11 @@ class HealthKitSetupAssistant {
                 print("Authorization complete")
             } else {
                 print("Authorization error: \(String(describing: error?.localizedDescription))")
-                //No hace esto!!
+                //TODO: No hace esto!!
                 logWaterBool = false
             }
         })
-        UserDefaults.standard.set(logWaterBool, forKey: "logWaterBool")
+        UserDefaults.standard.set(logWaterBool, forKey: logWaterBoolKey)
     }
     
     

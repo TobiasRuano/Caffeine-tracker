@@ -41,12 +41,12 @@ class PickIconTableViewController: UITableViewController {
     }
     
     func saveChoice(texto: String) {
-        UserDefaults.standard.set(texto, forKey: "CellForCheckmark")
+        UserDefaults.standard.set(texto, forKey: cellForCheckmarkKey)
     }
     
     fileprivate func setActiveTableViewCheckmark() {
-        if UserDefaults.standard.string(forKey: "CellForCheckmark") != nil {
-            checkMarkString = UserDefaults.standard.string(forKey: "CellForCheckmark")!
+        if UserDefaults.standard.string(forKey: cellForCheckmarkKey) != nil {
+            checkMarkString = UserDefaults.standard.string(forKey: cellForCheckmarkKey)!
         }
         
         switch checkMarkString {

@@ -64,7 +64,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: historyTableViewCell, for: indexPath)
         
         cell.textLabel?.text = arrayDrinksAdded.reversed()[indexPath.row].type
         cell.detailTextLabel?.text = "\(String(arrayDrinksAdded.reversed()[indexPath.row].caffeineML))mg"

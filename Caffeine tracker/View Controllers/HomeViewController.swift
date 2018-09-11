@@ -53,7 +53,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: homeTableViewCell, for: indexPath)
         
         cell.textLabel?.text = arrayDrinks[indexPath.row].type
         cell.detailTextLabel?.text = String(arrayDrinks[indexPath.row].caffeineML) + "mg of caffeine in 100ml"
@@ -67,7 +67,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         print("\(arrayDrinks[indexPath.row].type) has \(arrayDrinks[indexPath.row].caffeineML)mg of caffeine in 100ml")
         self.drinkAux = arrayDrinks[indexPath.row]
         UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: toSaveKey)
-        self.performSegue(withIdentifier: "ShowModalView", sender: self)
+        self.performSegue(withIdentifier: modalViewIdentifier, sender: self)
     }
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -99,7 +99,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let AddAction = UIContextualAction(style: .normal, title:  "Add", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             print("AddAction ...")
-            self.performSegue(withIdentifier: "ShowModalView", sender: self)
+            self.performSegue(withIdentifier: modalViewIdentifier, sender: self)
             
             self.alerta(title: "Do you?", message: "Do you want to add \(arrayDrinks[indexPath.row].caffeineML)mg of caffeine from \(arrayDrinks[indexPath.row].type)", taptic: true, button1: "Yes", button2: "No", passData: true)
             success(true)
@@ -209,8 +209,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     healthManager.submitCaffeine(CaffeineAmount: senderVC.result, WaterAmount: senderVC.seleccion, forDate: dia, logWater: senderVC.waterLog)
                     arrayDrinksAdded.append(senderVC.toSave)
                     UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: arrayDrinksAddedKey)
-                    print(senderVC.toSave)
-                    print(arrayDrinksAdded)
+                    //print(senderVC.toSave)
+                    //print(arrayDrinksAdded)
                     
                     animateViewAndTapticFeedback()
                 }
@@ -235,7 +235,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
-            if identifier == "ShowModalView" {
+            if identifier == modalViewIdentifier {
                 if let viewController = segue.destination as? PickerViewController {
                     viewController.delegate = self
                     viewController.modalPresentationStyle = .overFullScreen

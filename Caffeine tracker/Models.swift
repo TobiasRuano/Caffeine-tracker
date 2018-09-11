@@ -47,7 +47,11 @@ var checkMarkString: String = "Starbucks"
 let toSaveKey = "tosave"
 let arrayDrinksKey = "array"
 let arrayDrinksAddedKey = "arrayAdded"
-let cellForCheckmark = "CellForCheckmark"
+let cellForCheckmarkKey = "CellForCheckmark"
+let logWaterBoolKey = "logWaterBool"
 
 //Identifiers
+let modalViewIdentifier = "ShowModalView"
+let homeTableViewCell = "cell"
+let historyTableViewCell = "cell"
 

@@ -21,7 +21,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        logWater = UserDefaults.standard.value(forKey: "logWaterBool") as! Bool
+        logWater = UserDefaults.standard.value(forKey: logWaterBoolKey) as! Bool
         
         if logWater == true {
             waterLogSwitch.isOn = true
@@ -97,9 +97,9 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     
     @IBAction func switchAction(_ sender: UISwitch) {
         if waterLogSwitch.isOn == true {
-            UserDefaults.standard.set(true, forKey: "logWaterBool")
+            UserDefaults.standard.set(true, forKey: logWaterBoolKey)
         }else {
-            UserDefaults.standard.set(false, forKey: "logWaterBool")
+            UserDefaults.standard.set(false, forKey: logWaterBoolKey)
         }
     }
     

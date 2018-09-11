@@ -23,7 +23,7 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
         iconCell.imageView?.image = UIImage(named: iconName)
         
         tableView.keyboardDismissMode = .interactive
-        UserDefaults.standard.set("Starbucks", forKey: "CellForCheckmark")
+        UserDefaults.standard.set("Starbucks", forKey: cellForCheckmarkKey)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.name.becomeFirstResponder()
@@ -31,8 +31,8 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if UserDefaults.standard.string(forKey: "CellForCheckmark") != nil {
-            iconName = UserDefaults.standard.string(forKey: "CellForCheckmark")!
+        if UserDefaults.standard.string(forKey: cellForCheckmarkKey) != nil {
+            iconName = UserDefaults.standard.string(forKey: cellForCheckmarkKey)!
         }
         iconCell.imageView?.image = UIImage(named: iconName)
     }

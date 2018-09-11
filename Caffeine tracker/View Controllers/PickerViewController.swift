@@ -12,7 +12,6 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     weak var delegate: HomeViewController?
     
-    @IBOutlet weak var blurBackground: UIVisualEffectView!
     @IBOutlet weak var titulo: UILabel!
     @IBOutlet weak var fondo: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
@@ -28,10 +27,9 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        waterLog = UserDefaults.standard.value(forKey: "logWaterBool") as! Bool
+        waterLog = UserDefaults.standard.value(forKey: logWaterBoolKey) as! Bool
         style()
         retriveData()
-        blurBackground.alpha = 0
         
         if toSave.caffeineML >= 200 {
             fondo.layer.backgroundColor = UIColor.red.cgColor
@@ -40,16 +38,8 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     override func viewDidAppear(_ animated: Bool) {
         effectView()
-        UIView.animate(withDuration: 0.1) {
-            self.blurBackground.alpha = 1
-        }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        UIView.animate(withDuration: 0.01) {
-            self.blurBackground.alpha = 0
-        }
-    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -58,9 +48,11 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return arrayML.count
     }
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(arrayML[row])ml"
     }
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         seleccion = arrayML[row]
         result = (arrayML[row] * toSave.caffeineML) / 100
@@ -92,17 +84,16 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     fileprivate func style() {
         view.backgroundColor = UIColor.clear
         view.isOpaque = false
-        fondo.layer.cornerRadius = 8.0
-        fondo.layer.shadowColor = UIColor.lightGray.cgColor
-        fondo.layer.shadowOpacity = 1
-        fondo.layer.shadowOffset = CGSize.zero
-        fondo.layer.shadowRadius = 5
-        
-        shadowNavBar.layer.cornerRadius = 8.0
-        shadowNavBar.layer.shadowColor = UIColor.lightGray.cgColor
-        shadowNavBar.layer.shadowOpacity = 1
-        shadowNavBar.layer.shadowOffset = CGSize.zero
-        shadowNavBar.layer.shadowRadius = 5
+        indepthStyle(fondo)
+        indepthStyle(shadowNavBar)
+    }
+    
+    fileprivate func indepthStyle(_ vista: UIView) {
+        vista.layer.cornerRadius = 8.0
+        vista.layer.shadowColor = UIColor.lightGray.cgColor
+        vista.layer.shadowOpacity = 1
+        vista.layer.shadowOffset = CGSize.zero
+        vista.layer.shadowRadius = 5
     }
     
     fileprivate func retriveData() {

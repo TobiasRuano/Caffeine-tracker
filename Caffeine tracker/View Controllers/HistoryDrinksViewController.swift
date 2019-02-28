@@ -21,7 +21,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         tablewView.reloadData()
         
         progressViewStyle()
-        progress.progress = 0.6
+        progress.progress = 0
         
         tablewView.tableFooterView = UIView()
     }
@@ -33,8 +33,8 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
             arrayDrinksAdded = ArrayAddedData!
         }
         
-        yesterdayCaffeine.text = "mg"
-        lastWeekCaffeine.text = "mg"
+        yesterdayCaffeine.text = "400mg"
+        lastWeekCaffeine.text = "268mg"
         
         tablewView.reloadData()
     }

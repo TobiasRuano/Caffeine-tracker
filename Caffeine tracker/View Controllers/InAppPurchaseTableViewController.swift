@@ -11,10 +11,20 @@ import UIKit
 class InAppPurchaseTableViewController: UITableViewController {
     
     var buttonIsEnabled = true
-
+    @IBOutlet weak var fullVersionButton: UITableViewCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let value = UserDefaults.standard.value(forKey: "Purchase") as? Bool {
+            if value == false {
+                buttonIsEnabled = value
+                lockCell()
+            }
+        }
     }
 
     
@@ -24,32 +34,32 @@ class InAppPurchaseTableViewController: UITableViewController {
         if indexPath.section == 0 && indexPath.row == 0 {
             print("Purchase button pressed!")
             
-            lockCell(path: indexPath)
+            lockCell()
+            //Taptic feedback
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
             
             tableView.deselectRow(at: indexPath, animated: true)
         }else if indexPath.section == 1 && indexPath.row == 0 {
             let result = restorePurchase()
             if result == true {
-                var indexPathCopy = indexPath
-                indexPathCopy.section = 0
                 
-                lockCell(path: indexPathCopy)
-                buttonIsEnabled = false
+                lockCell()
+                //Taptic feedback
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.success)
             }
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
-    func lockCell(path: IndexPath) {
-        let cell = tableView.cellForRow(at: path)
-        cell?.detailTextLabel?.text = "Purchased!!"
-        
-        //Taptic feedback
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.success)
+    func lockCell() {
+        fullVersionButton.detailTextLabel?.text = "Purchased!!"
         
         buttonIsEnabled = false
-        cell?.selectionStyle = .none
+        UserDefaults.standard.set(buttonIsEnabled, forKey: "Purchase")
+        fullVersionButton.selectionStyle = .none
+        fullVersionButton.isUserInteractionEnabled = false
         self.tableView.reloadData()
     }
     
@@ -63,13 +73,22 @@ class InAppPurchaseTableViewController: UITableViewController {
     }
     
     func restorePurchase() -> Bool {
-        let alertController = UIAlertController(title: "Purchase Restored!", message: "Your purchase has been restored", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Great!", style: .default, handler: { alert -> Void in
+        
+        if buttonIsEnabled == true {
+            restoreAlert(title: "Purchase Restored!", message: "Your purchase has been restored", buttonText: "Great!")
+        }else {
+            restoreAlert(title: "Opps!", message: "It seems there's nothing to restore", buttonText: "Ok")
+        }
+        
+        return true
+    }
+    
+    func restoreAlert (title: String, message: String, buttonText: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: buttonText, style: .default, handler: { alert -> Void in
         }))
         
         self.present(alertController, animated: true, completion: nil)
-        
-        return true
     }
 
     /*

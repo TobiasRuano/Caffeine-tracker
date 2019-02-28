@@ -407,6 +407,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="In App Purchase" largeTitleDisplayMode="never" id="qWT-ss-tb6"/>
+                    <connections>
+                        <outlet property="fullVersionButton" destination="LNf-3k-lkW" id="RS6-cr-Ksx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cs3-dy-AKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

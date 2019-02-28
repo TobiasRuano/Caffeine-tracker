@@ -10,14 +10,14 @@ import Foundation
 
 struct drink: Codable {
     var type: String
-    var caffeineML: Int
-    var caffeineOZ: Int
+    var caffeineMg: Int
+    var mililiters: Int
     var icon: String
     
-    init(type: String, caffeineML: Int, caffeineOZ: Int, icon: String) {
+    init(type: String, caffeineMg: Int, mililiters: Int, icon: String) {
         self.type = type
-        self.caffeineML = caffeineML
-        self.caffeineOZ = caffeineOZ
+        self.caffeineMg = caffeineMg
+        self.mililiters = mililiters
         self.icon = icon
     }
 }

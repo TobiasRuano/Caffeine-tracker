@@ -9,15 +9,12 @@
 import UIKit
 
 class InAppPurchaseTableViewController: UITableViewController {
+    
+    var buttonIsEnabled = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     
@@ -25,10 +22,54 @@ class InAppPurchaseTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 && indexPath.row == 0 {
+            print("Purchase button pressed!")
+            
+            lockCell(path: indexPath)
+            
             tableView.deselectRow(at: indexPath, animated: true)
         }else if indexPath.section == 1 && indexPath.row == 0 {
+            let result = restorePurchase()
+            if result == true {
+                var indexPathCopy = indexPath
+                indexPathCopy.section = 0
+                
+                lockCell(path: indexPathCopy)
+                buttonIsEnabled = false
+            }
             tableView.deselectRow(at: indexPath, animated: true)
         }
+    }
+    
+    func lockCell(path: IndexPath) {
+        let cell = tableView.cellForRow(at: path)
+        cell?.detailTextLabel?.text = "Purchased!!"
+        
+        //Taptic feedback
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+        
+        buttonIsEnabled = false
+        cell?.selectionStyle = .none
+        self.tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            if buttonIsEnabled == false {
+                return nil
+            }
+        }
+        return indexPath
+    }
+    
+    func restorePurchase() -> Bool {
+        let alertController = UIAlertController(title: "Purchase Restored!", message: "Your purchase has been restored", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Great!", style: .default, handler: { alert -> Void in
+        }))
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+        return true
     }
 
     /*

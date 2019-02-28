@@ -21,7 +21,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var arrayML = [Int](0...100)
     var seleccion = 0
     var result = 0
-    var toSave: drink = drink(type: "", caffeineML: 0, caffeineOZ: 0, icon: "")
+    var toSave: drink = drink(type: "", caffeineMg: 0, mililiters: 0, icon: "")
     var waterLog: Bool = true
     
     
@@ -31,7 +31,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         style()
         retriveData()
         
-        if toSave.caffeineML >= 200 {
+        if toSave.caffeineMg >= 200 {
             fondo.layer.backgroundColor = UIColor.red.cgColor
         }
     }
@@ -55,7 +55,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         seleccion = arrayML[row]
-        result = (arrayML[row] * toSave.caffeineML) / 100
+        result = (arrayML[row] * toSave.caffeineMg) / 100
         titulo.text = "Drink: \(toSave.type)\nCaffeine: \(result)mg"
         if result >= 200 {
             fondo.layer.backgroundColor = UIColor.red.cgColor
@@ -101,8 +101,8 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         let data = UserDefaults.standard.value(forKey: toSaveKey) as? Data
         toSave = try! PropertyListDecoder().decode(drink.self, from: data!)
         print(toSave)
-        titulo.text = "Drink: \(toSave.type)\nCaffeine: \(toSave.caffeineML)mg"
-        result = toSave.caffeineML
+        titulo.text = "Drink: \(toSave.type)\nCaffeine: \(toSave.caffeineMg)mg"
+        result = toSave.caffeineMg
         print(result)
         
         populateTableView()

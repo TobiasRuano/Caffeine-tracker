@@ -56,7 +56,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: homeTableViewCell, for: indexPath)
         
         cell.textLabel?.text = arrayDrinks[indexPath.row].type
-        cell.detailTextLabel?.text = String(arrayDrinks[indexPath.row].caffeineML) + "mg of caffeine in 100ml"
+        cell.detailTextLabel?.text = String(arrayDrinks[indexPath.row].caffeineMg) + "mg of caffeine in 100ml"
         cell.imageView?.image = UIImage(named: arrayDrinks[indexPath.row].icon)
         return cell
     }
@@ -64,7 +64,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        print("\(arrayDrinks[indexPath.row].type) has \(arrayDrinks[indexPath.row].caffeineML)mg of caffeine in 100ml")
+        print("\(arrayDrinks[indexPath.row].type) has \(arrayDrinks[indexPath.row].caffeineMg)mg of caffeine in 100ml")
         self.drinkAux = arrayDrinks[indexPath.row]
         UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: toSaveKey)
         self.performSegue(withIdentifier: modalViewIdentifier, sender: self)
@@ -78,7 +78,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let textField = alertController.textFields![0] as UITextField
             
             if let number: Int = Int(textField.text!) {
-                arrayDrinks[indexPath.row].caffeineML = number
+                arrayDrinks[indexPath.row].caffeineMg = number
             }
             UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: arrayDrinksKey)
             tableView.reloadData()
@@ -86,7 +86,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alertController.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
-            textField.placeholder = "\(arrayDrinks[indexPath.row].caffeineML)mg"
+            textField.placeholder = "\(arrayDrinks[indexPath.row].caffeineMg)mg"
             textField.keyboardType = UIKeyboardType.numberPad
         })
         
@@ -101,7 +101,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             print("AddAction ...")
             self.performSegue(withIdentifier: modalViewIdentifier, sender: self)
             
-            self.alerta(title: "Do you?", message: "Do you want to add \(arrayDrinks[indexPath.row].caffeineML)mg of caffeine from \(arrayDrinks[indexPath.row].type)", taptic: true, button1: "Yes", button2: "No", passData: true)
+            self.alerta(title: "Do you?", message: "Do you want to add \(arrayDrinks[indexPath.row].caffeineMg)mg of caffeine from \(arrayDrinks[indexPath.row].type)", taptic: true, button1: "Yes", button2: "No", passData: true)
             success(true)
         })
         AddAction.backgroundColor = UIColor(displayP3Red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
@@ -180,7 +180,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func unwindFromAddVC(_ sender: UIStoryboardSegue) {
         if sender.source is AddDrinkTableViewController {
             if let senderVC = sender.source as? AddDrinkTableViewController {
-                if senderVC.drinkToAdd.type != "" && senderVC.drinkToAdd.caffeineML != 0 {
+                if senderVC.drinkToAdd.type != "" && senderVC.drinkToAdd.caffeineMg != 0 {
                     arrayDrinks.append(senderVC.drinkToAdd)
                     print(arrayDrinks)
                     UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: arrayDrinksKey)
@@ -199,12 +199,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let healthManager = HealthKitSetupAssistant()
                 
                 if senderVC.seleccion != 0 {
-                    senderVC.result = (senderVC.seleccion * senderVC.toSave.caffeineML) / 100
+                    senderVC.result = (senderVC.seleccion * senderVC.toSave.caffeineMg) / 100
                 }else {
                     senderVC.seleccion = 100
                 }
                 if senderVC.result != 0 {
-                    senderVC.toSave.caffeineML = senderVC.result
+                    senderVC.toSave.caffeineMg = senderVC.result
+                    senderVC.toSave.mililiters = senderVC.seleccion
                     let dia = Date()
                     healthManager.submitCaffeine(CaffeineAmount: senderVC.result, WaterAmount: senderVC.seleccion, forDate: dia, logWater: senderVC.waterLog)
                     arrayDrinksAdded.append(senderVC.toSave)

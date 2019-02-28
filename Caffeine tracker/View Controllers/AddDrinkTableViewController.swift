@@ -16,7 +16,7 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var iconCell: UITableViewCell!
     var iconName: String = "Starbucks"
-    var drinkToAdd: drink = drink(type: "", caffeineML: 0, caffeineOZ: 0, icon: "Latte")
+    var drinkToAdd: drink = drink(type: "", caffeineMg: 0, mililiters: 0, icon: "Latte")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,8 +81,8 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
                 if name.text != "" && caffeineAmount.text != "" && caffeineAmount.text?.isNumeric == true {
                     drinkToAdd.type = name.text!
                     print(name.text!)
-                    drinkToAdd.caffeineML = Int(caffeineAmount.text!)!
-                    drinkToAdd.caffeineOZ = Int(caffeineAmount.text!)!
+                    drinkToAdd.caffeineMg = Int(caffeineAmount.text!)!
+                    drinkToAdd.mililiters = Int(caffeineAmount.text!)!
                     drinkToAdd.icon = iconName
                     print(drinkToAdd)
                     

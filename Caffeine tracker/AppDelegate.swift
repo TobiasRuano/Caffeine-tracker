@@ -36,11 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             arrayDrinks = arrayData!
             print(arrayDrinks)
         }else {
-            arrayDrinks.append(drink(type: "Americano", caffeineML: 43, caffeineOZ: 98, icon: "Starbucks"))
-            arrayDrinks.append(drink(type: "Espresso", caffeineML: 173, caffeineOZ: 100, icon: "cafe3"))
-            arrayDrinks.append(drink(type: "Latte", caffeineML: 32, caffeineOZ: 49, icon: "Starbucks"))
-            arrayDrinks.append(drink(type: "Mocha", caffeineML: 43, caffeineOZ: 76, icon: "Cafe"))
-            arrayDrinks.append(drink(type: "Coca-Cola", caffeineML: 10, caffeineOZ: 10, icon: "Can"))
+            arrayDrinks.append(drink(type: "Americano", caffeineMg: 43, mililiters: 98, icon: "Starbucks"))
+            arrayDrinks.append(drink(type: "Espresso", caffeineMg: 173, mililiters: 100, icon: "cafe3"))
+            arrayDrinks.append(drink(type: "Latte", caffeineMg: 32, mililiters: 49, icon: "Starbucks"))
+            arrayDrinks.append(drink(type: "Mocha", caffeineMg: 43, mililiters: 76, icon: "Cafe"))
+            arrayDrinks.append(drink(type: "Coca-Cola", caffeineMg: 10, mililiters: 10, icon: "Can"))
         }
         
         if let data = UserDefaults.standard.value(forKey: arrayDrinksAddedKey) as? Data {

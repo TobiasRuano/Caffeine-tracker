@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pke-Ws-hEI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pke-Ws-hEI">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -96,29 +97,57 @@
                                 <rect key="frame" x="0.0" y="299" width="375" height="479"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" textLabel="24O-Lt-2TX" detailTextLabel="rgF-Cj-SiQ" style="IBUITableViewCellStyleValue1" id="TRP-Zt-ot1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="TRP-Zt-ot1" customClass="CustomCellClass" customModule="Caffeine_tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TRP-Zt-ot1" id="5Jy-n8-2Ek">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="24O-Lt-2TX">
-                                                    <rect key="frame" x="15" y="11.999999999999998" width="33.333333333333336" height="20.333333333333332"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VB8-7I-iBg">
+                                                    <rect key="frame" x="63" y="3.3333333333333339" width="34" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rgF-Cj-SiQ">
-                                                    <rect key="frame" x="316" y="11.999999999999998" width="44" height="20.333333333333332"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cpi-24-QiF">
+                                                    <rect key="frame" x="15" y="2.3333333333333321" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="1dU-IA-mv3"/>
+                                                        <constraint firstAttribute="height" constant="40" id="JcI-6i-Kov"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100ml" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0e-UR-CTL">
+                                                    <rect key="frame" x="63" y="24.333333333333329" width="39.333333333333343" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30mg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsh-et-eyk">
+                                                    <rect key="frame" x="315" y="12.333333333333334" width="45" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="X0e-UR-CTL" secondAttribute="bottom" constant="3" id="23M-NY-tC8"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Lsh-et-eyk" secondAttribute="bottom" constant="1" id="2Vz-tx-tEC"/>
+                                                <constraint firstItem="cpi-24-QiF" firstAttribute="leading" secondItem="5Jy-n8-2Ek" secondAttribute="leading" constant="15" id="3Ps-Ry-XjW"/>
+                                                <constraint firstAttribute="bottom" secondItem="cpi-24-QiF" secondAttribute="bottom" constant="1.6699999999999999" id="7jQ-oA-drA"/>
+                                                <constraint firstItem="VB8-7I-iBg" firstAttribute="top" secondItem="5Jy-n8-2Ek" secondAttribute="top" constant="3" id="J0Q-mL-Rk5"/>
+                                                <constraint firstItem="Lsh-et-eyk" firstAttribute="top" secondItem="5Jy-n8-2Ek" secondAttribute="topMargin" constant="1" id="LFO-Pi-9sN"/>
+                                                <constraint firstItem="cpi-24-QiF" firstAttribute="top" secondItem="5Jy-n8-2Ek" secondAttribute="top" constant="2" id="XaC-5A-8lq"/>
+                                                <constraint firstItem="X0e-UR-CTL" firstAttribute="leading" secondItem="cpi-24-QiF" secondAttribute="trailing" constant="8" id="aKw-5J-OgN"/>
+                                                <constraint firstAttribute="trailing" secondItem="Lsh-et-eyk" secondAttribute="trailing" constant="15" id="kjU-9r-dPA"/>
+                                                <constraint firstItem="VB8-7I-iBg" firstAttribute="leading" secondItem="cpi-24-QiF" secondAttribute="trailing" constant="8" id="lRr-uP-3pb"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="DrinkName" destination="VB8-7I-iBg" id="RgC-xq-K7d"/>
+                                            <outlet property="caffeineMg" destination="Lsh-et-eyk" id="Al2-84-ogz"/>
+                                            <outlet property="miliLiters" destination="X0e-UR-CTL" id="QsG-DI-MVY"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -150,10 +179,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yHg-q3-T5T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2422" y="322"/>
+            <point key="canvasLocation" x="2421.5999999999999" y="321.42857142857144"/>
         </scene>
     </scenes>
     <resources>
-        <image name="History" width="30" height="30"/>
+        <image name="History" width="67.5" height="67.5"/>
     </resources>
 </document>

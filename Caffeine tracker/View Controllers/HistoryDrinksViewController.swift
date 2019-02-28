@@ -21,7 +21,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         tablewView.reloadData()
         
         progressViewStyle()
-        progress.progress = 0.4
+        progress.progress = 0.6
         
         tablewView.tableFooterView = UIView()
     }
@@ -49,7 +49,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "Caffeine"
+            return "All your drinks:"
         } else {
             return ""
         }
@@ -64,10 +64,12 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: historyTableViewCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: historyTableViewCell, for: indexPath) as! CustomCellClass
         
-        cell.textLabel?.text = arrayDrinksAdded.reversed()[indexPath.row].type
-        cell.detailTextLabel?.text = "\(String(arrayDrinksAdded.reversed()[indexPath.row].caffeineML))mg"
+        cell.DrinkName.text = arrayDrinksAdded.reversed()[indexPath.row].type
+        cell.caffeineMg.text = "\(String(arrayDrinksAdded.reversed()[indexPath.row].caffeineMg))mg"
+        cell.miliLiters.text = "\(String(arrayDrinksAdded.reversed()[indexPath.row].mililiters))ml"
+        cell.imageView?.image = UIImage(named: arrayDrinksAdded.reversed()[indexPath.row].icon)
         
         return cell
     }
@@ -75,7 +77,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            let alert = UIAlertController(title: "", message: "Are you sure you want to delete \(arrayDrinksAdded.reversed()[indexPath.row].caffeineML)mg of \(arrayDrinksAdded.reversed()[indexPath.row].type)?", preferredStyle: .actionSheet)
+            let alert = UIAlertController(title: "", message: "Are you sure you want to delete \(arrayDrinksAdded.reversed()[indexPath.row].caffeineMg)mg of \(arrayDrinksAdded.reversed()[indexPath.row].type)?", preferredStyle: .actionSheet)
             
             alert.addAction(UIAlertAction(title: "Delete", style: .destructive , handler:{ (UIAlertAction)in
                 print("User click Delete button")

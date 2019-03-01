@@ -10,40 +10,110 @@ import UIKit
 
 class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var yesterdayCaffeine: UILabel!
-    @IBOutlet weak var lastWeekCaffeine: UILabel!
+    @IBOutlet weak var todaysCaffeine: UILabel!
+    @IBOutlet weak var todayLabel: UILabel!
+    @IBOutlet weak var mgLabel: UILabel!
+    @IBOutlet weak var yesterdaysCaffeine: UILabel!
     @IBOutlet weak var tablewView: UITableView!
     @IBOutlet weak var progress: UIProgressView!
     
+    var caffeineLimit = 400
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         tablewView.reloadData()
         
         progressViewStyle()
-        progress.progress = 0
         
         tablewView.tableFooterView = UIView()
     }
     
     
+    func displayCaffeineProgress() {
+        checkTodaysAndYesterdaysCaffeine()
+        let value = caffeineLimit - Int(todaysCaffeine.text!)!
+        progress.setProgress((Float(value) / Float(caffeineLimit)), animated: true)
+        
+        changeLabelColor()
+    }
+    
+    func changeLabelColor() {
+        if progress.progress == 0 {
+            UIView.transition(with: todaysCaffeine, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                self.todaysCaffeine.textColor = .red
+                self.mgLabel.textColor = .red
+                self.todayLabel.textColor = .red
+            }, completion: nil)
+        }else {
+            UIView.transition(with: todaysCaffeine, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                self.todaysCaffeine.textColor = .black
+                self.mgLabel.textColor = .black
+                self.todayLabel.textColor = .black
+            }, completion: nil)
+        }
+    }
+    
+    func checkTodaysAndYesterdaysCaffeine() {
+        let date = Date()
+        let calanderDate = Calendar.current.dateComponents([.day, .year, .month], from: date)
+        
+        //Today's
+        todaysCaffeine.text = "0"
+        for element in arrayDrinksAdded {
+            let day = Calendar.current.dateComponents([.day, .year, .month], from: element.date!).day
+            let month = Calendar.current.dateComponents([.day, .year, .month], from: element.date!).month
+            if day == calanderDate.day && month == calanderDate.month {
+                let caffeineNumber = Int(todaysCaffeine.text!)
+                
+                todaysCaffeine.text = "\(caffeineNumber! + element.caffeineMg)"
+            }
+        }
+        
+        //Yesterday's
+        yesterdaysCaffeine.text = "0"
+        for element in arrayDrinksAdded {
+            var yesterday = date
+            yesterday.addTimeInterval(-86400)
+            let yesterdaysDate = Calendar.current.dateComponents([.day, .year, .month], from: yesterday)
+            let day = Calendar.current.dateComponents([.day, .year, .month], from: element.date!).day
+            let month = Calendar.current.dateComponents([.day, .year, .month], from: element.date!).month
+            if day == yesterdaysDate.day && month == yesterdaysDate.month {
+                let caffeineNumber = Int(yesterdaysCaffeine.text!)
+                
+                yesterdaysCaffeine.text = "\(caffeineNumber! + element.caffeineMg)"
+            }
+        }
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
+        if let string = UserDefaults.standard.value(forKey: "maxCaf") as? String {
+            
+            let stringArray = string.components(separatedBy: CharacterSet.decimalDigits.inverted)
+            for item in stringArray {
+                caffeineLimit = 0
+                caffeineLimit = caffeineLimit * 10
+                if let number = Int(item) {
+                    caffeineLimit = caffeineLimit + number
+                }
+            }
+        }
+        
         if let data = UserDefaults.standard.value(forKey: arrayDrinksAddedKey) as? Data {
             let ArrayAddedData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
             arrayDrinksAdded = ArrayAddedData!
         }
         
-        yesterdayCaffeine.text = "400mg"
-        lastWeekCaffeine.text = "268mg"
-        
+        displayCaffeineProgress()
         tablewView.reloadData()
     }
 
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
+    
     
     // MARK: - Table view data source
     
@@ -89,6 +159,9 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
                 //Taptic feedback
                 let generator = UINotificationFeedbackGenerator()
                 generator.notificationOccurred(.warning)
+                
+                self.checkTodaysAndYesterdaysCaffeine()
+                self.displayCaffeineProgress()
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
                 print("User click Cancel button")
@@ -107,12 +180,11 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     func progressViewStyle() {
         // Progress View Style
         let gradientView = GradientView(frame: progress.bounds)
-        //convert gradient view to image , flip horizontally and assign as the track image
+        //convert gradient view to image, flip horizontally and assign as the track image
         progress.trackImage = UIImage(view: gradientView).withHorizontallyFlippedOrientation()
         //invert the progress view
         progress.transform = CGAffineTransform(scaleX: -1.0, y: -1.0)
         progress.progressTintColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1.0)
-        progress.progress = 1
         progress.layer.cornerRadius = 8.0
         progress.layer.shadowColor = UIColor.lightGray.cgColor
         progress.layer.shadowOpacity = 1

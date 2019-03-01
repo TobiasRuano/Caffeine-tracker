@@ -19,8 +19,8 @@ class InAppPurchaseTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if let value = UserDefaults.standard.value(forKey: "Purchase") as? Bool {
-            if value == false {
+        if let value = UserDefaults.standard.value(forKey: inAppPurchaseKey) as? Bool {
+            if value == true {
                 buttonIsEnabled = value
                 lockCell()
             }
@@ -32,9 +32,9 @@ class InAppPurchaseTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 && indexPath.row == 0 {
-            print("Purchase button pressed!")
-            
+            //Buying the full app
             lockCell()
+            
             //Taptic feedback
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
@@ -45,20 +45,17 @@ class InAppPurchaseTableViewController: UITableViewController {
             if result == true {
                 
                 lockCell()
-                //Taptic feedback
-                let generator = UINotificationFeedbackGenerator()
-                generator.notificationOccurred(.success)
             }
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
     func lockCell() {
-        fullVersionButton.detailTextLabel?.text = "Purchased!!"
+        fullVersionButton.accessoryType = .checkmark
+        fullVersionButton.detailTextLabel?.text = ""
         
         buttonIsEnabled = false
-        UserDefaults.standard.set(buttonIsEnabled, forKey: "Purchase")
-        fullVersionButton.selectionStyle = .none
+        UserDefaults.standard.set(!buttonIsEnabled, forKey: inAppPurchaseKey)
         fullVersionButton.isUserInteractionEnabled = false
         self.tableView.reloadData()
     }
@@ -73,14 +70,21 @@ class InAppPurchaseTableViewController: UITableViewController {
     }
     
     func restorePurchase() -> Bool {
-        
         if buttonIsEnabled == true {
             restoreAlert(title: "Purchase Restored!", message: "Your purchase has been restored", buttonText: "Great!")
+            //Taptic feedback
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
+            
+            return true
         }else {
             restoreAlert(title: "Opps!", message: "It seems there's nothing to restore", buttonText: "Ok")
+            //Taptic feedback
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.error)
+            
+            return false
         }
-        
-        return true
     }
     
     func restoreAlert (title: String, message: String, buttonText: String) {
@@ -90,15 +94,4 @@ class InAppPurchaseTableViewController: UITableViewController {
         
         self.present(alertController, animated: true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

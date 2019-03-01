@@ -16,7 +16,7 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var iconCell: UITableViewCell!
     var iconName: String = "Starbucks"
-    var drinkToAdd: drink = drink(type: "", caffeineMg: 0, mililiters: 0, icon: "Latte")
+    var drinkToAdd: drink = drink(type: "", caffeineMg: 0, mililiters: 0, icon: "Latte", dia: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()

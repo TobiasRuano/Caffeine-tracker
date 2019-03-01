@@ -82,7 +82,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhQ-FY-7sa">
                                 <rect key="frame" x="19" y="-60" width="337" height="41"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caffeine Added!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txp-nq-VGU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caffeine Added!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="txp-nq-VGU">
                                         <rect key="frame" x="8" y="5" width="321" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -126,6 +126,7 @@
                     <connections>
                         <outlet property="addDrinksButton" destination="fsY-Rw-0cE" id="uEf-EN-VvL"/>
                         <outlet property="animatedView" destination="uhQ-FY-7sa" id="lRe-Jl-ANa"/>
+                        <outlet property="animatedViewTextLabel" destination="txp-nq-VGU" id="9Nu-6c-bXD"/>
                         <outlet property="editButton" destination="J3m-e6-RMU" id="a3Y-OX-QDJ"/>
                         <outlet property="tableView" destination="W0G-iA-WEw" id="brw-BE-pdl"/>
                         <segue destination="37f-d7-0IO" kind="presentation" identifier="ShowModalView" id="1fH-iW-QS4"/>

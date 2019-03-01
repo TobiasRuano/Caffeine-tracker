@@ -15,13 +15,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addDrinksButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var animatedViewTextLabel: UILabel!
     var drinkAux: drink?
-    //var hasPurchasedApp = false
+    
+    var hasPurchasedApp = false
+    var drinksLimit: drinkLimit = drinkLimit(cant: 0, date: Date())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         checkHealthAvailability()
+        
+        loadDrinkLimitVariable()
+        
         tableView.tableFooterView = UIView()
         
         animatedView.layer.backgroundColor = UIColor(displayP3Red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0).cgColor
@@ -30,6 +36,29 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        
+        //Check purchase Status
+        if let purchaseVariable = UserDefaults.standard.value(forKey: inAppPurchaseKey) as? Bool {
+            hasPurchasedApp = purchaseVariable
+            print(hasPurchasedApp)
+        }
+    }
+    
+    func loadDrinkLimitVariable() {
+        
+        if let data = UserDefaults.standard.value(forKey: drinkLimitKey) as? Data {
+            let copy = try? PropertyListDecoder().decode(drinkLimit.self, from: data)
+            drinksLimit = copy!
+        }
+        
+        let date = Date()
+        let calanderDate = Calendar.current.dateComponents([.day, .year, .month], from: date)
+        
+        let day = Calendar.current.dateComponents([.day, .year, .month], from: drinksLimit.date).day
+        if day != calanderDate.day {
+            drinksLimit.date = Date()
+            UserDefaults.standard.set(drinksLimit, forKey: drinkLimitKey)
+        }
     }
     
     fileprivate func checkHealthAvailability() {
@@ -185,9 +214,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     print(arrayDrinks)
                     UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: arrayDrinksKey)
                     tableView.reloadData()
-                    
-//                    let generator = UINotificationFeedbackGenerator()
-//                    generator.notificationOccurred(.error)
                 }
             }
         }
@@ -204,29 +230,49 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     senderVC.seleccion = 100
                 }
                 if senderVC.result != 0 {
+                    let dia = Date()
                     senderVC.toSave.caffeineMg = senderVC.result
                     senderVC.toSave.mililiters = senderVC.seleccion
-                    let dia = Date()
-                    healthManager.submitCaffeine(CaffeineAmount: senderVC.result, WaterAmount: senderVC.seleccion, forDate: dia, logWater: senderVC.waterLog)
-                    arrayDrinksAdded.append(senderVC.toSave)
-                    UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: arrayDrinksAddedKey)
-                    //print(senderVC.toSave)
-                    //print(arrayDrinksAdded)
+                    senderVC.toSave.date = dia
                     
-                    animateViewAndTapticFeedback()
+                    if hasPurchasedApp == true  || drinksLimit.cant == 0 {
+                        healthManager.submitCaffeine(CaffeineAmount: senderVC.result, WaterAmount: senderVC.seleccion, forDate: dia, logWater: senderVC.waterLog)
+                        arrayDrinksAdded.append(senderVC.toSave)
+                        UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: arrayDrinksAddedKey)
+                        drinksLimit.cant = drinksLimit.cant + 1
+                        
+                        //Save drinks limit struct
+                        UserDefaults.standard.set(try? PropertyListEncoder().encode(drinksLimit), forKey: drinkLimitKey)
+                        
+                        animateViewAndTapticFeedback(everythingOK: true)
+                    }else {
+                        animateViewAndTapticFeedback(everythingOK: false)
+                    }
+                    
                 }
             }
         }
     }
     
     
-    func animateViewAndTapticFeedback() {
+    func animateViewAndTapticFeedback(everythingOK: Bool) {
+        
+        if everythingOK == true {
+            animatedViewTextLabel.text = "Caffeine Added!"
+            animatedView.layer.backgroundColor = UIColor(displayP3Red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0).cgColor
+            //Taptic feedback
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
+        }else {
+            animatedViewTextLabel.text = "You cannot log more drinks, Please Upgrade!"
+            animatedView.layer.backgroundColor = UIColor.red.cgColor
+            //Taptic feedback
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.error)
+        }
         UIView.animate(withDuration: 0.5, animations: {
             self.animatedView.transform = CGAffineTransform(translationX: 0, y: 70)
         })
-        //Taptic feedback
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.success)
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
             UIView.animate(withDuration: 0.5, animations: {
                 self.animatedView.transform = CGAffineTransform.identity

@@ -12,13 +12,25 @@ struct drink: Codable {
     var type: String
     var caffeineMg: Int
     var mililiters: Int
+    var date: Date?
     var icon: String
     
-    init(type: String, caffeineMg: Int, mililiters: Int, icon: String) {
+    init(type: String, caffeineMg: Int, mililiters: Int, icon: String, dia: Date?) {
         self.type = type
         self.caffeineMg = caffeineMg
         self.mililiters = mililiters
+        self.date = dia
         self.icon = icon
+    }
+}
+
+struct drinkLimit: Codable {
+    var cant: Int
+    var date: Date
+    
+    init(cant: Int, date: Date) {
+        self.cant = cant
+        self.date = date
     }
 }
 
@@ -49,6 +61,8 @@ let arrayDrinksKey = "array"
 let arrayDrinksAddedKey = "arrayAdded"
 let cellForCheckmarkKey = "CellForCheckmark"
 let logWaterBoolKey = "logWaterBool"
+let inAppPurchaseKey = "Purchase"
+let drinkLimitKey = "limit"
 
 //Identifiers
 let modalViewIdentifier = "ShowModalView"

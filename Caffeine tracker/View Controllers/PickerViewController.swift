@@ -21,7 +21,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var arrayML = [Int](0...100)
     var seleccion = 0
     var result = 0
-    var toSave: drink = drink(type: "", caffeineMg: 0, mililiters: 0, icon: "")
+    var toSave: drink = drink(type: "", caffeineMg: 0, mililiters: 0, icon: "", dia: nil)
     var waterLog: Bool = true
     
     

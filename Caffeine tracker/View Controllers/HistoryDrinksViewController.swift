@@ -18,15 +18,48 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var progress: UIProgressView!
     
     var caffeineLimit = 400
+    var drinksDictionary = [Int : [drink]]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tablewView.reloadData()
+        separateDrinksInSections()
         
         progressViewStyle()
         
         tablewView.tableFooterView = UIView()
+    }
+    
+    func separateDrinksInSections() {
+        var elementsArray = [drink]()
+        
+        for element in arrayDrinksAdded {
+            let day = Calendar.current.dateComponents([.day, .year, .month], from: element.date!).day
+            let month = Calendar.current.dateComponents([.day, .year, .month], from: element.date!).month
+            let year = Calendar.current.dateComponents([.day, .month, .year], from: element.date!).year
+            
+            var sumador = 0
+            
+            if elementsArray.count == 0 {
+                elementsArray.append(element)
+                drinksDictionary[sumador] = elementsArray
+            }else {
+                let elementArrayDay = Calendar.current.dateComponents([.day, .year, .month], from: elementsArray[0].date!).day
+                let elementArrayMonth = Calendar.current.dateComponents([.day, .year, .month], from: elementsArray[0].date!).month
+                let elementArrayYear = Calendar.current.dateComponents([.day, .month, .year], from: elementsArray[0].date!).year
+                
+                if elementArrayDay == day && elementArrayMonth == month && elementArrayYear == year {
+                    elementsArray.append(element)
+                    drinksDictionary[sumador] = elementsArray
+                }else {
+                    sumador = sumador + 1
+                    elementsArray.removeAll()
+                    elementsArray.append(element)
+                    drinksDictionary[sumador] = elementsArray
+                }
+            }
+        }
     }
     
     
@@ -98,6 +131,8 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
                     caffeineLimit = caffeineLimit + number
                 }
             }
+            
+            separateDrinksInSections()
         }
         
         if let data = UserDefaults.standard.value(forKey: arrayDrinksAddedKey) as? Data {
@@ -108,19 +143,42 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         displayCaffeineProgress()
         tablewView.reloadData()
     }
-
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        //pruebaaaaaa
+        print(drinksDictionary.count)
+        
+        return drinksDictionary.count
     }
     
     
     // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "All your drinks:"
-        } else {
+        var date = Date()
+        if let value = drinksDictionary[section] {
+            date = value[0].date!
+            let day = Calendar.current.dateComponents([.day, .year, .month], from: date).day
+            let month = Calendar.current.dateComponents([.day, .year, .month], from: date).month
+            let year = Calendar.current.dateComponents([.day, .month, .year], from: date).year
+            
+            let today = Date()
+            let todaysDate = Calendar.current.dateComponents([.day, .year, .month], from: today)
+            
+            var yesterday = Date()
+            yesterday.addTimeInterval(-86400)
+            let yesterdaysDate = Calendar.current.dateComponents([.day, .year, .month], from: yesterday)
+            
+            if todaysDate.day == day && todaysDate.month == month && todaysDate.year == year {
+                return "Today"
+            }else if (yesterdaysDate.day == day && yesterdaysDate.month == month && yesterdaysDate.year == year){
+                return "Yesterday"
+            }else {
+                let fullDate = "\(day!)/\(month!)/\(year!)"
+                return fullDate
+            }
+        }else {
             return ""
         }
     }

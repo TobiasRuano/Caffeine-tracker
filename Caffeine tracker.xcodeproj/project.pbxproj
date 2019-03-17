@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B04C472223EAE6D00C74C03 /* FirstOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04C471223EAE6D00C74C03 /* FirstOnboardingViewController.swift */; };
+		8B04C476223EC25800C74C03 /* RootOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04C475223EC25800C74C03 /* RootOnboardingViewController.swift */; };
+		8B04C478223EC6FB00C74C03 /* SecondOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04C477223EC6FB00C74C03 /* SecondOnboardingViewController.swift */; };
+		8B04C47A223ED17B00C74C03 /* OnboardingSingleHelpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04C479223ED17B00C74C03 /* OnboardingSingleHelpTableViewController.swift */; };
+		8B04C481223ED5B700C74C03 /* CTOnboardingCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04C47F223ED5B700C74C03 /* CTOnboardingCustomTableViewCell.swift */; };
+		8B04C482223ED5B700C74C03 /* CTOnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04C480223ED5B700C74C03 /* CTOnboardingButton.swift */; };
 		8B2C783020F3ABBD00DA38C0 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2C782A20F3ABBD00DA38C0 /* Settings.storyboard */; };
 		8B2C783120F3ABBD00DA38C0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2C782C20F3ABBD00DA38C0 /* Home.storyboard */; };
 		8B2C783220F3ABBD00DA38C0 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2C782E20F3ABBD00DA38C0 /* History.storyboard */; };
@@ -30,6 +36,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B04C471223EAE6D00C74C03 /* FirstOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewController.swift; sourceTree = "<group>"; };
+		8B04C475223EC25800C74C03 /* RootOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootOnboardingViewController.swift; sourceTree = "<group>"; };
+		8B04C477223EC6FB00C74C03 /* SecondOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingViewController.swift; sourceTree = "<group>"; };
+		8B04C479223ED17B00C74C03 /* OnboardingSingleHelpTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSingleHelpTableViewController.swift; sourceTree = "<group>"; };
+		8B04C47F223ED5B700C74C03 /* CTOnboardingCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CTOnboardingCustomTableViewCell.swift; path = "Caffeine tracker/CustomClasses/CTOnboardingCustomTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		8B04C480223ED5B700C74C03 /* CTOnboardingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CTOnboardingButton.swift; path = "Caffeine tracker/CustomClasses/CTOnboardingButton.swift"; sourceTree = SOURCE_ROOT; };
 		8B2C782B20F3ABBD00DA38C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		8B2C782D20F3ABBD00DA38C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		8B2C782F20F3ABBD00DA38C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/History.storyboard; sourceTree = "<group>"; };
@@ -67,6 +79,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B04C47E223ED58200C74C03 /* CustomClasses */ = {
+			isa = PBXGroup;
+			children = (
+				8BBC8B9D22272CC900A4E54C /* CustomCellClass.swift */,
+				8B04C480223ED5B700C74C03 /* CTOnboardingButton.swift */,
+				8B04C47F223ED5B700C74C03 /* CTOnboardingCustomTableViewCell.swift */,
+			);
+			name = CustomClasses;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		8B27BC7C20F29E070090C5A9 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,8 +126,8 @@
 				8BD2BB032081497E00D61BDF /* AppDelegate.swift */,
 				8BA74EA620D1B25200AAC3EA /* HealthKitSetupAssistant.swift */,
 				8B74E61320F1A03F0032CE09 /* Models.swift */,
-				8BBC8B9D22272CC900A4E54C /* CustomCellClass.swift */,
 				8BAC94FD20F1AEC800601660 /* GradientView.swift */,
+				8B04C47E223ED58200C74C03 /* CustomClasses */,
 				8BD2BB212081575400D61BDF /* View Controllers */,
 				8B27BC7C20F29E070090C5A9 /* Storyboards */,
 				8B74E61120EFDDAA0032CE09 /* Assets.xcassets */,
@@ -132,6 +155,10 @@
 				8BD2BB1D20814F0700D61BDF /* SettingsTableViewController.swift */,
 				8B8E9B9320DDBF1000E619FB /* DailyCaffeineViewController.swift */,
 				8BD2BB1F2081565700D61BDF /* InAppPurchaseTableViewController.swift */,
+				8B04C475223EC25800C74C03 /* RootOnboardingViewController.swift */,
+				8B04C471223EAE6D00C74C03 /* FirstOnboardingViewController.swift */,
+				8B04C477223EC6FB00C74C03 /* SecondOnboardingViewController.swift */,
+				8B04C479223ED17B00C74C03 /* OnboardingSingleHelpTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -169,6 +196,9 @@
 					8BD2BAFF2081497E00D61BDF = {
 						CreatedOnToolsVersion = 9.3;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
 							com.apple.HealthKit = {
 								enabled = 1;
 							};
@@ -217,17 +247,23 @@
 			files = (
 				8B8E9B9420DDBF1000E619FB /* DailyCaffeineViewController.swift in Sources */,
 				8BAC94FE20F1AEC800601660 /* GradientView.swift in Sources */,
+				8B04C482223ED5B700C74C03 /* CTOnboardingButton.swift in Sources */,
 				8B7BF35E20D5F7FB003FD4C7 /* PickIconTableViewController.swift in Sources */,
+				8B04C478223EC6FB00C74C03 /* SecondOnboardingViewController.swift in Sources */,
 				8BD2BB042081497E00D61BDF /* AppDelegate.swift in Sources */,
 				8B7BF36220D697AB003FD4C7 /* PickerViewController.swift in Sources */,
 				8BA74EA720D1B25200AAC3EA /* HealthKitSetupAssistant.swift in Sources */,
+				8B04C472223EAE6D00C74C03 /* FirstOnboardingViewController.swift in Sources */,
 				8BC6B12520D4650C006B2061 /* AddDrinkTableViewController.swift in Sources */,
 				8B81E50720F25D6F005CE1D8 /* HomeViewController.swift in Sources */,
+				8B04C47A223ED17B00C74C03 /* OnboardingSingleHelpTableViewController.swift in Sources */,
 				8B74E61420F1A03F0032CE09 /* Models.swift in Sources */,
 				8BD2BB1E20814F0700D61BDF /* SettingsTableViewController.swift in Sources */,
 				8BBC8B9E22272CC900A4E54C /* CustomCellClass.swift in Sources */,
+				8B04C481223ED5B700C74C03 /* CTOnboardingCustomTableViewCell.swift in Sources */,
 				8BD2BB202081565700D61BDF /* InAppPurchaseTableViewController.swift in Sources */,
 				8BCFB39A20D2944C00090C2A /* HistoryDrinksViewController.swift in Sources */,
+				8B04C476223EC25800C74C03 /* RootOnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

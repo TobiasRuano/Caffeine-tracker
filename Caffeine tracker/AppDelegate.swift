@@ -30,6 +30,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        var vc: UIViewController
+        
+        if (UserDefaults.standard.value(forKey: "OnboardingScreen") as? Bool) == nil  {
+            vc = storyBoard.instantiateViewController(withIdentifier: "OnboardingRoot")
+        }else {
+            vc = storyBoard.instantiateInitialViewController()!
+        }
+        
+        self.window?.rootViewController = vc
+        self.window?.makeKeyAndVisible()
+        
         
         if let data = UserDefaults.standard.value(forKey: arrayDrinksKey) as? Data {
             let arrayData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
@@ -47,6 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let ArrayAddedData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
             arrayDrinksAdded = ArrayAddedData!
         }
+        
         return true
     }
 

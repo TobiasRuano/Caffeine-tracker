@@ -14,5 +14,4 @@ class CustomCellClass: UITableViewCell {
     @IBOutlet weak var miliLiters: UILabel!
     @IBOutlet weak var caffeineMg: UILabel!
     @IBOutlet weak var DrinkName: UILabel!
-    
 }

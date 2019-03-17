@@ -80,10 +80,10 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhQ-FY-7sa">
-                                <rect key="frame" x="19" y="-60" width="337" height="41"/>
+                                <rect key="frame" x="20" y="-60" width="335" height="41"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caffeine Added!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="txp-nq-VGU">
-                                        <rect key="frame" x="8" y="5" width="321" height="31"/>
+                                        <rect key="frame" x="8" y="5" width="319" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -91,7 +91,6 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="337" id="09V-nX-csd"/>
                                     <constraint firstItem="txp-nq-VGU" firstAttribute="leading" secondItem="uhQ-FY-7sa" secondAttribute="leading" constant="8" id="N3V-qb-vm7"/>
                                     <constraint firstAttribute="bottom" secondItem="txp-nq-VGU" secondAttribute="bottom" constant="5" id="gN3-Wo-eaA"/>
                                     <constraint firstItem="txp-nq-VGU" firstAttribute="top" secondItem="uhQ-FY-7sa" secondAttribute="top" constant="5" id="hHL-5T-5hy"/>
@@ -104,9 +103,11 @@
                         <constraints>
                             <constraint firstItem="uhQ-FY-7sa" firstAttribute="centerX" secondItem="wUV-yh-wiO" secondAttribute="centerX" id="5O3-dB-dYt"/>
                             <constraint firstItem="W0G-iA-WEw" firstAttribute="top" secondItem="CoC-Fy-82L" secondAttribute="top" id="67O-KU-GKV"/>
+                            <constraint firstItem="uhQ-FY-7sa" firstAttribute="leading" secondItem="wUV-yh-wiO" secondAttribute="leading" constant="20" id="VGX-oC-3kH"/>
                             <constraint firstItem="W0G-iA-WEw" firstAttribute="bottom" secondItem="CoC-Fy-82L" secondAttribute="bottom" id="bi5-nH-ezt"/>
                             <constraint firstItem="W0G-iA-WEw" firstAttribute="trailing" secondItem="CoC-Fy-82L" secondAttribute="trailing" id="hOd-hd-mrB"/>
                             <constraint firstItem="uhQ-FY-7sa" firstAttribute="top" secondItem="CoC-Fy-82L" secondAttribute="top" constant="-60" id="pB9-0R-pVG"/>
+                            <constraint firstAttribute="trailing" secondItem="uhQ-FY-7sa" secondAttribute="trailing" constant="20" id="wy4-qH-ohK"/>
                             <constraint firstItem="W0G-iA-WEw" firstAttribute="leading" secondItem="CoC-Fy-82L" secondAttribute="leading" id="xTn-2h-pyb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CoC-Fy-82L"/>

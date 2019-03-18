@@ -13,10 +13,10 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     
     @IBOutlet weak var maxDailyCaf: UILabel!
     @IBOutlet weak var waterLogSwitch: UISwitch!
-    var logWater: Bool = false
-    var unitML: Bool = true
     @IBOutlet weak var mlCell: UITableViewCell!
     @IBOutlet weak var ozCell: UITableViewCell!
+    var logWater: Bool = false
+    var unitML: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()

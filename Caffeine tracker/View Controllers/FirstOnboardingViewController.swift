@@ -19,6 +19,7 @@ class FirstOnboardingViewController: UIViewController, UITextFieldDelegate {
         caffeineLimitTextField.delegate = self
         
         styleTextView()
+        continueButton.isEnabled = false
         
         //listen for keyboard events
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)

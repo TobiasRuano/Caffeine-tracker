@@ -301,7 +301,7 @@ upperleft corner!</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.20340806245803833" green="0.47218620777130127" blue="0.96475774049758911" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstItem="IE2-4i-U1s" firstAttribute="centerY" secondItem="S2K-oH-OSx" secondAttribute="centerY" id="3dc-jp-6gw"/>
                                                 <constraint firstItem="IE2-4i-U1s" firstAttribute="leading" secondItem="S2K-oH-OSx" secondAttribute="leading" constant="22" id="bsc-dD-csj"/>
@@ -369,7 +369,7 @@ upperleft corner!</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P06-uI-A12" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2348" y="-398"/>
+            <point key="canvasLocation" x="2188" y="-456"/>
         </scene>
     </scenes>
     <resources>

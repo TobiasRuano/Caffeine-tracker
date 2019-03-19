@@ -17,19 +17,19 @@ This app let's you log your caffeine and water intake to the health app. Simply 
 ## Release History
 
 * 0.4.0
-* ADD: Onboarding Screen
+  * ADD: Onboarding Screen
 * 0.3.0
-* History section implemented
+  * History section implemented
 * 0.2.1
-* Progress bar implemented
-* Bare bones of inApp purchase implemented
+  * Progress bar implemented
+  * Bare bones of inApp purchase implemented
 * 0.1.2
-* Health implementation finished
+  * Health implementation finished
 * 0.1.0
-* UI finished!
-* ADD: Started implementing Health API
+  * UI finished!
+  * ADD: Started implementing Health API
 * 0.0.1
-* Development Started
+  * Development Started
 
 ## Meta
 

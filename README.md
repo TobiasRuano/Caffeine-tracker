@@ -3,6 +3,8 @@
 
 This app let's you log your caffeine and water intake to the health app. Simply select one of the presets or add your own drink.
 
+![](header.png)
+
 ## Features
 * Easily log your daily caffeine consumption
 * Log your water intake too!
@@ -11,8 +13,6 @@ This app let's you log your caffeine and water intake to the health app. Simply 
 * Add your own!
 * Use "ml" or "oz" (*Soon...*)
 * Beautiful progress bar
-
-![](header.png)
 
 ## Release History
 

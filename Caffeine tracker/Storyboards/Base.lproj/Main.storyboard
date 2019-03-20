@@ -213,7 +213,7 @@ know it, leave it blank</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uvo-0M-u0y">
-                                <rect key="frame" x="42" y="197" width="291" height="82.666666666666686"/>
+                                <rect key="frame" x="42" y="167" width="291" height="82.666666666666686"/>
                                 <string key="text">To track your caffeine intake 
 simply slide or 
 tap the drink you want.</string>
@@ -222,7 +222,7 @@ tap the drink you want.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13h-yh-w4Z">
-                                <rect key="frame" x="75.333333333333329" y="385.66666666666669" width="224.66666666666669" height="33.666666666666686"/>
+                                <rect key="frame" x="75.333333333333329" y="341.66666666666669" width="224.66666666666669" height="33.666666666666686"/>
                                 <string key="text">With the free version you can only
 track 1 drink a day</string>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
@@ -230,7 +230,7 @@ track 1 drink a day</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z68-IV-LDW">
-                                <rect key="frame" x="30" y="323.66666666666669" width="315" height="47"/>
+                                <rect key="frame" x="30" y="279.66666666666669" width="315" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="Pfa-Di-vdB"/>
                                 </constraints>
@@ -239,7 +239,7 @@ track 1 drink a day</string>
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyC-lc-2kM">
-                                <rect key="frame" x="39.333333333333343" y="469.33333333333331" width="296.66666666666663" height="82.666666666666686"/>
+                                <rect key="frame" x="39.333333333333343" y="405.33333333333331" width="296.66666666666663" height="82.666666666666686"/>
                                 <string key="text">You can also add more drinks
 with the plus button on the 
 upperleft corner!</string>
@@ -247,27 +247,60 @@ upperleft corner!</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xo3-Ly-OTI">
+                                <rect key="frame" x="39" y="518" width="297" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log Water to Health" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hoi-i9-3aI">
+                                        <rect key="frame" x="8" y="11.666666666666629" width="153" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Af9-qh-6bZ">
+                                        <rect key="frame" x="238" y="6.6666666666666288" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Af9-qh-6bZ" secondAttribute="height" multiplier="49:31" id="YUu-ZL-0JI"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="switchAction:" destination="IsH-0D-hOS" eventType="valueChanged" id="GUm-ej-fH1"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Hoi-i9-3aI" firstAttribute="leading" secondItem="Xo3-Ly-OTI" secondAttribute="leading" constant="8" id="UQU-1e-pKR"/>
+                                    <constraint firstAttribute="trailing" secondItem="Af9-qh-6bZ" secondAttribute="trailing" constant="10" id="WmT-au-xU3"/>
+                                    <constraint firstAttribute="height" constant="44" id="ggf-Z9-zDD"/>
+                                    <constraint firstItem="Af9-qh-6bZ" firstAttribute="centerY" secondItem="Xo3-Ly-OTI" secondAttribute="centerY" id="j5E-GB-Vmr"/>
+                                    <constraint firstItem="Hoi-i9-3aI" firstAttribute="centerY" secondItem="Xo3-Ly-OTI" secondAttribute="centerY" id="oVI-K6-JeV"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dr8-g0-NG9" firstAttribute="centerX" secondItem="Gek-IK-YEC" secondAttribute="centerX" id="1hQ-Tz-fkX"/>
                             <constraint firstItem="vyC-lc-2kM" firstAttribute="centerX" secondItem="Gek-IK-YEC" secondAttribute="centerX" id="558-pV-OhA"/>
                             <constraint firstItem="0sb-d7-ftQ" firstAttribute="trailing" secondItem="kj2-zG-ure" secondAttribute="trailing" constant="50" id="5xB-0Y-hpd"/>
-                            <constraint firstItem="Z68-IV-LDW" firstAttribute="top" secondItem="Uvo-0M-u0y" secondAttribute="bottom" constant="44" id="7MR-GG-bwa"/>
+                            <constraint firstItem="Z68-IV-LDW" firstAttribute="top" secondItem="Uvo-0M-u0y" secondAttribute="bottom" constant="30" id="7MR-GG-bwa"/>
                             <constraint firstItem="13h-yh-w4Z" firstAttribute="top" secondItem="Z68-IV-LDW" secondAttribute="bottom" constant="15" id="EYr-yo-lFI"/>
+                            <constraint firstItem="0sb-d7-ftQ" firstAttribute="trailing" secondItem="Xo3-Ly-OTI" secondAttribute="trailing" constant="39" id="O9H-cM-Gy0"/>
                             <constraint firstItem="Z68-IV-LDW" firstAttribute="leading" secondItem="0sb-d7-ftQ" secondAttribute="leading" constant="30" id="YTe-hG-6PY"/>
+                            <constraint firstItem="Xo3-Ly-OTI" firstAttribute="top" secondItem="vyC-lc-2kM" secondAttribute="bottom" constant="30" id="gUS-0A-X97"/>
                             <constraint firstItem="Uvo-0M-u0y" firstAttribute="centerX" secondItem="Gek-IK-YEC" secondAttribute="centerX" id="kMv-dD-BIu"/>
                             <constraint firstItem="0sb-d7-ftQ" firstAttribute="trailing" secondItem="Z68-IV-LDW" secondAttribute="trailing" constant="30" id="lfK-0F-G7Y"/>
+                            <constraint firstItem="Xo3-Ly-OTI" firstAttribute="leading" secondItem="0sb-d7-ftQ" secondAttribute="leading" constant="39" id="qcW-dU-ObS"/>
                             <constraint firstAttribute="bottom" secondItem="kj2-zG-ure" secondAttribute="bottom" constant="50" id="s70-uN-WMh"/>
-                            <constraint firstItem="Uvo-0M-u0y" firstAttribute="top" secondItem="dr8-g0-NG9" secondAttribute="bottom" constant="60" id="sc5-lJ-yV9"/>
+                            <constraint firstItem="Uvo-0M-u0y" firstAttribute="top" secondItem="dr8-g0-NG9" secondAttribute="bottom" constant="30" id="sc5-lJ-yV9"/>
                             <constraint firstItem="kj2-zG-ure" firstAttribute="leading" secondItem="0sb-d7-ftQ" secondAttribute="leading" constant="50" id="tIR-iH-R7g"/>
-                            <constraint firstItem="vyC-lc-2kM" firstAttribute="top" secondItem="13h-yh-w4Z" secondAttribute="bottom" constant="50" id="y3L-Qf-wWQ"/>
+                            <constraint firstItem="vyC-lc-2kM" firstAttribute="top" secondItem="13h-yh-w4Z" secondAttribute="bottom" constant="30" id="y3L-Qf-wWQ"/>
                             <constraint firstItem="dr8-g0-NG9" firstAttribute="top" secondItem="0sb-d7-ftQ" secondAttribute="top" constant="47" id="yAv-WJ-e3l"/>
                             <constraint firstItem="13h-yh-w4Z" firstAttribute="centerX" secondItem="Gek-IK-YEC" secondAttribute="centerX" id="yaN-s2-gBS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0sb-d7-ftQ"/>
                     </view>
                     <connections>
+                        <outlet property="logWaterView" destination="Xo3-Ly-OTI" id="cy8-Cc-xov"/>
+                        <outlet property="waterSwitch" destination="Af9-qh-6bZ" id="7RI-bf-P9W"/>
                         <segue destination="LyL-k8-SPh" kind="show" identifier="ExitOnboarding" id="jKE-Bh-ZQQ"/>
                     </connections>
                 </viewController>

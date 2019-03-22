@@ -37,6 +37,6 @@ class SecondOnboardingViewController: UIViewController {
     
     @IBAction func ExitToRootViewController(_ sender: UIButton) {
         UserDefaults.standard.set(true, forKey: "OnboardingScreen")
-        performSegue(withIdentifier: "ExitOnboarding", sender: self)
+        performSegue(withIdentifier: "exitOnboarding", sender: self)
     }
 }

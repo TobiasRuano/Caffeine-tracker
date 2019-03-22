@@ -94,7 +94,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFL-Lo-2Gt" customClass="CTOnboardingButton" customModule="Caffeine_tracker" customModuleProvider="target">
-                                <rect key="frame" x="50" y="712" width="275" height="50"/>
+                                <rect key="frame" x="50" y="718" width="275" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="dYS-bh-gLZ"/>
                                 </constraints>
@@ -105,20 +105,20 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZU-dQ-PPV">
-                                <rect key="frame" x="95.666666666666686" y="91" width="184" height="46"/>
+                                <rect key="frame" x="96.000000000000014" y="74" width="183.33333333333337" height="46"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="38"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Dde-em-WGV">
-                                <rect key="frame" x="148.66666666666666" y="142" width="78" height="78"/>
+                                <rect key="frame" x="148.66666666666666" y="125" width="78" height="78"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="78" id="ESZ-aD-59g"/>
                                     <constraint firstAttribute="width" constant="78" id="pzF-Nz-PBI"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="We2-Fc-pZB">
-                                <rect key="frame" x="35.333333333333343" y="225" width="304.33333333333326" height="67"/>
+                                <rect key="frame" x="35.333333333333343" y="208" width="304.33333333333326" height="67"/>
                                 <string key="text">Thanks for downloading
 CaffeineTracker!</string>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
@@ -126,7 +126,7 @@ CaffeineTracker!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pa3-Zj-2vg">
-                                <rect key="frame" x="30" y="337" width="315" height="82.666666666666686"/>
+                                <rect key="frame" x="30" y="305" width="315" height="82.666666666666686"/>
                                 <string key="text">Please insert below your daily caffeine limit. If you dont
 know it, leave it blank</string>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
@@ -134,7 +134,7 @@ know it, leave it blank</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1L-hQ-0Ju">
-                                <rect key="frame" x="30" y="473.66666666666669" width="315" height="44.000000000000057"/>
+                                <rect key="frame" x="30" y="441.66666666666669" width="315" height="44"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="400mg" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sxb-w7-DtM">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="44"/>
@@ -161,17 +161,19 @@ know it, leave it blank</string>
                             <constraint firstItem="Pa3-Zj-2vg" firstAttribute="leading" secondItem="e1h-Up-lW9" secondAttribute="leading" constant="30" id="6U1-Bn-Nrr"/>
                             <constraint firstItem="e1h-Up-lW9" firstAttribute="trailing" secondItem="Pa3-Zj-2vg" secondAttribute="trailing" constant="30" id="DwB-RY-jjm"/>
                             <constraint firstItem="iFL-Lo-2Gt" firstAttribute="leading" secondItem="e1h-Up-lW9" secondAttribute="leading" constant="50" id="ESW-vc-iE6"/>
-                            <constraint firstItem="fZU-dQ-PPV" firstAttribute="top" secondItem="e1h-Up-lW9" secondAttribute="top" constant="47" id="Idu-Dq-5AR"/>
+                            <constraint firstItem="fZU-dQ-PPV" firstAttribute="top" secondItem="e1h-Up-lW9" secondAttribute="top" constant="30" id="Idu-Dq-5AR"/>
                             <constraint firstItem="We2-Fc-pZB" firstAttribute="top" secondItem="Dde-em-WGV" secondAttribute="bottom" constant="5" id="K8l-GE-5gG"/>
                             <constraint firstItem="e1h-Up-lW9" firstAttribute="trailing" secondItem="iFL-Lo-2Gt" secondAttribute="trailing" constant="50" id="MVm-dT-23B"/>
-                            <constraint firstAttribute="bottom" secondItem="iFL-Lo-2Gt" secondAttribute="bottom" constant="50" id="P6A-Ms-bF9"/>
+                            <constraint firstItem="e1h-Up-lW9" firstAttribute="bottom" secondItem="iFL-Lo-2Gt" secondAttribute="bottom" id="P6A-Ms-bF9">
+                                <variation key="heightClass=regular" constant="10"/>
+                            </constraint>
                             <constraint firstItem="Dde-em-WGV" firstAttribute="top" secondItem="fZU-dQ-PPV" secondAttribute="bottom" constant="5" id="VF1-qO-GKR"/>
+                            <constraint firstItem="Pa3-Zj-2vg" firstAttribute="top" secondItem="We2-Fc-pZB" secondAttribute="bottom" constant="30" id="cGV-jf-Jxw"/>
                             <constraint firstItem="We2-Fc-pZB" firstAttribute="centerX" secondItem="CKV-gC-tnU" secondAttribute="centerX" id="cX4-I7-aoK"/>
                             <constraint firstItem="e1h-Up-lW9" firstAttribute="trailing" secondItem="m1L-hQ-0Ju" secondAttribute="trailing" constant="30" id="fwT-Z8-rMg"/>
                             <constraint firstItem="fZU-dQ-PPV" firstAttribute="centerX" secondItem="CKV-gC-tnU" secondAttribute="centerX" id="jPd-wn-aFh"/>
                             <constraint firstItem="m1L-hQ-0Ju" firstAttribute="leading" secondItem="e1h-Up-lW9" secondAttribute="leading" constant="30" id="khn-TN-flT"/>
                             <constraint firstItem="m1L-hQ-0Ju" firstAttribute="top" secondItem="Pa3-Zj-2vg" secondAttribute="bottom" constant="54" id="lEr-5J-f2x"/>
-                            <constraint firstItem="Pa3-Zj-2vg" firstAttribute="top" secondItem="We2-Fc-pZB" secondAttribute="bottom" constant="45" id="y2h-tF-4Pd"/>
                             <constraint firstItem="Dde-em-WGV" firstAttribute="centerX" secondItem="CKV-gC-tnU" secondAttribute="centerX" id="yAu-WC-hJR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e1h-Up-lW9"/>
@@ -184,7 +186,7 @@ know it, leave it blank</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Zh-XK-sg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="839" y="-457"/>
+            <point key="canvasLocation" x="837.60000000000002" y="-457.38916256157637"/>
         </scene>
         <!--Second Onboarding View Controller-->
         <scene sceneID="M2o-dP-Gwn">
@@ -195,34 +197,33 @@ know it, leave it blank</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kj2-zG-ure" customClass="CTOnboardingButton" customModule="Caffeine_tracker" customModuleProvider="target">
-                                <rect key="frame" x="50" y="712" width="275" height="50"/>
+                                <rect key="frame" x="50" y="718" width="275" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Zly-TR-s8L"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <state key="normal" title="Let's Get Started!"/>
                                 <connections>
-                                    <action selector="ExitToRootViewController:" destination="IsH-0D-hOS" eventType="touchUpInside" id="rXY-gs-1dh"/>
-                                    <action selector="continueButtonPressed:" destination="UbD-Is-7bw" eventType="touchUpInside" id="5KM-Q9-WOn"/>
+                                    <action selector="ExitToRootViewController:" destination="IsH-0D-hOS" eventType="touchUpInside" id="d91-1c-dxs"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Almost Finished!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dr8-g0-NG9">
-                                <rect key="frame" x="33.333333333333343" y="91" width="308.33333333333326" height="46"/>
+                                <rect key="frame" x="33.333333333333343" y="74" width="308.33333333333326" height="46"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="38"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uvo-0M-u0y">
-                                <rect key="frame" x="42" y="167" width="291" height="82.666666666666686"/>
+                                <rect key="frame" x="60.333333333333329" y="150" width="254.66666666666669" height="71.666666666666686"/>
                                 <string key="text">To track your caffeine intake 
 simply slide or 
 tap the drink you want.</string>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13h-yh-w4Z">
-                                <rect key="frame" x="75.333333333333329" y="341.66666666666669" width="224.66666666666669" height="33.666666666666686"/>
+                                <rect key="frame" x="75.333333333333329" y="313.66666666666669" width="224.66666666666669" height="33.666666666666686"/>
                                 <string key="text">With the free version you can only
 track 1 drink a day</string>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
@@ -230,7 +231,7 @@ track 1 drink a day</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z68-IV-LDW">
-                                <rect key="frame" x="30" y="279.66666666666669" width="315" height="47"/>
+                                <rect key="frame" x="30" y="251.66666666666663" width="315" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="Pfa-Di-vdB"/>
                                 </constraints>
@@ -239,16 +240,16 @@ track 1 drink a day</string>
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyC-lc-2kM">
-                                <rect key="frame" x="39.333333333333343" y="405.33333333333331" width="296.66666666666663" height="82.666666666666686"/>
+                                <rect key="frame" x="57.666666666666657" y="377.33333333333331" width="259.66666666666674" height="71.666666666666686"/>
                                 <string key="text">You can also add more drinks
 with the plus button on the 
 upperleft corner!</string>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xo3-Ly-OTI">
-                                <rect key="frame" x="39" y="518" width="297" height="44"/>
+                                <rect key="frame" x="30" y="644" width="315" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log Water to Health" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hoi-i9-3aI">
                                         <rect key="frame" x="8" y="11.666666666666629" width="153" height="21"/>
@@ -257,7 +258,7 @@ upperleft corner!</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Af9-qh-6bZ">
-                                        <rect key="frame" x="238" y="6.6666666666666288" width="51" height="31"/>
+                                        <rect key="frame" x="256" y="6.6666666666666288" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Af9-qh-6bZ" secondAttribute="height" multiplier="49:31" id="YUu-ZL-0JI"/>
                                         </constraints>
@@ -283,17 +284,19 @@ upperleft corner!</string>
                             <constraint firstItem="0sb-d7-ftQ" firstAttribute="trailing" secondItem="kj2-zG-ure" secondAttribute="trailing" constant="50" id="5xB-0Y-hpd"/>
                             <constraint firstItem="Z68-IV-LDW" firstAttribute="top" secondItem="Uvo-0M-u0y" secondAttribute="bottom" constant="30" id="7MR-GG-bwa"/>
                             <constraint firstItem="13h-yh-w4Z" firstAttribute="top" secondItem="Z68-IV-LDW" secondAttribute="bottom" constant="15" id="EYr-yo-lFI"/>
-                            <constraint firstItem="0sb-d7-ftQ" firstAttribute="trailing" secondItem="Xo3-Ly-OTI" secondAttribute="trailing" constant="39" id="O9H-cM-Gy0"/>
+                            <constraint firstItem="0sb-d7-ftQ" firstAttribute="trailing" secondItem="Xo3-Ly-OTI" secondAttribute="trailing" constant="30" id="O9H-cM-Gy0"/>
                             <constraint firstItem="Z68-IV-LDW" firstAttribute="leading" secondItem="0sb-d7-ftQ" secondAttribute="leading" constant="30" id="YTe-hG-6PY"/>
-                            <constraint firstItem="Xo3-Ly-OTI" firstAttribute="top" secondItem="vyC-lc-2kM" secondAttribute="bottom" constant="30" id="gUS-0A-X97"/>
                             <constraint firstItem="Uvo-0M-u0y" firstAttribute="centerX" secondItem="Gek-IK-YEC" secondAttribute="centerX" id="kMv-dD-BIu"/>
                             <constraint firstItem="0sb-d7-ftQ" firstAttribute="trailing" secondItem="Z68-IV-LDW" secondAttribute="trailing" constant="30" id="lfK-0F-G7Y"/>
-                            <constraint firstItem="Xo3-Ly-OTI" firstAttribute="leading" secondItem="0sb-d7-ftQ" secondAttribute="leading" constant="39" id="qcW-dU-ObS"/>
-                            <constraint firstAttribute="bottom" secondItem="kj2-zG-ure" secondAttribute="bottom" constant="50" id="s70-uN-WMh"/>
+                            <constraint firstItem="Xo3-Ly-OTI" firstAttribute="leading" secondItem="0sb-d7-ftQ" secondAttribute="leading" constant="30" id="qcW-dU-ObS"/>
+                            <constraint firstItem="0sb-d7-ftQ" firstAttribute="bottom" secondItem="kj2-zG-ure" secondAttribute="bottom" id="s70-uN-WMh">
+                                <variation key="heightClass=regular" constant="10"/>
+                            </constraint>
                             <constraint firstItem="Uvo-0M-u0y" firstAttribute="top" secondItem="dr8-g0-NG9" secondAttribute="bottom" constant="30" id="sc5-lJ-yV9"/>
                             <constraint firstItem="kj2-zG-ure" firstAttribute="leading" secondItem="0sb-d7-ftQ" secondAttribute="leading" constant="50" id="tIR-iH-R7g"/>
+                            <constraint firstItem="kj2-zG-ure" firstAttribute="top" secondItem="Xo3-Ly-OTI" secondAttribute="bottom" constant="30" id="vkU-nE-jQ6"/>
                             <constraint firstItem="vyC-lc-2kM" firstAttribute="top" secondItem="13h-yh-w4Z" secondAttribute="bottom" constant="30" id="y3L-Qf-wWQ"/>
-                            <constraint firstItem="dr8-g0-NG9" firstAttribute="top" secondItem="0sb-d7-ftQ" secondAttribute="top" constant="47" id="yAv-WJ-e3l"/>
+                            <constraint firstItem="dr8-g0-NG9" firstAttribute="top" secondItem="0sb-d7-ftQ" secondAttribute="top" constant="30" id="yAv-WJ-e3l"/>
                             <constraint firstItem="13h-yh-w4Z" firstAttribute="centerX" secondItem="Gek-IK-YEC" secondAttribute="centerX" id="yaN-s2-gBS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0sb-d7-ftQ"/>
@@ -301,12 +304,12 @@ upperleft corner!</string>
                     <connections>
                         <outlet property="logWaterView" destination="Xo3-Ly-OTI" id="cy8-Cc-xov"/>
                         <outlet property="waterSwitch" destination="Af9-qh-6bZ" id="7RI-bf-P9W"/>
-                        <segue destination="LyL-k8-SPh" kind="show" identifier="ExitOnboarding" id="jKE-Bh-ZQQ"/>
+                        <segue destination="LyL-k8-SPh" kind="show" identifier="exitOnboarding" id="Hb4-Q2-dJN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDM-kz-SZA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1501.5999999999999" y="-457.38916256157637"/>
+            <point key="canvasLocation" x="1537" y="-457"/>
         </scene>
         <!--Onboarding Single Help Table View Controller-->
         <scene sceneID="vvM-Uc-OP4">
@@ -352,13 +355,13 @@ upperleft corner!</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Latte" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbV-3j-dGg">
-                                                    <rect key="frame" x="40" y="5" width="39.333333333333343" height="20.333333333333332"/>
+                                                    <rect key="frame" x="40" y="5" width="39.666666666666657" height="20.666666666666668"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="32mg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GzJ-OA-Kqc">
-                                                    <rect key="frame" x="40" y="25.333333333333332" width="32.666666666666657" height="14.333333333333332"/>
+                                                    <rect key="frame" x="40" y="25.666666666666671" width="33" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>

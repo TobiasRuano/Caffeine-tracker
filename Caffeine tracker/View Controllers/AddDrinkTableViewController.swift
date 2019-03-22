@@ -90,7 +90,6 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
                     //Taptic feedback
                     let generator = UINotificationFeedbackGenerator()
                     generator.notificationOccurred(.success)
-                    self.dismiss(animated: true, completion: nil)
                 }
             }else if identifier == "icon" {
                 let vc = segue.destination as! PickIconTableViewController

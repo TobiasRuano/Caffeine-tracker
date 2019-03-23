@@ -57,7 +57,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let day = Calendar.current.dateComponents([.day, .year, .month], from: drinksLimit.date).day
         if day != calanderDate.day {
             drinksLimit.date = Date()
-            UserDefaults.standard.set(drinksLimit, forKey: drinkLimitKey)
+            drinksLimit.cant = 0
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(drinksLimit), forKey: drinkLimitKey)
         }
     }
     

@@ -38,11 +38,3 @@ Tobias Ruano – [@tobiasruano](https://twitter.com/tobiasruano) – truano@uade
 Distributed under the Apache License. See ``LICENSE`` for more information.
 
 [https://github.com/TobiasRuano/Caffeine-tracker](https://github.com/TobiasRuano/Caffeine-tracker)
-
-## Contributing
-
-1. Fork it (<https://github.com/tobiasruano/Caffeine-tracker/fork>)
-2. Create your Feature Branch (```git checkout -b feature/AmazingFeature```)
-3. Commit your Changes (```git commit -m 'Add some AmazingFeature```)
-4. Push to the Branch (```git push origin feature/AmazingFeature```)
-5. Create a new Pull Request

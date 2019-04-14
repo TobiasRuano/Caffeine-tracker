@@ -23,16 +23,18 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tablewView.reloadData()
-        separateDrinksInSections()
+        //separateDrinksInSections()
         
         progressViewStyle()
+        //tablewView.reloadData()
         
         tablewView.tableFooterView = UIView()
     }
     
     func separateDrinksInSections() {
         var elementsArray = [drink]()
+        
+        print("Right now i have this many drinks in th earrayDrinksAdded: \(arrayDrinksAdded.count) and they are: \(arrayDrinksAdded)")
         
         for element in arrayDrinksAdded {
             let day = Calendar.current.dateComponents([.day, .year, .month], from: element.date!).day
@@ -53,13 +55,35 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
                     elementsArray.append(element)
                     drinksDictionary[sumador] = elementsArray
                 }else {
-                    sumador = sumador + 1
+                    while drinksDictionary[sumador] != nil {
+                        sumador += 1
+                    }
                     elementsArray.removeAll()
                     elementsArray.append(element)
                     drinksDictionary[sumador] = elementsArray
                 }
             }
         }
+        print(drinksDictionary)
+        sortDrinksByDay()
+        print(drinksDictionary)
+    }
+    
+    func sortDrinksByDay() {
+        var auxArray = [drink]()
+        print(drinksDictionary)
+        
+        for i in 0..<drinksDictionary.count - 1 {
+            for j in 1..<drinksDictionary.count {
+                if drinksDictionary[i]![0].date! < drinksDictionary[j]![0].date! {
+                    auxArray = drinksDictionary[i]!
+                    drinksDictionary[i] = drinksDictionary[j]!
+                    drinksDictionary[j] = auxArray
+                }
+            }
+        }
+        print(drinksDictionary)
+        displayCaffeineProgress()
     }
     
     
@@ -119,8 +143,9 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
+        drinksDictionary.removeAll()
+        
         if let string = UserDefaults.standard.value(forKey: "maxCaf") as? String {
             
             let stringArray = string.components(separatedBy: CharacterSet.decimalDigits.inverted)
@@ -131,8 +156,6 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
                     caffeineLimit = caffeineLimit + number
                 }
             }
-            
-            separateDrinksInSections()
         }
         
         if let data = UserDefaults.standard.value(forKey: arrayDrinksAddedKey) as? Data {
@@ -140,21 +163,15 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
             arrayDrinksAdded = ArrayAddedData!
         }
         
-        displayCaffeineProgress()
+        separateDrinksInSections()
         tablewView.reloadData()
     }
     
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-        //pruebaaaaaa
-        print(drinksDictionary.count)
-        
         return drinksDictionary.count
     }
     
-    
     // MARK: - Table view data source
-    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         var date = Date()
         if let value = drinksDictionary[section] {
@@ -184,20 +201,33 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let data = UserDefaults.standard.value(forKey: arrayDrinksAddedKey) as? Data {
-            let ArrayAddedData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
-            arrayDrinksAdded = ArrayAddedData!
+//        if let data = UserDefaults.standard.value(forKey: arrayDrinksAddedKey) as? Data {
+//            let ArrayAddedData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
+//            arrayDrinksAdded = ArrayAddedData!
+//        }
+//        return arrayDrinksAdded.count
+        var value = 0
+        
+        if !drinksDictionary.isEmpty {
+            value = drinksDictionary[section]!.count
         }
-        return arrayDrinksAdded.count
+        print("La seccion es: \(section) y la cantidad de elementos es: \(value)")
+        
+        return value
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: historyTableViewCell, for: indexPath) as! CustomCellClass
         
-        cell.DrinkName.text = arrayDrinksAdded.reversed()[indexPath.row].type
-        cell.caffeineMg.text = "\(String(arrayDrinksAdded.reversed()[indexPath.row].caffeineMg))mg"
-        cell.miliLiters.text = "\(String(arrayDrinksAdded.reversed()[indexPath.row].mililiters))ml"
-        cell.imageView?.image = UIImage(named: arrayDrinksAdded.reversed()[indexPath.row].icon)
+//        cell.DrinkName.text = arrayDrinksAdded.reversed()[indexPath.row].type
+//        cell.caffeineMg.text = "\(String(arrayDrinksAdded.reversed()[indexPath.row].caffeineMg))mg"
+//        cell.miliLiters.text = "\(String(arrayDrinksAdded.reversed()[indexPath.row].mililiters))ml"
+//        cell.imageView?.image = UIImage(named: arrayDrinksAdded.reversed()[indexPath.row].icon)
+        
+        cell.DrinkName.text = drinksDictionary[indexPath.section]![indexPath.row].type
+        cell.caffeineMg.text = "\(drinksDictionary[indexPath.section]![indexPath.row].caffeineMg)mg"
+        cell.miliLiters.text = "\(drinksDictionary[indexPath.section]![indexPath.row].mililiters)ml"
+        cell.imageView?.image = UIImage(named: drinksDictionary[indexPath.section]![indexPath.row].icon)
         
         return cell
     }
@@ -231,9 +261,9 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
     
     func progressViewStyle() {
         // Progress View Style
@@ -249,17 +279,5 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         progress.layer.shadowOffset = CGSize.zero
         progress.layer.shadowRadius = 5
         self.progress.clipsToBounds = true
-    }
-}
-
-extension UIImage{
-    convenience init(view: UIView) {
-        
-        UIGraphicsBeginImageContext(view.frame.size)
-        view.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        self.init(cgImage: (image?.cgImage)!)
-        
     }
 }

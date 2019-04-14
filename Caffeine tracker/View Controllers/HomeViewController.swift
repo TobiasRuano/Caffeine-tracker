@@ -72,7 +72,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    
+    // ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
     // MARK: - Table view data source
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -141,7 +141,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     // Editing the table view.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
             
             // ActionSheet
             let alert = UIAlertController(title: "", message: "Are you sure you want to delete \"\(arrayDrinks[indexPath.row].type)\" from your list?", preferredStyle: .actionSheet)
@@ -192,7 +191,32 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: arrayDrinksKey)
     }
     
+    func animateViewAndTapticFeedback(everythingOK: Bool) {
+        
+        if everythingOK == true {
+            animatedViewTextLabel.text = "Caffeine Added!"
+            animatedView.layer.backgroundColor = UIColor(displayP3Red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0).cgColor
+            //Taptic feedback
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
+        }else {
+            animatedViewTextLabel.text = "You cannot log more drinks, Please Upgrade!"
+            animatedView.layer.backgroundColor = UIColor.red.cgColor
+            //Taptic feedback
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.error)
+        }
+        UIView.animate(withDuration: 0.5, animations: {
+            self.animatedView.transform = CGAffineTransform(translationX: 0, y: 70)
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.animatedView.transform = CGAffineTransform.identity
+            })
+        }
+    }
     
+    // ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
     // MARK: - Alert Function
     func alerta(title: String, message: String, taptic: Bool, button1: String, button2: String, passData: Bool) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -205,7 +229,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.present(alertController, animated: true, completion: nil)
     }
     
-    
+    // ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
     // MARK: - Navigation
     @IBAction func unwindFromAddVC(_ sender: UIStoryboardSegue) {
         if sender.source is AddDrinkTableViewController {
@@ -239,10 +263,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     if hasPurchasedApp == true  || drinksLimit.cant == 0 {
                         healthManager.submitCaffeine(CaffeineAmount: senderVC.result, WaterAmount: senderVC.seleccion, forDate: dia, logWater: senderVC.waterLog)
                         arrayDrinksAdded.append(senderVC.toSave)
+                        print("se va a guardar: \(senderVC.result)")
                         UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: arrayDrinksAddedKey)
                         drinksLimit.cant = drinksLimit.cant + 1
                         
-                        //Save drinks limit struct
+                        //Save drinks limit class
                         UserDefaults.standard.set(try? PropertyListEncoder().encode(drinksLimit), forKey: drinkLimitKey)
                         
                         animateViewAndTapticFeedback(everythingOK: true)
@@ -252,32 +277,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                 }
             }
-        }
-    }
-    
-    
-    func animateViewAndTapticFeedback(everythingOK: Bool) {
-        
-        if everythingOK == true {
-            animatedViewTextLabel.text = "Caffeine Added!"
-            animatedView.layer.backgroundColor = UIColor(displayP3Red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0).cgColor
-            //Taptic feedback
-            let generator = UINotificationFeedbackGenerator()
-            generator.notificationOccurred(.success)
-        }else {
-            animatedViewTextLabel.text = "You cannot log more drinks, Please Upgrade!"
-            animatedView.layer.backgroundColor = UIColor.red.cgColor
-            //Taptic feedback
-            let generator = UINotificationFeedbackGenerator()
-            generator.notificationOccurred(.error)
-        }
-        UIView.animate(withDuration: 0.5, animations: {
-            self.animatedView.transform = CGAffineTransform(translationX: 0, y: 70)
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.animatedView.transform = CGAffineTransform.identity
-            })
         }
     }
     

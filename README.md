@@ -1,4 +1,4 @@
-# Caffeine-tracker
+# Caffeine Tracker
 > Log your caffeine beverage easily!.
 
 This app let's you log your caffeine and water intake to the health app. Simply select one of the presets or add your own drink.

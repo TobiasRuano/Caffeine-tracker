@@ -17,7 +17,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var animatedViewTextLabel: UILabel!
     var drinkAux: drink?
-    
     var hasPurchasedApp = false
     var drinksLimit: drinkLimit = drinkLimit(cant: 0, date: Date())
     

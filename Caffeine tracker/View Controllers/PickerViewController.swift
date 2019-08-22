@@ -96,7 +96,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         let data = UserDefaults.standard.value(forKey: toSaveKey) as? Data
         toSave = try! PropertyListDecoder().decode(drink.self, from: data!)
         print(toSave)
-        titulo.text = "Drink: \(toSave.type)\nCaffeine: \(toSave.caffeineMg)mg"
+        titulo.text = "Drink: \(toSave.type)\n Caffeine: \(toSave.caffeineMg)mg"
         result = toSave.caffeineMg
         print(result)
         populateTableView()

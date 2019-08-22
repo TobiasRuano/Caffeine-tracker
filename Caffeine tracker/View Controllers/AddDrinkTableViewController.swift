@@ -70,7 +70,7 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
-            if identifier == "unwind" {
+            if identifier == unwindID {
                 if name.text != "" && caffeineAmount.text != "" && caffeineAmount.text?.isNumeric == true {
                     drinkToAdd.type = name.text!
                     print(name.text!)
@@ -80,7 +80,7 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
                     print(drinkToAdd)
                     TapticEffectsService.performFeedbackNotification(type: .success)
                 }
-            }else if identifier == "icon" {
+            } else if identifier == iconID {
                 let vc = segue.destination as! PickIconTableViewController
                 if name.text != "" {
                     vc.objectName = name.text!

@@ -43,8 +43,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func checkOnboardingStatus() {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         var vc: UIViewController
-        if (UserDefaults.standard.value(forKey: "OnboardingScreen") as? Bool) == nil  {
-            vc = storyBoard.instantiateViewController(withIdentifier: "OnboardingRoot")
+        if (UserDefaults.standard.value(forKey: onboardingCheck) as? Bool) == nil  {
+            vc = storyBoard.instantiateViewController(withIdentifier: onboardingRoot)
             present(vc, animated: true, completion: nil)
         }
     }
@@ -123,7 +123,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.drinkAux = arrayDrinks[indexPath.row]
         UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: toSaveKey)
         let AddAction = UIContextualAction(style: .normal, title:  "Add", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            print("AddAction ...")
             self.performSegue(withIdentifier: modalViewIdentifier, sender: self)
             self.alerta(title: "Do you?", message: "Do you want to add \(arrayDrinks[indexPath.row].caffeineMg)mg of caffeine from \(arrayDrinks[indexPath.row].type)", taptic: true, button1: "Yes", button2: "No", passData: true)
             success(true)
@@ -138,16 +137,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             // ActionSheet
             let alert = UIAlertController(title: "", message: "Are you sure you want to delete \"\(arrayDrinks[indexPath.row].type)\" from your list?", preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "Delete Drink", style: .destructive , handler:{ (UIAlertAction)in
-                print("User click Delete button")
                 arrayDrinks.remove(at: indexPath.row);
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 TapticEffectsService.performFeedbackNotification(type: .warning)
                 UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: arrayDrinksKey)
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
-                print("User click Cancel button")
             }))
-            
             self.present(alert, animated: true, completion: {
             })
         }
@@ -241,7 +237,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     if hasPurchasedApp  || drinksLimit.cant == 0 {
                         healthManager.submitCaffeine(CaffeineAmount: senderVC.result, WaterAmount: senderVC.seleccion, forDate: dia, logWater: senderVC.waterLog)
                         arrayDrinksAdded.append(senderVC.toSave)
-                        print("se va a guardar: \(senderVC.result)")
                         UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: arrayDrinksAddedKey)
                         drinksLimit.cant = drinksLimit.cant + 1
                         //Save drinks limit class

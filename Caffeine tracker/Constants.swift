@@ -22,9 +22,13 @@ let cellForCheckmarkKey = "CellForCheckmark"
 let logWaterBoolKey = "logWaterBool"
 let inAppPurchaseKey = "Purchase"
 let drinkLimitKey = "limit"
+let onboardingCheck = "OnboardingScreen"
 
 //Identifiers
 let modalViewIdentifier = "ShowModalView"
 let homeTableViewCell = "cell"
 let historyTableViewCell = "cell"
+let onboardingRoot = "OnboardingRoot"
+let unwindID = "unwind"
+let iconID = "icon"
 

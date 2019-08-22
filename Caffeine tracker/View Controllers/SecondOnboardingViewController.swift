@@ -12,10 +12,10 @@ class SecondOnboardingViewController: UIViewController {
 
     @IBOutlet weak var logWaterView: UIView!
     @IBOutlet weak var waterSwitch: UISwitch!
+    var waterBoolean = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         styleLogWaterView()
     }
     
@@ -28,15 +28,12 @@ class SecondOnboardingViewController: UIViewController {
     }
     
     @IBAction func switchAction(_ sender: UISwitch) {
-        if waterSwitch.isOn == true {
-            UserDefaults.standard.set(true, forKey: logWaterBoolKey)
-        }else {
-            UserDefaults.standard.set(false, forKey: logWaterBoolKey)
-        }
+        waterBoolean = waterSwitch.isOn ? true : false
     }
     
     @IBAction func ExitToRootViewController(_ sender: UIButton) {
         UserDefaults.standard.set(true, forKey: "OnboardingScreen")
-        performSegue(withIdentifier: "exitOnboarding", sender: self)
+        UserDefaults.standard.set(waterBoolean, forKey: logWaterBoolKey)
+        self.dismiss(animated: true, completion: nil)
     }
 }

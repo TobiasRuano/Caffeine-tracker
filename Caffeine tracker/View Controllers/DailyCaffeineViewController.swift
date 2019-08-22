@@ -13,21 +13,28 @@ class DailyCaffeineViewController: UITableViewController {
     @IBOutlet weak var CaffeineTextLabel: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         tableView.keyboardDismissMode = .interactive
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if UserDefaults.standard.value(forKey: "maxCaf") != nil {
-            CaffeineTextLabel.placeholder = "\(UserDefaults.standard.value(forKey: "maxCaf") as! String)mg"
+            let number = UserDefaults.standard.value(forKey: "maxCaf") as! Int
+            CaffeineTextLabel.placeholder = "\(number)mg"
         }
     }
-
     
     override func viewWillDisappear(_ animated: Bool) {
-        if CaffeineTextLabel.text != "" {
-            UserDefaults.standard.set(CaffeineTextLabel.text, forKey: "maxCaf")
+        if CaffeineTextLabel.text != "" && checkValidNumber() == true {
+            let number = Int(CaffeineTextLabel!.text!)
+            UserDefaults.standard.set(number, forKey: "maxCaf")
+        }
+    }
+    
+    func checkValidNumber() -> Bool {
+        if let _ = Int(CaffeineTextLabel!.text!) {
+            return true
+        } else {
+            return false
         }
     }
 }

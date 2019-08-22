@@ -13,11 +13,14 @@
 		8B04C47A223ED17B00C74C03 /* OnboardingSingleHelpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04C479223ED17B00C74C03 /* OnboardingSingleHelpTableViewController.swift */; };
 		8B04C481223ED5B700C74C03 /* CTOnboardingCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04C47F223ED5B700C74C03 /* CTOnboardingCustomTableViewCell.swift */; };
 		8B04C482223ED5B700C74C03 /* CTOnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04C480223ED5B700C74C03 /* CTOnboardingButton.swift */; };
+		8B25AC83230A001200CE5F1C /* NetworkActivityIndicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25AC82230A001200CE5F1C /* NetworkActivityIndicationManager.swift */; };
+		8B25AC85230A003A00CE5F1C /* TapticEffectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25AC84230A003A00CE5F1C /* TapticEffectsService.swift */; };
 		8B2C783020F3ABBD00DA38C0 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2C782A20F3ABBD00DA38C0 /* Settings.storyboard */; };
 		8B2C783120F3ABBD00DA38C0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2C782C20F3ABBD00DA38C0 /* Home.storyboard */; };
 		8B2C783220F3ABBD00DA38C0 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2C782E20F3ABBD00DA38C0 /* History.storyboard */; };
+		8B562EE82265320E00548EF3 /* Drink.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B562EE62265320E00548EF3 /* Drink.xcdatamodeld */; };
 		8B74E61220EFDDAA0032CE09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B74E61120EFDDAA0032CE09 /* Assets.xcassets */; };
-		8B74E61420F1A03F0032CE09 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B74E61320F1A03F0032CE09 /* Models.swift */; };
+		8B74E61420F1A03F0032CE09 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B74E61320F1A03F0032CE09 /* Constants.swift */; };
 		8B7BF35E20D5F7FB003FD4C7 /* PickIconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7BF35D20D5F7FB003FD4C7 /* PickIconTableViewController.swift */; };
 		8B7BF36220D697AB003FD4C7 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7BF36120D697AB003FD4C7 /* PickerViewController.swift */; };
 		8B81E50720F25D6F005CE1D8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81E50620F25D6F005CE1D8 /* HomeViewController.swift */; };
@@ -35,20 +38,25 @@
 		8BD2BB1E20814F0700D61BDF /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2BB1D20814F0700D61BDF /* SettingsTableViewController.swift */; };
 		8BD2BB202081565700D61BDF /* InAppPurchaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2BB1F2081565700D61BDF /* InAppPurchaseTableViewController.swift */; };
 		8BE0075A225E1A0900089AC9 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE00759225E1A0900089AC9 /* Drink.swift */; };
+		FB0F34246134AB9A060BE3F5 /* Pods_Caffeine_tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCF0EE029A0606E0A36F7055 /* Pods_Caffeine_tracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		310D793C75283CAC32DE07D1 /* Pods-Caffeine tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Caffeine tracker.release.xcconfig"; path = "Target Support Files/Pods-Caffeine tracker/Pods-Caffeine tracker.release.xcconfig"; sourceTree = "<group>"; };
 		8B04C471223EAE6D00C74C03 /* FirstOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewController.swift; sourceTree = "<group>"; };
 		8B04C475223EC25800C74C03 /* RootOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootOnboardingViewController.swift; sourceTree = "<group>"; };
 		8B04C477223EC6FB00C74C03 /* SecondOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingViewController.swift; sourceTree = "<group>"; };
 		8B04C479223ED17B00C74C03 /* OnboardingSingleHelpTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSingleHelpTableViewController.swift; sourceTree = "<group>"; };
 		8B04C47F223ED5B700C74C03 /* CTOnboardingCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CTOnboardingCustomTableViewCell.swift; path = "Caffeine tracker/CustomClasses/CTOnboardingCustomTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		8B04C480223ED5B700C74C03 /* CTOnboardingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CTOnboardingButton.swift; path = "Caffeine tracker/CustomClasses/CTOnboardingButton.swift"; sourceTree = SOURCE_ROOT; };
+		8B25AC82230A001200CE5F1C /* NetworkActivityIndicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicationManager.swift; sourceTree = "<group>"; };
+		8B25AC84230A003A00CE5F1C /* TapticEffectsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapticEffectsService.swift; sourceTree = "<group>"; };
 		8B2C782B20F3ABBD00DA38C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		8B2C782D20F3ABBD00DA38C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		8B2C782F20F3ABBD00DA38C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/History.storyboard; sourceTree = "<group>"; };
+		8B562EE72265320E00548EF3 /* Drink.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Drink.xcdatamodel; sourceTree = "<group>"; };
 		8B74E61120EFDDAA0032CE09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8B74E61320F1A03F0032CE09 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		8B74E61320F1A03F0032CE09 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8B7BF35D20D5F7FB003FD4C7 /* PickIconTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickIconTableViewController.swift; sourceTree = "<group>"; };
 		8B7BF36120D697AB003FD4C7 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		8B81E50620F25D6F005CE1D8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +77,8 @@
 		8BD2BB1D20814F0700D61BDF /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8BD2BB1F2081565700D61BDF /* InAppPurchaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseTableViewController.swift; sourceTree = "<group>"; };
 		8BE00759225E1A0900089AC9 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		A047BB31F33110343C53C94C /* Pods-Caffeine tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Caffeine tracker.debug.xcconfig"; path = "Target Support Files/Pods-Caffeine tracker/Pods-Caffeine tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		CCF0EE029A0606E0A36F7055 /* Pods_Caffeine_tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Caffeine_tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,18 +87,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BD2BB1A2081499400D61BDF /* HealthKit.framework in Frameworks */,
+				FB0F34246134AB9A060BE3F5 /* Pods_Caffeine_tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DB755F76C2702100110B870 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A047BB31F33110343C53C94C /* Pods-Caffeine tracker.debug.xcconfig */,
+				310D793C75283CAC32DE07D1 /* Pods-Caffeine tracker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8B04C47E223ED58200C74C03 /* CustomClasses */ = {
 			isa = PBXGroup;
 			children = (
+				8BA74EA620D1B25200AAC3EA /* HealthKitSetupAssistant.swift */,
+				8BAC94FD20F1AEC800601660 /* GradientView.swift */,
 				8BBC8B9D22272CC900A4E54C /* CustomCellClass.swift */,
 				8B04C480223ED5B700C74C03 /* CTOnboardingButton.swift */,
 				8B04C47F223ED5B700C74C03 /* CTOnboardingCustomTableViewCell.swift */,
+				8B25AC82230A001200CE5F1C /* NetworkActivityIndicationManager.swift */,
+				8B25AC84230A003A00CE5F1C /* TapticEffectsService.swift */,
 			);
 			name = CustomClasses;
 			path = "New Group";
@@ -112,6 +136,7 @@
 				8BD2BB022081497E00D61BDF /* Caffeine tracker */,
 				8BD2BB012081497E00D61BDF /* Products */,
 				8BD2BB182081499400D61BDF /* Frameworks */,
+				2DB755F76C2702100110B870 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,11 +152,10 @@
 			isa = PBXGroup;
 			children = (
 				8BD2BB172081499400D61BDF /* Caffeine tracker.entitlements */,
+				8B562EE62265320E00548EF3 /* Drink.xcdatamodeld */,
 				8BD2BB032081497E00D61BDF /* AppDelegate.swift */,
-				8BA74EA620D1B25200AAC3EA /* HealthKitSetupAssistant.swift */,
-				8B74E61320F1A03F0032CE09 /* Models.swift */,
+				8B74E61320F1A03F0032CE09 /* Constants.swift */,
 				8BE00759225E1A0900089AC9 /* Drink.swift */,
-				8BAC94FD20F1AEC800601660 /* GradientView.swift */,
 				8B849FE42262A84900B1A3D0 /* Extensions.swift */,
 				8B04C47E223ED58200C74C03 /* CustomClasses */,
 				8BD2BB212081575400D61BDF /* View Controllers */,
@@ -146,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				8BD2BB192081499400D61BDF /* HealthKit.framework */,
+				CCF0EE029A0606E0A36F7055 /* Pods_Caffeine_tracker.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -176,9 +201,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BD2BB142081498000D61BDF /* Build configuration list for PBXNativeTarget "Caffeine tracker" */;
 			buildPhases = (
+				86AC70281A7925DC8D6E44F8 /* [CP] Check Pods Manifest.lock */,
 				8BD2BAFC2081497E00D61BDF /* Sources */,
 				8BD2BAFD2081497E00D61BDF /* Frameworks */,
 				8BD2BAFE2081497E00D61BDF /* Resources */,
+				0D51C3C84F565C388B434B52 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -201,6 +228,7 @@
 				TargetAttributes = {
 					8BD2BAFF2081497E00D61BDF = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1100;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -246,13 +274,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0D51C3C84F565C388B434B52 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Caffeine tracker/Pods-Caffeine tracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Caffeine tracker/Pods-Caffeine tracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86AC70281A7925DC8D6E44F8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Caffeine tracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8BD2BAFC2081497E00D61BDF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8B8E9B9420DDBF1000E619FB /* DailyCaffeineViewController.swift in Sources */,
+				8B25AC83230A001200CE5F1C /* NetworkActivityIndicationManager.swift in Sources */,
 				8BAC94FE20F1AEC800601660 /* GradientView.swift in Sources */,
+				8B25AC85230A003A00CE5F1C /* TapticEffectsService.swift in Sources */,
 				8B04C482223ED5B700C74C03 /* CTOnboardingButton.swift in Sources */,
 				8B7BF35E20D5F7FB003FD4C7 /* PickIconTableViewController.swift in Sources */,
 				8B04C478223EC6FB00C74C03 /* SecondOnboardingViewController.swift in Sources */,
@@ -263,8 +340,9 @@
 				8BC6B12520D4650C006B2061 /* AddDrinkTableViewController.swift in Sources */,
 				8B81E50720F25D6F005CE1D8 /* HomeViewController.swift in Sources */,
 				8B04C47A223ED17B00C74C03 /* OnboardingSingleHelpTableViewController.swift in Sources */,
-				8B74E61420F1A03F0032CE09 /* Models.swift in Sources */,
+				8B74E61420F1A03F0032CE09 /* Constants.swift in Sources */,
 				8B849FE52262A84900B1A3D0 /* Extensions.swift in Sources */,
+				8B562EE82265320E00548EF3 /* Drink.xcdatamodeld in Sources */,
 				8BD2BB1E20814F0700D61BDF /* SettingsTableViewController.swift in Sources */,
 				8BBC8B9E22272CC900A4E54C /* CustomCellClass.swift in Sources */,
 				8B04C481223ED5B700C74C03 /* CTOnboardingCustomTableViewCell.swift in Sources */,
@@ -437,10 +515,12 @@
 		};
 		8BD2BB152081498000D61BDF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A047BB31F33110343C53C94C /* Pods-Caffeine tracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Caffeine tracker/Caffeine tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7344G4M3BL;
 				INFOPLIST_FILE = "Caffeine tracker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -448,19 +528,22 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Trotos.Caffeine-tracker";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Trotos.CaffeineTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		8BD2BB162081498000D61BDF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 310D793C75283CAC32DE07D1 /* Pods-Caffeine tracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Caffeine tracker/Caffeine tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7344G4M3BL;
 				INFOPLIST_FILE = "Caffeine tracker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -468,9 +551,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Trotos.Caffeine-tracker";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Trotos.CaffeineTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -497,6 +581,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8B562EE62265320E00548EF3 /* Drink.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8B562EE72265320E00548EF3 /* Drink.xcdatamodel */,
+			);
+			currentVersion = 8B562EE72265320E00548EF3 /* Drink.xcdatamodel */;
+			path = Drink.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8BD2BAF82081497E00D61BDF /* Project object */;
 }

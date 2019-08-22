@@ -20,7 +20,6 @@ class OnboardingSingleHelpTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -31,7 +30,6 @@ class OnboardingSingleHelpTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CTOnboardingCustomTableViewCell
-        
         cell.cellTitle?.text = "Latte"
         cell.cellDescription?.text = "32mg"
         cell.cellimage?.image = UIImage(named: "Starbucks")

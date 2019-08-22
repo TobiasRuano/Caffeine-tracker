@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyStoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,33 +17,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     enum QuickAction: String {
         case Home = "yourDrinks"
         case History = "history"
-        
         init?(fullIdentifier: String) {
             guard let shortcutIdentifier = fullIdentifier.components(separatedBy: ".").last else {
                 return nil
             }
-            
             self.init(rawValue: shortcutIdentifier)
         }
     }
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        var vc: UIViewController
-        
-        if (UserDefaults.standard.value(forKey: "OnboardingScreen") as? Bool) == nil  {
-            vc = storyBoard.instantiateViewController(withIdentifier: "OnboardingRoot")
-        }else {
-            vc = storyBoard.instantiateInitialViewController()!
-        }
-        
-        self.window?.rootViewController = vc
-        self.window?.makeKeyAndVisible()
-        
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+                    for purchase in purchases {
+                        switch purchase.transaction.transactionState {
+                        case .purchased, .restored:
+                            if purchase.needsFinishTransaction {
+                                // Deliver content from server, then:
+                                SwiftyStoreKit.finishTransaction(purchase.transaction)
+                            }
+                            //TODO: desbloquear app completa
+                            UserDefaults.standard.set(true, forKey: inAppPurchaseKey)
+                        case .failed, .purchasing, .deferred:
+                            break // do nothing
+                        }
+                    }
+                }
         
         if let data = UserDefaults.standard.value(forKey: arrayDrinksKey) as? Data {
             let arrayData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
@@ -55,12 +54,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             arrayDrinks.append(drink(type: "Mocha", caffeineMg: 43, mililiters: 76, icon: "Cafe", dia: nil))
             arrayDrinks.append(drink(type: "Coca-Cola", caffeineMg: 10, mililiters: 10, icon: "Can", dia: nil))
         }
-        
         if let data = UserDefaults.standard.value(forKey: arrayDrinksAddedKey) as? Data {
             let ArrayAddedData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
             arrayDrinksAdded = ArrayAddedData!
         }
-        
         return true
     }
 
@@ -96,19 +93,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             else {
                 return false
         }
-        print(shortcutIdentifier)
-        
         guard let tabBarController = window?.rootViewController as? UITabBarController else {
             return false
         }
-        
         switch shortcutIdentifier {
         case .Home:
             tabBarController.selectedIndex = 0
         case .History:
             tabBarController.selectedIndex = 1
         }
-        
         return true
     }
 

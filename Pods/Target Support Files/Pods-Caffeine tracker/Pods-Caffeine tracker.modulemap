@@ -1,0 +1,6 @@
+framework module Pods_Caffeine_tracker {
+  umbrella header "Pods-Caffeine tracker-umbrella.h"
+
+  export *
+  module * { export * }
+}

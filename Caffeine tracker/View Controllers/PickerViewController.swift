@@ -11,7 +11,6 @@ import UIKit
 class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     weak var delegate: HomeViewController?
-    
     @IBOutlet weak var titulo: UILabel!
     @IBOutlet weak var fondo: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
@@ -24,13 +23,11 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var toSave: drink = drink(type: "", caffeineMg: 0, mililiters: 0, icon: "", dia: nil)
     var waterLog: Bool = true
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         waterLog = UserDefaults.standard.value(forKey: logWaterBoolKey) as! Bool
         style()
         retriveData()
-        
         if toSave.caffeineMg >= 200 {
             fondo.layer.backgroundColor = UIColor.red.cgColor
         }
@@ -39,7 +36,6 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     override func viewDidAppear(_ animated: Bool) {
         effectView()
     }
-    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -68,7 +64,6 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             doneButton.isEnabled = false
         }
     }
-    
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
@@ -104,7 +99,6 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         titulo.text = "Drink: \(toSave.type)\nCaffeine: \(toSave.caffeineMg)mg"
         result = toSave.caffeineMg
         print(result)
-        
         populateTableView()
     }
     

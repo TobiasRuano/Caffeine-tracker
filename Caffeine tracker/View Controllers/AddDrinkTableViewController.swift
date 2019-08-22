@@ -51,7 +51,6 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         if indexPath.section == 2 && indexPath.row == 0 {
             self.view.endEditing(true)
         }
@@ -73,9 +72,7 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
 
     
     // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let identifier = segue.identifier {
             if identifier == "unwind" {
                 if name.text != "" && caffeineAmount.text != "" && caffeineAmount.text?.isNumeric == true {
@@ -85,11 +82,7 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
                     drinkToAdd.mililiters = Int(caffeineAmount.text!)!
                     drinkToAdd.icon = iconName
                     print(drinkToAdd)
-                    
-                    
-                    //Taptic feedback
-                    let generator = UINotificationFeedbackGenerator()
-                    generator.notificationOccurred(.success)
+                    TapticEffectsService.performFeedbackNotification(type: .success)
                 }
             }else if identifier == "icon" {
                 let vc = segue.destination as! PickIconTableViewController
@@ -102,5 +95,4 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
             }
         }
     }
-
 }

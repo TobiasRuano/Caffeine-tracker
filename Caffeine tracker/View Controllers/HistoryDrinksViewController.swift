@@ -20,12 +20,10 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     var caffeineLimit = 400
     var drinksDictionary = [Int : [drink]]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //separateDrinksInSections()
         progressViewStyle()
-        //tablewView.reloadData()
         tablewView.tableFooterView = UIView()
     }
     
@@ -38,8 +36,6 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
             let day = Calendar.current.dateComponents([.day, .year, .month], from: element.date!).day
             let month = Calendar.current.dateComponents([.day, .year, .month], from: element.date!).month
             let year = Calendar.current.dateComponents([.day, .month, .year], from: element.date!).year
-            
-            
             if elementsArray.count == 0 {
                 elementsArray.append(element)
                 drinksDictionary[sumador] = elementsArray
@@ -47,10 +43,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
                 let elementArrayDay = Calendar.current.dateComponents([.day, .year, .month], from: elementsArray[0].date!).day
                 let elementArrayMonth = Calendar.current.dateComponents([.day, .year, .month], from: elementsArray[0].date!).month
                 let elementArrayYear = Calendar.current.dateComponents([.day, .month, .year], from: elementsArray[0].date!).year
-                
                 if elementArrayDay == day && elementArrayMonth == month && elementArrayYear == year {
-                    //                    elementsArray.append(element)
-                    //                    drinksDictionary[sumador] = elementsArray
                     drinksDictionary[sumador]?.append(element)
                 } else {
                     while drinksDictionary[sumador] != nil {
@@ -63,36 +56,12 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
             }
         }
         print(drinksDictionary)
-        //sortDrinksByDay()
-        print(drinksDictionary)
     }
-    
-    //    func sortDrinksByDay() {
-    //        var auxArray = [drink]()
-    //        print(drinksDictionary)
-    //
-    //        for i in 0..<drinksDictionary.count - 1 {
-    //            for j in 1..<drinksDictionary.count {
-    //                print(drinksDictionary[i]![0].date!)
-    //                if drinksDictionary[i]![0].date! < drinksDictionary[j]![0].date! {
-    //                    auxArray = drinksDictionary[i]!
-    //                    drinksDictionary[i] = drinksDictionary[j]!
-    //                    drinksDictionary[j] = auxArray
-    //                }
-    //            }
-    //            print("")
-    //        }
-    //        print(drinksDictionary)
-    //        displayCaffeineProgress()
-    //
-    //    }
-    
     
     func displayCaffeineProgress() {
         checkTodaysAndYesterdaysCaffeine()
         let value = caffeineLimit - Int(todaysCaffeine.text!)!
         progress.setProgress((Float(value) / Float(caffeineLimit)), animated: true)
-        
         changeLabelColor()
     }
     
@@ -120,14 +89,6 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         let yesterdaysDate = Calendar.current.dateComponents([.day, .year, .month], from: yesterday)
         //Today's
         todaysCaffeine.text = "0"
-        //        for element in arrayDrinksAdded {
-        //            let day = Calendar.current.dateComponents([.day, .year, .month], from: element.date!).day
-        //            let month = Calendar.current.dateComponents([.day, .year, .month], from: element.date!).month
-        //            if day == calanderDate.day && month == calanderDate.month {
-        //                let caffeineNumber = Int(todaysCaffeine.text!)
-        //                todaysCaffeine.text = "\(caffeineNumber! + element.caffeineMg)"
-        //            }
-        //        }
         if let firstElement = drinksDictionary[0]?[0] {
             let day = Calendar.current.dateComponents([.day, .year, .month], from: firstElement.date!).day
             let month = Calendar.current.dateComponents([.day, .year, .month], from: firstElement.date!).month
@@ -137,8 +98,6 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
                     totalCaffeine += element.caffeineMg
                 }
                 todaysCaffeine.text = "\(totalCaffeine)"
-                //                let caffeineNumber = Int(todaysCaffeine.text!)
-                //                todaysCaffeine.text = "\(caffeineNumber! + firstElement.caffeineMg)"
             }
         }
         //Yesterday's
@@ -152,8 +111,6 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
                     totalCaffeine += element.caffeineMg
                 }
                 yesterdaysCaffeine.text = "\(totalCaffeine)"
-                //                let caffeineNumber = Int(yesterdaysCaffeine.text!)
-                //                yesterdaysCaffeine.text = "\(caffeineNumber! + secondElement.caffeineMg)"
             } else if let firstElement = drinksDictionary[0]?[0] {
                 let day = Calendar.current.dateComponents([.day, .year, .month], from: firstElement.date!).day
                 let month = Calendar.current.dateComponents([.day, .year, .month], from: firstElement.date!).month
@@ -166,32 +123,17 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
                 }
             }
         }
-        //        for element in arrayDrinksAdded {
-        //            var yesterday = date
-        //            yesterday.addTimeInterval(-86400)
-        //            let yesterdaysDate = Calendar.current.dateComponents([.day, .year, .month], from: yesterday)
-        //            let day = Calendar.current.dateComponents([.day, .year, .month], from: element.date!).day
-        //            let month = Calendar.current.dateComponents([.day, .year, .month], from: element.date!).month
-        //            if day == yesterdaysDate.day && month == yesterdaysDate.month {
-        //                let caffeineNumber = Int(yesterdaysCaffeine.text!)
-        //
-        //                yesterdaysCaffeine.text = "\(caffeineNumber! + element.caffeineMg)"
-        //            }
-        //        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         drinksDictionary.removeAll()
-        
         if let number = UserDefaults.standard.value(forKey: "maxCaf") as? Int {
             caffeineLimit = number
         }
-        
         if let data = UserDefaults.standard.value(forKey: arrayDrinksAddedKey) as? Data {
             let ArrayAddedData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
             arrayDrinksAdded = ArrayAddedData!
         }
-        
         separateDrinksInSections()
         //this func shows todays and yesterdays caffeine ammount on progress bar and text
         displayCaffeineProgress()
@@ -202,6 +144,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         return drinksDictionary.count
     }
     
+    //----
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         var date = Date()
@@ -220,13 +163,13 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
             
             if todaysDate.day == day && todaysDate.month == month && todaysDate.year == year {
                 return "Today"
-            }else if (yesterdaysDate.day == day && yesterdaysDate.month == month && yesterdaysDate.year == year){
+            } else if (yesterdaysDate.day == day && yesterdaysDate.month == month && yesterdaysDate.year == year){
                 return "Yesterday"
-            }else {
+            } else {
                 let fullDate = "\(day!)/\(month!)/\(year!)"
                 return fullDate
             }
-        }else {
+        } else {
             return ""
         }
     }
@@ -234,7 +177,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = UIColor.red
         if #available(iOS 13.0, *) {
-            view.tintColor = UIColor.link
+            //view.tintColor = UIColor.link
         } else {
             view.tintColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
         }
@@ -261,6 +204,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         return cell
     }
     
+    //TODO: Delete added drinks
     //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     //        if editingStyle == .delete {
     //            // Delete the row from the data source

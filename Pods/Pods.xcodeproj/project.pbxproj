@@ -347,7 +347,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		18BE5B471A23B9B3782E3E3136E0D010 /* Release */ = {
+		192FDD64D94E0C1282FB11CAA376652F /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DDA12FBBB86EE5105963C10EC4C4F1D3 /* SwiftyStoreKit.xcconfig */;
 			buildSettings = {
@@ -375,7 +375,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -584,7 +584,7 @@
 			};
 			name = Debug;
 		};
-		E5CA2E349D65B28FD9EBE234CE459166 /* Debug */ = {
+		D1773B42106DFD6711DFC82C26081FBD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DDA12FBBB86EE5105963C10EC4C4F1D3 /* SwiftyStoreKit.xcconfig */;
 			buildSettings = {
@@ -612,7 +612,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -634,8 +634,8 @@
 		A32389132690401485BAD07C423EA092 /* Build configuration list for PBXNativeTarget "SwiftyStoreKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E5CA2E349D65B28FD9EBE234CE459166 /* Debug */,
-				18BE5B471A23B9B3782E3E3136E0D010 /* Release */,
+				D1773B42106DFD6711DFC82C26081FBD /* Debug */,
+				192FDD64D94E0C1282FB11CAA376652F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

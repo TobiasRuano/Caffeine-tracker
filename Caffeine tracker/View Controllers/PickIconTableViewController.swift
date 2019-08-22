@@ -44,11 +44,10 @@ class PickIconTableViewController: UITableViewController {
         UserDefaults.standard.set(texto, forKey: cellForCheckmarkKey)
     }
     
-    fileprivate func setActiveTableViewCheckmark() {
+    func setActiveTableViewCheckmark() {
         if UserDefaults.standard.string(forKey: cellForCheckmarkKey) != nil {
             checkMarkString = UserDefaults.standard.string(forKey: cellForCheckmarkKey)!
         }
-        
         switch checkMarkString {
         case "Starbucks":
             checkMark(activeCell: cell1, inActiveCell1: cell2, inActiveCell2: cell3, inActiveCell3: cell4, inActiveCell4: cell5, inActiveCell5: cell6, inActiveCell6: cell7, inActiveCell7: cell8!)
@@ -71,11 +70,9 @@ class PickIconTableViewController: UITableViewController {
         }
     }
 
-
+    // ----
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
@@ -86,7 +83,6 @@ class PickIconTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         switch indexPath.row {
         case 0:
             checkMark(activeCell: cell1!, inActiveCell1: cell2!, inActiveCell2: cell3!, inActiveCell3: cell4!, inActiveCell4: cell5!, inActiveCell5: cell6!, inActiveCell6: cell7!, inActiveCell7: cell8!)
@@ -113,19 +109,15 @@ class PickIconTableViewController: UITableViewController {
             checkMark(activeCell: cell8!, inActiveCell1: cell1!, inActiveCell2: cell2!, inActiveCell3: cell3!, inActiveCell4: cell4!, inActiveCell5: cell5!, inActiveCell6: cell6!, inActiveCell7: cell7!)
             checkMarkString = "milkshake"
         default: break
-            
         }
-        
         saveChoice(texto: checkMarkString)
         _ = navigationController?.popToRootViewController(animated: true)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        
         cell.textLabel?.text = objectName
         cell.detailTextLabel?.text = "\(String(caffeine)) of caffeine in 100ml"
-        
         return cell
     }
 }

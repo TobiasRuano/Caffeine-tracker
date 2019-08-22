@@ -1,5 +1,5 @@
 PODS:
-  - SwiftyStoreKit (0.14.2)
+  - SwiftyStoreKit (0.15.0)
 
 DEPENDENCIES:
   - SwiftyStoreKit
@@ -9,7 +9,7 @@ SPEC REPOS:
     - SwiftyStoreKit
 
 SPEC CHECKSUMS:
-  SwiftyStoreKit: cc399645796b094022fb650c148a0aed25995873
+  SwiftyStoreKit: 033d06b6f87955405d3f844a18a7687c2438592a
 
 PODFILE CHECKSUM: 07419801c8d97e7ba21aafcda76f2a616bbfc3d7
 

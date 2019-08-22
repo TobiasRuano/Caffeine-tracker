@@ -21,10 +21,8 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         iconCell.imageView?.image = UIImage(named: iconName)
-        
         tableView.keyboardDismissMode = .interactive
         UserDefaults.standard.set("Starbucks", forKey: cellForCheckmarkKey)
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.name.becomeFirstResponder()
         }
@@ -37,13 +35,12 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
         iconCell.imageView?.image = UIImage(named: iconName)
     }
     
-    
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
 
+    // ---- ---- ---- ----
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 3
@@ -57,7 +54,6 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 1
     }
     
@@ -69,8 +65,8 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
         }
         return true
     }
-
     
+    // ----
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {

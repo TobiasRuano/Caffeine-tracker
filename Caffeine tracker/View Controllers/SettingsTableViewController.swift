@@ -8,8 +8,9 @@
 
 import UIKit
 import MessageUI
+import SafariServices
 
-class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate, SFSafariViewControllerDelegate {
     
     @IBOutlet weak var maxDailyCaf: UILabel!
     @IBOutlet weak var waterLogSwitch: UISwitch!
@@ -50,17 +51,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.section == 3 && indexPath.row == 2 {
-            tableView.deselectRow(at: indexPath, animated: true)
-            share()
-        }else if indexPath.section == 3 && indexPath.row == 1 {
-            tableView.deselectRow(at: indexPath, animated: true)
-            rate()
-        }else if indexPath.section == 3 && indexPath.row == 0 {
-            tableView.deselectRow(at: indexPath, animated: true)
-            support()
-        }else if indexPath.section == 1 && indexPath.row == 0 {
-            tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 1 && indexPath.row == 0 {
             if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
                 if cell.accessoryType == .none {
                     cell.accessoryType = .checkmark
@@ -73,24 +64,29 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
             let alert = UIAlertController(title: "Upss!", message: "Unfortunately for now the only available unit is Milliliters. Check back in an other update for more", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
+        } else if indexPath.section == 3 && indexPath.row == 0 {
+            support()
+        } else if indexPath.section == 3 && indexPath.row == 1 {
+            rate()
+        } else if indexPath.section == 3 && indexPath.row == 2 {
+            openSafariVC(self)
+        } else if indexPath.section == 3 && indexPath.row == 3 {
+            share()
         }
-//        else if indexPath.section == 1 && indexPath.row == 1 {
-//            tableView.deselectRow(at: indexPath, animated: true)
-//            if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
-//                if cell.accessoryType == .none {
-//                    cell.accessoryType = .checkmark
-//                    unitML = false
-//                    UserDefaults.standard.set(unitML, forKey: "units")
-//                    let cell2 = tableView.cellForRow(at: IndexPath.init(row: 0, section: 1))
-//                    cell2?.accessoryType = .none
-//                }
-//            }
-//        }
-        else if indexPath.section == 0 && indexPath.row == 2 {
-//            tableView.deselectRow(at: indexPath, animated: true)
-        }
+        //        else if indexPath.section == 1 && indexPath.row == 1 {
+        //            if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
+        //                if cell.accessoryType == .none {
+        //                    cell.accessoryType = .checkmark
+        //                    unitML = false
+        //                    UserDefaults.standard.set(unitML, forKey: "units")
+        //                    let cell2 = tableView.cellForRow(at: IndexPath.init(row: 0, section: 1))
+        //                    cell2?.accessoryType = .none
+        //                }
+        //            }
+        //        }
     }
     
+    //----
     //MARK: Other Functions
     @IBAction func switchAction(_ sender: UISwitch) {
         if waterLogSwitch.isOn {
@@ -100,11 +96,21 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         }
     }
     
+    func openSafariVC(_ sender: Any) {
+        let url = URL(string: "https://tobiasruano.com/caffeinetracker/privacyPolicy")
+        let safari = SFSafariViewController(url: url!)
+        self.present(safari, animated: true)
+        safari.delegate = self
+    }
+    
+    func safariVCDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true)
+    }
+    
     func rate() {
         guard let url = URL(string: "itms-apps://itunes.apple.com/app/1476993081") else {
             return
         }
-        
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         } else {
@@ -122,7 +128,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     func support() {
         if MFMailComposeViewController.canSendMail() {
             let emailTitle = "[CAFFEINE TRACKER] Feedback"
-            let toRecipents = ["ruano.t10@gmail.com"]
+            let toRecipents = ["truano@uade.edu.ar"]
             let mc: MFMailComposeViewController = MFMailComposeViewController()
             mc.mailComposeDelegate = self
             mc.setSubject(emailTitle)
@@ -156,5 +162,5 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+    return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

@@ -22,7 +22,7 @@ class RootOnboardingViewController: UIPageViewController, UIPageViewControllerDa
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 13.0, *) {
-            self.isModalInPresentation = true
+            //self.isModalInPresentation = true
         }
         self.view.backgroundColor = UIColor.white
         self.dataSource = self

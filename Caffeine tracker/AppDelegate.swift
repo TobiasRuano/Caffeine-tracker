@@ -35,10 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                 // Deliver content from server, then:
                                 SwiftyStoreKit.finishTransaction(purchase.transaction)
                             }
-                            //TODO: desbloquear app completa
                             UserDefaults.standard.set(true, forKey: inAppPurchaseKey)
                         case .failed, .purchasing, .deferred:
                             break // do nothing
+                        @unknown default:
+                            fatalError()
                         }
                     }
                 }
@@ -49,10 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(arrayDrinks)
         }else {
             arrayDrinks.append(drink(type: "Americano", caffeineMg: 43, mililiters: 98, icon: "Starbucks", dia: nil))
-            arrayDrinks.append(drink(type: "Espresso", caffeineMg: 173, mililiters: 100, icon: "cafe3", dia: nil))
+            arrayDrinks.append(drink(type: "Espresso", caffeineMg: 150, mililiters: 100, icon: "cafe3", dia: nil))
             arrayDrinks.append(drink(type: "Latte", caffeineMg: 32, mililiters: 49, icon: "Starbucks", dia: nil))
             arrayDrinks.append(drink(type: "Mocha", caffeineMg: 43, mililiters: 76, icon: "Cafe", dia: nil))
-            arrayDrinks.append(drink(type: "Coca-Cola", caffeineMg: 10, mililiters: 10, icon: "Can", dia: nil))
+            arrayDrinks.append(drink(type: "Soda", caffeineMg: 10, mililiters: 10, icon: "Can", dia: nil))
         }
         if let data = UserDefaults.standard.value(forKey: arrayDrinksAddedKey) as? Data {
             let ArrayAddedData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)

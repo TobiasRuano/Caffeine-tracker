@@ -12,7 +12,7 @@ Inside the history tab, you can have a more detailed view at your day and see ho
 * Connection to the Health App
 * Multiple Types of drinks
 * Add your own drinks!
-* Set your now caffeine daily limit.
+* Set your caffeine daily limit.
 * Beautiful progress bar
 
 ## Meta

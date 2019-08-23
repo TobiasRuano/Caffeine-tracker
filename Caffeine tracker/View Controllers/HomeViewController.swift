@@ -33,7 +33,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
-        //Check purchase Status
         if let purchase = UserDefaults.standard.value(forKey: inAppPurchaseKey) as? Bool {
             hasPurchasedApp = purchase
             print(hasPurchasedApp)
@@ -131,7 +130,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return UISwipeActionsConfiguration(actions: [AddAction])
     }
     
-    // Editing the table view.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // ActionSheet
@@ -162,7 +160,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    // Rearranging the table view.
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }

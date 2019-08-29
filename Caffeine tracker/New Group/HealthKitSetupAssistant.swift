@@ -66,4 +66,77 @@ class HealthKitSetupAssistant {
             }
         }
     }
+    public func deleteWater(drink: drink) {
+        var water: HKQuantitySample? = nil
+        guard let waterSampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryWater) else {
+            fatalError("*** This method should never fail ***")
+        }
+        let startDate = drink.date
+        let endDate = drink.date?.addingTimeInterval(1)
+        let waterPredicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
+        let query = HKSampleQuery(sampleType: waterSampleType, predicate: waterPredicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) { query, results, error in
+            if (error == nil) {
+                guard let samples = results as? [HKQuantitySample] else {
+                    fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error?.localizedDescription)");
+                }
+                for sample in samples {
+                    let value = Int(sample.quantity.doubleValue(for: .literUnit(with: .milli)))
+                    if value == drink.mililiters {
+                        water = sample
+                    }
+                }
+                if water != nil {
+                    self.healthStore.delete(water!) { success, error in
+                        if (error != nil) {
+                            print("Caffeine Error: \(String(describing: error))")
+                        }
+                        if success {
+                            print("Caffeine Deleted: \(success)")
+                        }
+                    }
+                }
+            } else {
+                print("Esta pasando esto: \(String(describing: error))")
+            }
+        }
+        healthStore.execute(query)
+    }
+    public func deleteCaffeine(drink: drink) {
+        var caffeine: HKQuantitySample? = nil
+        guard let caffeineSampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine) else {
+            fatalError("*** This method should never fail ***")
+        }
+        let startDate = drink.date
+        let endDate = drink.date?.addingTimeInterval(1)
+        let caffeinePredicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
+        
+        let query = HKSampleQuery(sampleType: caffeineSampleType, predicate: caffeinePredicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) {
+            query, results, error in
+            if (error == nil) {
+                guard let samples = results as? [HKQuantitySample] else {
+                    fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error?.localizedDescription)");
+                }
+                for sample in samples {
+                    let value = Int(sample.quantity.doubleValue(for: .gramUnit(with: .milli)))
+                    if value == drink.caffeineMg {
+                        caffeine = sample
+                    }
+                }
+                if caffeine != nil {
+                    self.healthStore.delete(caffeine!) { success, error in
+                        if (error != nil) {
+                            print("Caffeine Error: \(String(describing: error))")
+                        }
+                        if success {
+                            print("Caffeine Deleted: \(success)")
+                        }
+                    }
+                }
+            } else {
+                print("Esta pasando esto: \(String(describing: error))")
+            }
+        }
+        
+        healthStore.execute(query)
+    }
 }

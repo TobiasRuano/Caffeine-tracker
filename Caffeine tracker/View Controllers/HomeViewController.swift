@@ -37,7 +37,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             hasPurchasedApp = purchase
             print(hasPurchasedApp)
         }
-        //TODO: Delete
+        //MARK: Debug
 //        hasPurchasedApp = true
 //        UserDefaults.standard.set(true, forKey: inAppPurchaseKey)
     }

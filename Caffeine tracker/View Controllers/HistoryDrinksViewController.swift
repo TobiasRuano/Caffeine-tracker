@@ -89,37 +89,43 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         let yesterdaysDate = Calendar.current.dateComponents([.day, .year, .month], from: yesterday)
         //Today's
         todaysCaffeine.text = "0"
-        if let firstElement = drinksDictionary[0]?[0] {
-            let day = Calendar.current.dateComponents([.day, .year, .month], from: firstElement.date!).day
-            let month = Calendar.current.dateComponents([.day, .year, .month], from: firstElement.date!).month
-            if day == calanderDate.day && month == calanderDate.month {
-                var totalCaffeine = 0
-                for element in drinksDictionary[0]! {
-                    totalCaffeine += element.caffeineMg
-                }
-                todaysCaffeine.text = "\(totalCaffeine)"
-            }
-        }
-        //Yesterday's
-        yesterdaysCaffeine.text = "0"
-        if let secondElement = drinksDictionary[1]?[0] {
-            let day = Calendar.current.dateComponents([.day, .year, .month], from: secondElement.date!).day
-            let month = Calendar.current.dateComponents([.day, .year, .month], from: secondElement.date!).month
-            if day == yesterdaysDate.day && month == yesterdaysDate.month {
-                var totalCaffeine = 0
-                for element in drinksDictionary[1]! {
-                    totalCaffeine += element.caffeineMg
-                }
-                yesterdaysCaffeine.text = "\(totalCaffeine)"
-            } else if let firstElement = drinksDictionary[0]?[0] {
+        if let firstArray = drinksDictionary[0] {
+            if firstArray.isEmpty == false {
+                let firstElement = firstArray.first!
                 let day = Calendar.current.dateComponents([.day, .year, .month], from: firstElement.date!).day
                 let month = Calendar.current.dateComponents([.day, .year, .month], from: firstElement.date!).month
-                if day == yesterdaysDate.day && month == yesterdaysDate.month {
+                if day == calanderDate.day && month == calanderDate.month {
                     var totalCaffeine = 0
                     for element in drinksDictionary[0]! {
                         totalCaffeine += element.caffeineMg
                     }
+                    todaysCaffeine.text = "\(totalCaffeine)"
+                }
+            }
+        }
+        //Yesterday's
+        yesterdaysCaffeine.text = "0"
+        if let secondArray = drinksDictionary[1] {
+            if secondArray.isEmpty == false {
+                let secondElement = secondArray.first!
+                let day = Calendar.current.dateComponents([.day, .year, .month], from: secondElement.date!).day
+                let month = Calendar.current.dateComponents([.day, .year, .month], from: secondElement.date!).month
+                if day == yesterdaysDate.day && month == yesterdaysDate.month {
+                    var totalCaffeine = 0
+                    for element in drinksDictionary[1]! {
+                        totalCaffeine += element.caffeineMg
+                    }
                     yesterdaysCaffeine.text = "\(totalCaffeine)"
+                } else if let firstElement = drinksDictionary[0]?[0] {
+                    let day = Calendar.current.dateComponents([.day, .year, .month], from: firstElement.date!).day
+                    let month = Calendar.current.dateComponents([.day, .year, .month], from: firstElement.date!).month
+                    if day == yesterdaysDate.day && month == yesterdaysDate.month {
+                        var totalCaffeine = 0
+                        for element in drinksDictionary[0]! {
+                            totalCaffeine += element.caffeineMg
+                        }
+                        yesterdaysCaffeine.text = "\(totalCaffeine)"
+                    }
                 }
             }
         }
@@ -214,61 +220,46 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         return cell
     }
     
-    //TODO: Delete added drinks
-    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-    //        if editingStyle == .delete {
-    //            // Delete the row from the data source
-    ////            let alert = UIAlertController(title: "", message: "Are you sure you want to delete \(arrayDrinksAdded.reversed()[indexPath.row].caffeineMg)mg of \(arrayDrinksAdded.reversed()[indexPath.row].type)?", preferredStyle: .actionSheet)
-    //            let alert = UIAlertController(title: "", message: "Are you sure you want to delete \(drinksDictionary[indexPath.section]![indexPath.row].caffeineMg)mg of \(drinksDictionary[indexPath.section]![indexPath.row].type)?", preferredStyle: .actionSheet)
-    //
-    ////            alert.addAction(UIAlertAction(title: "Delete", style: .destructive , handler:{ (UIAlertAction)in
-    ////                print("User click Delete button")
-    ////                let indice = (arrayDrinksAdded.count - (indexPath.row + 1))
-    ////                arrayDrinksAdded.remove(at: indice);
-    ////                UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: arrayDrinksAddedKey)
-    ////                tableView.deleteRows(at: [indexPath], with: .automatic)
-    ////
-    ////                //Taptic feedback
-    ////                let generator = UINotificationFeedbackGenerator()
-    ////                generator.notificationOccurred(.warning)
-    ////
-    ////                self.checkTodaysAndYesterdaysCaffeine()
-    ////                self.displayCaffeineProgress()
-    ////            }))
-    //
-    //            alert.addAction(UIAlertAction(title: "Delete", style: .destructive , handler:{ (UIAlertAction)in
-    //                print("User click Delete button")
-    //
-    //                var test = 0
-    //                while arrayDrinksAdded[test].date != self.drinksDictionary[indexPath.section]![indexPath.row].date {
-    //                    test += 1
-    //                }
-    //                arrayDrinksAdded.remove(at: test)
-    //                self.drinksDictionary[indexPath.section]?.remove(at: indexPath.row)
-    //                if self.drinksDictionary[indexPath.section] == nil {
-    //                    self.drinksDictionary.removeValue(forKey: indexPath.section)
-    //                }
-    //
-    //                UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: arrayDrinksAddedKey)
-    //                tableView.deleteRows(at: [indexPath], with: .automatic)
-    //
-    //                //Taptic feedback
-    //                let generator = UINotificationFeedbackGenerator()
-    //                generator.notificationOccurred(.warning)
-    //
-    //                self.checkTodaysAndYesterdaysCaffeine()
-    //                self.displayCaffeineProgress()
-    //            }))
-    //
-    //            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
-    //                print("User click Cancel button")
-    //            }))
-    //
-    //            self.present(alert, animated: true, completion: {
-    //                print("ActionSheet action completed!")
-    //            })
-    //        }
-    //    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let healthManager = HealthKitSetupAssistant()
+            let alert = UIAlertController(title: "", message: "Are you sure you want to delete \(drinksDictionary[indexPath.section]![indexPath.row].caffeineMg)mg of \(drinksDictionary[indexPath.section]![indexPath.row].type)?", preferredStyle: .actionSheet)
+            
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive , handler:{ (UIAlertAction)in
+                var test = 0
+                while arrayDrinksAdded[test].date != self.drinksDictionary[indexPath.section]![indexPath.row].date {
+                    test += 1
+                }
+                print("Removing: \(arrayDrinksAdded[test].type) \(arrayDrinksAdded[test].date)")
+                print("Removing: \(self.drinksDictionary[indexPath.section]![indexPath.row].type) \(self.drinksDictionary[indexPath.section]![indexPath.row].date)")
+                healthManager.deleteCaffeine(drink: self.drinksDictionary[indexPath.section]![indexPath.row])
+                healthManager.deleteWater(drink: self.drinksDictionary[indexPath.section]![indexPath.row])
+                arrayDrinksAdded.remove(at: test)
+                self.drinksDictionary[indexPath.section]?.remove(at: indexPath.row)
+                print(self.drinksDictionary)
+                if self.drinksDictionary[indexPath.section]?.count == 0 {
+                    var counter = indexPath.section + 1
+                    while self.drinksDictionary[counter] != nil {
+                        let element = self.drinksDictionary[counter]
+                        self.drinksDictionary[counter - 1] = element
+                        counter += 1
+                    }
+                    self.drinksDictionary.removeValue(forKey: counter - 1)
+                }
+                UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: arrayDrinksAddedKey)
+                TapticEffectsService.performFeedbackNotification(type: .warning)
+                
+                self.checkTodaysAndYesterdaysCaffeine()
+                self.displayCaffeineProgress()
+                tableView.reloadData()
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
+            }))
+            self.present(alert, animated: true, completion: {
+            })
+        }
+    }
     
     func progressViewStyle() {
         // Progress View Style

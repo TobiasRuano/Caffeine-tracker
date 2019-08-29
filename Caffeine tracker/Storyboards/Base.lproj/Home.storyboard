@@ -190,7 +190,7 @@
                                                 <action selector="cancel:" destination="37f-d7-0IO" id="2yt-kd-3Uz"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="qMw-0Y-qDL">
+                                        <barButtonItem key="rightBarButtonItem" title="Add" style="done" id="qMw-0Y-qDL">
                                             <connections>
                                                 <segue destination="eaG-wK-t0H" kind="unwind" unwindAction="unwindFromPickerView:" id="ohc-dZ-jr1"/>
                                             </connections>

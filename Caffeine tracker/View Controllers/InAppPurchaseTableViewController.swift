@@ -19,21 +19,26 @@ class InAppPurchaseTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getInfo()
-        verifyRecipt()
+        if !checkPurchaseStatus() {
+            getInfo()
+            verifyRecipt()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        checkPurchaseStatus()
+//        checkPurchaseStatus()
     }
     
-    func checkPurchaseStatus() {
+    func checkPurchaseStatus() -> Bool {
+        var status = false
         if let value = UserDefaults.standard.value(forKey: inAppPurchaseKey) as? Bool {
-            if value == true {
+            status = value
+            if status == true {
                 buttonIsEnabled = value
                 lockCell()
             }
         }
+        return status
     }
     
     // ----

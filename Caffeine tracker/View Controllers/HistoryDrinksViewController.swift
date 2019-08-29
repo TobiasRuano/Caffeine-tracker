@@ -175,14 +175,24 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = UIColor.red
-        if #available(iOS 13.0, *) {
-            //view.tintColor = UIColor.link
+        var sum = 0
+        if let arrayCopy = drinksDictionary[section] {
+            for element in arrayCopy {
+                sum += element.caffeineMg
+            }
+        }
+        if sum >= caffeineLimit {
+            view.tintColor = UIColor.red.withAlphaComponent(0.95)
         } else {
-            view.tintColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
+            if #available(iOS 13.0, *) {
+                //view.tintColor = UIColor.link
+            } else {
+                view.tintColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 0.95)
+            }
+            
         }
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = UIColor.white
+        header.textLabel?.textColor = .white
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -264,6 +274,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         // Progress View Style
         let gradientView = GradientView(frame: progress.bounds)
         //convert gradient view to image, flip horizontally and assign as the track image
+        gradientView.layer.cornerRadius = 8
         progress.trackImage = UIImage(view: gradientView).withHorizontallyFlippedOrientation()
         //invert the progress view
         progress.transform = CGAffineTransform(scaleX: -1.0, y: -1.0)

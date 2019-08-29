@@ -168,7 +168,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection footerTitle="Designed &amp; Developed by Tobias Ruano. Version 1.0" id="ebo-av-Hqh">
+                            <tableViewSection footerTitle="Designed &amp; Developed by Tobias Ruano. Version 1.0.2" id="ebo-av-Hqh">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="W21-jq-eAa">
                                         <rect key="frame" x="0.0" y="451.33333333333337" width="375" height="44"/>

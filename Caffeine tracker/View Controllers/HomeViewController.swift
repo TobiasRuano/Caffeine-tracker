@@ -37,6 +37,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             hasPurchasedApp = purchase
             print(hasPurchasedApp)
         }
+        //TODO: Delete
+//        hasPurchasedApp = true
+//        UserDefaults.standard.set(true, forKey: inAppPurchaseKey)
     }
     
     func checkOnboardingStatus() {

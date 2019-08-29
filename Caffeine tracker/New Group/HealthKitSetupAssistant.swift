@@ -60,9 +60,11 @@ class HealthKitSetupAssistant {
         healthStore.save(caffeine) { success, error in
             if (error != nil) {
                 print("Caffeine Error: \(String(describing: error))")
+                UserDefaults.standard.set(false, forKey: healthStatusKey)
             }
             if success {
                 print("Caffeine Saved: \(success)")
+                UserDefaults.standard.set(true, forKey: healthStatusKey)
             }
         }
     }

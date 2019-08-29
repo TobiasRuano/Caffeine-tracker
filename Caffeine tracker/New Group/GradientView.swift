@@ -20,7 +20,6 @@ class GradientView: UIView {
         
         //fill view with gradient layer
         gradientLayer.frame = self.bounds
-        
         //style and insert layer if not already inserted
         if gradientLayer.superlayer == nil {
             gradientLayer.startPoint = CGPoint(x: 0, y: 0)

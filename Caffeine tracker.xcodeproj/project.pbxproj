@@ -30,6 +30,7 @@
 		8BAC94FE20F1AEC800601660 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAC94FD20F1AEC800601660 /* GradientView.swift */; };
 		8BBC8B9E22272CC900A4E54C /* CustomCellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBC8B9D22272CC900A4E54C /* CustomCellClass.swift */; };
 		8BC6B12520D4650C006B2061 /* AddDrinkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC6B12420D4650C006B2061 /* AddDrinkTableViewController.swift */; };
+		8BCE549723185E0F00977208 /* CTProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCE549623185E0F00977208 /* CTProgressBar.swift */; };
 		8BCFB39A20D2944C00090C2A /* HistoryDrinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFB39920D2944C00090C2A /* HistoryDrinksViewController.swift */; };
 		8BD2BB042081497E00D61BDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2BB032081497E00D61BDF /* AppDelegate.swift */; };
 		8BD2BB0B2081497E00D61BDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD2BB092081497E00D61BDF /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 		8BAC94FD20F1AEC800601660 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		8BBC8B9D22272CC900A4E54C /* CustomCellClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellClass.swift; sourceTree = "<group>"; };
 		8BC6B12420D4650C006B2061 /* AddDrinkTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDrinkTableViewController.swift; sourceTree = "<group>"; };
+		8BCE549623185E0F00977208 /* CTProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTProgressBar.swift; sourceTree = "<group>"; };
 		8BCFB39920D2944C00090C2A /* HistoryDrinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDrinksViewController.swift; sourceTree = "<group>"; };
 		8BD2BB002081497E00D61BDF /* Caffeine tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Caffeine tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BD2BB032081497E00D61BDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				8B04C47F223ED5B700C74C03 /* CTOnboardingCustomTableViewCell.swift */,
 				8B25AC82230A001200CE5F1C /* NetworkActivityIndicationManager.swift */,
 				8B25AC84230A003A00CE5F1C /* TapticEffectsService.swift */,
+				8BCE549623185E0F00977208 /* CTProgressBar.swift */,
 			);
 			name = CustomClasses;
 			path = "New Group";
@@ -345,6 +348,7 @@
 				8B562EE82265320E00548EF3 /* Drink.xcdatamodeld in Sources */,
 				8BD2BB1E20814F0700D61BDF /* SettingsTableViewController.swift in Sources */,
 				8BBC8B9E22272CC900A4E54C /* CustomCellClass.swift in Sources */,
+				8BCE549723185E0F00977208 /* CTProgressBar.swift in Sources */,
 				8B04C481223ED5B700C74C03 /* CTOnboardingCustomTableViewCell.swift in Sources */,
 				8BD2BB202081565700D61BDF /* InAppPurchaseTableViewController.swift in Sources */,
 				8BCFB39A20D2944C00090C2A /* HistoryDrinksViewController.swift in Sources */,

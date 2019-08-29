@@ -35,7 +35,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.reloadData()
         if let purchase = UserDefaults.standard.value(forKey: inAppPurchaseKey) as? Bool {
             hasPurchasedApp = purchase
-            print(hasPurchasedApp)
+            print("The user has  purchased the app: \(hasPurchasedApp)")
         }
         //MARK: Debug
 //        hasPurchasedApp = true

@@ -273,6 +273,7 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="settings" selectedImage="settings" id="rwO-8R-f60"/>
                     <navigationItem key="navigationItem" title="Settings" id="nqu-N7-js7"/>
                     <connections>
+                        <outlet property="healthLabel" destination="uB4-Pz-MXJ" id="Wt0-br-jwO"/>
                         <outlet property="maxDailyCaf" destination="j0T-3o-Q9R" id="afD-kO-w3u"/>
                         <outlet property="mlCell" destination="3gy-hu-wOV" id="Z69-rf-CPm"/>
                         <outlet property="waterLogSwitch" destination="duu-Q9-vl7" id="deM-US-M7H"/>

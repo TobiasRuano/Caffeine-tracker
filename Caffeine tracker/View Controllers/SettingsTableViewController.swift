@@ -12,12 +12,14 @@ import SafariServices
 
 class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate, SFSafariViewControllerDelegate {
     
+    @IBOutlet weak var healthLabel: UILabel!
     @IBOutlet weak var maxDailyCaf: UILabel!
     @IBOutlet weak var waterLogSwitch: UISwitch!
     @IBOutlet weak var mlCell: UITableViewCell!
     //@IBOutlet weak var ozCell: UITableViewCell!
     var logWater: Bool = false
     var unitML: Bool = true
+    var healthStatus: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,15 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if let value = UserDefaults.standard.value(forKey: healthStatusKey) {
+            healthStatus = value as! Bool
+            print(healthStatus)
+            if healthStatus {
+                healthLabel.text = "Enabled"
+            } else {
+                healthLabel.text = "Disabled"
+            }
+        }
         if UserDefaults.standard.value(forKey: "maxCaf") != nil {
             let value = UserDefaults.standard.value(forKey: "maxCaf")
             maxDailyCaf.text = "\(value!)mg"

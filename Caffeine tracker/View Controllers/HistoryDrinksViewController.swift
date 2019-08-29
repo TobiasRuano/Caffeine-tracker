@@ -72,7 +72,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
                 self.mgLabel.textColor = .red
                 self.todayLabel.textColor = .red
             }, completion: nil)
-        }else {
+        } else {
             UIView.transition(with: todaysCaffeine, duration: 0.3, options: .transitionCrossDissolve, animations: {
                 self.todaysCaffeine.textColor = .black
                 self.mgLabel.textColor = .black

@@ -15,6 +15,7 @@ var arrayDrinksAdded: [drink] = []
 var checkMarkString: String = "Starbucks"
 
 //Keys
+let healthStatusKey = "healthStatus"
 let toSaveKey = "tosave"
 let arrayDrinksKey = "array"
 let arrayDrinksAddedKey = "arrayAdded"

@@ -14,7 +14,8 @@ class RootOnboardingViewController: UIPageViewController, UIPageViewControllerDa
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc1 = sb.instantiateViewController(withIdentifier: "FirstVC")
         let vc2 = sb.instantiateViewController(withIdentifier: "SecondVC")
-        return [vc1, vc2]
+        let vc3 = sb.instantiateViewController(withIdentifier: "ThirdVC")
+        return [vc1, vc2, vc3]
     }()
     
     var pageControl = UIPageControl()

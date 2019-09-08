@@ -18,7 +18,9 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
     var arrayML = [Int](0...100)
-    var seleccion = 0
+    var arrayUSoz = [Int](0...34)
+    var arrayUKoz = [Int](0...35)
+    var seleccion = 0.0
     var result = 0
     var toSave: drink = drink(type: "", caffeineMg: 0, mililiters: 0, icon: "", dia: nil)
     var waterLog: Bool = true
@@ -28,7 +30,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         waterLog = UserDefaults.standard.value(forKey: logWaterBoolKey) as! Bool
         style()
         retriveData()
-        if toSave.caffeineMg >= 200 {
+        if toSave.getCaffeineMg() >= 200 {
             fondo.layer.backgroundColor = UIColor.red.cgColor
         }
     }
@@ -42,17 +44,40 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return arrayML.count
+        switch unitGlobal {
+        case .ml:
+            return arrayML.count
+        case .flOzUS:
+            return arrayUSoz.count
+        case .flOzUK:
+            return arrayUKoz.count
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(arrayML[row])ml"
+        switch unitGlobal {
+        case .ml:
+            return "\(arrayML[row]) ml"
+        case .flOzUS:
+            return "\(arrayUSoz[row]) fl oz"
+        case .flOzUK:
+            return "\(arrayUKoz[row]) fl oz"
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        seleccion = arrayML[row]
-        result = (arrayML[row] * toSave.caffeineMg) / 100
-        titulo.text = "Drink: \(toSave.type)\nCaffeine: \(result)mg"
+        switch unitGlobal {
+        case .ml:
+            seleccion = Double(arrayML[row])
+            result = (arrayML[row] * Int(toSave.getCaffeineMg())) / 100
+        case .flOzUS:
+            seleccion = Double(arrayUSoz[row])
+            result = Int((Double(arrayUSoz[row]) * toSave.getCaffeineMg()) / 3.0)
+        case .flOzUK:
+            seleccion = Double(arrayUKoz[row])
+            result = Int((Double(arrayUKoz[row]) * toSave.getCaffeineMg()) / 3.0)
+        }
+        titulo.text = "Drink: \(toSave.getName())\nCaffeine: \(result)mg"
         if result >= 200 {
             fondo.layer.backgroundColor = UIColor.red.cgColor
         }else {
@@ -95,19 +120,26 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         // Retrive data
         let data = UserDefaults.standard.value(forKey: toSaveKey) as? Data
         toSave = try! PropertyListDecoder().decode(drink.self, from: data!)
-        print(toSave)
-        titulo.text = "Drink: \(toSave.type)\nCaffeine: \(toSave.caffeineMg)mg"
-        result = toSave.caffeineMg
+        let caffeine = Int(toSave.getCaffeineMg())
+        titulo.text = "Drink: \(toSave.getName())\nCaffeine: \(caffeine)mg"
+        result = Int(toSave.getCaffeineMg())
         print(result)
         populateTableView()
     }
     
     fileprivate  func populateTableView() {
-        pickerView.selectRow(10, inComponent: 0, animated: false)
-        for element in arrayML{
-            if element < arrayML.count {
-                arrayML[element] = arrayML[element]*10
+        switch unitGlobal {
+        case .ml:
+            pickerView.selectRow(10, inComponent: 0, animated: false)
+            for element in arrayML{
+                if element < arrayML.count {
+                    arrayML[element] = arrayML[element]*10
+                }
             }
+        case .flOzUS:
+            pickerView.selectRow(3, inComponent: 0, animated: false)
+        case .flOzUK:
+            pickerView.selectRow(3, inComponent: 0, animated: false)
         }
     }
 }

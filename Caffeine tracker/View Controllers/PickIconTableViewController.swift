@@ -20,7 +20,7 @@ class PickIconTableViewController: UITableViewController {
     @IBOutlet weak var cell8: UITableViewCell!
     
     var objectName: String = "Latte"
-    var caffeine: String = "100mg"
+    var caffeine: String = "0mg"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,7 +117,14 @@ class PickIconTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         cell.textLabel?.text = objectName
-        cell.detailTextLabel?.text = "\(String(caffeine)) of caffeine in 100ml"
+        switch unitGlobal {
+        case .ml:
+            cell.detailTextLabel?.text = "\(String(caffeine)) of caffeine in 100ml"
+        case .flOzUS:
+            cell.detailTextLabel?.text = "\(String(caffeine)) of caffeine in 3 fl oz"
+        case .flOzUK:
+            cell.detailTextLabel?.text = "\(String(caffeine)) of caffeine in 3 fl oz"
+        }
         return cell
     }
 }

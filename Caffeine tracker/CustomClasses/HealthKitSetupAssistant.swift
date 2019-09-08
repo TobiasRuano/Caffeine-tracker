@@ -12,15 +12,14 @@ class HealthKitSetupAssistant {
     
     public let healthStore = HKHealthStore()
     
-    private enum HealthkitSetupError: Error {
-        case notAvailableOnDevice
-        case dataTypeNotAvailable
-    }
+//    private enum HealthkitSetupError: Error {
+//        case notAvailableOnDevice
+//        case dataTypeNotAvailable
+//    }
     
     public func requestPermissions() {
         let dataTypesToWrite : Set = [HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine)!,
                                HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryWater)!]
-        //let dataTypesToRead : Set = [HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine)!]
         
         var logWaterBool: Bool = true
         if UserDefaults.standard.value(forKey: logWaterBoolKey) != nil {
@@ -39,13 +38,12 @@ class HealthKitSetupAssistant {
         UserDefaults.standard.set(logWaterBool, forKey: logWaterBoolKey)
     }
     
-    
     public func submitCaffeine(CaffeineAmount: Int, WaterAmount: Int?, forDate : Date, logWater: Bool) {
         let quantityTypeCaffeine = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine)!
         let caffeine = HKQuantitySample(type: quantityTypeCaffeine, quantity: HKQuantity.init(unit: HKUnit.gramUnit(with: HKMetricPrefix.milli), doubleValue: Double(CaffeineAmount)), start: forDate, end: forDate)
         if logWater == true {
             let quantityTypeWater = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryWater)!
-            let water = HKQuantitySample(type: quantityTypeWater, quantity: HKQuantity.init(unit: HKUnit.literUnit(with: .milli), doubleValue: Double(WaterAmount!)), start: forDate, end: forDate)
+            let water = HKQuantitySample(type: quantityTypeWater, quantity: HKQuantity.init(unit: getUnit(), doubleValue: Double(WaterAmount!)), start: forDate, end: forDate)
             
             healthStore.save(water) { success, error in
                 if (error != nil) {
@@ -68,13 +66,22 @@ class HealthKitSetupAssistant {
             }
         }
     }
+    
+    public func editData() {
+        
+    }
+    
+    func getSample() {
+        
+    }
+    
     public func deleteWater(drink: drink) {
         var water: HKQuantitySample? = nil
         guard let waterSampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryWater) else {
             fatalError("*** This method should never fail ***")
         }
-        let startDate = drink.date
-        let endDate = drink.date?.addingTimeInterval(1)
+        let startDate = drink.getDate()
+        let endDate = drink.getDate().addingTimeInterval(1)
         let waterPredicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
         let query = HKSampleQuery(sampleType: waterSampleType, predicate: waterPredicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) { query, results, error in
             if (error == nil) {
@@ -82,8 +89,12 @@ class HealthKitSetupAssistant {
                     fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error?.localizedDescription)");
                 }
                 for sample in samples {
-                    let value = Int(sample.quantity.doubleValue(for: .literUnit(with: .milli)))
-                    if value == drink.mililiters {
+                    let value = Int(sample.quantity.doubleValue(for: self.getUnit()))
+                    if value == Int(drink.getMl()) {
+                        water = sample
+                    } else if value == Int(drink.getUSoz()) {
+                        water = sample
+                    } else if value == Int(drink.getUKoz()) {
                         water = sample
                     }
                 }
@@ -103,13 +114,14 @@ class HealthKitSetupAssistant {
         }
         healthStore.execute(query)
     }
+    
     public func deleteCaffeine(drink: drink) {
         var caffeine: HKQuantitySample? = nil
         guard let caffeineSampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine) else {
             fatalError("*** This method should never fail ***")
         }
-        let startDate = drink.date
-        let endDate = drink.date?.addingTimeInterval(1)
+        let startDate = drink.getDate()
+        let endDate = drink.getDate().addingTimeInterval(1)
         let caffeinePredicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
         
         let query = HKSampleQuery(sampleType: caffeineSampleType, predicate: caffeinePredicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) {
@@ -120,7 +132,11 @@ class HealthKitSetupAssistant {
                 }
                 for sample in samples {
                     let value = Int(sample.quantity.doubleValue(for: .gramUnit(with: .milli)))
-                    if value == drink.caffeineMg {
+                    if value == Int(drink.getCaffeineMgAdded()) {
+                        caffeine = sample
+                    } else if value == Int((drink.getCaffeineMgAdded() * 3.0) / usConvertionRate) {
+                        caffeine = sample
+                    } else if value == Int((drink.getCaffeineMgAdded() * 3.0) / ukConvertionRate) {
                         caffeine = sample
                     }
                 }
@@ -140,5 +156,16 @@ class HealthKitSetupAssistant {
         }
         
         healthStore.execute(query)
+    }
+    
+    private func getUnit() -> HKUnit {
+        switch unitGlobal {
+        case .ml:
+            return HKUnit.literUnit(with: .milli)
+        case .flOzUS:
+            return HKUnit.fluidOunceUS()
+        case .flOzUK:
+            return HKUnit.fluidOunceImperial()
+        }
     }
 }

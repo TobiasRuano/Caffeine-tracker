@@ -8,11 +8,11 @@
 
 import UIKit
 
-class SecondOnboardingViewController: UIViewController {
+class ThirdOnboardingViewController: UIViewController {
 
     @IBOutlet weak var logWaterView: UIView!
     @IBOutlet weak var waterSwitch: UISwitch!
-    var waterBoolean = true
+//    var waterBoolean = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +28,12 @@ class SecondOnboardingViewController: UIViewController {
     }
     
     @IBAction func switchAction(_ sender: UISwitch) {
-        waterBoolean = waterSwitch.isOn ? true : false
+//        waterBoolean = waterSwitch.isOn ? true : false
     }
     
     @IBAction func ExitToRootViewController(_ sender: UIButton) {
         UserDefaults.standard.set(true, forKey: "OnboardingScreen")
-        UserDefaults.standard.set(waterBoolean, forKey: logWaterBoolKey)
+//        UserDefaults.standard.set(waterBoolean, forKey: logWaterBoolKey)
         self.dismiss(animated: true, completion: nil)
     }
 }

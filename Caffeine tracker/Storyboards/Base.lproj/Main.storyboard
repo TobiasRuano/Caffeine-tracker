@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14845" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LyL-k8-SPh">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LyL-k8-SPh">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14799.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -81,7 +83,7 @@
                 <pageViewController storyboardIdentifier="OnboardingRoot" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="2dg-zK-jF7" customClass="RootOnboardingViewController" customModule="Caffeine_tracker" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PjQ-34-1eM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="158" y="-456"/>
+            <point key="canvasLocation" x="-332" y="-457"/>
         </scene>
         <!--First Onboarding View Controller-->
         <scene sceneID="Cmx-So-xiX">
@@ -196,12 +198,131 @@ know it, leave it blank</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Zh-XK-sg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="837.60000000000002" y="-457.38916256157637"/>
+            <point key="canvasLocation" x="327" y="-457"/>
         </scene>
         <!--Second Onboarding View Controller-->
+        <scene sceneID="Nid-lq-efB">
+            <objects>
+                <viewController storyboardIdentifier="SecondVC" id="hjU-On-luO" customClass="SecondOnboardingViewController" customModule="Caffeine_tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DHs-FC-LKN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXo-On-gSD">
+                                <rect key="frame" x="132.66666666666666" y="74" width="109.66666666666666" height="46"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="38"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your preferred unit" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4s-8S-pLf">
+                                <rect key="frame" x="58.666666666666657" y="190" width="258" height="27.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uHu-vs-9uB">
+                                <rect key="frame" x="30" y="247.66666666666663" width="315" height="44"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="av3-jn-n76">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="45"/>
+                                        <segments>
+                                            <segment title="ml"/>
+                                            <segment title="fl US oz"/>
+                                            <segment title="fl UK oz"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="unitSelection:" destination="hjU-On-luO" eventType="valueChanged" id="EbW-vI-9TB"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="av3-jn-n76" secondAttribute="bottom" id="2Fv-c7-Yxk"/>
+                                    <constraint firstItem="av3-jn-n76" firstAttribute="top" secondItem="uHu-vs-9uB" secondAttribute="top" id="2J2-iu-4dK"/>
+                                    <constraint firstAttribute="trailing" secondItem="av3-jn-n76" secondAttribute="trailing" id="T9q-ID-fSS"/>
+                                    <constraint firstItem="av3-jn-n76" firstAttribute="leading" secondItem="uHu-vs-9uB" secondAttribute="leading" id="TrJ-vk-yhC"/>
+                                    <constraint firstAttribute="height" constant="44" id="p27-Ij-L7b"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVK-bb-mFO">
+                                <rect key="frame" x="50" y="718" width="275" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ezu-aW-KzO"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="gC8-dw-VP2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="Slide to Continue"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5sb-Mp-usm">
+                                <rect key="frame" x="30" y="419.33333333333331" width="315" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log Water to Health" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1T-xB-Oor">
+                                        <rect key="frame" x="8" y="11.666666666666686" width="153" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xa-6s-OHU">
+                                        <rect key="frame" x="256" y="6.6666666666666856" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="1xa-6s-OHU" secondAttribute="height" multiplier="49:31" id="hhn-3L-Wfs"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="switchAction:" destination="IsH-0D-hOS" eventType="valueChanged" id="W9v-Om-D3h"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="5BR-un-9vx"/>
+                                    <constraint firstItem="R1T-xB-Oor" firstAttribute="leading" secondItem="5sb-Mp-usm" secondAttribute="leading" constant="8" id="CPU-EH-7mk"/>
+                                    <constraint firstAttribute="trailing" secondItem="1xa-6s-OHU" secondAttribute="trailing" constant="10" id="fwy-tI-rxK"/>
+                                    <constraint firstItem="1xa-6s-OHU" firstAttribute="centerY" secondItem="5sb-Mp-usm" secondAttribute="centerY" id="hGD-lf-PuS"/>
+                                    <constraint firstItem="R1T-xB-Oor" firstAttribute="centerY" secondItem="5sb-Mp-usm" secondAttribute="centerY" id="mNB-wV-pZS"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Want to also log water?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqd-6n-qeD">
+                                <rect key="frame" x="69.333333333333329" y="361.66666666666669" width="236.66666666666669" height="27.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5sb-Mp-usm" firstAttribute="leading" secondItem="DHs-FC-LKN" secondAttribute="leading" constant="30" id="2bj-xE-BnZ"/>
+                            <constraint firstItem="Tqd-6n-qeD" firstAttribute="top" secondItem="uHu-vs-9uB" secondAttribute="bottom" constant="70" id="4rm-FU-GfF"/>
+                            <constraint firstItem="g4s-8S-pLf" firstAttribute="top" secondItem="ZXo-On-gSD" secondAttribute="bottom" constant="70" id="CcG-hk-HqK"/>
+                            <constraint firstItem="5sb-Mp-usm" firstAttribute="top" secondItem="Tqd-6n-qeD" secondAttribute="bottom" constant="30" id="KcO-6M-h0C"/>
+                            <constraint firstItem="vIQ-Yh-yHP" firstAttribute="trailing" secondItem="zVK-bb-mFO" secondAttribute="trailing" constant="50" id="S1x-9l-Ry6"/>
+                            <constraint firstItem="ZXo-On-gSD" firstAttribute="centerX" secondItem="DHs-FC-LKN" secondAttribute="centerX" id="SoQ-Nl-G71"/>
+                            <constraint firstItem="zVK-bb-mFO" firstAttribute="leading" secondItem="vIQ-Yh-yHP" secondAttribute="leading" constant="50" id="Upg-D8-n9w"/>
+                            <constraint firstItem="vIQ-Yh-yHP" firstAttribute="bottom" secondItem="zVK-bb-mFO" secondAttribute="bottom" constant="10" id="eS7-yc-51w"/>
+                            <constraint firstItem="Tqd-6n-qeD" firstAttribute="centerX" secondItem="DHs-FC-LKN" secondAttribute="centerX" id="f3Y-Mt-w7m"/>
+                            <constraint firstItem="g4s-8S-pLf" firstAttribute="centerX" secondItem="DHs-FC-LKN" secondAttribute="centerX" id="kMo-Lj-0Tu"/>
+                            <constraint firstItem="uHu-vs-9uB" firstAttribute="top" secondItem="g4s-8S-pLf" secondAttribute="bottom" constant="30" id="nCk-vP-kIi"/>
+                            <constraint firstItem="vIQ-Yh-yHP" firstAttribute="trailing" secondItem="uHu-vs-9uB" secondAttribute="trailing" constant="30" id="pZe-un-PJX"/>
+                            <constraint firstItem="vIQ-Yh-yHP" firstAttribute="trailing" secondItem="5sb-Mp-usm" secondAttribute="trailing" constant="30" id="slc-nL-yCk"/>
+                            <constraint firstItem="ZXo-On-gSD" firstAttribute="top" secondItem="vIQ-Yh-yHP" secondAttribute="top" constant="30" id="uBf-kk-jLA"/>
+                            <constraint firstItem="uHu-vs-9uB" firstAttribute="leading" secondItem="vIQ-Yh-yHP" secondAttribute="leading" constant="30" id="vrG-hn-qFw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vIQ-Yh-yHP"/>
+                    </view>
+                    <connections>
+                        <outlet property="logWaterView" destination="5sb-Mp-usm" id="eBf-Yo-qbC"/>
+                        <outlet property="unitsSegment" destination="av3-jn-n76" id="qXf-me-ue2"/>
+                        <outlet property="unitsView" destination="uHu-vs-9uB" id="f0g-8T-0lz"/>
+                        <outlet property="waterSwitch" destination="1xa-6s-OHU" id="QTr-WW-vG6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DF3-T2-Mef" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1009" y="-457"/>
+        </scene>
+        <!--Third Onboarding View Controller-->
         <scene sceneID="M2o-dP-Gwn">
             <objects>
-                <viewController storyboardIdentifier="SecondVC" id="IsH-0D-hOS" customClass="SecondOnboardingViewController" customModule="Caffeine_tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThirdVC" id="IsH-0D-hOS" customClass="ThirdOnboardingViewController" customModule="Caffeine_tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gek-IK-YEC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -310,6 +431,11 @@ upperleft corner!</string>
                             <constraint firstItem="13h-yh-w4Z" firstAttribute="centerX" secondItem="Gek-IK-YEC" secondAttribute="centerX" id="yaN-s2-gBS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0sb-d7-ftQ"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Xo3-Ly-OTI"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="logWaterView" destination="Xo3-Ly-OTI" id="cy8-Cc-xov"/>
@@ -319,22 +445,22 @@ upperleft corner!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDM-kz-SZA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1537" y="-457"/>
+            <point key="canvasLocation" x="1732" y="-457"/>
         </scene>
         <!--Onboarding Single Help Table View Controller-->
         <scene sceneID="vvM-Uc-OP4">
             <objects>
                 <tableViewController id="QKx-Cq-QVe" customClass="OnboardingSingleHelpTableViewController" customModule="Caffeine_tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pdl-9Y-L8f">
-                        <rect key="frame" x="0.0" y="0.0" width="260" height="47"/>
+                        <rect key="frame" x="0.0" y="0.0" width="315" height="47"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="2TW-o8-vIS" customClass="CTOnboardingCustomTableViewCell" customModule="Caffeine_tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="260" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="28" width="315" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2TW-o8-vIS" id="z2f-f6-CkM">
-                                    <rect key="frame" x="0.0" y="0.0" width="260" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="315" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2K-oH-OSx">
@@ -355,7 +481,7 @@ upperleft corner!</string>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EdW-ZU-qdx" userLabel="BaseView">
-                                            <rect key="frame" x="0.0" y="0.0" width="260" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="315" height="43.666666666666664"/>
                                             <subviews>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="Starbucks" translatesAutoresizingMaskIntoConstraints="NO" id="uds-r2-o6M">
                                                     <rect key="frame" x="5" y="9.3333333333333357" width="25" height="25"/>
@@ -415,7 +541,7 @@ upperleft corner!</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P06-uI-A12" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2188" y="-456"/>
+            <point key="canvasLocation" x="2510" y="-457"/>
         </scene>
     </scenes>
     <resources>

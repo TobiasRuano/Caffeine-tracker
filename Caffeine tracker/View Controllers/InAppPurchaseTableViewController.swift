@@ -16,6 +16,7 @@ class InAppPurchaseTableViewController: UITableViewController {
     let fullAppID = "FullApp"
     var sharedSecret = "0f15c2a29cf34e0ea9d484af460559f3"
     @IBOutlet weak var fullVersionButton: UITableViewCell!
+    @IBOutlet weak var priceLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +24,6 @@ class InAppPurchaseTableViewController: UITableViewController {
             getInfo()
             verifyRecipt()
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-//        checkPurchaseStatus()
     }
     
     func checkPurchaseStatus() -> Bool {
@@ -70,6 +67,7 @@ class InAppPurchaseTableViewController: UITableViewController {
             if let product = result.retrievedProducts.first {
                 let priceString = product.localizedPrice!
                 print("Product: \(product.localizedDescription), price: \(priceString)")
+                self.priceLabel.text = "\(priceString)"
             }
             else if let invalidProductId = result.invalidProductIDs.first {
                 print("Invalid product identifier: \(invalidProductId)")

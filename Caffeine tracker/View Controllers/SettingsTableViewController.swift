@@ -16,7 +16,8 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     @IBOutlet weak var maxDailyCaf: UILabel!
     @IBOutlet weak var waterLogSwitch: UISwitch!
     @IBOutlet weak var mlCell: UITableViewCell!
-    //@IBOutlet weak var ozCell: UITableViewCell!
+    @IBOutlet weak var usOzCell: UITableViewCell!
+    @IBOutlet weak var ukOzCell: UITableViewCell!
     var logWater: Bool = false
     var unitML: Bool = true
     var healthStatus: Bool = true
@@ -47,15 +48,19 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         }else {
             maxDailyCaf.text = "400mg"
         }
-        if UserDefaults.standard.value(forKey: "units") != nil {
-            unitML = UserDefaults.standard.value(forKey: "units") as! Bool
-            if unitML == true {
-                mlCell.accessoryType = .checkmark
-                //ozCell.accessoryType = .none
-            }else {
-                mlCell.accessoryType = .none
-                //ozCell.accessoryType = .checkmark
-            }
+        switch unitGlobal {
+        case .ml:
+            mlCell.accessoryType = .checkmark
+            usOzCell.accessoryType = .none
+            ukOzCell.accessoryType = .none
+        case .flOzUS:
+            mlCell.accessoryType = .none
+            usOzCell.accessoryType = .checkmark
+            ukOzCell.accessoryType = .none
+        case .flOzUK:
+            mlCell.accessoryType = .none
+            usOzCell.accessoryType = .none
+            ukOzCell.accessoryType = .checkmark
         }
     }
     
@@ -66,35 +71,53 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
             if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
                 if cell.accessoryType == .none {
                     cell.accessoryType = .checkmark
-                    unitML = true
-                    UserDefaults.standard.set(unitML, forKey: "units")
+                    unitGlobal = .ml
+                    //UserDefaults.standard.set(try? PropertyListEncoder().encode(unitGlobal), forKey: "Units")
+                    UserDefaults.standard.set(unitGlobal.rawValue, forKey: "Units")
+                    //UserDefaults.standard.set(unitGlobal, forKey: "Unitsb")
                     let cell2 = tableView.cellForRow(at: IndexPath.init(row: 1, section: 1))
+                    let cell3 = tableView.cellForRow(at: IndexPath.init(row: 2, section: 1))
                     cell2?.accessoryType = .none
+                    cell3?.accessoryType = .none
                 }
             }
-            let alert = UIAlertController(title: "Upss!", message: "Unfortunately for now the only available unit is Milliliters. Check back in an other update for more", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        } else if indexPath.section == 3 && indexPath.row == 0 {
-            support()
+        } else if indexPath.section == 1 && indexPath.row == 1 {
+            if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
+                if cell.accessoryType == .none {
+                    cell.accessoryType = .checkmark
+                    unitGlobal = .flOzUS
+                    //UserDefaults.standard.set(unitGlobal, forKey: "Units")
+                    //UserDefaults.standard.set(try? PropertyListEncoder().encode(unitGlobal), forKey: "Units")
+                    UserDefaults.standard.set(unitGlobal.rawValue, forKey: "Units")
+                    let cell2 = tableView.cellForRow(at: IndexPath.init(row: 0, section: 1))
+                    let cell3 = tableView.cellForRow(at: IndexPath.init(row: 2, section: 1))
+                    cell2?.accessoryType = .none
+                    cell3?.accessoryType = .none
+                }
+            }
+        } else if indexPath.section == 1 && indexPath.row == 2 {
+            if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
+                if cell.accessoryType == .none {
+                    cell.accessoryType = .checkmark
+                    unitGlobal = .flOzUK
+                    //UserDefaults.standard.set(try? PropertyListEncoder().encode(unitGlobal), forKey: "Units")
+                    UserDefaults.standard.set(unitGlobal.rawValue, forKey: "Units")
+                    //UserDefaults.standard.set(unitGlobal, forKey: "Units")
+                    let cell2 = tableView.cellForRow(at: IndexPath.init(row: 0, section: 1))
+                    let cell3 = tableView.cellForRow(at: IndexPath.init(row: 1, section: 1))
+                    cell2?.accessoryType = .none
+                    cell3?.accessoryType = .none
+                }
+            }
         } else if indexPath.section == 3 && indexPath.row == 1 {
-            rate()
+            support()
         } else if indexPath.section == 3 && indexPath.row == 2 {
             openSafariVC(self)
         } else if indexPath.section == 3 && indexPath.row == 3 {
+            rate()
+        } else if indexPath.section == 3 && indexPath.row == 4 {
             share()
         }
-        //        else if indexPath.section == 1 && indexPath.row == 1 {
-        //            if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
-        //                if cell.accessoryType == .none {
-        //                    cell.accessoryType = .checkmark
-        //                    unitML = false
-        //                    UserDefaults.standard.set(unitML, forKey: "units")
-        //                    let cell2 = tableView.cellForRow(at: IndexPath.init(row: 0, section: 1))
-        //                    cell2?.accessoryType = .none
-        //                }
-        //            }
-        //        }
     }
     
     //----
@@ -119,7 +142,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     }
     
     func rate() {
-        guard let url = URL(string: "itms-apps://itunes.apple.com/app/1476993081") else {
+        guard let url = URL(string: "itms-apps://itunes.apple.com/app/1476993081?mt=8&action=write-review") else {
             return
         }
         if #available(iOS 10.0, *) {
@@ -132,7 +155,6 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     func share() {
         let activityVC = UIActivityViewController(activityItems: ["Download Caffeine Tracker on the AppStore: itunes.apple.com/app/1476993081"], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
-        
         self.present(activityVC, animated: true, completion: nil)
     }
     
@@ -148,7 +170,6 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
             self.present(mc, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Couldn't Access Mail App", message: "Please report this error", preferredStyle: UIAlertController.Style.alert)
-            
             alert.addAction(UIAlertAction(title: "Done", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }

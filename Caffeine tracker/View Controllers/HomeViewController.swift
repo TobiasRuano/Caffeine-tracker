@@ -37,9 +37,25 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             hasPurchasedApp = purchase
             print("The user has  purchased the app: \(hasPurchasedApp)")
         }
+        // ---- ----
         //MARK: Debug
-//        hasPurchasedApp = true
-//        UserDefaults.standard.set(true, forKey: inAppPurchaseKey)
+        //        hasPurchasedApp = true
+        //        UserDefaults.standard.set(true, forKey: inAppPurchaseKey)
+        if let value = UserDefaults.standard.value(forKey: "Units") as? Int {
+            switch value {
+            case 0:
+                unitGlobal = Unit.ml
+            case 1:
+                unitGlobal = Unit.flOzUS
+            case 2:
+                unitGlobal = Unit.flOzUK
+            default:
+                unitGlobal = Unit.flOzUS
+            }
+            print("valor de value: \(value) valor de ml: \(unitGlobal)")
+        } else {
+            unitGlobal = .ml
+        }
     }
     
     func checkOnboardingStatus() {
@@ -66,7 +82,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    fileprivate func checkHealthAvailability() {
+    private func checkHealthAvailability() {
         if HKHealthStore.isHealthDataAvailable() {
             print("Yes, HealthKit is Available")
             let healthManager = HealthKitSetupAssistant()
@@ -88,26 +104,49 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: homeTableViewCell, for: indexPath)
-        cell.textLabel?.text = arrayDrinks[indexPath.row].type
-        cell.detailTextLabel?.text = String(arrayDrinks[indexPath.row].caffeineMg) + "mg of caffeine in 100ml"
-        cell.imageView?.image = UIImage(named: arrayDrinks[indexPath.row].icon)
+        cell.textLabel?.text = arrayDrinks[indexPath.row].getName()
+        var unit = ""
+        switch unitGlobal {
+        case .ml:
+            unit = "100 ml"
+        case .flOzUS:
+            unit = "3 fl oz"
+        case .flOzUK:
+            unit = "3 fl oz"
+        }
+        let value = Int(arrayDrinks[indexPath.row].getCaffeineMg())
+        cell.detailTextLabel?.text = String(value) + "mg of caffeine in \(unit)"
+        cell.imageView?.image = UIImage(named: arrayDrinks[indexPath.row].getIcon())
         return cell
     }
     
-   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("\(arrayDrinks[indexPath.row].type) has \(arrayDrinks[indexPath.row].caffeineMg)mg of caffeine in 100ml")
+        let value = Int(arrayDrinks[indexPath.row].getCaffeineMg())
+        print("\(arrayDrinks[indexPath.row].getName()) has \(value)mg of caffeine in 3 fl oz")
         self.drinkAux = arrayDrinks[indexPath.row]
         UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: toSaveKey)
         self.performSegue(withIdentifier: modalViewIdentifier, sender: self)
     }
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        let alertController = UIAlertController(title: "Amount of caffeine in:", message: "100ml of \(arrayDrinks[indexPath.row].type):", preferredStyle: .alert)
+        var unit = ""
+        var text = ""
+        switch unitGlobal {
+        case .ml:
+            unit = "100ml"
+        case .flOzUS:
+            unit = "3 fl oz"
+        case .flOzUK:
+            unit = "3 fl oz"
+        }
+        let result = arrayDrinks[indexPath.row].getCaffeineMg()
+        text = "\(Int(result))mg"
+        let alertController = UIAlertController(title: "Amount of caffeine in:", message: "\(unit) of \(arrayDrinks[indexPath.row].getName()):", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Done", style: .default, handler: { alert -> Void in
             let textField = alertController.textFields![0] as UITextField
-            if let number: Int = Int(textField.text!) {
-                arrayDrinks[indexPath.row].caffeineMg = number
+            if let number: Double = Double(textField.text!) {
+                arrayDrinks[indexPath.row].setCaffeineMg(value: number)
             }
             UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: arrayDrinksKey)
             tableView.reloadData()
@@ -115,7 +154,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alertController.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
-            textField.placeholder = "\(arrayDrinks[indexPath.row].caffeineMg)mg"
+            textField.placeholder = text
             textField.keyboardType = UIKeyboardType.numberPad
         })
         self.present(alertController, animated: true, completion: nil)
@@ -126,7 +165,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: toSaveKey)
         let AddAction = UIContextualAction(style: .normal, title:  "Add", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             self.performSegue(withIdentifier: modalViewIdentifier, sender: self)
-            self.alerta(title: "Do you?", message: "Do you want to add \(arrayDrinks[indexPath.row].caffeineMg)mg of caffeine from \(arrayDrinks[indexPath.row].type)", taptic: true, button1: "Yes", button2: "No", passData: true)
+            self.alerta(title: "Do you?", message: "Do you want to add \(arrayDrinks[indexPath.row].getCaffeineMg())mg of caffeine from \(arrayDrinks[indexPath.row].getName())", taptic: true, button1: "Yes", button2: "No", passData: true)
             success(true)
         })
         AddAction.backgroundColor = UIColor(displayP3Red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
@@ -135,9 +174,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // ActionSheet
-            let alert = UIAlertController(title: "", message: "Are you sure you want to delete \"\(arrayDrinks[indexPath.row].type)\" from your list?", preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Delete Drink", style: .destructive , handler:{ (UIAlertAction)in
+            let alert = UIAlertController(title: "", message: "Are you sure you want to delete \"\(arrayDrinks[indexPath.row].getName())\" from your list?", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive , handler:{ (UIAlertAction)in
                 arrayDrinks.remove(at: indexPath.row);
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 TapticEffectsService.performFeedbackNotification(type: .warning)
@@ -210,7 +248,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func unwindFromAddVC(_ sender: UIStoryboardSegue) {
         if sender.source is AddDrinkTableViewController {
             if let senderVC = sender.source as? AddDrinkTableViewController {
-                if senderVC.drinkToAdd.type != "" && senderVC.drinkToAdd.caffeineMg != 0 {
+                if senderVC.drinkToAdd.getName() != "" && senderVC.drinkToAdd.getCaffeineMg() != 0 {
                     arrayDrinks.append(senderVC.drinkToAdd)
                     print(arrayDrinks)
                     UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinks), forKey: arrayDrinksKey)
@@ -224,18 +262,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if sender.source is PickerViewController {
             if let senderVC = sender.source as? PickerViewController {
                 let healthManager = HealthKitSetupAssistant()
-                if senderVC.seleccion != 0 {
-                    senderVC.result = (senderVC.seleccion * senderVC.toSave.caffeineMg) / 100
-                }else {
-                    senderVC.seleccion = 100
+                if senderVC.seleccion == 0 {
+                    switch unitGlobal {
+                    case .ml:
+                        senderVC.seleccion = 100
+                    case .flOzUS:
+                        senderVC.seleccion = 3
+                    case .flOzUK:
+                        senderVC.seleccion = 3
+                    }
                 }
                 if senderVC.result != 0 {
                     let dia = Date()
-                    senderVC.toSave.caffeineMg = senderVC.result
-                    senderVC.toSave.mililiters = senderVC.seleccion
-                    senderVC.toSave.date = dia
+                    senderVC.toSave.setThisCaffeineMg(value: Double(senderVC.result))
+                    print(senderVC.seleccion)
+                    senderVC.toSave.setMl(value: senderVC.seleccion)
+                    senderVC.toSave.setDate(date: dia)
                     if hasPurchasedApp  || drinksLimit.cant == 0 {
-                        healthManager.submitCaffeine(CaffeineAmount: senderVC.result, WaterAmount: senderVC.seleccion, forDate: dia, logWater: senderVC.waterLog)
+                        healthManager.submitCaffeine(CaffeineAmount: senderVC.result, WaterAmount: Int(senderVC.seleccion), forDate: dia, logWater: senderVC.waterLog)
                         arrayDrinksAdded.append(senderVC.toSave)
                         UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: arrayDrinksAddedKey)
                         drinksLimit.cant = drinksLimit.cant + 1

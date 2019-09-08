@@ -8,11 +8,20 @@
 
 import Foundation
 
+enum Unit: Int {
+    case ml
+    case flOzUS
+    case flOzUK
+}
+
 //Global Variables
 var arrayDrinks: [drink] = []
 var arrayDrinksAdded: [drink] = []
-
+var unitGlobal: Unit = .ml
 var checkMarkString: String = "Starbucks"
+
+let usConvertionRate = 3.3814022702 // 3.3814
+let ukConvertionRate = 3.5195079728 // 3.5195
 
 //Keys
 let healthStatusKey = "healthStatus"
@@ -32,4 +41,3 @@ let historyTableViewCell = "cell"
 let onboardingRoot = "OnboardingRoot"
 let unwindID = "unwind"
 let iconID = "icon"
-

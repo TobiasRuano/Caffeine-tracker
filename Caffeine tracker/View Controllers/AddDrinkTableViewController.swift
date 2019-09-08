@@ -16,6 +16,7 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var iconCell: UITableViewCell!
     var iconName: String = "Starbucks"
+    var mlUnit: Bool = true
     var drinkToAdd: drink = drink(type: "", caffeineMg: 0, mililiters: 0, icon: "Latte", dia: nil)
     
     override func viewDidLoad() {
@@ -26,6 +27,7 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.name.becomeFirstResponder()
         }
+        caffeineAmount.placeholder = "0"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +44,6 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
     // ---- ---- ---- ----
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 3
     }
     
@@ -55,6 +56,23 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var header = ""
+        if section == 0 {
+            header = "DRINK NAME"
+        } else if section == 1 {
+            switch unitGlobal {
+            case .ml:
+                header = "CAFFEINE IN 100ML"
+            case .flOzUS:
+                header = "CAFFEINE IN 3 FL OZ"
+            case .flOzUK:
+                header = "CAFFEINE IN 3 FL OZ"
+            }
+        }
+        return header
     }
     
     //MARK: - Controlling the Keyboard
@@ -72,11 +90,22 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
         if let identifier = segue.identifier {
             if identifier == unwindID {
                 if name.text != "" && caffeineAmount.text != "" && caffeineAmount.text?.isNumeric == true {
-                    drinkToAdd.type = name.text!
+                    drinkToAdd.setName(name: name.text!)
                     print(name.text!)
-                    drinkToAdd.caffeineMg = Int(caffeineAmount.text!)!
-                    drinkToAdd.mililiters = Int(caffeineAmount.text!)!
-                    drinkToAdd.icon = iconName
+                    let textLabelCaffeine = Double(caffeineAmount.text!)
+                    print(textLabelCaffeine!)
+                    drinkToAdd.setCaffeineMg(value: textLabelCaffeine!)
+                    // no importa este valor
+                    drinkToAdd.setMl(value: 0.0)
+                    switch unitGlobal {
+                    case .ml:
+                        print("\(drinkToAdd.getMl()) y \(drinkToAdd.getCaffeineMg())")
+                    case .flOzUS:
+                        print("\(drinkToAdd.getUSoz()) y \(drinkToAdd.getCaffeineMg())")
+                    case .flOzUK:
+                        print("\(drinkToAdd.getUKoz()) y \(drinkToAdd.getCaffeineMg())")
+                    }
+                    drinkToAdd.setIcon(imageString: iconName)
                     print(drinkToAdd)
                     TapticEffectsService.performFeedbackNotification(type: .success)
                 }

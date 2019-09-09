@@ -13,7 +13,7 @@ Inside the history tab, you can have a more detailed view at your day and see ho
 * Multiple Types of drinks
 * Add your own drinks!
 * Set your caffeine daily limit.
-* Beautiful progress bar
+* Clean Interface
 
 ## Meta
 

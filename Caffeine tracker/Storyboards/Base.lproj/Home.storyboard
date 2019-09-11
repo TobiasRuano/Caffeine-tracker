@@ -149,6 +149,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCi-HA-4kw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
+                                <connections>
+                                    <action selector="dismissButton:" destination="37f-d7-0IO" eventType="touchUpInside" id="mcl-jy-FhR"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwi-SA-IC8">
                                 <rect key="frame" x="19" y="112" width="337" height="41"/>
                                 <subviews>
@@ -184,7 +190,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPc-Yj-UHH">
                                 <rect key="frame" x="0.0" y="39" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Select ml drunk" id="0O9-y1-i62">
+                                    <navigationItem title="Select amount" id="0O9-y1-i62">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wly-o7-UX4">
                                             <connections>
                                                 <action selector="cancel:" destination="37f-d7-0IO" id="2yt-kd-3Uz"/>
@@ -215,6 +221,7 @@
                             <constraint firstItem="gwi-SA-IC8" firstAttribute="leading" secondItem="3SC-fM-NDt" secondAttribute="leading" constant="19" id="6lF-D6-98U"/>
                             <constraint firstItem="QPc-Yj-UHH" firstAttribute="top" secondItem="gwi-SA-IC8" secondAttribute="top" constant="-73" id="ABH-k3-l3F"/>
                             <constraint firstItem="eZg-ec-MkS" firstAttribute="leading" secondItem="3SC-fM-NDt" secondAttribute="leading" id="EkK-zX-PIf"/>
+                            <constraint firstItem="KCi-HA-4kw" firstAttribute="top" secondItem="W4U-q2-75f" secondAttribute="top" id="Enw-jO-b4e"/>
                             <constraint firstItem="qnu-hj-NQw" firstAttribute="leading" secondItem="3SC-fM-NDt" secondAttribute="leading" id="Fcy-US-wDh"/>
                             <constraint firstItem="RyM-Ga-yN9" firstAttribute="bottom" secondItem="3SC-fM-NDt" secondAttribute="bottom" id="J6n-Pt-vMC"/>
                             <constraint firstItem="QPc-Yj-UHH" firstAttribute="trailing" secondItem="3SC-fM-NDt" secondAttribute="trailing" id="Kwd-JZ-k0f"/>
@@ -224,10 +231,18 @@
                             <constraint firstItem="eZg-ec-MkS" firstAttribute="bottom" secondItem="W4U-q2-75f" secondAttribute="bottom" id="Puw-JA-ZoN"/>
                             <constraint firstItem="eZg-ec-MkS" firstAttribute="trailing" secondItem="3SC-fM-NDt" secondAttribute="trailing" id="S7V-K9-mdU"/>
                             <constraint firstItem="QPc-Yj-UHH" firstAttribute="leading" secondItem="3SC-fM-NDt" secondAttribute="leading" id="THq-xc-Hgw"/>
+                            <constraint firstAttribute="trailing" secondItem="KCi-HA-4kw" secondAttribute="trailing" id="ULO-zf-roB"/>
                             <constraint firstItem="RyM-Ga-yN9" firstAttribute="top" secondItem="QPc-Yj-UHH" secondAttribute="bottom" id="VfZ-zU-uF4"/>
+                            <constraint firstItem="KCi-HA-4kw" firstAttribute="leading" secondItem="W4U-q2-75f" secondAttribute="leading" id="Wzb-PY-qfz"/>
                             <constraint firstItem="RyM-Ga-yN9" firstAttribute="trailing" secondItem="3SC-fM-NDt" secondAttribute="trailing" id="fyj-XB-tpb"/>
+                            <constraint firstAttribute="bottom" secondItem="KCi-HA-4kw" secondAttribute="bottom" id="qGy-nE-Xhp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3SC-fM-NDt"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="KCi-HA-4kw"/>
+                            </mask>
+                        </variation>
                     </view>
                     <size key="freeformSize" width="375" height="334"/>
                     <connections>

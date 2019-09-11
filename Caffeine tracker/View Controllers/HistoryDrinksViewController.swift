@@ -14,7 +14,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var todayLabel: UILabel!
     @IBOutlet weak var mgLabel: UILabel!
     @IBOutlet weak var yesterdaysCaffeine: UILabel!
-    @IBOutlet weak var tablewView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var progress: UIProgressView!
     
     var caffeineLimit = 400
@@ -24,7 +24,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
         //separateDrinksInSections()
         progressViewStyle()
-        tablewView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView()
     }
     
     func separateDrinksInSections() {
@@ -147,7 +147,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         separateDrinksInSections()
         //this func shows todays and yesterdays caffeine ammount on progress bar and text
         displayCaffeineProgress()
-        tablewView.reloadData()
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

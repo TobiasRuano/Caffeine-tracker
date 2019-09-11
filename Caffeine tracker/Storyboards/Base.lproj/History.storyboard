@@ -113,7 +113,7 @@
                                 <rect key="frame" x="0.0" y="275" width="414" height="461"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="TRP-Zt-ot1" customClass="CustomCellClass" customModule="Caffeine_tracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="TRP-Zt-ot1" customClass="CustomCellClass" customModule="Caffeine_tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TRP-Zt-ot1" id="5Jy-n8-2Ek">
@@ -150,7 +150,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30mg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsh-et-eyk">
-                                                    <rect key="frame" x="315" y="12" width="45" height="36"/>
+                                                    <rect key="frame" x="354" y="12" width="45" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -198,7 +198,7 @@
                     <connections>
                         <outlet property="mgLabel" destination="kk7-gV-NW9" id="eVN-bF-fPE"/>
                         <outlet property="progress" destination="Y7g-vX-w3P" id="zNT-ss-Tcj"/>
-                        <outlet property="tablewView" destination="9qD-J2-8a3" id="og1-7F-fC4"/>
+                        <outlet property="tableView" destination="9qD-J2-8a3" id="og1-7F-fC4"/>
                         <outlet property="todayLabel" destination="iJf-UH-zBH" id="XdE-ar-q1c"/>
                         <outlet property="todaysCaffeine" destination="UAq-ZZ-dbN" id="TGa-TR-bm0"/>
                         <outlet property="yesterdaysCaffeine" destination="Hw5-xH-HtK" id="Zdz-uT-F8K"/>

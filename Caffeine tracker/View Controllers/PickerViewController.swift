@@ -80,14 +80,18 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         titulo.text = "Drink: \(toSave.getName())\nCaffeine: \(result)mg"
         if result >= 200 {
             fondo.layer.backgroundColor = UIColor.red.cgColor
-        }else {
+        } else {
             fondo.layer.backgroundColor = UIColor(red: 0.0, green: 0.478, blue: 1.000, alpha: 1.0).cgColor
         }
         if row != 0 {
             doneButton.isEnabled = true
-        }else if row == 0 {
+        } else if row == 0 {
             doneButton.isEnabled = false
         }
+    }
+    
+    @IBAction func dismissButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {

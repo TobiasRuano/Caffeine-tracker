@@ -32,6 +32,10 @@ class SecondOnboardingViewController: UIViewController {
         unitsView.layer.shadowOpacity = 0.5
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        UserDefaults.standard.set(waterBoolean, forKey: logWaterBoolKey)
+    }
+    
     @IBAction func unitSelection(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:

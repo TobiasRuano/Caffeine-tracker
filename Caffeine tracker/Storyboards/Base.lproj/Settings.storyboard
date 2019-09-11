@@ -367,11 +367,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="target" id="AhD-FY-y58">
+                            <tableViewSection id="AhD-FY-y58">
                                 <string key="footerTitle">The recomended amount is no more than 400 milligrams (mg) per day for adults, 300mg for pregnant women, and 100mg for kids and teens.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="64" id="ccG-QK-Hn6">
-                                        <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="64"/>
+                                        <rect key="frame" x="0.0" y="35" width="414" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ccG-QK-Hn6" id="iAV-4G-qAy">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="63.666666666666664"/>

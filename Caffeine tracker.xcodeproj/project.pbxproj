@@ -108,10 +108,10 @@
 		8B04C47E223ED58200C74C03 /* CustomClasses */ = {
 			isa = PBXGroup;
 			children = (
-				8BA18101232552C0009F5F06 /* CustomCellClass.swift */,
-				8BA18104232552C0009F5F06 /* GradientView.swift */,
 				8BA180FF232552C0009F5F06 /* Drink.swift */,
 				8BA18100232552C0009F5F06 /* HealthKitSetupAssistant.swift */,
+				8BA18104232552C0009F5F06 /* GradientView.swift */,
+				8BA18101232552C0009F5F06 /* CustomCellClass.swift */,
 				8BA18103232552C0009F5F06 /* NetworkActivityIndicationManager.swift */,
 				8BA18102232552C0009F5F06 /* TapticEffectsService.swift */,
 				8B04C480223ED5B700C74C03 /* CTOnboardingButton.swift */,

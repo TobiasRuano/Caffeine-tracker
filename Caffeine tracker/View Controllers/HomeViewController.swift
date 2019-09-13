@@ -23,7 +23,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         checkOnboardingStatus()
-        checkHealthAvailability()
+        //checkHealthAvailability()
         loadDrinkLimitVariable()
         
         tableView.tableFooterView = UIView()
@@ -39,8 +39,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         // ---- ----
         //MARK: Debug
-        //        hasPurchasedApp = true
-        //        UserDefaults.standard.set(true, forKey: inAppPurchaseKey)
+//                hasPurchasedApp = true
+//                UserDefaults.standard.set(true, forKey: inAppPurchaseKey)
         if let value = UserDefaults.standard.value(forKey: "Units") as? Int {
             switch value {
             case 0:

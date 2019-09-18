@@ -110,6 +110,11 @@ class AddDrinkTableViewController: UITableViewController, UITextFieldDelegate {
                     TapticEffectsService.performFeedbackNotification(type: .success)
                 }
             } else if identifier == iconID {
+                if caffeineAmount.isEditing {
+                    caffeineAmount.resignFirstResponder()
+                } else if name.isEditing {
+                    name.resignFirstResponder()
+                }
                 let vc = segue.destination as! PickIconTableViewController
                 if name.text != "" {
                     vc.objectName = name.text!

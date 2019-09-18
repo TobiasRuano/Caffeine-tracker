@@ -16,6 +16,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var yesterdaysCaffeine: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var progress: UIProgressView!
+    @IBOutlet weak var todayYesterdayView: UIView!
     
     var caffeineLimit = 400
     var drinksDictionary = [Int : [drink]]()
@@ -136,6 +137,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        changeStyle()
         drinksDictionary.removeAll()
         if let number = UserDefaults.standard.value(forKey: "maxCaf") as? Int {
             caffeineLimit = number
@@ -148,6 +150,11 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         //this func shows todays and yesterdays caffeine ammount on progress bar and text
         displayCaffeineProgress()
         tableView.reloadData()
+    }
+    
+    func changeStyle() {
+        view.backgroundColor = UIColor(named: "BackgroundGeneral")
+        todayYesterdayView.backgroundColor = UIColor(named: "BackgroundGeneral")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -286,11 +293,12 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         // Progress View Style
         let gradientView = GradientView(frame: progress.bounds)
         //convert gradient view to image, flip horizontally and assign as the track image
-        gradientView.layer.cornerRadius = 8
+        gradientView.layer.cornerRadius = 8.0
         progress.trackImage = UIImage(view: gradientView).withHorizontallyFlippedOrientation()
         //invert the progress view
         progress.transform = CGAffineTransform(scaleX: -1.0, y: -1.0)
-        progress.progressTintColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1.0)
+        //progress.progressTintColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1.0)
+        progress.progressTintColor = UIColor(named: "progressBarColor")
         progress.layer.cornerRadius = 8.0
         progress.layer.shadowColor = UIColor.lightGray.cgColor
         progress.layer.shadowOpacity = 1

@@ -16,6 +16,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var shadowNavBar: UIView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBOutlet weak var fondoView: UIView!
     
     var arrayML = [Int](0...100)
     var arrayUSoz = [Int](0...34)
@@ -33,10 +34,18 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         if toSave.getCaffeineMg() >= 200 {
             fondo.layer.backgroundColor = UIColor.red.cgColor
         }
+        changeStyle()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         effectView()
+    }
+    
+    func changeStyle() {
+        pickerView.backgroundColor = UIColor(named: "BackgroundGeneral")
+        fondoView.backgroundColor = UIColor(named: "BackgroundGeneral")
+        fondo.layer.shadowColor = UIColor(named: "shadowColor")?.cgColor
+        shadowNavBar.layer.shadowColor = UIColor(named: "shadowColor")?.cgColor
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -91,10 +100,14 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     @IBAction func dismissButton(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            self.delegate?.removeTintBackground()
+        }
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
+        delegate?.removeTintBackground()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -113,7 +126,9 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     fileprivate func indepthStyle(_ vista: UIView) {
-        vista.layer.cornerRadius = 8.0
+        if vista != shadowNavBar {
+            vista.layer.cornerRadius = 8.0
+        }
         vista.layer.shadowColor = UIColor.lightGray.cgColor
         vista.layer.shadowOpacity = 1
         vista.layer.shadowOffset = CGSize.zero

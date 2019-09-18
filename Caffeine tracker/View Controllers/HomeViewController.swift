@@ -11,6 +11,7 @@ import HealthKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let backgroundTintView = UIView()
     @IBOutlet weak var animatedView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addDrinksButton: UIBarButtonItem!
@@ -23,7 +24,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         checkOnboardingStatus()
-        //checkHealthAvailability()
+        checkHealthAvailability()
         loadDrinkLimitVariable()
         
         tableView.tableFooterView = UIView()
@@ -33,6 +34,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        colorStyle()
         if let purchase = UserDefaults.standard.value(forKey: inAppPurchaseKey) as? Bool {
             hasPurchasedApp = purchase
             print("The user has  purchased the app: \(hasPurchasedApp)")
@@ -56,6 +58,30 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else {
             unitGlobal = .ml
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setBackgroundTint()
+    }
+    
+    func colorStyle() {
+        view.backgroundColor = UIColor(named: "BackgroundGeneral")
+        self.navigationController?.navigationBar.backgroundColor = UIColor(named: "BackgroundGeneral")
+    }
+    
+    func setBackgroundTint() {
+        backgroundTintView.backgroundColor = UIColor.black
+        backgroundTintView.alpha = 0
+        
+        let currentWindow: UIWindow? = UIApplication.shared.keyWindow
+        currentWindow?.addSubview(backgroundTintView)
+        backgroundTintView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundTintView.topAnchor.constraint(equalTo: view.superview!.topAnchor).isActive = true
+        backgroundTintView.bottomAnchor.constraint(equalTo: view.superview!.bottomAnchor).isActive = true
+        backgroundTintView.leadingAnchor.constraint(equalTo: view.superview!.leadingAnchor, constant: 0).isActive = true
+        backgroundTintView.trailingAnchor.constraint(equalTo: view.superview!.trailingAnchor, constant: 0).isActive = true
+        
+        backgroundTintView.isHidden = true
     }
     
     func checkOnboardingStatus() {
@@ -232,6 +258,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    func removeTintBackground() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.backgroundTintView.alpha = 0
+        }) { (true) in
+            self.backgroundTintView.isHidden = true
+        }
+    }
+    
     // ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
     // MARK: - Alert Function
     func alerta(title: String, message: String, taptic: Bool, button1: String, button2: String, passData: Bool) {
@@ -261,6 +295,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func unwindFromPickerView(_ sender: UIStoryboardSegue) {
         if sender.source is PickerViewController {
             if let senderVC = sender.source as? PickerViewController {
+                
+                removeTintBackground()
+                
                 let healthManager = HealthKitSetupAssistant()
                 if senderVC.seleccion == 0 {
                     switch unitGlobal {
@@ -300,6 +337,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if let viewController = segue.destination as? PickerViewController {
                     viewController.delegate = self
                     viewController.modalPresentationStyle = .overFullScreen
+                    
+//                    backgroundTintView.isHidden = false
+//                    UIView.animate(withDuration: 0.3) {
+//                        self.backgroundTintView.alpha = 0.6
+//                    }
                 }
             }
         }

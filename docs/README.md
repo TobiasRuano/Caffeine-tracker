@@ -12,11 +12,14 @@ Inside the history tab, you can have a more detailed view at your day and see ho
 * Connection to the Health App
 * Multiple Types of drinks
 * Add your own drinks!
+* Support for "ml" & "fl oz"
 * Set your caffeine daily limit.
-* Clean Interface
+* Clean & intuitive Interface
 
-## Meta
+## Info
+
+[![](appstore.png)](https://itunes.apple.com/app/caffeinetracker/id1476993081?l=es&ls=1&mt=8)
+
+[Privacy Policy](https://caffeinetracker.tobiasruano.com/privacy)
 
 Tobias Ruano – [@tobiasruano](https://twitter.com/tobiasruano) – truano@uade.edu.ar
-
-[AppStore](https://itunes.apple.com/app/caffeinetracker/id1476993081?l=es&ls=1&mt=8)

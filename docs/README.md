@@ -1,4 +1,4 @@
-# Caffeine Tracker
+
 > Log your caffeine beverage easily!.
 
 Caffeine Tracker is the best app to track your daily caffeine consumption. It has an easy to use interface that lets you track any drink in seconds! 

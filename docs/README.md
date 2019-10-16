@@ -1,5 +1,5 @@
 <div>
-    <meta name="Caffeine Tracker" content="app-id=1476993081, affiliate-data=myAffiliateData, app-argument=https://apps.apple.com/app/caffeinetracker/id1476993081?l=es&ls=1">
+    <meta name="apple-itunes-app" content="app-id=1476993081, affiliate-data=myAffiliateData, app-argument=https://apps.apple.com/app/caffeinetracker/id1476993081?l=es&ls=1">
 </div>
 
 > Log your caffeine beverage easily!.

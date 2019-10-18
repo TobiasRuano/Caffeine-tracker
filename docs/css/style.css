@@ -43,7 +43,7 @@ a:link, a:hover, a:visited, a:active {
 
 .imageWrapper {
     height: 714px;
-    background: linear-gradient(#297cf6, #297cf6), url("assets/headerimage.png");
+    background: linear-gradient(#ff3a30, #297cf6), url("assets/headerimage.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;

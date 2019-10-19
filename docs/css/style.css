@@ -29,7 +29,7 @@ body {
 }
 
 a:link, a:hover, a:visited, a:active {
-    color: #666;
+    color: #297cf6;
     text-decoration:none
 }
 
@@ -438,8 +438,8 @@ footer {
     align-content:center
 }
 
-.footerText {
-    color: #666;
+/* .footerText {
+    color: #297cf6;
     display: block;
     line-height: 1.5;
     width: 100%;
@@ -451,7 +451,7 @@ footer {
 .footerIcons {
     padding-bottom: 10px;
     display:flex
-}
+} */
 
 .footerText {
     color: #666;

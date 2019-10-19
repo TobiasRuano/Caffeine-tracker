@@ -52,7 +52,7 @@ a:link, a:hover, a:visited, a:active {
 
 .headerBackground {
     height: 70px;
-    background-color:rgba(0, 0, 0, 0.1)
+    /* background-color:rgba(0, 0, 0, 0.1) */
 }
 
 .container {

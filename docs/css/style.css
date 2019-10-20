@@ -373,20 +373,35 @@ nav > ul li a:hover, nav > ul li a:active {
     padding-left:0px
 }
 
-.iconBack {
-    color:#e6e6e6
-}
-
-.iconTop {
-    color:#F9A23F
-}
-
 .socialIconBack {
     color:#e6e6e6
 }
 
 .socialIconTop {
     color:#666
+}
+
+.fa-stack:hover {
+  background: #fff;
+  border-color:#000;
+}
+
+.fa-stack:hover .fa-circle {
+  color: #666;
+  -webkit-transition: all 0.5s cubic-bezier(0.02, 0.01, 0.47, 1);
+  transition: all 0.5s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+
+.fa-stack:hover .socialIconTop {
+  color: #e6e6e6;
+  -webkit-transition: all 0.5s cubic-bezier(0.02, 0.01, 0.47, 1);
+  transition: all 0.5s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+
+.fa-stack:active .socialIconTop {
+  color: #666;
+  -webkit-transition: all 0.5s cubic-bezier(0.02, 0.01, 0.47, 1);
+  transition: all 0.5s cubic-bezier(0.02, 0.01, 0.47, 1);
 }
 
 .featureText {

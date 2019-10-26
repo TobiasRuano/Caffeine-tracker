@@ -16,7 +16,9 @@ class InAppPurchaseTableViewController: UITableViewController {
     let fullAppID = "FullApp"
     var sharedSecret = "0f15c2a29cf34e0ea9d484af460559f3"
     @IBOutlet weak var fullVersionButton: UITableViewCell!
+    @IBOutlet weak var restoreButton: UITableViewCell!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var restoreLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +58,10 @@ class InAppPurchaseTableViewController: UITableViewController {
         buttonIsEnabled = false
         UserDefaults.standard.set(!buttonIsEnabled, forKey: inAppPurchaseKey)
         fullVersionButton.isUserInteractionEnabled = false
+        
+        restoreLabel?.text = "Enjoy 😃"
+        restoreButton.isUserInteractionEnabled = false
+        
         self.tableView.reloadData()
     }
     
@@ -138,6 +144,7 @@ class InAppPurchaseTableViewController: UITableViewController {
                 self.alert(title: "Purchase Restored!", message: "Your purchase has been restored", buttonText: "Great!")
                 TapticEffectsService.performFeedbackNotification(type: .success)
                 self.lockCell()
+                self.restoreLabel?.text = "Enjoy 😃"
             }
             else {
                 print("Nothing to Restore")

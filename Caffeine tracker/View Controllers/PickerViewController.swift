@@ -17,6 +17,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var shadowNavBar: UIView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var fondoView: UIView!
+    @IBOutlet weak var navBar: UINavigationBar!
     
     var arrayML = [Int](0...100)
     var arrayUSoz = [Int](0...34)
@@ -42,8 +43,6 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func changeStyle() {
-        pickerView.backgroundColor = UIColor(named: "BackgroundGeneral")
-        fondoView.backgroundColor = UIColor(named: "BackgroundGeneral")
         fondo.layer.shadowColor = UIColor(named: "shadowColor")?.cgColor
         shadowNavBar.layer.shadowColor = UIColor(named: "shadowColor")?.cgColor
     }
@@ -100,10 +99,8 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     @IBAction func dismissButton(_ sender: UIButton) {
-        //self.dismiss(animated: true, completion: nil)
-        self.dismiss(animated: true) {
-            self.delegate?.removeTintBackground()
-        }
+        self.delegate?.removeTintBackground()
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {

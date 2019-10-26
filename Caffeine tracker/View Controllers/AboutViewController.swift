@@ -14,6 +14,7 @@ class AboutViewController: UIViewController, SFSafariViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
     @IBAction func twitterButtonPressed(_ sender: UIButton) {
         let twitter = URL(string: "twitter://user?screen_name=TobiasRuano")!
         open(twitter)

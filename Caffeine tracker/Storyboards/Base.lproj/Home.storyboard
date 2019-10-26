@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -173,22 +174,24 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnu-hj-NQw">
                                 <rect key="frame" x="0.0" y="73" width="375" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="shadowColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="NJI-Xd-HAN"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eZg-ec-MkS">
                                 <rect key="frame" x="0.0" y="73" width="375" height="261"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="261" id="h4R-Zf-bFe"/>
                                 </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPc-Yj-UHH">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPc-Yj-UHH">
                                 <rect key="frame" x="0.0" y="73" width="375" height="44"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <color key="barTintColor" systemColor="tertiarySystemBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <navigationItem title="Select amount" id="0O9-y1-i62">
+                                    <navigationItem title="Select Amount" id="0O9-y1-i62">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wly-o7-UX4">
                                             <connections>
                                                 <action selector="cancel:" destination="37f-d7-0IO" id="2yt-kd-3Uz"/>
@@ -204,6 +207,7 @@
                             </navigationBar>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RyM-Ga-yN9">
                                 <rect key="frame" x="0.0" y="117" width="375" height="217"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="217" id="9Ox-u1-YXB"/>
                                 </constraints>
@@ -236,17 +240,13 @@
                             <constraint firstAttribute="bottom" secondItem="KCi-HA-4kw" secondAttribute="bottom" id="qGy-nE-Xhp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3SC-fM-NDt"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="KCi-HA-4kw"/>
-                            </mask>
-                        </variation>
                     </view>
                     <size key="freeformSize" width="375" height="334"/>
                     <connections>
                         <outlet property="doneButton" destination="qMw-0Y-qDL" id="bXC-PH-rKB"/>
                         <outlet property="fondo" destination="gwi-SA-IC8" id="fNn-Yg-hR4"/>
                         <outlet property="fondoView" destination="eZg-ec-MkS" id="ays-n1-YgS"/>
+                        <outlet property="navBar" destination="QPc-Yj-UHH" id="xEG-8c-8CW"/>
                         <outlet property="pickerView" destination="RyM-Ga-yN9" id="9UN-bu-Sau"/>
                         <outlet property="shadowNavBar" destination="qnu-hj-NQw" id="5iz-kJ-iQM"/>
                         <outlet property="titulo" destination="4CR-Mq-nKd" id="FMF-EV-ZW1"/>
@@ -666,5 +666,8 @@
         <image name="cafe3" width="33.333332061767578" height="33.333332061767578"/>
         <image name="list" width="30" height="30"/>
         <image name="milkshake" width="33.333332061767578" height="33.333332061767578"/>
+        <namedColor name="shadowColor">
+            <color red="0.10999999940395355" green="0.10999999940395355" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

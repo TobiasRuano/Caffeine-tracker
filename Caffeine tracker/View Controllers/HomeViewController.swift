@@ -19,7 +19,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var animatedViewTextLabel: UILabel!
     var drinkAux: drink?
     var hasPurchasedApp = false
-    var drinksLimit: drinkLimit = drinkLimit(cant: 0, date: Date())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,16 +64,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func colorStyle() {
-        view.backgroundColor = UIColor(named: "BackgroundGeneral")
-        self.navigationController?.navigationBar.backgroundColor = UIColor(named: "BackgroundGeneral")
+        if #available(iOS 13, *) {
+            view.backgroundColor = UIColor(named: "BackgroundGeneral")
+            self.navigationController?.navigationBar.backgroundColor = UIColor(named: "BackgroundGeneral")
+        }
     }
     
     func setBackgroundTint() {
         backgroundTintView.backgroundColor = UIColor.black
         backgroundTintView.alpha = 0
+        backgroundTintView.tag = 2
         
-        let currentWindow: UIWindow? = UIApplication.shared.keyWindow
-        currentWindow?.addSubview(backgroundTintView)
+        self.tabBarController?.view.addSubview(backgroundTintView)
+        
         backgroundTintView.translatesAutoresizingMaskIntoConstraints = false
         backgroundTintView.topAnchor.constraint(equalTo: view.superview!.topAnchor).isActive = true
         backgroundTintView.bottomAnchor.constraint(equalTo: view.superview!.bottomAnchor).isActive = true
@@ -191,7 +193,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         UserDefaults.standard.set(try? PropertyListEncoder().encode(drinkAux), forKey: toSaveKey)
         let AddAction = UIContextualAction(style: .normal, title:  "Add", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             self.performSegue(withIdentifier: modalViewIdentifier, sender: self)
-            self.alerta(title: "Do you?", message: "Do you want to add \(arrayDrinks[indexPath.row].getCaffeineMg())mg of caffeine from \(arrayDrinks[indexPath.row].getName())", taptic: true, button1: "Yes", button2: "No", passData: true)
+            self.alerta(title: "MMM...Wierd?", message: "It seems you've found a bug that I still can't crush. Dont worry, nothing's wrong 😅", taptic: true, button1: "Okey...", button2: "null", passData: true)
             success(true)
         })
         AddAction.backgroundColor = UIColor(displayP3Red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
@@ -258,6 +260,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    func showBackgroundTint() {
+        backgroundTintView.isHidden = false
+        UIView.animate(withDuration: 0.3) {
+            self.backgroundTintView.alpha = 0.6
+        }
+    }
+    
     func removeTintBackground() {
         UIView.animate(withDuration: 0.3, animations: {
             self.backgroundTintView.alpha = 0
@@ -272,8 +281,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: button1, style: .default, handler: { alert -> Void in
         }))
-        alertController.addAction(UIAlertAction(title: button2, style: .cancel, handler: { alert -> Void in
-        }))
+        if button2 != "null" {
+            alertController.addAction(UIAlertAction(title: button2, style: .cancel, handler: { alert -> Void in
+            }))
+        }
         self.present(alertController, animated: true, completion: nil)
     }
     
@@ -335,13 +346,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let identifier = segue.identifier {
             if identifier == modalViewIdentifier {
                 if let viewController = segue.destination as? PickerViewController {
+                    showBackgroundTint()
                     viewController.delegate = self
                     viewController.modalPresentationStyle = .overFullScreen
-                    
-//                    backgroundTintView.isHidden = false
-//                    UIView.animate(withDuration: 0.3) {
-//                        self.backgroundTintView.alpha = 0.6
-//                    }
                 }
             }
         }

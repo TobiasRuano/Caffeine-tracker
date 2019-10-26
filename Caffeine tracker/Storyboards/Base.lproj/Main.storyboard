@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LyL-k8-SPh">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -102,7 +102,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZU-dQ-PPV">
                                 <rect key="frame" x="96" y="74" width="183" height="46"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="38"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Dde-em-WGV">
@@ -117,7 +116,6 @@
                                 <string key="text">Thanks for downloading
 Caffeine Tracker!</string>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pa3-Zj-2vg">
@@ -125,7 +123,6 @@ Caffeine Tracker!</string>
                                 <string key="text">Please insert below your daily caffeine limit. If you dont
 know it, leave it blank</string>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1L-hQ-0Ju">
@@ -140,7 +137,7 @@ know it, leave it blank</string>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="continue" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="secondarySystemFillColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="sxb-w7-DtM" secondAttribute="trailing" id="FhV-sH-sWL"/>
                                     <constraint firstAttribute="bottom" secondItem="sxb-w7-DtM" secondAttribute="bottom" id="N7W-0w-Hdi"/>
@@ -162,7 +159,7 @@ know it, leave it blank</string>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ObR-ft-UKQ" firstAttribute="top" secondItem="sxb-w7-DtM" secondAttribute="bottom" constant="10" id="6L8-lw-hJ0"/>
                             <constraint firstItem="Pa3-Zj-2vg" firstAttribute="leading" secondItem="e1h-Up-lW9" secondAttribute="leading" constant="30" id="6U1-Bn-Nrr"/>
@@ -232,7 +229,7 @@ know it, leave it blank</string>
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="secondarySystemFillColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="av3-jn-n76" secondAttribute="bottom" id="2Fv-c7-Yxk"/>
                                     <constraint firstItem="av3-jn-n76" firstAttribute="top" secondItem="uHu-vs-9uB" secondAttribute="top" id="2J2-iu-4dK"/>
@@ -269,7 +266,7 @@ know it, leave it blank</string>
                                         </connections>
                                     </switch>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="secondarySystemFillColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="5BR-un-9vx"/>
                                     <constraint firstItem="R1T-xB-Oor" firstAttribute="leading" secondItem="5sb-Mp-usm" secondAttribute="leading" constant="8" id="CPU-EH-7mk"/>
@@ -285,7 +282,7 @@ know it, leave it blank</string>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="5sb-Mp-usm" firstAttribute="leading" secondItem="DHs-FC-LKN" secondAttribute="leading" constant="30" id="2bj-xE-BnZ"/>
                             <constraint firstItem="Tqd-6n-qeD" firstAttribute="top" secondItem="uHu-vs-9uB" secondAttribute="bottom" constant="70" id="4rm-FU-GfF"/>
@@ -405,7 +402,7 @@ upperleft corner!</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="dr8-g0-NG9" firstAttribute="centerX" secondItem="Gek-IK-YEC" secondAttribute="centerX" id="1hQ-Tz-fkX"/>
                             <constraint firstItem="vyC-lc-2kM" firstAttribute="centerX" secondItem="Gek-IK-YEC" secondAttribute="centerX" id="558-pV-OhA"/>
@@ -448,23 +445,23 @@ upperleft corner!</string>
         <scene sceneID="vvM-Uc-OP4">
             <objects>
                 <tableViewController id="QKx-Cq-QVe" customClass="OnboardingSingleHelpTableViewController" customModule="Caffeine_tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pdl-9Y-L8f">
+                    <tableView key="view" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pdl-9Y-L8f">
                         <rect key="frame" x="0.0" y="0.0" width="315" height="47"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="2TW-o8-vIS" customClass="CTOnboardingCustomTableViewCell" customModule="Caffeine_tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="315" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="28" width="315" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2TW-o8-vIS" id="z2f-f6-CkM">
-                                    <rect key="frame" x="0.0" y="0.0" width="315" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="315" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2K-oH-OSx">
-                                            <rect key="frame" x="0.0" y="0.0" width="87.333333333333329" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="88" height="44"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IE2-4i-U1s">
-                                                    <rect key="frame" x="22" y="11.333333333333336" width="31" height="21"/>
+                                                    <rect key="frame" x="22" y="11.666666666666664" width="31" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -478,10 +475,10 @@ upperleft corner!</string>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EdW-ZU-qdx" userLabel="BaseView">
-                                            <rect key="frame" x="0.0" y="0.0" width="315" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="315" height="44"/>
                                             <subviews>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="Starbucks" translatesAutoresizingMaskIntoConstraints="NO" id="uds-r2-o6M">
-                                                    <rect key="frame" x="5" y="9.3333333333333357" width="25" height="25"/>
+                                                    <rect key="frame" x="5" y="9.6666666666666643" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="n48-aW-d7Y"/>
                                                         <constraint firstAttribute="width" constant="25" id="u50-48-CVu"/>
@@ -500,7 +497,7 @@ upperleft corner!</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="uds-r2-o6M" firstAttribute="leading" secondItem="EdW-ZU-qdx" secondAttribute="leading" constant="5" id="15e-oB-nB7"/>
                                                 <constraint firstItem="uds-r2-o6M" firstAttribute="centerY" secondItem="EdW-ZU-qdx" secondAttribute="centerY" id="9lS-o3-QQc"/>
@@ -511,6 +508,7 @@ upperleft corner!</string>
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="EdW-ZU-qdx" secondAttribute="bottom" id="G9a-JL-nae"/>
                                         <constraint firstItem="EdW-ZU-qdx" firstAttribute="top" secondItem="z2f-f6-CkM" secondAttribute="top" id="Qcf-oR-vdl"/>
@@ -521,6 +519,7 @@ upperleft corner!</string>
                                         <constraint firstItem="S2K-oH-OSx" firstAttribute="leading" secondItem="z2f-f6-CkM" secondAttribute="leading" id="qI0-eV-sDY"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
                                     <outlet property="baseView" destination="EdW-ZU-qdx" id="Xkp-s0-hub"/>
                                     <outlet property="cellDescription" destination="GzJ-OA-Kqc" id="qJm-oK-fKj"/>

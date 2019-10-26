@@ -20,6 +20,8 @@ var arrayDrinksAdded: [drink] = []
 var unitGlobal: Unit = .ml
 var checkMarkString: String = "Starbucks"
 
+var drinksLimit: drinkLimit = drinkLimit(cant: 0, date: Date())
+
 let usConvertionRate = 3.3814022702 // 3.3814
 let ukConvertionRate = 3.5195079728 // 3.5195
 
@@ -33,6 +35,8 @@ let logWaterBoolKey = "logWaterBool"
 let inAppPurchaseKey = "Purchase"
 let drinkLimitKey = "limit"
 let onboardingCheck = "OnboardingScreen"
+//let systemModeKey = "systemMode"
+//let themeKey = "themeKey"
 
 //Identifiers
 let modalViewIdentifier = "ShowModalView"

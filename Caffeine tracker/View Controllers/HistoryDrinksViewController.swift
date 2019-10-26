@@ -23,7 +23,6 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //separateDrinksInSections()
         progressViewStyle()
         tableView.tableFooterView = UIView()
     }
@@ -75,11 +74,9 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
                 self.todayLabel.textColor = .red
             }, completion: nil)
         } else {
-            UIView.transition(with: todaysCaffeine, duration: 0.3, options: .transitionCrossDissolve, animations: {
-                self.todaysCaffeine.textColor = .black
-                self.mgLabel.textColor = .black
-                self.todayLabel.textColor = .black
-            }, completion: nil)
+            self.todayLabel.textColor = UIColor(named: "text")
+            self.todaysCaffeine.textColor = UIColor(named: "text")
+            self.mgLabel.textColor = UIColor(named: "text")
         }
     }
     
@@ -137,7 +134,6 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        changeStyle()
         drinksDictionary.removeAll()
         if let number = UserDefaults.standard.value(forKey: "maxCaf") as? Int {
             caffeineLimit = number
@@ -149,6 +145,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         separateDrinksInSections()
         //this func shows todays and yesterdays caffeine ammount on progress bar and text
         displayCaffeineProgress()
+        changeStyle()
         tableView.reloadData()
     }
     
@@ -248,6 +245,18 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
 //        return [buttonDelete, buttonEdit]
 //    }
     
+    fileprivate func addOneDrinkToLimit(drink: drink) {
+        let date = Date()
+        let calandarDate = Calendar.current.dateComponents([.day, .year, .month], from: date)
+        let elementDate = drink.getDate()
+        let day = Calendar.current.dateComponents([.day, .year, .month], from: elementDate).day
+        let month = Calendar.current.dateComponents([.day, .year, .month], from: elementDate).month
+        if day == calandarDate.day && month == calandarDate.month {
+            drinksLimit.cant = drinksLimit.cant - 1
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(drinksLimit), forKey: drinkLimitKey)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let healthManager = HealthKitSetupAssistant()
@@ -262,6 +271,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
                 print("Removing: \(self.drinksDictionary[indexPath.section]![indexPath.row].getName()) \(self.drinksDictionary[indexPath.section]![indexPath.row].getDate())")
                 healthManager.deleteCaffeine(drink: self.drinksDictionary[indexPath.section]![indexPath.row])
                 healthManager.deleteWater(drink: self.drinksDictionary[indexPath.section]![indexPath.row])
+                let drinkDeleted = arrayDrinksAdded[test]
                 arrayDrinksAdded.remove(at: test)
                 self.drinksDictionary[indexPath.section]?.remove(at: indexPath.row)
                 print(self.drinksDictionary)
@@ -276,6 +286,8 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
                 }
                 UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: arrayDrinksAddedKey)
                 TapticEffectsService.performFeedbackNotification(type: .warning)
+                
+                self.addOneDrinkToLimit(drink: drinkDeleted)
 
                 self.checkTodaysAndYesterdaysCaffeine()
                 self.displayCaffeineProgress()
@@ -300,10 +312,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         //progress.progressTintColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1.0)
         progress.progressTintColor = UIColor(named: "progressBarColor")
         progress.layer.cornerRadius = 8.0
-        progress.layer.shadowColor = UIColor.lightGray.cgColor
-        progress.layer.shadowOpacity = 1
-        progress.layer.shadowOffset = CGSize.zero
-        progress.layer.shadowRadius = 5
+        
         self.progress.clipsToBounds = true
     }
 }

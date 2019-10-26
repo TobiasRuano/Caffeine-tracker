@@ -13,7 +13,7 @@ import SafariServices
 class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate, SFSafariViewControllerDelegate {
     
     @IBOutlet weak var healthLabel: UILabel!
-    @IBOutlet weak var maxDailyCaf: UILabel!
+    @IBOutlet var maxDailyCaf: UILabel!
     @IBOutlet weak var waterLogSwitch: UISwitch!
     @IBOutlet weak var mlCell: UITableViewCell!
     @IBOutlet weak var usOzCell: UITableViewCell!
@@ -43,8 +43,8 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
             }
         }
         if UserDefaults.standard.value(forKey: "maxCaf") != nil {
-            let value = UserDefaults.standard.value(forKey: "maxCaf")
-            maxDailyCaf.text = "\(value!)mg"
+            let value = UserDefaults.standard.value(forKey: "maxCaf") as! Int
+            maxDailyCaf.text = "\(value)mg"
         }else {
             maxDailyCaf.text = "400mg"
         }
@@ -131,7 +131,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     }
     
     func openSafariVC(_ sender: Any) {
-        let url = URL(string: "https://tobiasruano.com/caffeinetracker/privacyPolicy")
+        let url = URL(string: "https://caffeinetracker.tobiasruano.com/privacy")
         let safari = SFSafariViewController(url: url!)
         self.present(safari, animated: true)
         safari.delegate = self

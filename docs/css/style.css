@@ -407,14 +407,14 @@ nav > ul li a:hover, nav > ul li a:active {
   transition: all 0.5s cubic-bezier(0.02, 0.01, 0.47, 1);
 }
 
-.fa-stack:hover .iconBack {
-  color: #e6e6e6;
+.fa-stack:active .socialIconTop {
+  color: #666;
   -webkit-transition: all 0.5s cubic-bezier(0.02, 0.01, 0.47, 1);
   transition: all 0.5s cubic-bezier(0.02, 0.01, 0.47, 1);
 }
 
-.fa-stack:active .socialIconTop {
-  color: #666;
+.fa-stack:hover .iconBack {
+  color: #e6e6e6;
   -webkit-transition: all 0.5s cubic-bezier(0.02, 0.01, 0.47, 1);
   transition: all 0.5s cubic-bezier(0.02, 0.01, 0.47, 1);
 }

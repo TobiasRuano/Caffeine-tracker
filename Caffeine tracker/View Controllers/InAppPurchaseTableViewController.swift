@@ -10,19 +10,27 @@ import UIKit
 import SwiftyStoreKit
 import StoreKit
 
+enum purchases {
+    case fullApp
+    case kindTip
+}
+
 class InAppPurchaseTableViewController: UITableViewController {
     var buttonIsEnabled = true
     let bundleID = Bundle.main.bundleIdentifier!
     let fullAppID = "FullApp"
+    let kindTipID = "Tip1"
     var sharedSecret = "0f15c2a29cf34e0ea9d484af460559f3"
     @IBOutlet weak var fullVersionButton: UITableViewCell!
+    @IBOutlet weak var kindTipButton: UITableViewCell!
     @IBOutlet weak var restoreButton: UITableViewCell!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var tipPriceLabel: UILabel!
     @IBOutlet weak var restoreLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if !checkPurchaseStatus() {
+        if checkPurchaseStatus() {
             getInfo()
             verifyRecipt()
         }
@@ -34,7 +42,7 @@ class InAppPurchaseTableViewController: UITableViewController {
             status = value
             if status == true {
                 buttonIsEnabled = value
-                lockCell()
+                lockCell(purchase: .fullApp)
             }
         }
         return status
@@ -44,49 +52,86 @@ class InAppPurchaseTableViewController: UITableViewController {
     // MARK: - table View Data Source
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 && indexPath.row == 0 {
-            purchase()
+            purchase(purchase: .fullApp)
             tableView.deselectRow(at: indexPath, animated: true)
         }else if indexPath.section == 1 && indexPath.row == 0 {
             restorePurchase()
             tableView.deselectRow(at: indexPath, animated: true)
+        } else if indexPath.section == 2 && indexPath.row == 0 {
+            purchase(purchase: .kindTip)
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
-    func lockCell() {
-        fullVersionButton.accessoryType = .checkmark
-        fullVersionButton.detailTextLabel?.text = ""
-        buttonIsEnabled = false
-        UserDefaults.standard.set(!buttonIsEnabled, forKey: inAppPurchaseKey)
-        fullVersionButton.isUserInteractionEnabled = false
-        
-        restoreLabel?.text = "Enjoy 😃"
-        restoreButton.isUserInteractionEnabled = false
+    func lockCell(purchase: purchases) {
+        switch purchase {
+        case .fullApp:
+            fullVersionButton.accessoryType = .checkmark
+            fullVersionButton.detailTextLabel?.text = ""
+            buttonIsEnabled = false
+            UserDefaults.standard.set(!buttonIsEnabled, forKey: inAppPurchaseKey)
+            fullVersionButton.isUserInteractionEnabled = false
+            
+            restoreLabel?.text = "Enjoy 😃"
+            restoreButton.isUserInteractionEnabled = false
+        default: break
+        }
         
         self.tableView.reloadData()
     }
     
     func getInfo() {
         NetworkActivityIndicationManager.networkOperationStarted()
-        SwiftyStoreKit.retrieveProductsInfo([bundleID + "." + fullAppID], completion: {
+        SwiftyStoreKit.retrieveProductsInfo([bundleID + "." + fullAppID, bundleID + "." + kindTipID], completion: {
             result in
+            print(result.retrievedProducts)
             NetworkActivityIndicationManager.networkOperationFinished()
-            if let product = result.retrievedProducts.first {
-                let priceString = product.localizedPrice!
-                print("Product: \(product.localizedDescription), price: \(priceString)")
-                self.priceLabel.text = "\(priceString)"
-            }
-            else if let invalidProductId = result.invalidProductIDs.first {
-                print("Invalid product identifier: \(invalidProductId)")
-            }
-            else {
-                print("Error: \(String(describing: result.error))")
+            for product in result.retrievedProducts {
+                print(product.productIdentifier)
+                
+                switch product.productIdentifier {
+                case self.bundleID + "." + self.fullAppID:
+                    let priceString = product.localizedPrice!
+                    print("Product: \(product.localizedDescription), price: \(priceString)")
+                    self.priceLabel.text = "\(priceString)"
+                case self.bundleID + "." + self.kindTipID:
+                    let tipPriceString = product.localizedPrice!
+                    print("Product: \(product.localizedDescription), price: \(tipPriceString)")
+                    self.tipPriceLabel.text = "\(tipPriceString)"
+                default:
+                    if let invalidProductId = result.invalidProductIDs.first {
+                        print("Invalid product identifier: \(invalidProductId)")
+                    } else {
+                        print("Error: \(String(describing: result.error))")
+                    }
+                }
+//                if product.productIdentifier == self.bundleID + "." + self.fullAppID {
+//                    let priceString = product.localizedPrice!
+//                    print("Product: \(product.localizedDescription), price: \(priceString)")
+//                    self.priceLabel.text = "\(priceString)"
+//                } else if product.productIdentifier == self.bundleID + "." + self.kindTipID{
+//                    let tipPriceString = product.localizedPrice!
+//                    print("Product: \(product.localizedDescription), price: \(tipPriceString)")
+//                    self.tipPriceLabel.text = "\(tipPriceString)"
+//                } else if let invalidProductId = result.invalidProductIDs.first {
+//                    print("Invalid product identifier: \(invalidProductId)")
+//                } else {
+//                    print("Error: \(String(describing: result.error))")
+//                }
             }
         })
     }
     
-    func purchase() {
+    func purchase(purchase: purchases) {
         NetworkActivityIndicationManager.networkOperationStarted()
-        SwiftyStoreKit.retrieveProductsInfo([bundleID + "." + fullAppID]) { result in
+        var id = ""
+        switch purchase {
+        case .fullApp:
+            id = fullAppID
+        case .kindTip:
+            id = kindTipID
+        }
+        SwiftyStoreKit.retrieveProductsInfo([bundleID + "." + id]) { result in
             if let product = result.retrievedProducts.first {
                 SwiftyStoreKit.purchaseProduct(product, quantity: 1, atomically: true) { result in
                     switch result {
@@ -94,7 +139,7 @@ class InAppPurchaseTableViewController: UITableViewController {
                         if product.needsFinishTransaction {
                             SwiftyStoreKit.finishTransaction(product.transaction)
                         }
-                        self.lockCell()
+                        self.lockCell(purchase: purchase)
                         TapticEffectsService.performFeedbackNotification(type: .success)
                         print("Purchase Success: \(product.productId)")
                     case .error(let error):
@@ -143,7 +188,7 @@ class InAppPurchaseTableViewController: UITableViewController {
                 print("Restore Success: \(results.restoredPurchases)")
                 self.alert(title: "Purchase Restored!", message: "Your purchase has been restored", buttonText: "Great!")
                 TapticEffectsService.performFeedbackNotification(type: .success)
-                self.lockCell()
+                self.lockCell(purchase: .fullApp)
                 self.restoreLabel?.text = "Enjoy 😃"
             }
             else {

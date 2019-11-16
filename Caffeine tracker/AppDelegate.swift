@@ -55,10 +55,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             arrayDrinks.append(drink(type: "Mocha", caffeineMg: 43, mililiters: 76, icon: "Cafe", dia: nil))
             arrayDrinks.append(drink(type: "Soda", caffeineMg: 10, mililiters: 10, icon: "Can", dia: nil))
         }
-        DispatchQueue.main.async {
-            if let data = UserDefaults.standard.value(forKey: arrayDrinksAddedKey) as? Data {
-                let ArrayAddedData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
-                arrayDrinksAdded = ArrayAddedData!
+        DispatchQueue.global(qos: .userInitiated).async {
+            DispatchQueue.main.async {
+                if let data = UserDefaults.standard.value(forKey: arrayDrinksAddedKey) as? Data {
+                    let ArrayAddedData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
+                    arrayDrinksAdded = ArrayAddedData!
+                }
             }
         }
         

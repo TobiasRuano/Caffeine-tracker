@@ -263,7 +263,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func showBackgroundTint() {
         backgroundTintView.isHidden = false
         UIView.animate(withDuration: 0.3) {
-            self.backgroundTintView.alpha = 0.6
+            self.backgroundTintView.alpha = 0.4
         }
     }
     

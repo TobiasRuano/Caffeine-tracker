@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Caffeine tracker/CoreData/DrinkCD+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Caffeine tracker/CoreData/DrinkCD+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:Caffeine tracker.xcodeproj">
    </FileRef>
    <FileRef

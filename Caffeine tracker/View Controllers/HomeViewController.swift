@@ -8,6 +8,7 @@
 
 import UIKit
 import HealthKit
+import CoreData
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -328,8 +329,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     senderVC.toSave.setDate(date: dia)
                     if hasPurchasedApp  || drinksLimit.cant == 0 {
                         healthManager.submitCaffeine(CaffeineAmount: senderVC.result, WaterAmount: Int(senderVC.seleccion), forDate: dia, logWater: senderVC.waterLog)
-                        arrayDrinksAdded.append(senderVC.toSave)
-                        UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: arrayDrinksAddedKey)
+                        
+                        // Aca estoy guardando las bebidas en la arrayDinksAdded
+//                        arrayDrinksAdded.append(senderVC.toSave)
+//                        UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: arrayDrinksAddedKey)
+                        saveDrink(drink: senderVC.toSave)
+                        
                         drinksLimit.cant = drinksLimit.cant + 1
                         //Save drinks limit class
                         UserDefaults.standard.set(try? PropertyListEncoder().encode(drinksLimit), forKey: drinkLimitKey)
@@ -339,6 +344,26 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                 }
             }
+        }
+    }
+    
+    func saveDrink(drink: drink) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "DrinkCD", in: managedContext)
+        let drinkObject = NSManagedObject(entity: entity!, insertInto: managedContext)
+        
+        drinkObject.setValue(drink.getCaffeineMgAdded(), forKey: "caffeine")
+        drinkObject.setValue(drink.getDate(), forKey: "date")
+        drinkObject.setValue(drink.getIcon(), forKey: "icon")
+        drinkObject.setValue(drink.getMl(), forKey: "mililiters")
+        drinkObject.setValue(drink.getName(), forKey: "type")
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Ocurrio un error al querer guardar la bebida: \(error)")
         }
     }
     

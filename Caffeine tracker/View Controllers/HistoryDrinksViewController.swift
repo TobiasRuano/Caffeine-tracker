@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -20,6 +21,7 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
     
     var caffeineLimit = 400
     var drinksDictionary = [Int : [drink]]()
+    var drinks = [NSManagedObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,7 +135,32 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
+    func retriveDrinks() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest : NSFetchRequest<DrinkCD> = DrinkCD.fetchRequest()
+        let sort = NSSortDescriptor(key: #keyPath(DrinkCD.date), ascending: false)
+        fetchRequest.sortDescriptors = [sort]
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            drinks = results as [NSManagedObject]
+        } catch let error as NSError {
+            print("Error al intentar leer las bebidas de core data \(error)")
+        }
+        tableView.reloadData()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
+        retriveDrinks()
+        
+        
+        
+        
+        
+        
+        
         drinksDictionary.removeAll()
         if let number = UserDefaults.standard.value(forKey: "maxCaf") as? Int {
             caffeineLimit = number
@@ -142,9 +169,9 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
             let ArrayAddedData = try? PropertyListDecoder().decode(Array<drink>.self, from: data)
             arrayDrinksAdded = ArrayAddedData!
         }
-        separateDrinksInSections()
+        //separateDrinksInSections()
         //this func shows todays and yesterdays caffeine ammount on progress bar and text
-        displayCaffeineProgress()
+        //displayCaffeineProgress()
         changeStyle()
         tableView.reloadData()
     }
@@ -154,96 +181,125 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         todayYesterdayView.backgroundColor = UIColor(named: "BackgroundGeneral")
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return drinksDictionary.count
-    }
-    
     //----
     // MARK: - Table view data source
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        var date = Date()
-        if let value = drinksDictionary[section] {
-            date = value[0].getDate()
-            let day = Calendar.current.dateComponents([.day, .year, .month], from: date).day
-            let month = Calendar.current.dateComponents([.day, .year, .month], from: date).month
-            let year = Calendar.current.dateComponents([.day, .month, .year], from: date).year
-            
-            let today = Date()
-            let todaysDate = Calendar.current.dateComponents([.day, .year, .month], from: today)
-            
-            var yesterday = Date()
-            yesterday.addTimeInterval(-86400)
-            let yesterdaysDate = Calendar.current.dateComponents([.day, .year, .month], from: yesterday)
-            
-            if todaysDate.day == day && todaysDate.month == month && todaysDate.year == year {
-                return "Today"
-            } else if (yesterdaysDate.day == day && yesterdaysDate.month == month && yesterdaysDate.year == year){
-                return "Yesterday"
-            } else {
-                let fullDate = "\(day!)/\(month!)/\(year!)"
-                return fullDate
-            }
-        } else {
-            return ""
-        }
-    }
+    //    func numberOfSections(in tableView: UITableView) -> Int {
+    //        return drinksDictionary.count
+    //    }
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        var sum = 0.0
-        if let arrayCopy = drinksDictionary[section] {
-            for element in arrayCopy {
-                sum += element.getCaffeineMgAdded()
-            }
-        }
-        if Int(sum) >= caffeineLimit {
-            view.tintColor = UIColor.red.withAlphaComponent(0.95)
-        } else {
-            view.tintColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 0.95)
-        }
-        let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = .white
+    //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    //        var date = Date()
+    //        if let value = drinksDictionary[section] {
+    //            date = value[0].getDate()
+    //            let day = Calendar.current.dateComponents([.day, .year, .month], from: date).day
+    //            let month = Calendar.current.dateComponents([.day, .year, .month], from: date).month
+    //            let year = Calendar.current.dateComponents([.day, .month, .year], from: date).year
+    //
+    //            let today = Date()
+    //            let todaysDate = Calendar.current.dateComponents([.day, .year, .month], from: today)
+    //
+    //            var yesterday = Date()
+    //            yesterday.addTimeInterval(-86400)
+    //            let yesterdaysDate = Calendar.current.dateComponents([.day, .year, .month], from: yesterday)
+    //
+    //            if todaysDate.day == day && todaysDate.month == month && todaysDate.year == year {
+    //                return "Today"
+    //            } else if (yesterdaysDate.day == day && yesterdaysDate.month == month && yesterdaysDate.year == year){
+    //                return "Yesterday"
+    //            } else {
+    //                let fullDate = "\(day!)/\(month!)/\(year!)"
+    //                return fullDate
+    //            }
+    //        } else {
+    //            return ""
+    //        }
+    //    }
+    
+    //    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    //        var sum = 0.0
+    //        if let arrayCopy = drinksDictionary[section] {
+    //            for element in arrayCopy {
+    //                sum += element.getCaffeineMgAdded()
+    //            }
+    //        }
+    //        if Int(sum) >= caffeineLimit {
+    //            view.tintColor = UIColor.red.withAlphaComponent(0.95)
+    //        } else {
+    //            view.tintColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 0.95)
+    //        }
+    //        let header = view as! UITableViewHeaderFooterView
+    //        header.textLabel?.textColor = .white
+    //    }
+    
+    //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    //        var value = 0
+    //        if !drinksDictionary.isEmpty {
+    //            value = drinksDictionary[section]!.count
+    //        }
+    //        print("La seccion es: \(section) y la cantidad de elementos es: \(value)")
+    //        return value
+    //    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var value = 0
-        if !drinksDictionary.isEmpty {
-            value = drinksDictionary[section]!.count
-        }
-        print("La seccion es: \(section) y la cantidad de elementos es: \(value)")
-        return value
+        return drinks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: historyTableViewCell, for: indexPath) as! CustomCellClass
-        cell.DrinkName.text = drinksDictionary[indexPath.section]![indexPath.row].getName()
-        let caffeineValue = Int(drinksDictionary[indexPath.section]![indexPath.row].getCaffeineMgAdded())
-        cell.caffeineMg.text = "\(caffeineValue)mg"
+        let beberage = drinks[indexPath.item]
+        let test = drink(type: beberage.value(forKey: "type") as! String, caffeineMg: beberage.value(forKey: "caffeine") as! Double, mililiters: beberage.value(forKey: "mililiters") as! Double, icon: beberage.value(forKey: "icon") as! String, dia: beberage.value(forKey: "date") as? Date)
+        cell.DrinkName.text = test.getName()
+        cell.imageView?.image = UIImage(named: test.getIcon())
+        cell.caffeineMg.text = "\(test.getCaffeineMgAdded())"
         switch unitGlobal {
         case .ml:
-            let value = Int(drinksDictionary[indexPath.section]![indexPath.row].getMl())
+            let value = Int(test.getMl())
             cell.miliLiters.text = "\(value) ml"
         case .flOzUS:
-            let value = Int(drinksDictionary[indexPath.section]![indexPath.row].getUSoz().rounded())
+            let value = Int(test.getMl().rounded())
             cell.miliLiters.text = "\(value) fl oz"
         case .flOzUK:
-            let value = Int(drinksDictionary[indexPath.section]![indexPath.row].getUKoz().rounded())
-            print("\(arrayDrinks[indexPath.row].getName()) has \(value)mg of caffeine in 3 fl oz")
+            let value = Int(test.getMl().rounded())
             cell.miliLiters.text = "\(value) fl oz"
         }
-        cell.imageView?.image = UIImage(named: drinksDictionary[indexPath.section]![indexPath.row].getIcon())
         
         return cell
     }
+    //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    //        let cell = tableView.dequeueReusableCell(withIdentifier: historyTableViewCell, for: indexPath) as! CustomCellClass
+    //        cell.DrinkName.text = drinksDictionary[indexPath.section]![indexPath.row].getName()
+    //        let caffeineValue = Int(drinksDictionary[indexPath.section]![indexPath.row].getCaffeineMgAdded())
+    //        cell.caffeineMg.text = "\(caffeineValue)mg"
+    //        switch unitGlobal {
+    //        case .ml:
+    //            let value = Int(drinksDictionary[indexPath.section]![indexPath.row].getMl())
+    //            cell.miliLiters.text = "\(value) ml"
+    //        case .flOzUS:
+    //            let value = Int(drinksDictionary[indexPath.section]![indexPath.row].getUSoz().rounded())
+    //            cell.miliLiters.text = "\(value) fl oz"
+    //        case .flOzUK:
+    //            let value = Int(drinksDictionary[indexPath.section]![indexPath.row].getUKoz().rounded())
+    //            print("\(arrayDrinks[indexPath.row].getName()) has \(value)mg of caffeine in 3 fl oz")
+    //            cell.miliLiters.text = "\(value) fl oz"
+    //        }
+    //        cell.imageView?.image = UIImage(named: drinksDictionary[indexPath.section]![indexPath.row].getIcon())
+    //
+    //        return cell
+    //    }
     
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//        let buttonDelete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-//            print("borrar")
-//        }
-//        let buttonEdit = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
-//            print("Editar")
-//        }
-//        return [buttonDelete, buttonEdit]
-//    }
+    //    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    //        let buttonDelete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+    //            print("borrar")
+    //        }
+    //        let buttonEdit = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+    //            print("Editar")
+    //        }
+    //        return [buttonDelete, buttonEdit]
+    //    }
     
     fileprivate func addOneDrinkToLimit(drink: drink) {
         let date = Date()
@@ -257,48 +313,64 @@ class HistoryDrinksViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let healthManager = HealthKitSetupAssistant()
-            let alert = UIAlertController(title: "", message: "Are you sure you want to delete \(Int(drinksDictionary[indexPath.section]![indexPath.row].getCaffeineMgAdded()))mg of \(drinksDictionary[indexPath.section]![indexPath.row].getName())?", preferredStyle: .actionSheet)
-
-            alert.addAction(UIAlertAction(title: "Delete", style: .destructive , handler:{ (UIAlertAction)in
-                var test = 0
-                while arrayDrinksAdded[test].getDate() != self.drinksDictionary[indexPath.section]![indexPath.row].getDate() {
-                    test += 1
-                }
-                print("Removing: \(arrayDrinksAdded[test].getName()) \(arrayDrinksAdded[test].getDate())")
-                print("Removing: \(self.drinksDictionary[indexPath.section]![indexPath.row].getName()) \(self.drinksDictionary[indexPath.section]![indexPath.row].getDate())")
-                healthManager.deleteCaffeine(drink: self.drinksDictionary[indexPath.section]![indexPath.row])
-                healthManager.deleteWater(drink: self.drinksDictionary[indexPath.section]![indexPath.row])
-                let drinkDeleted = arrayDrinksAdded[test]
-                arrayDrinksAdded.remove(at: test)
-                self.drinksDictionary[indexPath.section]?.remove(at: indexPath.row)
-                print(self.drinksDictionary)
-                if self.drinksDictionary[indexPath.section]?.count == 0 {
-                    var counter = indexPath.section + 1
-                    while self.drinksDictionary[counter] != nil {
-                        let element = self.drinksDictionary[counter]
-                        self.drinksDictionary[counter - 1] = element
-                        counter += 1
-                    }
-                    self.drinksDictionary.removeValue(forKey: counter - 1)
-                }
-                UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: arrayDrinksAddedKey)
-                TapticEffectsService.performFeedbackNotification(type: .warning)
-                
-                self.addOneDrinkToLimit(drink: drinkDeleted)
-
-                self.checkTodaysAndYesterdaysCaffeine()
-                self.displayCaffeineProgress()
-                tableView.reloadData()
-            }))
-
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
-            }))
-            self.present(alert, animated: true, completion: {
-            })
+    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    //        if editingStyle == .delete {
+    //            let healthManager = HealthKitSetupAssistant()
+    //            let alert = UIAlertController(title: "", message: "Are you sure you want to delete \(Int(drinksDictionary[indexPath.section]![indexPath.row].getCaffeineMgAdded()))mg of \(drinksDictionary[indexPath.section]![indexPath.row].getName())?", preferredStyle: .actionSheet)
+    //
+    //            alert.addAction(UIAlertAction(title: "Delete", style: .destructive , handler:{ (UIAlertAction)in
+    //                var test = 0
+    //                while arrayDrinksAdded[test].getDate() != self.drinksDictionary[indexPath.section]![indexPath.row].getDate() {
+    //                    test += 1
+    //                }
+    //                print("Removing: \(arrayDrinksAdded[test].getName()) \(arrayDrinksAdded[test].getDate())")
+    //                print("Removing: \(self.drinksDictionary[indexPath.section]![indexPath.row].getName()) \(self.drinksDictionary[indexPath.section]![indexPath.row].getDate())")
+    //                healthManager.deleteCaffeine(drink: self.drinksDictionary[indexPath.section]![indexPath.row])
+    //                healthManager.deleteWater(drink: self.drinksDictionary[indexPath.section]![indexPath.row])
+    //                let drinkDeleted = arrayDrinksAdded[test]
+    //                arrayDrinksAdded.remove(at: test)
+    //                self.drinksDictionary[indexPath.section]?.remove(at: indexPath.row)
+    //                print(self.drinksDictionary)
+    //                if self.drinksDictionary[indexPath.section]?.count == 0 {
+    //                    var counter = indexPath.section + 1
+    //                    while self.drinksDictionary[counter] != nil {
+    //                        let element = self.drinksDictionary[counter]
+    //                        self.drinksDictionary[counter - 1] = element
+    //                        counter += 1
+    //                    }
+    //                    self.drinksDictionary.removeValue(forKey: counter - 1)
+    //                }
+    //                UserDefaults.standard.set(try? PropertyListEncoder().encode(arrayDrinksAdded), forKey: arrayDrinksAddedKey)
+    //                TapticEffectsService.performFeedbackNotification(type: .warning)
+    //
+    //                self.addOneDrinkToLimit(drink: drinkDeleted)
+    //
+    //                self.checkTodaysAndYesterdaysCaffeine()
+    //                self.displayCaffeineProgress()
+    //                tableView.reloadData()
+    //            }))
+    //
+    //            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
+    //            }))
+    //            self.present(alert, animated: true, completion: {
+    //            })
+    //        }
+    //    }
+    
+    func deleteDrink(drink: NSManagedObject) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest : NSFetchRequest<DrinkCD> = DrinkCD.fetchRequest()
+        let sort = NSSortDescriptor(key: #keyPath(DrinkCD.date), ascending: false)
+        fetchRequest.sortDescriptors = [sort]
+        
+        if let result = try? managedContext.fetch(fetchRequest) {
+            for object in result {
+                managedContext.delete(object)
+            }
         }
+        tableView.reloadData()
     }
     
     func progressViewStyle() {

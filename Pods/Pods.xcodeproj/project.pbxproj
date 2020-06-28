@@ -3,173 +3,174 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11341E02FCBD67AC9038A983847DCF39 /* SwiftyStoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB78EADF74D6B520A9F96C0CA8293A /* SwiftyStoreKit.swift */; };
-		1863676BDC09B84320B6E9D9887A99B3 /* AppleReceiptValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E26E5EE26787F17DEF9072934C14D4 /* AppleReceiptValidator.swift */; };
-		214F80657B5FB6D7DE1C8FA8F4B83939 /* ProductsInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17E22CDE09D45C3270D4EC2A6CE625E /* ProductsInfoController.swift */; };
-		2F4B69B3FFE4CFA3203CA60EFD037365 /* OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BAF579CE733D9DF1E3980BDEFA07DC /* OS.swift */; };
-		63894AF8F01F4BDB3D597D01253F2FDB /* InAppReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C358C372EE7485F72623B4C1B86F1D65 /* InAppReceipt.swift */; };
-		7AE985B086EDB1ED378038A6F7E3666D /* RestorePurchasesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E100DB68041A30845142151C3B316D9A /* RestorePurchasesController.swift */; };
-		7E3C7C1F014D64E3995EAE4CE11E2A13 /* Pods-Caffeine tracker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093257FCEF0F409FC671B8226324454 /* Pods-Caffeine tracker-dummy.m */; };
-		802BE819718FA857B9680D71E5452613 /* SwiftyStoreKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EDE1F76AF5732BDAB01C3069AC227C15 /* SwiftyStoreKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		826A94B33B64436DF1C6DE3ECB1F766F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		A0CE08CA97E39C8467F8ACA063726DD3 /* SKProduct+LocalizedPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982ABA9F7D85DD9B6B570CFEFAE1E502 /* SKProduct+LocalizedPrice.swift */; };
-		A2572BF278B80C46563938130756690E /* PaymentQueueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EDE9A5DD3113C61B39E23F7EFCA82 /* PaymentQueueController.swift */; };
-		B4358697A3FED0FEA5654C5379736F94 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		C316EBAC754B3504F0EC71D367562504 /* InAppReceiptVerificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D0E0206D12CECC2D4806ACB3426DC1 /* InAppReceiptVerificator.swift */; };
-		CD0F33044FB6CF33F9096168AEF9B684 /* SwiftyStoreKit+Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721C6F2151485E499339F81E7B0959BF /* SwiftyStoreKit+Types.swift */; };
-		DB360FE016C2AF1B9D8A573B23246B2A /* Pods-Caffeine tracker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F117E3C170B4F586FE7D45B96E6B0C1B /* Pods-Caffeine tracker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC57375B82F14AD5BFE4E3FDE1AAC63E /* InAppReceiptRefreshRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF535AD500EA3C438E500CABE6C158 /* InAppReceiptRefreshRequest.swift */; };
-		DC64CA65EFA0F7245F61B87AD960DC2B /* SwiftyStoreKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0CA9CE0FB22D586C280ABE8AF169FC /* SwiftyStoreKit-dummy.m */; };
-		DCC9290607B53BACAE359C202111B21E /* CompleteTransactionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6B61E119D02DF18FC882D25A0CBCC /* CompleteTransactionsController.swift */; };
-		F272A06D3006F3A28968FE34DE6C17D2 /* PaymentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3BD4FFAD916D1A2714CA44692B3805 /* PaymentsController.swift */; };
-		FE0447F9C831F2CAE34A542EEBDF617D /* InAppProductQueryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70921C0A2C05118371E89E093DFE379B /* InAppProductQueryRequest.swift */; };
+		002F3CD19251B76EB8AEA3A432391A45 /* Pods-Caffeine tracker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6305CB312D19490BF58E11F39E6E80A7 /* Pods-Caffeine tracker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		15A29D5C6FEA9379BBC61F17614DDB15 /* SwiftyStoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B25D83C3F276CDE33726941A65CC89 /* SwiftyStoreKit.swift */; };
+		17695C42661E6DA8419E9C68F1BCD333 /* InAppReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAAC2689DD945C056A95B51648B92A0 /* InAppReceipt.swift */; };
+		2832AC0AEA1EF2268C8E46C0BF8E4EFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		2C0D498C7785ECEC234D4EB9EA5FF458 /* InAppProductQueryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503F2855E1FC1FFBAC72394DED76FEB6 /* InAppProductQueryRequest.swift */; };
+		2C8498AF2573866DF00271149F660EE4 /* InAppReceiptVerificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728A9644687EFB7FD94FA743DEF3030 /* InAppReceiptVerificator.swift */; };
+		3B95F6D7813F2794DD6CF0BEAE2853DC /* PaymentQueueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F4F7F333B6DA725EAA8667511DC3E0 /* PaymentQueueController.swift */; };
+		4BEC56EB2A2FBCEF4A32EE6EE1F48E22 /* SKProduct+LocalizedPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7171441C54063EF9CA5B4C71B8FC7 /* SKProduct+LocalizedPrice.swift */; };
+		8B6EC57B99EF7733C02DA7BC47D3C827 /* SwiftyStoreKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 527E0F12B8229C2587D5A9B1B23DE91E /* SwiftyStoreKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		920988D6EF7BA1788E1A5BDBC8EBEDBB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		94C4D411154B20E95D71F0A540BEFA9E /* AppleReceiptValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2768001C514B7C765DA447B6AD094B /* AppleReceiptValidator.swift */; };
+		96C050D6E6CE50C2BD3AF12853F2B6A8 /* PaymentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F3C086CE1F60D6425F16771EDEA977 /* PaymentsController.swift */; };
+		A02D235E9BE3165F117FDB07BE79FA21 /* Pods-Caffeine tracker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D03628FBEE9E68C6F61FB006261F0DF5 /* Pods-Caffeine tracker-dummy.m */; };
+		B0F6DB3499903B3F58E262223E4B5A94 /* InAppReceiptRefreshRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A464D600B07642F9E0FE9CF032200 /* InAppReceiptRefreshRequest.swift */; };
+		B281D8A8ECC3FAF6633C0B14AA073F25 /* ProductsInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54044936398510A72AAF636ECB737E28 /* ProductsInfoController.swift */; };
+		B33068F24A37B5C3D7980AF7CE1E76DB /* SwiftyStoreKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C318A4C04D480558C34A8D254BAFCA6 /* SwiftyStoreKit-dummy.m */; };
+		C78E0AA446C0068A7BEFBCFE0756F45C /* RestorePurchasesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13EC8CA71E4F69AF3E780F374885B40 /* RestorePurchasesController.swift */; };
+		D14B54215BC9EE0D8E75A9B9F6657F91 /* CompleteTransactionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21F1933C4F437E1C311FECA1E582DFF /* CompleteTransactionsController.swift */; };
+		DC5DD7164355AA955CE35C172C6CC8B8 /* OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2526D30DC3A7C95FC505B6340FD7AEBD /* OS.swift */; };
+		F4E817F44A73CB188A81A97D3F504E76 /* SwiftyStoreKit+Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF13861B1A4681676B1465BDB90346 /* SwiftyStoreKit+Types.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A5C8EDA06D0B359573C09E14838E88B0 /* PBXContainerItemProxy */ = {
+		77F417E7E2EEFC13BC2B2E669B58F71A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A2838FB44315BE3F91D3F9FB33995CE2;
+			remoteGlobalIDString = FCD4F1901DD86FEB184BFDD6673F4A7B;
 			remoteInfo = SwiftyStoreKit;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06E26E5EE26787F17DEF9072934C14D4 /* AppleReceiptValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppleReceiptValidator.swift; path = SwiftyStoreKit/AppleReceiptValidator.swift; sourceTree = "<group>"; };
-		0B5BBEC50EE0ECB02D73726A15D134FB /* Pods-Caffeine tracker-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Caffeine tracker-acknowledgements.markdown"; sourceTree = "<group>"; };
-		11D34AEE11BC572575024C73B5B939DE /* SwiftyStoreKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyStoreKit.modulemap; sourceTree = "<group>"; };
-		1F583D355849E57B2E85820129DFE906 /* Pods-Caffeine tracker-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Caffeine tracker-frameworks.sh"; sourceTree = "<group>"; };
-		222A61DA711258D6FFAA1E1E79CDBCBF /* SwiftyStoreKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyStoreKit-prefix.pch"; sourceTree = "<group>"; };
-		2D605FA8D4B0DB46633D97D6A82F9676 /* Pods-Caffeine tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Caffeine tracker.release.xcconfig"; sourceTree = "<group>"; };
-		3FDF535AD500EA3C438E500CABE6C158 /* InAppReceiptRefreshRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InAppReceiptRefreshRequest.swift; path = SwiftyStoreKit/InAppReceiptRefreshRequest.swift; sourceTree = "<group>"; };
-		4E8BC73C86A7C0A54AA5516E1C80E7CF /* SwiftyStoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyStoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		507EDE9A5DD3113C61B39E23F7EFCA82 /* PaymentQueueController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaymentQueueController.swift; path = SwiftyStoreKit/PaymentQueueController.swift; sourceTree = "<group>"; };
-		51BAF579CE733D9DF1E3980BDEFA07DC /* OS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OS.swift; path = SwiftyStoreKit/OS.swift; sourceTree = "<group>"; };
-		5A3BD4FFAD916D1A2714CA44692B3805 /* PaymentsController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaymentsController.swift; path = SwiftyStoreKit/PaymentsController.swift; sourceTree = "<group>"; };
-		70921C0A2C05118371E89E093DFE379B /* InAppProductQueryRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InAppProductQueryRequest.swift; path = SwiftyStoreKit/InAppProductQueryRequest.swift; sourceTree = "<group>"; };
-		721C6F2151485E499339F81E7B0959BF /* SwiftyStoreKit+Types.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftyStoreKit+Types.swift"; path = "SwiftyStoreKit/SwiftyStoreKit+Types.swift"; sourceTree = "<group>"; };
-		75D0E0206D12CECC2D4806ACB3426DC1 /* InAppReceiptVerificator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InAppReceiptVerificator.swift; path = SwiftyStoreKit/InAppReceiptVerificator.swift; sourceTree = "<group>"; };
-		76B6B61E119D02DF18FC882D25A0CBCC /* CompleteTransactionsController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CompleteTransactionsController.swift; path = SwiftyStoreKit/CompleteTransactionsController.swift; sourceTree = "<group>"; };
-		8093257FCEF0F409FC671B8226324454 /* Pods-Caffeine tracker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Caffeine tracker-dummy.m"; sourceTree = "<group>"; };
-		834B13B3A49367CE893FF78EE84E5F7E /* SwiftyStoreKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyStoreKit-Info.plist"; sourceTree = "<group>"; };
-		8BFC3BB11992FFDF3AB3868F0B0F49F1 /* Pods_Caffeine_tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Caffeine_tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		982ABA9F7D85DD9B6B570CFEFAE1E502 /* SKProduct+LocalizedPrice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SKProduct+LocalizedPrice.swift"; path = "SwiftyStoreKit/SKProduct+LocalizedPrice.swift"; sourceTree = "<group>"; };
-		9C8113E09A20BF897821239BF9B9DB0B /* Pods-Caffeine tracker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Caffeine tracker-Info.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9F1E957A3FC421E5903787779A0EB574 /* Pods-Caffeine tracker-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Caffeine tracker-acknowledgements.plist"; sourceTree = "<group>"; };
-		AC0CA9CE0FB22D586C280ABE8AF169FC /* SwiftyStoreKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyStoreKit-dummy.m"; sourceTree = "<group>"; };
-		B8DB78EADF74D6B520A9F96C0CA8293A /* SwiftyStoreKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyStoreKit.swift; path = SwiftyStoreKit/SwiftyStoreKit.swift; sourceTree = "<group>"; };
-		C358C372EE7485F72623B4C1B86F1D65 /* InAppReceipt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InAppReceipt.swift; path = SwiftyStoreKit/InAppReceipt.swift; sourceTree = "<group>"; };
-		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D6D4A703AFA76B9CE7B235764F729D55 /* Pods-Caffeine tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Caffeine tracker.debug.xcconfig"; sourceTree = "<group>"; };
-		DDA12FBBB86EE5105963C10EC4C4F1D3 /* SwiftyStoreKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyStoreKit.xcconfig; sourceTree = "<group>"; };
-		E100DB68041A30845142151C3B316D9A /* RestorePurchasesController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RestorePurchasesController.swift; path = SwiftyStoreKit/RestorePurchasesController.swift; sourceTree = "<group>"; };
-		EDE1F76AF5732BDAB01C3069AC227C15 /* SwiftyStoreKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyStoreKit-umbrella.h"; sourceTree = "<group>"; };
-		F117E3C170B4F586FE7D45B96E6B0C1B /* Pods-Caffeine tracker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Caffeine tracker-umbrella.h"; sourceTree = "<group>"; };
-		F17E22CDE09D45C3270D4EC2A6CE625E /* ProductsInfoController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProductsInfoController.swift; path = SwiftyStoreKit/ProductsInfoController.swift; sourceTree = "<group>"; };
-		F300FDF1F873A1D97EAA43ADB8A38512 /* Pods-Caffeine tracker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Caffeine tracker.modulemap"; sourceTree = "<group>"; };
+		0E8D461C3B3C61A51B336B9498D2D5D5 /* Pods-Caffeine tracker-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Caffeine tracker-Info.plist"; sourceTree = "<group>"; };
+		0F6F7A449BE8698BB5CE04B76999BC2D /* SwiftyStoreKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyStoreKit.modulemap; sourceTree = "<group>"; };
+		11F4F7F333B6DA725EAA8667511DC3E0 /* PaymentQueueController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaymentQueueController.swift; path = SwiftyStoreKit/PaymentQueueController.swift; sourceTree = "<group>"; };
+		1F6A464D600B07642F9E0FE9CF032200 /* InAppReceiptRefreshRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InAppReceiptRefreshRequest.swift; path = SwiftyStoreKit/InAppReceiptRefreshRequest.swift; sourceTree = "<group>"; };
+		24FCFDF6B04022220AD5F9F0965F142D /* Pods_Caffeine_tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Caffeine_tracker.framework; path = "Pods-Caffeine tracker.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2526D30DC3A7C95FC505B6340FD7AEBD /* OS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OS.swift; path = SwiftyStoreKit/OS.swift; sourceTree = "<group>"; };
+		2A05A78D218C0151476F141B1C8381A1 /* Pods-Caffeine tracker-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Caffeine tracker-acknowledgements.plist"; sourceTree = "<group>"; };
+		2B231C9ED990B5AF2E2B1755F802D8ED /* Pods-Caffeine tracker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Caffeine tracker.modulemap"; sourceTree = "<group>"; };
+		2B243765465CAE73E6BC26C82DC5C7AE /* Pods-Caffeine tracker-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Caffeine tracker-frameworks.sh"; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		32B68D5B8C0127052BE81786F59B46F6 /* SwiftyStoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyStoreKit.framework; path = SwiftyStoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C318A4C04D480558C34A8D254BAFCA6 /* SwiftyStoreKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyStoreKit-dummy.m"; sourceTree = "<group>"; };
+		503F2855E1FC1FFBAC72394DED76FEB6 /* InAppProductQueryRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InAppProductQueryRequest.swift; path = SwiftyStoreKit/InAppProductQueryRequest.swift; sourceTree = "<group>"; };
+		527E0F12B8229C2587D5A9B1B23DE91E /* SwiftyStoreKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyStoreKit-umbrella.h"; sourceTree = "<group>"; };
+		54044936398510A72AAF636ECB737E28 /* ProductsInfoController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProductsInfoController.swift; path = SwiftyStoreKit/ProductsInfoController.swift; sourceTree = "<group>"; };
+		59B25D83C3F276CDE33726941A65CC89 /* SwiftyStoreKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyStoreKit.swift; path = SwiftyStoreKit/SwiftyStoreKit.swift; sourceTree = "<group>"; };
+		5B298636755EC74B900FA6E33CC99105 /* SwiftyStoreKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyStoreKit-prefix.pch"; sourceTree = "<group>"; };
+		6305CB312D19490BF58E11F39E6E80A7 /* Pods-Caffeine tracker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Caffeine tracker-umbrella.h"; sourceTree = "<group>"; };
+		70865ADFF9D29D6D4C4D45069BC44075 /* SwiftyStoreKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyStoreKit-Info.plist"; sourceTree = "<group>"; };
+		84F3C086CE1F60D6425F16771EDEA977 /* PaymentsController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaymentsController.swift; path = SwiftyStoreKit/PaymentsController.swift; sourceTree = "<group>"; };
+		8AF7171441C54063EF9CA5B4C71B8FC7 /* SKProduct+LocalizedPrice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SKProduct+LocalizedPrice.swift"; path = "SwiftyStoreKit/SKProduct+LocalizedPrice.swift"; sourceTree = "<group>"; };
+		8B20C964C6C097A678345CA1D0491AEA /* Pods-Caffeine tracker-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Caffeine tracker-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BD2768001C514B7C765DA447B6AD094B /* AppleReceiptValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppleReceiptValidator.swift; path = SwiftyStoreKit/AppleReceiptValidator.swift; sourceTree = "<group>"; };
+		C13EC8CA71E4F69AF3E780F374885B40 /* RestorePurchasesController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RestorePurchasesController.swift; path = SwiftyStoreKit/RestorePurchasesController.swift; sourceTree = "<group>"; };
+		C3C39A8B584944387A36785414CE9094 /* SwiftyStoreKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyStoreKit.xcconfig; sourceTree = "<group>"; };
+		C728A9644687EFB7FD94FA743DEF3030 /* InAppReceiptVerificator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InAppReceiptVerificator.swift; path = SwiftyStoreKit/InAppReceiptVerificator.swift; sourceTree = "<group>"; };
+		D03628FBEE9E68C6F61FB006261F0DF5 /* Pods-Caffeine tracker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Caffeine tracker-dummy.m"; sourceTree = "<group>"; };
+		E073E6E5517600F0BCBAB4EC59D9DD41 /* Pods-Caffeine tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Caffeine tracker.release.xcconfig"; sourceTree = "<group>"; };
+		E1AF13861B1A4681676B1465BDB90346 /* SwiftyStoreKit+Types.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftyStoreKit+Types.swift"; path = "SwiftyStoreKit/SwiftyStoreKit+Types.swift"; sourceTree = "<group>"; };
+		E2C1B80628430C4F08250DBF490ADA55 /* Pods-Caffeine tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Caffeine tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		EDAAC2689DD945C056A95B51648B92A0 /* InAppReceipt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InAppReceipt.swift; path = SwiftyStoreKit/InAppReceipt.swift; sourceTree = "<group>"; };
+		F21F1933C4F437E1C311FECA1E582DFF /* CompleteTransactionsController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CompleteTransactionsController.swift; path = SwiftyStoreKit/CompleteTransactionsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		00CE95619DD398E057FAF949F4A02ACE /* Frameworks */ = {
+		56CB2B879918E1629AA9A8D0314A723C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				826A94B33B64436DF1C6DE3ECB1F766F /* Foundation.framework in Frameworks */,
+				920988D6EF7BA1788E1A5BDBC8EBEDBB /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		23977A963873FCC74E20E19BC3CB993C /* Frameworks */ = {
+		776C45BBA8DC5CFFD3CE3FC5B45F0304 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4358697A3FED0FEA5654C5379736F94 /* Foundation.framework in Frameworks */,
+				2832AC0AEA1EF2268C8E46C0BF8E4EFF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		21B75529D572B6065272F48564DBF4FC /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				11D34AEE11BC572575024C73B5B939DE /* SwiftyStoreKit.modulemap */,
-				DDA12FBBB86EE5105963C10EC4C4F1D3 /* SwiftyStoreKit.xcconfig */,
-				AC0CA9CE0FB22D586C280ABE8AF169FC /* SwiftyStoreKit-dummy.m */,
-				834B13B3A49367CE893FF78EE84E5F7E /* SwiftyStoreKit-Info.plist */,
-				222A61DA711258D6FFAA1E1E79CDBCBF /* SwiftyStoreKit-prefix.pch */,
-				EDE1F76AF5732BDAB01C3069AC227C15 /* SwiftyStoreKit-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftyStoreKit";
-			sourceTree = "<group>";
-		};
 		42A5BFBA74FCA5EFB5771E2FE794B7C6 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				4C88F236BB8E8EAA4C6D178D1BFFFF4E /* Pods-Caffeine tracker */,
+				4C8EE89ED8E6F89D4BAEDCCA37582D6A /* Pods-Caffeine tracker */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		4C88F236BB8E8EAA4C6D178D1BFFFF4E /* Pods-Caffeine tracker */ = {
+		4C8EE89ED8E6F89D4BAEDCCA37582D6A /* Pods-Caffeine tracker */ = {
 			isa = PBXGroup;
 			children = (
-				F300FDF1F873A1D97EAA43ADB8A38512 /* Pods-Caffeine tracker.modulemap */,
-				0B5BBEC50EE0ECB02D73726A15D134FB /* Pods-Caffeine tracker-acknowledgements.markdown */,
-				9F1E957A3FC421E5903787779A0EB574 /* Pods-Caffeine tracker-acknowledgements.plist */,
-				8093257FCEF0F409FC671B8226324454 /* Pods-Caffeine tracker-dummy.m */,
-				1F583D355849E57B2E85820129DFE906 /* Pods-Caffeine tracker-frameworks.sh */,
-				9C8113E09A20BF897821239BF9B9DB0B /* Pods-Caffeine tracker-Info.plist */,
-				F117E3C170B4F586FE7D45B96E6B0C1B /* Pods-Caffeine tracker-umbrella.h */,
-				D6D4A703AFA76B9CE7B235764F729D55 /* Pods-Caffeine tracker.debug.xcconfig */,
-				2D605FA8D4B0DB46633D97D6A82F9676 /* Pods-Caffeine tracker.release.xcconfig */,
+				2B231C9ED990B5AF2E2B1755F802D8ED /* Pods-Caffeine tracker.modulemap */,
+				8B20C964C6C097A678345CA1D0491AEA /* Pods-Caffeine tracker-acknowledgements.markdown */,
+				2A05A78D218C0151476F141B1C8381A1 /* Pods-Caffeine tracker-acknowledgements.plist */,
+				D03628FBEE9E68C6F61FB006261F0DF5 /* Pods-Caffeine tracker-dummy.m */,
+				2B243765465CAE73E6BC26C82DC5C7AE /* Pods-Caffeine tracker-frameworks.sh */,
+				0E8D461C3B3C61A51B336B9498D2D5D5 /* Pods-Caffeine tracker-Info.plist */,
+				6305CB312D19490BF58E11F39E6E80A7 /* Pods-Caffeine tracker-umbrella.h */,
+				E2C1B80628430C4F08250DBF490ADA55 /* Pods-Caffeine tracker.debug.xcconfig */,
+				E073E6E5517600F0BCBAB4EC59D9DD41 /* Pods-Caffeine tracker.release.xcconfig */,
 			);
 			name = "Pods-Caffeine tracker";
 			path = "Target Support Files/Pods-Caffeine tracker";
 			sourceTree = "<group>";
 		};
-		9039292760238609F029C76198676C6F /* SwiftyStoreKit */ = {
+		6B9F565FC5F2C8BE4CD9BA17CD748976 /* SwiftyStoreKit */ = {
 			isa = PBXGroup;
 			children = (
-				06E26E5EE26787F17DEF9072934C14D4 /* AppleReceiptValidator.swift */,
-				76B6B61E119D02DF18FC882D25A0CBCC /* CompleteTransactionsController.swift */,
-				70921C0A2C05118371E89E093DFE379B /* InAppProductQueryRequest.swift */,
-				C358C372EE7485F72623B4C1B86F1D65 /* InAppReceipt.swift */,
-				3FDF535AD500EA3C438E500CABE6C158 /* InAppReceiptRefreshRequest.swift */,
-				75D0E0206D12CECC2D4806ACB3426DC1 /* InAppReceiptVerificator.swift */,
-				51BAF579CE733D9DF1E3980BDEFA07DC /* OS.swift */,
-				507EDE9A5DD3113C61B39E23F7EFCA82 /* PaymentQueueController.swift */,
-				5A3BD4FFAD916D1A2714CA44692B3805 /* PaymentsController.swift */,
-				F17E22CDE09D45C3270D4EC2A6CE625E /* ProductsInfoController.swift */,
-				E100DB68041A30845142151C3B316D9A /* RestorePurchasesController.swift */,
-				982ABA9F7D85DD9B6B570CFEFAE1E502 /* SKProduct+LocalizedPrice.swift */,
-				B8DB78EADF74D6B520A9F96C0CA8293A /* SwiftyStoreKit.swift */,
-				721C6F2151485E499339F81E7B0959BF /* SwiftyStoreKit+Types.swift */,
-				21B75529D572B6065272F48564DBF4FC /* Support Files */,
+				BD2768001C514B7C765DA447B6AD094B /* AppleReceiptValidator.swift */,
+				F21F1933C4F437E1C311FECA1E582DFF /* CompleteTransactionsController.swift */,
+				503F2855E1FC1FFBAC72394DED76FEB6 /* InAppProductQueryRequest.swift */,
+				EDAAC2689DD945C056A95B51648B92A0 /* InAppReceipt.swift */,
+				1F6A464D600B07642F9E0FE9CF032200 /* InAppReceiptRefreshRequest.swift */,
+				C728A9644687EFB7FD94FA743DEF3030 /* InAppReceiptVerificator.swift */,
+				2526D30DC3A7C95FC505B6340FD7AEBD /* OS.swift */,
+				11F4F7F333B6DA725EAA8667511DC3E0 /* PaymentQueueController.swift */,
+				84F3C086CE1F60D6425F16771EDEA977 /* PaymentsController.swift */,
+				54044936398510A72AAF636ECB737E28 /* ProductsInfoController.swift */,
+				C13EC8CA71E4F69AF3E780F374885B40 /* RestorePurchasesController.swift */,
+				8AF7171441C54063EF9CA5B4C71B8FC7 /* SKProduct+LocalizedPrice.swift */,
+				59B25D83C3F276CDE33726941A65CC89 /* SwiftyStoreKit.swift */,
+				E1AF13861B1A4681676B1465BDB90346 /* SwiftyStoreKit+Types.swift */,
+				9D0A982E277C07A297982A0A8C440B7F /* Support Files */,
 			);
+			name = SwiftyStoreKit;
 			path = SwiftyStoreKit;
 			sourceTree = "<group>";
 		};
-		9B055D0CFEA43187E72B03DED11F5662 /* iOS */ = {
+		9D0A982E277C07A297982A0A8C440B7F /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */,
+				0F6F7A449BE8698BB5CE04B76999BC2D /* SwiftyStoreKit.modulemap */,
+				C3C39A8B584944387A36785414CE9094 /* SwiftyStoreKit.xcconfig */,
+				3C318A4C04D480558C34A8D254BAFCA6 /* SwiftyStoreKit-dummy.m */,
+				70865ADFF9D29D6D4C4D45069BC44075 /* SwiftyStoreKit-Info.plist */,
+				5B298636755EC74B900FA6E33CC99105 /* SwiftyStoreKit-prefix.pch */,
+				527E0F12B8229C2587D5A9B1B23DE91E /* SwiftyStoreKit-umbrella.h */,
 			);
-			name = iOS;
+			name = "Support Files";
+			path = "../Target Support Files/SwiftyStoreKit";
 			sourceTree = "<group>";
 		};
 		B67F51A3F1A2221F9AEA8BD1C3563605 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9039292760238609F029C76198676C6F /* SwiftyStoreKit */,
+				6B9F565FC5F2C8BE4CD9BA17CD748976 /* SwiftyStoreKit */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -178,7 +179,7 @@
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				B67F51A3F1A2221F9AEA8BD1C3563605 /* Pods */,
-				FA25CBF536D50E12C45410985B1F3E24 /* Products */,
+				D8F60C4F15A37D472FBAE66F1F26CEA4 /* Products */,
 				42A5BFBA74FCA5EFB5771E2FE794B7C6 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -186,16 +187,16 @@
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9B055D0CFEA43187E72B03DED11F5662 /* iOS */,
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FA25CBF536D50E12C45410985B1F3E24 /* Products */ = {
+		D8F60C4F15A37D472FBAE66F1F26CEA4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8BFC3BB11992FFDF3AB3868F0B0F49F1 /* Pods_Caffeine_tracker.framework */,
-				4E8BC73C86A7C0A54AA5516E1C80E7CF /* SwiftyStoreKit.framework */,
+				24FCFDF6B04022220AD5F9F0965F142D /* Pods_Caffeine_tracker.framework */,
+				32B68D5B8C0127052BE81786F59B46F6 /* SwiftyStoreKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,33 +204,52 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1769F6D5C93D6E185FCD8A6FCDB2B3B7 /* Headers */ = {
+		55C95B503CD615294401358F1D9CDB5E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB360FE016C2AF1B9D8A573B23246B2A /* Pods-Caffeine tracker-umbrella.h in Headers */,
+				002F3CD19251B76EB8AEA3A432391A45 /* Pods-Caffeine tracker-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9CBB4E72DB959F05A06BE1364FABDA35 /* Headers */ = {
+		7858D37D2CE761259E3D0471D808DBB5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				802BE819718FA857B9680D71E5452613 /* SwiftyStoreKit-umbrella.h in Headers */,
+				8B6EC57B99EF7733C02DA7BC47D3C827 /* SwiftyStoreKit-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A2838FB44315BE3F91D3F9FB33995CE2 /* SwiftyStoreKit */ = {
+		B5E84BF12130E91FF95C2BF316F7DA08 /* Pods-Caffeine tracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A32389132690401485BAD07C423EA092 /* Build configuration list for PBXNativeTarget "SwiftyStoreKit" */;
+			buildConfigurationList = 0138D64FAC3D36962AF3954E2A086025 /* Build configuration list for PBXNativeTarget "Pods-Caffeine tracker" */;
 			buildPhases = (
-				9CBB4E72DB959F05A06BE1364FABDA35 /* Headers */,
-				ECB3C6474DFCB554C7B7BF5CF1819813 /* Sources */,
-				23977A963873FCC74E20E19BC3CB993C /* Frameworks */,
-				991503F8D3940345001A497D3DC209D4 /* Resources */,
+				55C95B503CD615294401358F1D9CDB5E /* Headers */,
+				2590FB4C291E311F8C9C1570C03AF0CE /* Sources */,
+				56CB2B879918E1629AA9A8D0314A723C /* Frameworks */,
+				1FFD437AB8B9B7A3B3E7F96904E2B24C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1D677F7D3A2C1F51824A833D8C328682 /* PBXTargetDependency */,
+			);
+			name = "Pods-Caffeine tracker";
+			productName = "Pods-Caffeine tracker";
+			productReference = 24FCFDF6B04022220AD5F9F0965F142D /* Pods_Caffeine_tracker.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FCD4F1901DD86FEB184BFDD6673F4A7B /* SwiftyStoreKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A45D5FBF1D06497D58BEF5F14D6D1E24 /* Build configuration list for PBXNativeTarget "SwiftyStoreKit" */;
+			buildPhases = (
+				7858D37D2CE761259E3D0471D808DBB5 /* Headers */,
+				81E9DC2A0AF40F48DD50D710685BD835 /* Sources */,
+				776C45BBA8DC5CFFD3CE3FC5B45F0304 /* Frameworks */,
+				AA2B5CCA9C2619F9851C104B32239041 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -237,26 +257,7 @@
 			);
 			name = SwiftyStoreKit;
 			productName = SwiftyStoreKit;
-			productReference = 4E8BC73C86A7C0A54AA5516E1C80E7CF /* SwiftyStoreKit.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		CA83B5B10B89018640963404C89CF16B /* Pods-Caffeine tracker */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C7BEB5B6F4E5E1CF11F0041CBF297668 /* Build configuration list for PBXNativeTarget "Pods-Caffeine tracker" */;
-			buildPhases = (
-				1769F6D5C93D6E185FCD8A6FCDB2B3B7 /* Headers */,
-				DA0457BF9809F9E3906DCD86DED01427 /* Sources */,
-				00CE95619DD398E057FAF949F4A02ACE /* Frameworks */,
-				EA860953DBF5E790A467A092A56F5E2C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AA4CACEB9D23DCF93B1B090B34B8B001 /* PBXTargetDependency */,
-			);
-			name = "Pods-Caffeine tracker";
-			productName = "Pods-Caffeine tracker";
-			productReference = 8BFC3BB11992FFDF3AB3868F0B0F49F1 /* Pods_Caffeine_tracker.framework */;
+			productReference = 32B68D5B8C0127052BE81786F59B46F6 /* SwiftyStoreKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -265,36 +266,37 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 1030;
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = FA25CBF536D50E12C45410985B1F3E24 /* Products */;
+			productRefGroup = D8F60C4F15A37D472FBAE66F1F26CEA4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CA83B5B10B89018640963404C89CF16B /* Pods-Caffeine tracker */,
-				A2838FB44315BE3F91D3F9FB33995CE2 /* SwiftyStoreKit */,
+				B5E84BF12130E91FF95C2BF316F7DA08 /* Pods-Caffeine tracker */,
+				FCD4F1901DD86FEB184BFDD6673F4A7B /* SwiftyStoreKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		991503F8D3940345001A497D3DC209D4 /* Resources */ = {
+		1FFD437AB8B9B7A3B3E7F96904E2B24C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EA860953DBF5E790A467A092A56F5E2C /* Resources */ = {
+		AA2B5CCA9C2619F9851C104B32239041 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -304,51 +306,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DA0457BF9809F9E3906DCD86DED01427 /* Sources */ = {
+		2590FB4C291E311F8C9C1570C03AF0CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E3C7C1F014D64E3995EAE4CE11E2A13 /* Pods-Caffeine tracker-dummy.m in Sources */,
+				A02D235E9BE3165F117FDB07BE79FA21 /* Pods-Caffeine tracker-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECB3C6474DFCB554C7B7BF5CF1819813 /* Sources */ = {
+		81E9DC2A0AF40F48DD50D710685BD835 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1863676BDC09B84320B6E9D9887A99B3 /* AppleReceiptValidator.swift in Sources */,
-				DCC9290607B53BACAE359C202111B21E /* CompleteTransactionsController.swift in Sources */,
-				FE0447F9C831F2CAE34A542EEBDF617D /* InAppProductQueryRequest.swift in Sources */,
-				63894AF8F01F4BDB3D597D01253F2FDB /* InAppReceipt.swift in Sources */,
-				DC57375B82F14AD5BFE4E3FDE1AAC63E /* InAppReceiptRefreshRequest.swift in Sources */,
-				C316EBAC754B3504F0EC71D367562504 /* InAppReceiptVerificator.swift in Sources */,
-				2F4B69B3FFE4CFA3203CA60EFD037365 /* OS.swift in Sources */,
-				A2572BF278B80C46563938130756690E /* PaymentQueueController.swift in Sources */,
-				F272A06D3006F3A28968FE34DE6C17D2 /* PaymentsController.swift in Sources */,
-				214F80657B5FB6D7DE1C8FA8F4B83939 /* ProductsInfoController.swift in Sources */,
-				7AE985B086EDB1ED378038A6F7E3666D /* RestorePurchasesController.swift in Sources */,
-				A0CE08CA97E39C8467F8ACA063726DD3 /* SKProduct+LocalizedPrice.swift in Sources */,
-				CD0F33044FB6CF33F9096168AEF9B684 /* SwiftyStoreKit+Types.swift in Sources */,
-				DC64CA65EFA0F7245F61B87AD960DC2B /* SwiftyStoreKit-dummy.m in Sources */,
-				11341E02FCBD67AC9038A983847DCF39 /* SwiftyStoreKit.swift in Sources */,
+				94C4D411154B20E95D71F0A540BEFA9E /* AppleReceiptValidator.swift in Sources */,
+				D14B54215BC9EE0D8E75A9B9F6657F91 /* CompleteTransactionsController.swift in Sources */,
+				2C0D498C7785ECEC234D4EB9EA5FF458 /* InAppProductQueryRequest.swift in Sources */,
+				17695C42661E6DA8419E9C68F1BCD333 /* InAppReceipt.swift in Sources */,
+				B0F6DB3499903B3F58E262223E4B5A94 /* InAppReceiptRefreshRequest.swift in Sources */,
+				2C8498AF2573866DF00271149F660EE4 /* InAppReceiptVerificator.swift in Sources */,
+				DC5DD7164355AA955CE35C172C6CC8B8 /* OS.swift in Sources */,
+				3B95F6D7813F2794DD6CF0BEAE2853DC /* PaymentQueueController.swift in Sources */,
+				96C050D6E6CE50C2BD3AF12853F2B6A8 /* PaymentsController.swift in Sources */,
+				B281D8A8ECC3FAF6633C0B14AA073F25 /* ProductsInfoController.swift in Sources */,
+				C78E0AA446C0068A7BEFBCFE0756F45C /* RestorePurchasesController.swift in Sources */,
+				4BEC56EB2A2FBCEF4A32EE6EE1F48E22 /* SKProduct+LocalizedPrice.swift in Sources */,
+				F4E817F44A73CB188A81A97D3F504E76 /* SwiftyStoreKit+Types.swift in Sources */,
+				B33068F24A37B5C3D7980AF7CE1E76DB /* SwiftyStoreKit-dummy.m in Sources */,
+				15A29D5C6FEA9379BBC61F17614DDB15 /* SwiftyStoreKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		AA4CACEB9D23DCF93B1B090B34B8B001 /* PBXTargetDependency */ = {
+		1D677F7D3A2C1F51824A833D8C328682 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftyStoreKit;
-			target = A2838FB44315BE3F91D3F9FB33995CE2 /* SwiftyStoreKit */;
-			targetProxy = A5C8EDA06D0B359573C09E14838E88B0 /* PBXContainerItemProxy */;
+			target = FCD4F1901DD86FEB184BFDD6673F4A7B /* SwiftyStoreKit */;
+			targetProxy = 77F417E7E2EEFC13BC2B2E669B58F71A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		192FDD64D94E0C1282FB11CAA376652F /* Release */ = {
+		1A798B0221ECC43448A38033283CFE1F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DDA12FBBB86EE5105963C10EC4C4F1D3 /* SwiftyStoreKit.xcconfig */;
+			baseConfigurationReference = C3C39A8B584944387A36785414CE9094 /* SwiftyStoreKit.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -363,7 +365,11 @@
 				INFOPLIST_FILE = "Target Support Files/SwiftyStoreKit/SwiftyStoreKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MODULEMAP_FILE = "Target Support Files/SwiftyStoreKit/SwiftyStoreKit.modulemap";
 				PRODUCT_MODULE_NAME = SwiftyStoreKit;
 				PRODUCT_NAME = SwiftyStoreKit;
@@ -378,7 +384,7 @@
 			};
 			name = Release;
 		};
-		4CE281642D6EE9FAB113046B4B6328A0 /* Release */ = {
+		257497152829C177993B5EC99C1D227A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -431,15 +437,16 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
 		};
-		56B40BA72463C5D8E7A2786EF17AB896 /* Debug */ = {
+		44E25535380E5D4FB67625BE4A9394EA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6D4A703AFA76B9CE7B235764F729D55 /* Pods-Caffeine tracker.debug.xcconfig */;
+			baseConfigurationReference = E073E6E5517600F0BCBAB4EC59D9DD41 /* Pods-Caffeine tracker.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -455,41 +462,11 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-Caffeine tracker/Pods-Caffeine tracker-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Caffeine tracker/Pods-Caffeine tracker.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		694A08CD0C152C4C250F85EA39042554 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D605FA8D4B0DB46633D97D6A82F9676 /* Pods-Caffeine tracker.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Caffeine tracker/Pods-Caffeine tracker-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Caffeine tracker/Pods-Caffeine tracker.modulemap";
 				OTHER_LDFLAGS = "";
@@ -506,7 +483,80 @@
 			};
 			name = Release;
 		};
-		6DFA1578582149B7E24AD55CBA30F07A /* Debug */ = {
+		818F1FD72A42933E65A20C406CA2C7F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3C39A8B584944387A36785414CE9094 /* SwiftyStoreKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyStoreKit/SwiftyStoreKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyStoreKit/SwiftyStoreKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftyStoreKit/SwiftyStoreKit.modulemap";
+				PRODUCT_MODULE_NAME = SwiftyStoreKit;
+				PRODUCT_NAME = SwiftyStoreKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9C0DE21502C1126AD87CB7FDD8CABBAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2C1B80628430C4F08250DBF490ADA55 /* Pods-Caffeine tracker.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Caffeine tracker/Pods-Caffeine tracker-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Caffeine tracker/Pods-Caffeine tracker.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DD8F832993327D1DD8046C3CBCBD97CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -565,68 +615,37 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Debug;
-		};
-		D1773B42106DFD6711DFC82C26081FBD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DDA12FBBB86EE5105963C10EC4C4F1D3 /* SwiftyStoreKit.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyStoreKit/SwiftyStoreKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyStoreKit/SwiftyStoreKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftyStoreKit/SwiftyStoreKit.modulemap";
-				PRODUCT_MODULE_NAME = SwiftyStoreKit;
-				PRODUCT_NAME = SwiftyStoreKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0138D64FAC3D36962AF3954E2A086025 /* Build configuration list for PBXNativeTarget "Pods-Caffeine tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C0DE21502C1126AD87CB7FDD8CABBAD /* Debug */,
+				44E25535380E5D4FB67625BE4A9394EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6DFA1578582149B7E24AD55CBA30F07A /* Debug */,
-				4CE281642D6EE9FAB113046B4B6328A0 /* Release */,
+				DD8F832993327D1DD8046C3CBCBD97CD /* Debug */,
+				257497152829C177993B5EC99C1D227A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A32389132690401485BAD07C423EA092 /* Build configuration list for PBXNativeTarget "SwiftyStoreKit" */ = {
+		A45D5FBF1D06497D58BEF5F14D6D1E24 /* Build configuration list for PBXNativeTarget "SwiftyStoreKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D1773B42106DFD6711DFC82C26081FBD /* Debug */,
-				192FDD64D94E0C1282FB11CAA376652F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C7BEB5B6F4E5E1CF11F0041CBF297668 /* Build configuration list for PBXNativeTarget "Pods-Caffeine tracker" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				56B40BA72463C5D8E7A2786EF17AB896 /* Debug */,
-				694A08CD0C152C4C250F85EA39042554 /* Release */,
+				818F1FD72A42933E65A20C406CA2C7F5 /* Debug */,
+				1A798B0221ECC43448A38033283CFE1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

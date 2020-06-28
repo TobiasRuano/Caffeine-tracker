@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,8 +13,8 @@
 		8B04C47A223ED17B00C74C03 /* OnboardingSingleHelpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04C479223ED17B00C74C03 /* OnboardingSingleHelpTableViewController.swift */; };
 		8B04C481223ED5B700C74C03 /* CTOnboardingCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04C47F223ED5B700C74C03 /* CTOnboardingCustomTableViewCell.swift */; };
 		8B04C482223ED5B700C74C03 /* CTOnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04C480223ED5B700C74C03 /* CTOnboardingButton.swift */; };
-		8B0F1CB3234636B4007C461E /* ThemeModeNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0F1CB2234636B4007C461E /* ThemeModeNotification.swift */; };
 		8B13A6D2231FFBC000C42379 /* SecondOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B13A6D1231FFBC000C42379 /* SecondOnboardingViewController.swift */; };
+		8B24F8D52493D21500DA438B /* CoffeeFacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B24F8D42493D21500DA438B /* CoffeeFacts.swift */; };
 		8B2C783020F3ABBD00DA38C0 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2C782A20F3ABBD00DA38C0 /* Settings.storyboard */; };
 		8B2C783120F3ABBD00DA38C0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2C782C20F3ABBD00DA38C0 /* Home.storyboard */; };
 		8B2C783220F3ABBD00DA38C0 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2C782E20F3ABBD00DA38C0 /* History.storyboard */; };
@@ -26,7 +26,6 @@
 		8B81E50720F25D6F005CE1D8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81E50620F25D6F005CE1D8 /* HomeViewController.swift */; };
 		8B849FE52262A84900B1A3D0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B849FE42262A84900B1A3D0 /* Extensions.swift */; };
 		8B8E9B9420DDBF1000E619FB /* DailyCaffeineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8E9B9320DDBF1000E619FB /* DailyCaffeineViewController.swift */; };
-		8B95EE142335942D00C2E4DF /* ThemeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B95EE132335942D00C2E4DF /* ThemeTableViewController.swift */; };
 		8BA18105232552C0009F5F06 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA180FF232552C0009F5F06 /* Drink.swift */; };
 		8BA18106232552C0009F5F06 /* HealthKitSetupAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA18100232552C0009F5F06 /* HealthKitSetupAssistant.swift */; };
 		8BA18107232552C0009F5F06 /* CustomCellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA18101232552C0009F5F06 /* CustomCellClass.swift */; };
@@ -52,8 +51,8 @@
 		8B04C479223ED17B00C74C03 /* OnboardingSingleHelpTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSingleHelpTableViewController.swift; sourceTree = "<group>"; };
 		8B04C47F223ED5B700C74C03 /* CTOnboardingCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CTOnboardingCustomTableViewCell.swift; path = "Caffeine tracker/CustomClasses/CTOnboardingCustomTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		8B04C480223ED5B700C74C03 /* CTOnboardingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CTOnboardingButton.swift; path = "Caffeine tracker/CustomClasses/CTOnboardingButton.swift"; sourceTree = SOURCE_ROOT; };
-		8B0F1CB2234636B4007C461E /* ThemeModeNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThemeModeNotification.swift; path = "Caffeine tracker/View Controllers/ThemeModeNotification.swift"; sourceTree = SOURCE_ROOT; };
 		8B13A6D1231FFBC000C42379 /* SecondOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardingViewController.swift; sourceTree = "<group>"; };
+		8B24F8D42493D21500DA438B /* CoffeeFacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoffeeFacts.swift; path = "Caffeine tracker/CustomClasses/CoffeeFacts.swift"; sourceTree = SOURCE_ROOT; };
 		8B2C782B20F3ABBD00DA38C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		8B2C782D20F3ABBD00DA38C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		8B2C782F20F3ABBD00DA38C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/History.storyboard; sourceTree = "<group>"; };
@@ -65,7 +64,6 @@
 		8B81E50620F25D6F005CE1D8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8B849FE42262A84900B1A3D0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8B8E9B9320DDBF1000E619FB /* DailyCaffeineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCaffeineViewController.swift; sourceTree = "<group>"; };
-		8B95EE132335942D00C2E4DF /* ThemeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTableViewController.swift; sourceTree = "<group>"; };
 		8BA180FF232552C0009F5F06 /* Drink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Drink.swift; path = "Caffeine tracker/CustomClasses/Drink.swift"; sourceTree = SOURCE_ROOT; };
 		8BA18100232552C0009F5F06 /* HealthKitSetupAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthKitSetupAssistant.swift; path = "Caffeine tracker/CustomClasses/HealthKitSetupAssistant.swift"; sourceTree = SOURCE_ROOT; };
 		8BA18101232552C0009F5F06 /* CustomCellClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCellClass.swift; path = "Caffeine tracker/CustomClasses/CustomCellClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -112,10 +110,10 @@
 		8B04C47E223ED58200C74C03 /* CustomClasses */ = {
 			isa = PBXGroup;
 			children = (
+				8B24F8D42493D21500DA438B /* CoffeeFacts.swift */,
 				8BA180FF232552C0009F5F06 /* Drink.swift */,
 				8BA18100232552C0009F5F06 /* HealthKitSetupAssistant.swift */,
 				8BA18104232552C0009F5F06 /* GradientView.swift */,
-				8B0F1CB2234636B4007C461E /* ThemeModeNotification.swift */,
 				8BA18101232552C0009F5F06 /* CustomCellClass.swift */,
 				8BA18103232552C0009F5F06 /* NetworkActivityIndicationManager.swift */,
 				8BA18102232552C0009F5F06 /* TapticEffectsService.swift */,
@@ -203,7 +201,6 @@
 				8BCFB39920D2944C00090C2A /* HistoryDrinksViewController.swift */,
 				8BD2BB1D20814F0700D61BDF /* SettingsTableViewController.swift */,
 				8B8E9B9320DDBF1000E619FB /* DailyCaffeineViewController.swift */,
-				8B95EE132335942D00C2E4DF /* ThemeTableViewController.swift */,
 				8BD2BB1F2081565700D61BDF /* InAppPurchaseTableViewController.swift */,
 				8B653DE7231B0485006D02DC /* AboutViewController.swift */,
 				8B13A6D0231FFB7400C42379 /* Onboarding */,
@@ -298,16 +295,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Caffeine tracker/Pods-Caffeine tracker-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Caffeine tracker/Pods-Caffeine tracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Caffeine tracker/Pods-Caffeine tracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -343,12 +335,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B0F1CB3234636B4007C461E /* ThemeModeNotification.swift in Sources */,
 				8BA18106232552C0009F5F06 /* HealthKitSetupAssistant.swift in Sources */,
 				8B8E9B9420DDBF1000E619FB /* DailyCaffeineViewController.swift in Sources */,
 				8B04C482223ED5B700C74C03 /* CTOnboardingButton.swift in Sources */,
 				8B7BF35E20D5F7FB003FD4C7 /* PickIconTableViewController.swift in Sources */,
 				8B04C478223EC6FB00C74C03 /* ThirdOnboardingViewController.swift in Sources */,
+				8B24F8D52493D21500DA438B /* CoffeeFacts.swift in Sources */,
 				8BD2BB042081497E00D61BDF /* AppDelegate.swift in Sources */,
 				8B7BF36220D697AB003FD4C7 /* PickerViewController.swift in Sources */,
 				8B04C472223EAE6D00C74C03 /* FirstOnboardingViewController.swift in Sources */,
@@ -359,7 +351,6 @@
 				8B849FE52262A84900B1A3D0 /* Extensions.swift in Sources */,
 				8B13A6D2231FFBC000C42379 /* SecondOnboardingViewController.swift in Sources */,
 				8BA18108232552C0009F5F06 /* TapticEffectsService.swift in Sources */,
-				8B95EE142335942D00C2E4DF /* ThemeTableViewController.swift in Sources */,
 				8BD2BB1E20814F0700D61BDF /* SettingsTableViewController.swift in Sources */,
 				8BA1810A232552C0009F5F06 /* GradientView.swift in Sources */,
 				8B653DE8231B0485006D02DC /* AboutViewController.swift in Sources */,
@@ -551,6 +542,7 @@
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Trotos.CaffeineTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 arm64e armv7s";
@@ -575,6 +567,7 @@
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Trotos.CaffeineTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 arm64e armv7s";

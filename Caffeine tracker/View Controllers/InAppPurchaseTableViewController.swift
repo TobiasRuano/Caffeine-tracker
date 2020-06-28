@@ -76,7 +76,6 @@ class InAppPurchaseTableViewController: UITableViewController {
             restoreButton.isUserInteractionEnabled = false
         default: break
         }
-        
         self.tableView.reloadData()
     }
     

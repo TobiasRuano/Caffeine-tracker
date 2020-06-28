@@ -86,7 +86,7 @@ class HealthKitSetupAssistant {
         let query = HKSampleQuery(sampleType: waterSampleType, predicate: waterPredicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) { query, results, error in
             if (error == nil) {
                 guard let samples = results as? [HKQuantitySample] else {
-                    fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error?.localizedDescription)");
+                    fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error?.localizedDescription ?? "No description found")");
                 }
                 for sample in samples {
                     let value = Int(sample.quantity.doubleValue(for: self.getUnit()))

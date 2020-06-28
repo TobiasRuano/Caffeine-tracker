@@ -11,11 +11,26 @@ This app let's you log your caffeine and water intake to the health app. Simply 
 * Connection to the Health App
 * Multiple Types of drinks
 * Add your own!
-* Use "ml" or "oz" (*Soon...*)
+* Use "ml" or "oz"
 * Beautiful progress bar
 
 ## Release History
-
+* Out of the appstore 😢 
+  * Unfortunately the app no longer is available to download because of the developer fee needed.
+* 1.2
+  * The amount screen now closes when touching anywhere on the screen and it has a darker background
+* 1.1.1
+  * iOS 13 support
+* 1.1
+  * US & UK oZ support!
+  * New about page
+* 1.0.2
+  * Ability to delete drinks (On App and Health App)
+  * A red color now appears if you drink more than you should!
+* 1.0.1
+  * Fixed text positioning under the drinks section
+* 1.0
+  * Published on the Appstore!
 * 0.4.0
   * ADD: Onboarding Screen
 * 0.3.0
